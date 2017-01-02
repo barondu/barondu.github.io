@@ -6,39 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>笔记 OSC_Introduction1 | Baron</title>
+  <title>about | Baron</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Introduction 1@(G52OCS)
-Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
-
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware">
-<meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Introduction1">
-<meta property="og:url" content="http://yoursite.com/2017/01/01/Introduction 1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Baron">
-<meta property="og:description" content="Introduction 1@(G52OCS)
-Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
-
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware">
-<meta property="og:updated_time" content="2017-01-02T15:16:03.000Z">
+<meta property="og:updated_time" content="2017-01-02T19:42:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Introduction1">
-<meta name="twitter:description" content="Introduction 1@(G52OCS)
-Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
-
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware">
+<meta name="twitter:title" content="about">
   
     <link rel="alternative" href="/atom.xml" title="Baron" type="application/atom+xml">
   
@@ -174,82 +150,27 @@ In the early days, programmers had to deal directly with hardware">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Introduction 1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Introduction1
+      about
     </h1>
   
 
         
-        <a href="/2017/01/01/Introduction 1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
+        <a href="/about/index.html" class="archive-article-date">
+  	<time datetime="2017-01-02T19:42:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><p>@(G52OCS)</p>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>“<strong>Defining</strong>“ operating systems</li>
-<li>What is <strong>multi-programming</strong></li>
-<li><strong>Kernel-user mode</strong></li>
-</ul>
-<h4 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h4><ul>
-<li><p>In the early days, programmers had to <strong>deal directly with hardware</strong></p>
-<ul>
-<li>Real computer <strong>hardware is urgly</strong></li>
-<li>Hardware is <strong>extremely difficult</strong> to program</li>
-</ul>
-</li>
-<li><p>An operating system is a layer[层] of indirection[间接] on top of the hardware:</p>
-<ul>
-<li>It provide <strong>abstractions</strong> for application programs</li>
-<li>it provide a <strong>cleaner and easier interface to the hardware</strong></li>
-</ul>
-</li>
-</ul>
-<h4 id="Multi-programming"><a href="#Multi-programming" class="headerlink" title="Multi-programming"></a>Multi-programming</h4><ul>
-<li>Morden OS use <strong>multi-programming</strong> to <strong>improve user experience</strong> and <strong>maximise the use of resource</strong><ul>
-<li>Disk is <strong>slow</strong>. CPU is <strong>faster</strong> than disk. </li>
-<li>Without multi-programming, CPU time is <strong>waste</strong> while wating for I/O requests.</li>
-<li><strong>Multi-programming</strong> has important <strong>consequences</strong> for operating system design </li>
-</ul>
-</li>
-<li>The operating system must allocate[分配]/share resources (CPU, memory, I/O devices) <strong>fairly</strong> and <strong>safely</strong> between competing processes:<ul>
-<li>In time, e.g. CPUs and printers </li>
-<li>In space, e.g., memory and disks</li>
-</ul>
-</li>
-<li>The execution of <strong>multiple programs</strong> (processes) needs to be interleaved[交错] with one another. This requires:<ul>
-<li>This requires <strong>context switches</strong> and <strong>process scheduling</strong> ⇒ <strong>mutual exclusion[相互排斥]</strong>, <strong>deadlock avoidance</strong>, <strong>protection</strong>, . . .</li>
-</ul>
-</li>
-</ul>
-<h4 id="Kernel-user-mode"><a href="#Kernel-user-mode" class="headerlink" title="Kernel-user mode"></a>Kernel-user mode</h4><ul>
-<li>Modern operating systems have multiple <strong>modes</strong>:<ul>
-<li>The operating system runs in <strong>kernel mode</strong> and has access to <strong>all<br>instructions</strong></li>
-<li>Applications run in <strong>user mode</strong> and have access to <strong>a subset of instructions</strong></li>
-</ul>
-</li>
-<li>Transitions from user mode to kernel mode happen in a controlled manner (<strong>interrupts, exceptions, system calls</strong>) and are <strong>mirrored in hardware</strong></li>
-</ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Some properties:<ul>
-<li>Sits <strong>directly</strong> on <strong>top</strong> of the hardware</li>
-<li>Has access to the <strong>full capabilities of the hardware</strong></li>
-<li>Provides <strong>abstractions</strong> for the user/programmer</li>
-<li>Makes sure that everything is <strong>organised</strong> and runs in<strong>order</strong>     </li>
-<li>Improve the <strong>hardware interface</strong></li>
-</ul>
-</li>
-</ul>
-
+        
       
 
       
@@ -278,17 +199,6 @@ In the early days, programmers had to deal directly with hardware">
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			 
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color3">笔记</a>
-        </li>
-      
-		</ul>
-	</div>
-
       
 
       
@@ -339,7 +249,7 @@ In the early days, programmers had to deal directly with hardware">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/01/Introduction 1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/about/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -383,7 +293,7 @@ In the early days, programmers had to deal directly with hardware">
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
