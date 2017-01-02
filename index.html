@@ -151,6 +151,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Introduction 1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Introduction 1</p>
+<p>@(G52OCS)</p>
+<p>####Overview</p>
+<ul>
+<li>“<strong>Defining</strong>“ operating systems</li>
+<li>What is <strong>multi-programming</strong></li>
+<li><strong>Kernel-user mode</strong></li>
+</ul>
+<h4 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h4><ul>
+<li><p>In the early days, programmers had to <strong>deal directly with hardware</strong></p>
+<ul>
+<li>Real computer <strong>hardware is urgly</strong></li>
+<li>Hardware is <strong>extremely difficult</strong> to program</li>
+</ul>
+</li>
+<li><p>An operating system is a layer[层] of indirection[间接] on top of the hardware:</p>
+<ul>
+<li>It provide <strong>abstractions</strong> for application programs</li>
+<li>it provide a <strong>cleaner and easier interface to the hardware</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="Multi-programming"><a href="#Multi-programming" class="headerlink" title="Multi-programming"></a>Multi-programming</h4><ul>
+<li>Morden OS use <strong>multi-programming</strong> to <strong>improve user experience</strong> and <strong>maximise the use of resource</strong><ul>
+<li>Disk is <strong>slow</strong>. CPU is <strong>faster</strong> than disk. </li>
+<li>Without multi-programming, CPU time is <strong>waste</strong> while wating for I/O requests.</li>
+<li><strong>Multi-programming</strong> has important <strong>consequences</strong> for operating system design </li>
+</ul>
+</li>
+<li>The operating system must allocate[分配]/share resources (CPU, memory, I/O devices) <strong>fairly</strong> and <strong>safely</strong> between competing processes:<ul>
+<li>In time, e.g. CPUs and printers </li>
+<li>In space, e.g., memory and disks</li>
+</ul>
+</li>
+<li>The execution of <strong>multiple programs</strong> (processes) needs to be interleaved[交错] with one another. This requires:<ul>
+<li>This requires <strong>context switches</strong> and <strong>process scheduling</strong> ⇒ <strong>mutual exclusion[相互排斥]</strong>, <strong>deadlock avoidance</strong>, <strong>protection</strong>, . . .</li>
+</ul>
+</li>
+</ul>
+<h4 id="Kernel-user-mode"><a href="#Kernel-user-mode" class="headerlink" title="Kernel-user mode"></a>Kernel-user mode</h4><ul>
+<li>Modern operating systems have multiple <strong>modes</strong>:<ul>
+<li>The operating system runs in <strong>kernel mode</strong> and has access to <strong>all<br>instructions</strong></li>
+<li>Applications run in <strong>user mode</strong> and have access to <strong>a subset of instructions</strong></li>
+</ul>
+</li>
+<li>Transitions from user mode to kernel mode happen in a controlled manner (<strong>interrupts, exceptions, system calls</strong>) and are <strong>mirrored in hardware</strong></li>
+</ul>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><ul>
+<li>Some properties:<ul>
+<li>Sits <strong>directly</strong> on <strong>top</strong> of the hardware</li>
+<li>Has access to the <strong>full capabilities of the hardware</strong></li>
+<li>Provides <strong>abstractions</strong> for the user/programmer</li>
+<li>Makes sure that everything is <strong>organised</strong> and runs in<strong>order</strong>     </li>
+<li>Improve the <strong>hardware interface</strong></li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/02/Introduction 1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-First-Blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -248,7 +340,7 @@
 <h2 id="关于收费"><a href="#关于收费" class="headerlink" title="关于收费"></a>关于收费</h2><p><strong>马克飞象</strong>为新用户提供 10 天的试用期，试用期过后需要<a href="maxiang.info/vip.html">续费</a>才能继续使用。未购买或者未及时续费，将不能同步新的笔记。之前保存过的笔记依然可以编辑。</p>
 <h2 id="反馈与建议"><a href="#反馈与建议" class="headerlink" title="反馈与建议"></a>反馈与建议</h2><ul>
 <li>微博：<a href="http://weibo.com/u/2788354117" target="_blank" rel="external">@马克飞象</a>，<a href="http://weibo.com/ggock" title="开发者个人账号" target="_blank" rel="external">@GGock</a></li>
-<li>邮箱：<a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x68;&#117;&#115;&#116;&#103;&#111;&#99;&#107;&#x40;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;">&#x68;&#117;&#115;&#116;&#103;&#111;&#99;&#107;&#x40;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;</a></li>
+<li>邮箱：<a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#x68;&#x75;&#115;&#x74;&#103;&#111;&#x63;&#107;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#x68;&#x75;&#115;&#x74;&#103;&#111;&#x63;&#107;&#64;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a></li>
 </ul>
 <hr>
 <p>感谢阅读这份帮助文档。请点击右上角，绑定印象笔记账号，开启全新的记录与分享体验吧。</p>
