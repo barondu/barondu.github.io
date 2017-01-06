@@ -6,45 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>笔记 OSC_Introduction1 | Baron</title>
+  <title>Tag: Introduction | Baron</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Introduction 1
-Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
-
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware
-
-Real comp">
-<meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Introduction1">
-<meta property="og:url" content="http://yoursite.com/2017/01/01/Introduction 1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Baron">
+<meta property="og:url" content="http://yoursite.com/tags/Introduction/index.html">
 <meta property="og:site_name" content="Baron">
-<meta property="og:description" content="Introduction 1
-Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
-
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware
-
-Real comp">
-<meta property="og:updated_time" content="2017-01-06T11:57:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Introduction1">
-<meta name="twitter:description" content="Introduction 1
-Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
-
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware
-
-Real comp">
+<meta name="twitter:title" content="Baron">
   
     <link rel="alternative" href="/atom.xml" title="Baron" type="application/atom+xml">
   
@@ -180,115 +149,36 @@ Real comp">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Introduction 1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      笔记 OSC_Introduction1
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/01/03/Introduction 2/" class="archive-article-date">
+  	<time datetime="2017-01-03T23:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/01/03/Introduction 2/">笔记 OSC_Introduction2</a>
     </h1>
   
 
-        
-        <a href="/2017/01/01/Introduction 1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>“<strong>Defining</strong>“ operating systems</li>
-<li>What is <strong>multi-programming</strong></li>
-<li><strong>Kernel-user mode</strong></li>
-</ul>
-<h3 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h3><ul>
-<li><p>In the early days, programmers had to <strong>deal directly with hardware</strong></p>
-<ul>
-<li>Real computer <strong>hardware is urgly</strong></li>
-<li>Hardware is <strong>extremely difficult</strong> to program</li>
-</ul>
-</li>
-<li><p>An operating system is a layer[层] of indirection[间接] on top of the hardware:</p>
-<ul>
-<li>It provide <strong>abstractions</strong> for application programs</li>
-<li>it provide a <strong>cleaner and easier interface to the hardware</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="Multi-programming"><a href="#Multi-programming" class="headerlink" title="Multi-programming"></a>Multi-programming</h3><ul>
-<li>Morden OS use <strong>multi-programming</strong> to <strong>improve user experience</strong> and <strong>maximise the use of resource</strong><ul>
-<li>Disk is <strong>slow</strong>. CPU is <strong>faster</strong> than disk. </li>
-<li>Without multi-programming, CPU time is <strong>waste</strong> while wating for I/O requests.</li>
-<li><strong>Multi-programming</strong> has important <strong>consequences[结果]</strong> for operating system design </li>
-</ul>
-</li>
-<li>The operating system must allocate[分配]/share resources (CPU, memory, I/O devices) <strong>fairly</strong> and <strong>safely</strong> between competing processes:<ul>
-<li>In time, e.g. CPUs and printers </li>
-<li>In space, e.g., memory and disks</li>
-</ul>
-</li>
-<li>The execution of <strong>multiple programs</strong> (processes) needs to be interleaved[交错] with one another. This requires:<ul>
-<li>This requires <strong>context switches</strong> and <strong>process scheduling</strong> ⇒ <strong>mutual exclusion[相互排斥]</strong>, <strong>deadlock avoidance</strong>, <strong>protection</strong>, . . .</li>
-</ul>
-</li>
-</ul>
-<h3 id="Kernel-user-mode"><a href="#Kernel-user-mode" class="headerlink" title="Kernel-user mode"></a>Kernel-user mode</h3><ul>
-<li>Modern operating systems have multiple <strong>modes</strong>:<ul>
-<li>The operating system runs in <strong>kernel mode</strong> and has access to <strong>all instructions</strong></li>
-<li>Applications run in <strong>user mode</strong> and have access to <strong>a subset of instructions</strong></li>
-</ul>
-</li>
-<li>Transitions from user mode to kernel mode happen in a controlled manner (<strong>interrupts, exceptions, system calls</strong>) and are <strong>mirrored in hardware</strong></li>
-</ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Some properties:<ul>
-<li>Sits <strong>directly</strong> on <strong>top</strong> of the hardware</li>
-<li>Has access to the <strong>full capabilities of the hardware</strong></li>
-<li>Provides <strong>abstractions</strong> for the user/programmer</li>
-<li>Makes sure that everything is <strong>organised</strong> and runs in <strong>order</strong>     </li>
-<li>Improve the <strong>hardware interface</strong></li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢头尾 (～o￣3￣)～<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbd03h4rvaj3074074wf2.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
@@ -308,92 +198,65 @@ Real comp">
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/01/Introduction 1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/01/01/Introduction 1/" class="archive-article-date">
+  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2017/01/03/Introduction 2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          笔记 OSC_Introduction2
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/01/01/Introduction 1/">笔记 OSC_Introduction1</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">笔记</a>
+        </li>
+       
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color4">OSC</a>
+        </li>
+       
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">Introduction</a>
+        </li>
+      
+		</ul>
+	</div>
 
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -416,9 +279,9 @@ Real comp">
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
