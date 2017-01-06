@@ -8,37 +8,43 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>笔记 OSC_Introduction1 | Baron</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Introduction 1@(G52OCS)
+  <meta name="description" content="Introduction 1
 Overview
 “Defining“ operating systems
 What is multi-programming
 Kernel-user mode
 
 Defining Operating Systems
-In the early days, programmers had to deal directly with hardware">
+In the early days, programmers had to deal directly with hardware
+
+Real comp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="笔记 OSC_Introduction1">
 <meta property="og:url" content="http://yoursite.com/2017/01/01/Introduction 1/index.html">
 <meta property="og:site_name" content="Baron">
-<meta property="og:description" content="Introduction 1@(G52OCS)
+<meta property="og:description" content="Introduction 1
 Overview
 “Defining“ operating systems
 What is multi-programming
 Kernel-user mode
 
 Defining Operating Systems
-In the early days, programmers had to deal directly with hardware">
-<meta property="og:updated_time" content="2017-01-02T15:16:03.000Z">
+In the early days, programmers had to deal directly with hardware
+
+Real comp">
+<meta property="og:updated_time" content="2017-01-06T11:47:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 OSC_Introduction1">
-<meta name="twitter:description" content="Introduction 1@(G52OCS)
+<meta name="twitter:description" content="Introduction 1
 Overview
 “Defining“ operating systems
 What is multi-programming
 Kernel-user mode
 
 Defining Operating Systems
-In the early days, programmers had to deal directly with hardware">
+In the early days, programmers had to deal directly with hardware
+
+Real comp">
   
     <link rel="alternative" href="/atom.xml" title="Baron" type="application/atom+xml">
   
@@ -105,7 +111,7 @@ In the early days, programmers had to deal directly with hardware">
 		        
 					<a class="weibo" target="_blank" href="http://www.weibo.com/274805500" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/du-bo-rui-8" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/barondu" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 					<a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100011039793137" title="facebook"><i class="icon-facebook"></i></a>
 		        
@@ -146,7 +152,7 @@ In the early days, programmers had to deal directly with hardware">
 			        
 						<a class="weibo" target="_blank" href="http://www.weibo.com/274805500" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/du-bo-rui-8" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/barondu" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 						<a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100011039793137" title="facebook"><i class="icon-facebook"></i></a>
 			        
@@ -194,13 +200,13 @@ In the early days, programmers had to deal directly with hardware">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><p>@(G52OCS)</p>
+        <h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
 <li>“<strong>Defining</strong>“ operating systems</li>
 <li>What is <strong>multi-programming</strong></li>
 <li><strong>Kernel-user mode</strong></li>
 </ul>
-<h4 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h4><ul>
+<h3 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h3><ul>
 <li><p>In the early days, programmers had to <strong>deal directly with hardware</strong></p>
 <ul>
 <li>Real computer <strong>hardware is urgly</strong></li>
@@ -214,11 +220,11 @@ In the early days, programmers had to deal directly with hardware">
 </ul>
 </li>
 </ul>
-<h4 id="Multi-programming"><a href="#Multi-programming" class="headerlink" title="Multi-programming"></a>Multi-programming</h4><ul>
+<h3 id="Multi-programming"><a href="#Multi-programming" class="headerlink" title="Multi-programming"></a>Multi-programming</h3><ul>
 <li>Morden OS use <strong>multi-programming</strong> to <strong>improve user experience</strong> and <strong>maximise the use of resource</strong><ul>
 <li>Disk is <strong>slow</strong>. CPU is <strong>faster</strong> than disk. </li>
 <li>Without multi-programming, CPU time is <strong>waste</strong> while wating for I/O requests.</li>
-<li><strong>Multi-programming</strong> has important <strong>consequences</strong> for operating system design </li>
+<li><strong>Multi-programming</strong> has important <strong>consequences[结果]</strong> for operating system design </li>
 </ul>
 </li>
 <li>The operating system must allocate[分配]/share resources (CPU, memory, I/O devices) <strong>fairly</strong> and <strong>safely</strong> between competing processes:<ul>
@@ -231,9 +237,9 @@ In the early days, programmers had to deal directly with hardware">
 </ul>
 </li>
 </ul>
-<h4 id="Kernel-user-mode"><a href="#Kernel-user-mode" class="headerlink" title="Kernel-user mode"></a>Kernel-user mode</h4><ul>
+<h3 id="Kernel-user-mode"><a href="#Kernel-user-mode" class="headerlink" title="Kernel-user mode"></a>Kernel-user mode</h3><ul>
 <li>Modern operating systems have multiple <strong>modes</strong>:<ul>
-<li>The operating system runs in <strong>kernel mode</strong> and has access to <strong>all<br>instructions</strong></li>
+<li>The operating system runs in <strong>kernel mode</strong> and has access to <strong>all instructions</strong></li>
 <li>Applications run in <strong>user mode</strong> and have access to <strong>a subset of instructions</strong></li>
 </ul>
 </li>
@@ -244,7 +250,7 @@ In the early days, programmers had to deal directly with hardware">
 <li>Sits <strong>directly</strong> on <strong>top</strong> of the hardware</li>
 <li>Has access to the <strong>full capabilities of the hardware</strong></li>
 <li>Provides <strong>abstractions</strong> for the user/programmer</li>
-<li>Makes sure that everything is <strong>organised</strong> and runs in<strong>order</strong>     </li>
+<li>Makes sure that everything is <strong>organised</strong> and runs in <strong>order</strong>     </li>
 <li>Improve the <strong>hardware interface</strong></li>
 </ul>
 </li>
@@ -288,7 +294,7 @@ In the early days, programmers had to deal directly with hardware">
 		<ul class="article-tag-list">
 			 
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color3">笔记</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">-笔记 -OSC -Introduction</a>
         </li>
       
 		</ul>
@@ -356,6 +362,20 @@ In the early days, programmers had to deal directly with hardware">
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/01/03/Introduction 2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          笔记 OSC_Introduction2
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 
 
@@ -469,7 +489,11 @@ In the early days, programmers had to deal directly with hardware">
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">笔记</a>
+                <a href="javascript:void(0)" class="color3">-笔记 -OSC -Introduction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color5">-笔记 -OSC -processes</a>
               </li>
             
             <div class="clearfix"></div>
