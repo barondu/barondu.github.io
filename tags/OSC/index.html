@@ -6,43 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>笔记 OSC_Processes1 | Baron</title>
+  <title>Tag: OSC | Baron</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Processes 1
-Overview
-Introduction to processes and their implementation 
-Process states and state transitions
-System calls for process management
-
-Processes and Implementation
-Definition: “a process i">
-<meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Processes1">
-<meta property="og:url" content="http://yoursite.com/2017/01/06/Processes 1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Baron">
+<meta property="og:url" content="http://yoursite.com/tags/OSC/index.html">
 <meta property="og:site_name" content="Baron">
-<meta property="og:description" content="Processes 1
-Overview
-Introduction to processes and their implementation 
-Process states and state transitions
-System calls for process management
-
-Processes and Implementation
-Definition: “a process i">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd6yyxrbcj31gk0ts0xg.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbdxkzib3gj31hk0s2n19.jpg">
-<meta property="og:updated_time" content="2017-01-06T11:54:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Processes1">
-<meta name="twitter:description" content="Processes 1
-Overview
-Introduction to processes and their implementation 
-Process states and state transitions
-System calls for process management
-
-Processes and Implementation
-Definition: “a process i">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg">
+<meta name="twitter:title" content="Baron">
   
     <link rel="alternative" href="/atom.xml" title="Baron" type="application/atom+xml">
   
@@ -178,179 +149,36 @@ Definition: “a process i">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Processes 1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      笔记 OSC_Processes1
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/01/06/Processes 1/" class="archive-article-date">
+  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/01/06/Processes 1/">笔记 OSC_Processes1</a>
     </h1>
   
 
-        
-        <a href="/2017/01/06/Processes 1/" class="archive-article-date">
-  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Processes-1"><a href="#Processes-1" class="headerlink" title="Processes 1"></a>Processes 1</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Introduction to <strong>processes</strong> and their <strong>implementation</strong> </li>
-<li>Process <strong>states</strong> and state <strong>transitions</strong></li>
-<li><strong>System calls</strong> for process management</li>
-</ul>
-<h3 id="Processes-and-Implementation"><a href="#Processes-and-Implementation" class="headerlink" title="Processes and Implementation"></a>Processes and Implementation</h3><blockquote>
-<p>Definition: <em>“a process is a <strong>running instance</strong> of a program”</em><br><code>进程是程序的运行实例</code></p>
-</blockquote>
-<ul>
-<li>A process is registered with the OS using its “<strong>control structures</strong>”: i.e. an entry in the OS’s <strong>process tab</strong>le to a <strong>process control blocks</strong> (PCB)</li>
-<li>The <strong>process control bloc</strong>k contains all information necessary to <strong>manage the process</strong> and is necessary for <strong>context switching</strong> in <strong>multi-programmed systems</strong></li>
-<li>A process’ memory image contains:<ul>
-<li>The program <strong>code</strong> (could be shared between multiple processes running the same code)</li>
-<li>A <strong>data</strong> segment, <strong>stack</strong> and <strong>heap</strong></li>
-</ul>
-</li>
-<li>Every process has its own l<strong>ogical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg" alt="process’ memory image"></li>
-</ul>
-<h3 id="Process-States-and-Transitions"><a href="#Process-States-and-Transitions" class="headerlink" title="Process States and Transitions"></a>Process States and Transitions</h3><p><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd6yyxrbcj31gk0ts0xg.jpg" alt="Process States and Transitions"><br>Sates:</p>
-<ul>
-<li>A <strong>new</strong> process has just been created (has a PCB) and is waiting to be admitted (it may not yet be in memory)</li>
-<li>A <strong>ready</strong> process is waiting for CPU to become available (e.g. unblocked or timer interrupt)</li>
-<li>A <strong>running</strong> process “owns” the CPU</li>
-<li>A <strong>blocked</strong> process cannot continue, e.g. is waiting for I/O</li>
-<li>A <strong>terminated</strong> process is no longer executable (the data structures - PCB - may be temporarily preserved)</li>
-<li>A <strong>suspended</strong>[废除的] process is swapped out[换出] (not discussed further)</li>
-</ul>
-<p>Transitions：</p>
-<ol>
-<li><strong>New -&gt; ready</strong>: admit the process and commit to execution</li>
-<li><strong>Running -&gt; blocked:</strong> e.g. process is waiting for input or carried out a<br>system call</li>
-<li><strong>Ready -&gt; running:</strong> the process is selected by the process scheduler</li>
-<li><strong>Blocked -&gt; ready</strong>: event happens, e.g. I/O operation has finished</li>
-<li>. <strong>Running -&gt; ready</strong>: the process is preempted, e.g., by a timer interrupt or<br>by pause</li>
-<li><strong>Running -&gt;strong text</strong> exit: process has finished, e.g. program ended or exception<br>encountered</li>
-</ol>
-<p>The interrupts/traps/system calls lie on the basis of the transitions<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbdxkzib3gj31hk0s2n19.jpg" alt="OS queues"></p>
-<h3 id="Context-Switching"><a href="#Context-Switching" class="headerlink" title="Context Switching"></a>Context Switching</h3><p>Multi-programming</p>
-<ul>
-<li>Modern computers are <strong>multi-programming systems</strong></li>
-<li><p>Assuming a single processor system, the instructions of individual processes are executed sequentially</p>
-<ul>
-<li>Multi-programming goes back to the “<strong>MULTICS</strong>” age </li>
-<li>Multi-programming is achieved by <strong>alternating</strong>[交替]processes and <strong>context switching</strong></li>
-<li><strong>True parallelism</strong> requires <strong>multiple processors</strong><br><code>并不是真正的multi-programming</code></li>
-</ul>
-</li>
-<li><p>When a <strong>context switch</strong> takes place, the system <strong>saves the state</strong> of the old process and <strong>loads the state</strong> of the new process (creates <strong>overhead</strong>)</p>
-<ul>
-<li><strong>Saved</strong> -&gt; the process control block is <strong>updated</strong></li>
-<li><strong>(Re-)started</strong> -&gt; the process control block <strong>read</strong></li>
-</ul>
-</li>
-<li>A <strong>trade-off</strong>[权衡] exists between the length of the <strong>time-slice</strong> and the <strong>context switch time</strong><ul>
-<li><strong>Short time slices</strong> result in <strong>good response times</strong> but <strong>low effective “utilisation”</strong>[使用]<ul>
-<li>e.g.: 99*(1+1)=198ms</li>
-</ul>
-</li>
-<li><strong>Long time slices</strong> result in <strong>poor response</strong> times but b<strong>etter effective “utilisation”</strong><ul>
-<li>e.g.: 99 * (100 + 1) = 9999ms</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>A <strong>process control block</strong> contains <strong>three</strong> types of <strong>attributes:</strong><ul>
-<li><strong>Process identification</strong> (PID, UID, Parent PID)</li>
-<li><strong>Process control information</strong> (process state, scheduling information, etc.) </li>
-<li><strong>Process state information</strong> (user registers, program counter, stack pointer, program status word, memory management information, files, etc.)</li>
-</ul>
-</li>
-<li><strong>Process control blocks</strong> are <strong>kernel data structures</strong>, i.e. they are <strong>protected</strong> and only accessible in <strong>kernel mode!</strong><ul>
-<li>Allowing user applications to access them directly could <strong>compromise[威胁] their integrity[完整性]</strong></li>
-<li>The <strong>operating system manages</strong> them on the user’s behalf through <strong>system calls</strong> (e.g. to set <strong>process priority</strong>)</li>
-</ul>
-</li>
-</ul>
-<p>Tables and Control Blocks</p>
-<ul>
-<li>An operating system <strong>maintains information</strong> about the status of “resources” in <strong>tables</strong><ul>
-<li><strong>Process tables</strong> (process control blocks)</li>
-<li><strong>Memory tables</strong> (memory allocation, memory protection, virtual memory) </li>
-<li><strong>I/O tables</strong> (availability, status, transfer information)</li>
-<li><strong>File tables</strong> (location, status)</li>
-</ul>
-</li>
-<li>The <strong>process tabl</strong>e holds a p<strong>rocess control block</strong> for each process, allocated upon <strong>process creation</strong></li>
-<li>Tables are maintained by the <strong>kernel</strong> and are usually <strong>cross referenced</strong><br>Switching Processes<blockquote>
-<ol>
-<li>Save process state (program counter, registers)</li>
-<li>Update PCB (running -&gt; ready/blocked)</li>
-<li>Move PCB to appropriate queue (ready/blocked)</li>
-<li>Run scheduler, select new process</li>
-<li>Update to running state in the new PCB</li>
-<li>Update memory management unit (MMU)</li>
-<li>Restore process</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><ul>
-<li>System calls are necessary to <strong>notify the OS</strong> that the <strong>process has terminated</strong><ul>
-<li>Resources must be de-allocated</li>
-<li>Output must be flushed</li>
-<li>Process admin may have to be carried out</li>
-</ul>
-</li>
-<li>A system calls for process termination:<ul>
-<li>UNIX/Linux: <strong>exit()</strong>, kill() </li>
-<li>Windows: <strong>TerminateProcess()</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li><strong>Definition of a process</strong> and their <strong>implementation</strong> in operating systems </li>
-<li><strong>States</strong>, state <strong>transitions</strong> of processes</li>
-<li><strong>Kernel structures</strong> for processes and process management</li>
-<li><strong>System calls</strong> for process management</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢头尾 (～o￣3￣)～<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbd03h4rvaj3074074wf2.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
@@ -370,88 +198,19 @@ Definition: “a process i">
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/06/Processes 1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2017/01/03/Introduction 2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">笔记 OSC_Introduction2</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -474,9 +233,9 @@ Definition: “a process i">
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
