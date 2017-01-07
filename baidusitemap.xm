@@ -3,7 +3,6 @@
 
 
     
-    
   <url>
     <loc>http://yoursite.com/2017/01/06/Processes%201/</loc>
     <lastmod>2017-01-06T18:49:09.000Z</lastmod>
