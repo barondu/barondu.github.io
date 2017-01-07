@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://baorndu.com/"/>
   <updated>2017-01-06T18:49:09.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://baorndu.com/</id>
   
   <author>
     <name>Baron</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>笔记 OSC_Processes1</title>
-    <link href="http://yoursite.com/2017/01/06/Processes%201/"/>
-    <id>http://yoursite.com/2017/01/06/Processes 1/</id>
+    <link href="http://baorndu.com/2017/01/06/Processes%201/"/>
+    <id>http://baorndu.com/2017/01/06/Processes 1/</id>
     <published>2017-01-06T11:42:14.000Z</published>
     <updated>2017-01-06T18:49:09.000Z</updated>
     
@@ -169,18 +169,18 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://baorndu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://yoursite.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://baorndu.com/tags/OSC/"/>
     
-      <category term="processes" scheme="http://yoursite.com/tags/processes/"/>
+      <category term="processes" scheme="http://baorndu.com/tags/processes/"/>
     
   </entry>
   
   <entry>
     <title>笔记 OSC_Introduction2</title>
-    <link href="http://yoursite.com/2017/01/03/Introduction%202/"/>
-    <id>http://yoursite.com/2017/01/03/Introduction 2/</id>
+    <link href="http://baorndu.com/2017/01/03/Introduction%202/"/>
+    <id>http://baorndu.com/2017/01/03/Introduction 2/</id>
     <published>2017-01-03T23:50:14.000Z</published>
     <updated>2017-01-06T13:14:36.000Z</updated>
     
@@ -339,18 +339,18 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://baorndu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://yoursite.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://baorndu.com/tags/OSC/"/>
     
-      <category term="Introduction" scheme="http://yoursite.com/tags/Introduction/"/>
+      <category term="Introduction" scheme="http://baorndu.com/tags/Introduction/"/>
     
   </entry>
   
   <entry>
     <title>笔记 OSC_Introduction1</title>
-    <link href="http://yoursite.com/2017/01/01/Introduction%201/"/>
-    <id>http://yoursite.com/2017/01/01/Introduction 1/</id>
+    <link href="http://baorndu.com/2017/01/01/Introduction%201/"/>
+    <id>http://baorndu.com/2017/01/01/Introduction 1/</id>
     <published>2017-01-01T15:06:04.000Z</published>
     <updated>2017-01-06T13:14:58.000Z</updated>
     
@@ -438,11 +438,11 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://baorndu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://yoursite.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://baorndu.com/tags/OSC/"/>
     
-      <category term="Introduction" scheme="http://yoursite.com/tags/Introduction/"/>
+      <category term="Introduction" scheme="http://baorndu.com/tags/Introduction/"/>
     
   </entry>
   
