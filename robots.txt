@@ -1,0 +1,9 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+
+Disallow: /fonts/
+
+Sitemap: http://barondu.com/sitemap.xml
+Sitemap: http://barondu.com/baidusitemap.xml
