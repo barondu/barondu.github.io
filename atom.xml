@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://barondu.com/"/>
-  <updated>2017-01-08T23:28:08.000Z</updated>
+  <updated>2017-01-08T23:30:48.000Z</updated>
   <id>http://barondu.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://barondu.com/2017/01/08/Processes%203/"/>
     <id>http://barondu.com/2017/01/08/Processes 3/</id>
     <published>2017-01-08T23:27:27.000Z</published>
-    <updated>2017-01-08T23:28:08.000Z</updated>
+    <updated>2017-01-08T23:30:48.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
@@ -35,6 +35,9 @@
 </ul>
 </li>
 <li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg" alt=""></li>
+</ul>
+<a id="more"></a>
+<ul>
 <li>Every thread has its own <strong>execution context</strong> (e.g. program counter, stack, registers)</li>
 <li>All threads have <strong>access</strong> to the process’ <strong>shared resources</strong><ul>
 <li>E.g. files, one thread opens a file, all threads of the same process can access the file</li>
@@ -140,7 +143,19 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Processes-3&quot;&gt;&lt;a href=&quot;#Processes-3&quot; class=&quot;headerlink&quot; title=&quot;Processes 3&quot;&gt;&lt;/a&gt;Processes 3&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Over
+&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;p&gt;1 Threads vs. processes&lt;br&gt;2 Different thread implementations&lt;br&gt;3 POSIX Threads (PThreads)&lt;/p&gt;
+&lt;h3 id=&quot;Threads&quot;&gt;&lt;a href=&quot;#Threads&quot; class=&quot;headerlink&quot; title=&quot;Threads&quot;&gt;&lt;/a&gt;Threads&lt;/h3&gt;&lt;h4 id=&quot;Threads-from-an-OS-Perspective-观点&quot;&gt;&lt;a href=&quot;#Threads-from-an-OS-Perspective-观点&quot; class=&quot;headerlink&quot; title=&quot;Threads from an OS Perspective[观点]&quot;&gt;&lt;/a&gt;Threads from an OS Perspective[观点]&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;A process consists of two &lt;strong&gt;fundamental units&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Resources:&lt;/strong&gt; all related resources are grouped together&lt;ul&gt;
+&lt;li&gt;A logical address space containing the process image (program, data, heap, stack)&lt;/li&gt;
+&lt;li&gt;Files, I/O devices, I/O channels, . . .&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Execution trace&lt;/strong&gt;[执行追踪], i.e., an entity that gets executed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A process can &lt;strong&gt;share its resources&lt;/strong&gt; between &lt;strong&gt;multiple execution traces&lt;/strong&gt;, i.e., multiple threads running in the same resource environment&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -158,7 +173,7 @@
     <link href="http://barondu.com/2017/01/08/Processes%202/"/>
     <id>http://barondu.com/2017/01/08/Processes 2/</id>
     <published>2017-01-08T23:26:14.000Z</published>
-    <updated>2017-01-08T23:28:19.000Z</updated>
+    <updated>2017-01-08T23:30:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-2"><a href="#Processes-2" class="headerlink" title="Processes 2"></a>Processes 2</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -178,6 +193,7 @@
 <li>It relies on the <strong>scheduler</strong> (dispatcher) to decide which process to run next, which uses a <strong>scheduling algorithm</strong> to do so</li>
 <li>The type of algorithm used by the scheduler is influenced by the <strong>type of operating system</strong> (e.g., real time vs. batch)</li>
 </ul>
+<a id="more"></a>
 <p>Classification by Time Horizon</p>
 <ul>
 <li><strong>Long term</strong>: applies to new processes and controls the degree of multiprogramming by deciding which processes to <strong>admit</strong> to the system<ul>
@@ -289,7 +305,23 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Processes-2&quot;&gt;&lt;a href=&quot;#Processes-2&quot; class=&quot;headerlink&quot; title=&quot;Processes 2&quot;&gt;&lt;/a&gt;Processes 2&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Over
+&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Introduction to &lt;strong&gt;process scheduling&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Types of &lt;strong&gt;process schedulers&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Evaluation criteria&lt;/strong&gt; for scheduling algorithms&lt;/li&gt;
+&lt;li&gt;Typical &lt;strong&gt;process scheduling algorithms&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Process-Scheduling&quot;&gt;&lt;a href=&quot;#Process-Scheduling&quot; class=&quot;headerlink&quot; title=&quot;Process Scheduling&quot;&gt;&lt;/a&gt;Process Scheduling&lt;/h3&gt;&lt;p&gt;Context&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The OS is responsible for &lt;strong&gt;managing&lt;/strong&gt; and &lt;strong&gt;scheduling processes&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;Decide when to &lt;strong&gt;admit&lt;/strong&gt; processes to the system (new → ready)&lt;/li&gt;
+&lt;li&gt;Decide which process to r&lt;strong&gt;un&lt;/strong&gt; next (ready → run)&lt;/li&gt;
+&lt;li&gt;Decide when and which processes to &lt;strong&gt;interrupt&lt;/strong&gt; (running → ready)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;It relies on the &lt;strong&gt;scheduler&lt;/strong&gt; (dispatcher) to decide which process to run next, which uses a &lt;strong&gt;scheduling algorithm&lt;/strong&gt; to do so&lt;/li&gt;
+&lt;li&gt;The type of algorithm used by the scheduler is influenced by the &lt;strong&gt;type of operating system&lt;/strong&gt; (e.g., real time vs. batch)&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -307,7 +339,7 @@
     <link href="http://barondu.com/2017/01/06/Processes1/"/>
     <id>http://barondu.com/2017/01/06/Processes1/</id>
     <published>2017-01-06T11:42:14.000Z</published>
-    <updated>2017-01-08T23:24:47.000Z</updated>
+    <updated>2017-01-08T23:30:12.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-1"><a href="#Processes-1" class="headerlink" title="Processes 1"></a>Processes 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -326,8 +358,10 @@
 <li>A <strong>data</strong> segment, <strong>stack</strong> and <strong>heap</strong></li>
 </ul>
 </li>
-<li>Every process has its own <strong>logical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg" alt="process’ memory image"></li>
+<li>Every process has its own <strong>logical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow</li>
 </ul>
+<a id="more"></a>
+<p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg" alt="process’ memory image"></p>
 <h3 id="Process-States-and-Transitions"><a href="#Process-States-and-Transitions" class="headerlink" title="Process States and Transitions"></a>Process States and Transitions</h3><p><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd6yyxrbcj31gk0ts0xg.jpg" alt="Process States and Transitions"><br>Sates:</p>
 <ul>
 <li>A <strong>new</strong> process has just been created (has a PCB) and is waiting to be admitted (it may not yet be in memory)</li>
@@ -433,7 +467,24 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Processes-1&quot;&gt;&lt;a href=&quot;#Processes-1&quot; class=&quot;headerlink&quot; title=&quot;Processes 1&quot;&gt;&lt;/a&gt;Processes 1&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Over
+&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Introduction to &lt;strong&gt;processes&lt;/strong&gt; and their &lt;strong&gt;implementation&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;Process &lt;strong&gt;states&lt;/strong&gt; and state &lt;strong&gt;transitions&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;System calls&lt;/strong&gt; for process management&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Processes-and-Implementation&quot;&gt;&lt;a href=&quot;#Processes-and-Implementation&quot; class=&quot;headerlink&quot; title=&quot;Processes and Implementation&quot;&gt;&lt;/a&gt;Processes and Implementation&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Definition: &lt;em&gt;“a process is a &lt;strong&gt;running instance&lt;/strong&gt; of a program”&lt;/em&gt;&lt;br&gt;&lt;code&gt;进程是程序的运行实例&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;A process is registered with the OS using its “&lt;strong&gt;control structures&lt;/strong&gt;”: i.e. an entry in the OS’s &lt;strong&gt;process tab&lt;/strong&gt;le to a &lt;strong&gt;process control blocks&lt;/strong&gt; (PCB)&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;process control block&lt;/strong&gt; contains all information necessary to &lt;strong&gt;manage the process&lt;/strong&gt; and is necessary for &lt;strong&gt;context switching&lt;/strong&gt; in &lt;strong&gt;multi-programmed systems&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;A process’ memory image contains:&lt;ul&gt;
+&lt;li&gt;The program &lt;strong&gt;code&lt;/strong&gt; (could be shared between multiple processes running the same code)&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;data&lt;/strong&gt; segment, &lt;strong&gt;stack&lt;/strong&gt; and &lt;strong&gt;heap&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Every process has its own &lt;strong&gt;logical address&lt;/strong&gt; space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
