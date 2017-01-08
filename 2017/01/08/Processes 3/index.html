@@ -6,14 +6,37 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://barondu.com">
-  <title>Archives: 2017 | Baron的博客</title>
+  <title>笔记 OSC_Processes3 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Baron的博客">
-<meta property="og:url" content="http://barondu.com/archives/2017/index.html">
+  <meta name="description" content="Processes 3
+Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
+ThreadsThreads from an OS Perspective[观点]
+A process consists of two fundamental units
+Resources:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记 OSC_Processes3">
+<meta property="og:url" content="http://barondu.com/2017/01/08/Processes 3/index.html">
 <meta property="og:site_name" content="Baron的博客">
+<meta property="og:description" content="Processes 3
+Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
+ThreadsThreads from an OS Perspective[观点]
+A process consists of two fundamental units
+Resources:">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg">
+<meta property="og:updated_time" content="2017-01-08T23:28:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Baron的博客">
+<meta name="twitter:title" content="笔记 OSC_Processes3">
+<meta name="twitter:description" content="Processes 3
+Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
+ThreadsThreads from an OS Perspective[观点]
+A process consists of two fundamental units
+Resources:">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -165,36 +188,173 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Processes 3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      笔记 OSC_Processes3
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes 3/" class="archive-article-date">
+
+        
+        <a href="/2017/01/08/Processes 3/" class="archive-article-date">
   	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes 3/">笔记 OSC_Processes3</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
+<h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><h4 id="Threads-from-an-OS-Perspective-观点"><a href="#Threads-from-an-OS-Perspective-观点" class="headerlink" title="Threads from an OS Perspective[观点]"></a>Threads from an OS Perspective[观点]</h4><ul>
+<li>A process consists of two <strong>fundamental units</strong><ul>
+<li><strong>Resources:</strong> all related resources are grouped together<ul>
+<li>A logical address space containing the process image (program, data, heap, stack)</li>
+<li>Files, I/O devices, I/O channels, . . .</li>
+</ul>
+</li>
+<li><strong>Execution trace</strong>[执行追踪], i.e., an entity that gets executed</li>
+</ul>
+</li>
+<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg" alt=""></li>
+<li>Every thread has its own <strong>execution context</strong> (e.g. program counter, stack, registers)</li>
+<li>All threads have <strong>access</strong> to the process’ <strong>shared resources</strong><ul>
+<li>E.g. files, one thread opens a file, all threads of the same process can access the file</li>
+<li>Global variables, memory, etc. (⇒ synchronisation!)</li>
+</ul>
+</li>
+<li>Some CPUs (hyperthreaded ones) have direct <strong>hardware support</strong> for <strong>multi-threading</strong></li>
+<li>Similar to processes, threads have:<ul>
+<li><strong>States</strong> and <strong>transitions</strong> (new, running, blocked, ready, terminated) </li>
+<li>A <strong>thread control block</strong><br>Threads create/terminate/switch with <strong>less overhead</strong>  (address space remains the same for threads of the same process)</li>
+</ul>
+</li>
+<li><strong>Inter-thread</strong> communication is easier/faster than <strong>inter-process</strong> communication (threads share memory by default)</li>
+<li><strong>No protection boundaries</strong>[边界] are required in the address space (threads are cooperating, belong to the same user, and have a common goal)</li>
+<li><strong>Synchronisation</strong> has to be considered carefully!</li>
+</ul>
+<h4 id="Why-Use-Threads"><a href="#Why-Use-Threads" class="headerlink" title="Why Use Threads"></a>Why Use Threads</h4><ul>
+<li><strong>Multiple related activities</strong> apply to the <strong>same resources</strong>, these resources should be accessible/<strong>shared</strong></li>
+<li>Processes will often contain <strong>multiple blocking tasks</strong><ul>
+<li>I/O operations (thread blocks, interrupt marks completion)</li>
+<li>Memory access: pages faults are result in blocking</li>
+</ul>
+</li>
+<li>Such activities should be carried out in <strong>parallel/concurrently</strong></li>
+<li><strong>Application examples</strong>: webservers, make program, spreadsheets, word processors, processing large data volumes</li>
+</ul>
+<p>####OS Implementations of Threads</p>
+<ul>
+<li><strong>User</strong> threads</li>
+<li><strong>Kernel</strong> threads</li>
+<li><strong>Hybrid</strong>[混合] implementations</li>
+</ul>
+<h3 id="User-Threads"><a href="#User-Threads" class="headerlink" title="User Threads"></a>User Threads</h3><p>Many-to-One<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg" alt=""></p>
+<ul>
+<li><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation[处理]) is carried out <strong>in user space</strong> with the help of a user library</li>
+<li>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong><ul>
+<li>Similar to <strong>process table</strong></li>
+<li>Used for <strong>thread switching</strong> </li>
+<li>Tracks thread related information</li>
+</ul>
+</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>Threads are in user space (i.e., <strong>no mode switches</strong> required)</li>
+<li><strong>Full control</strong> over the thread scheduler</li>
+<li><strong>OS independent</strong>[独立不受约束] (threads can run on OS that do not support them)</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li><strong>Blocking system calls</strong> suspend[延缓] the entire process (user threads are mapped onto a single process, managed by the kernel)</li>
+<li><strong>No true parallelism</strong> (a process is scheduled on a single CPU)</li>
+<li><strong>Clock interrupts</strong> are non-existent (i.e. user threads are non-preemptive) </li>
+<li><strong>Page faults</strong>[错误] result in blocking the process</li>
+</ul>
+<h3 id="Kernel-Threads"><a href="#Kernel-Threads" class="headerlink" title="Kernel Threads"></a>Kernel Threads</h3><p>One-to-One<br><img src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg" alt=""></p>
+<ul>
+<li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities[工具] through <strong>API</strong> and <strong>system calls</strong><ul>
+<li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li>
+<li>If a <strong>thread blocks</strong>, the kernel chooses thread from same or different process (↔ user threads)</li>
+</ul>
+</li>
+<li>Windows and Linux apply this approach</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>True parallelism can be achieved </li>
+<li>No run-time system needed</li>
+</ul>
+<p>Disadvantage:</p>
+<ul>
+<li>Frequent <strong>mode switches</strong> take place, resulting in lower performance <ul>
+<li>Frequent <strong>mode switches</strong> take place, resulting in <strong>lower performance</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg" alt=""></p>
+<h3 id="Hybrid-Implementations"><a href="#Hybrid-Implementations" class="headerlink" title="Hybrid Implementations"></a>Hybrid Implementations</h3><p>Many-to-Many<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg" alt=""></p>
+<ul>
+<li>User threads are <strong>multiplexed</strong> onto kernel threads</li>
+<li>Kernel sees and schedules the kernel threads (a limited number) </li>
+<li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li>
+</ul>
+<h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg" alt=""></p>
+<h3 id="Thread-Management"><a href="#Thread-Management" class="headerlink" title="Thread Management"></a>Thread Management</h3><ul>
+<li>Thread libraries provide an <strong>API/interface</strong> for managing threads (e.g. creating, running, destroying, synchronising, etc.)</li>
+<li>Thread libraries can be implemented:<ul>
+<li>Entirely in <strong>user spac</strong>e (i.e. user threads)</li>
+<li>Based on <strong>system calls</strong></li>
+</ul>
+</li>
+<li>Examples of thread APIs include <strong>POSIX’s PThreads</strong>, Windows Threads, and Java Threads</li>
+<li>The PThread specification can be implemented as user or kernel threads</li>
+<li>POSIX threads are a <strong>specification</strong> that “anyone” can implement, i.e., it defines a set of APIs (function calls, over 60 of them) and what they do</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ol>
+<li>Threads vs. processes</li>
+<li>Thread implementations (user, kernel and hybrid)</li>
+<li>PThreads</li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢投喂 (～o￣3￣)～<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbd03h4rvaj3074074wf2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,203 +374,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/2017/01/08/Processes 3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes 2/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes 2/">笔记 OSC_Processes2</a>
-    </h1>
+  
+    <a href="/2017/01/08/Processes 2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Processes2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Processes 3" data-title="笔记 OSC_Processes3" data-url="http://barondu.com/2017/01/08/Processes 3/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/06/Processes1/" class="archive-article-date">
-  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/06/Processes1/">笔记 OSC_Processes1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/03/Introduction2/" class="archive-article-date">
-  	<time datetime="2017-01-03T23:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/03/Introduction2/">笔记 OSC_Introduction2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/01/Introduction1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/01/Introduction1/">笔记 OSC_Introduction1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -433,8 +496,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

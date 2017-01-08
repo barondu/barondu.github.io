@@ -167,6 +167,381 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Processes 3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/08/Processes 3/">笔记 OSC_Processes3</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/08/Processes 3/" class="archive-article-date">
+  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
+<h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><h4 id="Threads-from-an-OS-Perspective-观点"><a href="#Threads-from-an-OS-Perspective-观点" class="headerlink" title="Threads from an OS Perspective[观点]"></a>Threads from an OS Perspective[观点]</h4><ul>
+<li>A process consists of two <strong>fundamental units</strong><ul>
+<li><strong>Resources:</strong> all related resources are grouped together<ul>
+<li>A logical address space containing the process image (program, data, heap, stack)</li>
+<li>Files, I/O devices, I/O channels, . . .</li>
+</ul>
+</li>
+<li><strong>Execution trace</strong>[执行追踪], i.e., an entity that gets executed</li>
+</ul>
+</li>
+<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg" alt=""></li>
+<li>Every thread has its own <strong>execution context</strong> (e.g. program counter, stack, registers)</li>
+<li>All threads have <strong>access</strong> to the process’ <strong>shared resources</strong><ul>
+<li>E.g. files, one thread opens a file, all threads of the same process can access the file</li>
+<li>Global variables, memory, etc. (⇒ synchronisation!)</li>
+</ul>
+</li>
+<li>Some CPUs (hyperthreaded ones) have direct <strong>hardware support</strong> for <strong>multi-threading</strong></li>
+<li>Similar to processes, threads have:<ul>
+<li><strong>States</strong> and <strong>transitions</strong> (new, running, blocked, ready, terminated) </li>
+<li>A <strong>thread control block</strong><br>Threads create/terminate/switch with <strong>less overhead</strong>  (address space remains the same for threads of the same process)</li>
+</ul>
+</li>
+<li><strong>Inter-thread</strong> communication is easier/faster than <strong>inter-process</strong> communication (threads share memory by default)</li>
+<li><strong>No protection boundaries</strong>[边界] are required in the address space (threads are cooperating, belong to the same user, and have a common goal)</li>
+<li><strong>Synchronisation</strong> has to be considered carefully!</li>
+</ul>
+<h4 id="Why-Use-Threads"><a href="#Why-Use-Threads" class="headerlink" title="Why Use Threads"></a>Why Use Threads</h4><ul>
+<li><strong>Multiple related activities</strong> apply to the <strong>same resources</strong>, these resources should be accessible/<strong>shared</strong></li>
+<li>Processes will often contain <strong>multiple blocking tasks</strong><ul>
+<li>I/O operations (thread blocks, interrupt marks completion)</li>
+<li>Memory access: pages faults are result in blocking</li>
+</ul>
+</li>
+<li>Such activities should be carried out in <strong>parallel/concurrently</strong></li>
+<li><strong>Application examples</strong>: webservers, make program, spreadsheets, word processors, processing large data volumes</li>
+</ul>
+<p>####OS Implementations of Threads</p>
+<ul>
+<li><strong>User</strong> threads</li>
+<li><strong>Kernel</strong> threads</li>
+<li><strong>Hybrid</strong>[混合] implementations</li>
+</ul>
+<h3 id="User-Threads"><a href="#User-Threads" class="headerlink" title="User Threads"></a>User Threads</h3><p>Many-to-One<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg" alt=""></p>
+<ul>
+<li><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation[处理]) is carried out <strong>in user space</strong> with the help of a user library</li>
+<li>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong><ul>
+<li>Similar to <strong>process table</strong></li>
+<li>Used for <strong>thread switching</strong> </li>
+<li>Tracks thread related information</li>
+</ul>
+</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>Threads are in user space (i.e., <strong>no mode switches</strong> required)</li>
+<li><strong>Full control</strong> over the thread scheduler</li>
+<li><strong>OS independent</strong>[独立不受约束] (threads can run on OS that do not support them)</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li><strong>Blocking system calls</strong> suspend[延缓] the entire process (user threads are mapped onto a single process, managed by the kernel)</li>
+<li><strong>No true parallelism</strong> (a process is scheduled on a single CPU)</li>
+<li><strong>Clock interrupts</strong> are non-existent (i.e. user threads are non-preemptive) </li>
+<li><strong>Page faults</strong>[错误] result in blocking the process</li>
+</ul>
+<h3 id="Kernel-Threads"><a href="#Kernel-Threads" class="headerlink" title="Kernel Threads"></a>Kernel Threads</h3><p>One-to-One<br><img src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg" alt=""></p>
+<ul>
+<li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities[工具] through <strong>API</strong> and <strong>system calls</strong><ul>
+<li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li>
+<li>If a <strong>thread blocks</strong>, the kernel chooses thread from same or different process (↔ user threads)</li>
+</ul>
+</li>
+<li>Windows and Linux apply this approach</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>True parallelism can be achieved </li>
+<li>No run-time system needed</li>
+</ul>
+<p>Disadvantage:</p>
+<ul>
+<li>Frequent <strong>mode switches</strong> take place, resulting in lower performance <ul>
+<li>Frequent <strong>mode switches</strong> take place, resulting in <strong>lower performance</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg" alt=""></p>
+<h3 id="Hybrid-Implementations"><a href="#Hybrid-Implementations" class="headerlink" title="Hybrid Implementations"></a>Hybrid Implementations</h3><p>Many-to-Many<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg" alt=""></p>
+<ul>
+<li>User threads are <strong>multiplexed</strong> onto kernel threads</li>
+<li>Kernel sees and schedules the kernel threads (a limited number) </li>
+<li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li>
+</ul>
+<h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg" alt=""></p>
+<h3 id="Thread-Management"><a href="#Thread-Management" class="headerlink" title="Thread Management"></a>Thread Management</h3><ul>
+<li>Thread libraries provide an <strong>API/interface</strong> for managing threads (e.g. creating, running, destroying, synchronising, etc.)</li>
+<li>Thread libraries can be implemented:<ul>
+<li>Entirely in <strong>user spac</strong>e (i.e. user threads)</li>
+<li>Based on <strong>system calls</strong></li>
+</ul>
+</li>
+<li>Examples of thread APIs include <strong>POSIX’s PThreads</strong>, Windows Threads, and Java Threads</li>
+<li>The PThread specification can be implemented as user or kernel threads</li>
+<li>POSIX threads are a <strong>specification</strong> that “anyone” can implement, i.e., it defines a set of APIs (function calls, over 60 of them) and what they do</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ol>
+<li>Threads vs. processes</li>
+<li>Thread implementations (user, kernel and hybrid)</li>
+<li>PThreads</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/08/Processes 3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Processes 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/08/Processes 2/">笔记 OSC_Processes2</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/08/Processes 2/" class="archive-article-date">
+  	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Processes-2"><a href="#Processes-2" class="headerlink" title="Processes 2"></a>Processes 2</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Introduction to <strong>process scheduling</strong></li>
+<li>Types of <strong>process schedulers</strong></li>
+<li><strong>Evaluation criteria</strong> for scheduling algorithms</li>
+<li>Typical <strong>process scheduling algorithms</strong></li>
+</ul>
+<h3 id="Process-Scheduling"><a href="#Process-Scheduling" class="headerlink" title="Process Scheduling"></a>Process Scheduling</h3><p>Context</p>
+<ul>
+<li>The OS is responsible for <strong>managing</strong> and <strong>scheduling processes</strong><ul>
+<li>Decide when to <strong>admit</strong> processes to the system (new → ready)</li>
+<li>Decide which process to r<strong>un</strong> next (ready → run)</li>
+<li>Decide when and which processes to <strong>interrupt</strong> (running → ready)</li>
+</ul>
+</li>
+<li>It relies on the <strong>scheduler</strong> (dispatcher) to decide which process to run next, which uses a <strong>scheduling algorithm</strong> to do so</li>
+<li>The type of algorithm used by the scheduler is influenced by the <strong>type of operating system</strong> (e.g., real time vs. batch)</li>
+</ul>
+<p>Classification by Time Horizon</p>
+<ul>
+<li><strong>Long term</strong>: applies to new processes and controls the degree of multiprogramming by deciding which processes to <strong>admit</strong> to the system<ul>
+<li>A good <strong>mix</strong> of <strong>CPU</strong> and <strong>I/O bound processes</strong> is favourable to keep all resources as busy as possible</li>
+<li><strong>Usually absent</strong> in popular modern OS</li>
+</ul>
+</li>
+<li><strong>Medium term</strong>: controls <strong>swapping</strong> and the degree of multi-programming </li>
+<li><strong>Short term</strong>: decide which process to <strong>run</strong> next<ul>
+<li>Usually called in response to <strong>clock interrupts</strong>, <strong>I/O interrupts</strong>, or <strong>blocking system calls</strong></li>
+<li>Invoked[调用] very <strong>frequently,</strong> hence must be fast</li>
+<li>Manages the <strong>ready queue</strong></li>
+</ul>
+</li>
+</ul>
+<p>Classification by Approach</p>
+<ul>
+<li><strong>Non-preemptive</strong>: processes are only interrupted voluntarily[自愿的] (e.g., I/O operation or “nice” system call – yield())</li>
+<li><strong>Preemptive</strong>[优先的]: processes can be <strong>interrupted forcefully</strong> or <strong>voluntarily</strong><ul>
+<li>This requires context switches which generate overhead, too many of them should be avoided<br>Prevents processes from <strong>monopolising[垄断的] the CPU</strong></li>
+<li><strong>Most popula</strong>r modern operating systems are preemptive</li>
+</ul>
+</li>
+</ul>
+<h3 id="Performance-Assessment-性能评估"><a href="#Performance-Assessment-性能评估" class="headerlink" title="Performance Assessment[性能评估]"></a>Performance Assessment[性能评估]</h3><p><strong>User oriented[导向]criteria:</strong></p>
+<ul>
+<li><strong>Response time:</strong> minimise the time between creating the job and its first execution</li>
+<li><strong>Turnaround time</strong>: minimise the time between creating the job and finishing it</li>
+<li><strong>Predictability</strong>[可调度性]: minimise the variance[差异，方差] in processing times</li>
+</ul>
+<p><strong>System oriented criteria:</strong></p>
+<ul>
+<li><strong>Throughput</strong>[吞吐量]: maximise the number of jobs processed per hour</li>
+<li><strong>Fairness</strong>[公平性]:<ul>
+<li>Are processing power/waiting time equally distributed?</li>
+<li>Are some processes kept waiting excessively long (starvation)</li>
+</ul>
+</li>
+</ul>
+<p>Evaluation criteria can be <strong>conflicting</strong>, i.e., <strong>reducing the response time</strong> may i<strong>ncrease context switches</strong> and may <strong>worsen the throughput</strong> and <strong>increase the turn around time</strong></p>
+<h3 id="Scheduling-Algorithms"><a href="#Scheduling-Algorithms" class="headerlink" title="Scheduling Algorithms"></a>Scheduling Algorithms</h3><p><strong>Algorithms</strong> considered:</p>
+<ol>
+<li>First Come First Served (<strong>FCFS</strong>)/ First In First Out (<strong>FIFO</strong>)</li>
+<li><strong>Shortest job first</strong></li>
+<li><strong>Round Robin</strong></li>
+<li><strong>Priority queues</strong></li>
+</ol>
+<p>Performance measures used:</p>
+<ul>
+<li><strong>Average response time</strong></li>
+<li><strong>Average turnaround time</strong></li>
+</ul>
+<p><code>First Come First Served</code></p>
+<ul>
+<li>Concept: a <strong>non-preemtive algorithm</strong> that operates as a <strong>strict[严格的] queueing mechanism[机制]</strong> and schedules the processes in the same order that they were added to the queue</li>
+<li>Advantages: <strong>positional fairness</strong> and easy to implement </li>
+<li>Disadvantages:<ul>
+<li><strong>good for long processes</strong> over short ones</li>
+<li>Could <strong>compromise[危害] resource utilisation,</strong> i.e., CPU vs. I/O devices<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbhgipi0isj31kw0z0gui.jpg" alt="FCFS"></li>
+</ul>
+</li>
+</ul>
+<p><code>Shortest Job First</code></p>
+<ul>
+<li>Concept: A <strong>non-preemtive algorithm</strong> that starts processes in order of <strong>ascending[递增] processing time</strong> using a provided/known estimate of the processing</li>
+<li>Advantages: always result in the <strong>good turn around time</strong> </li>
+<li>Disadvantages:<ul>
+<li><strong>Starvation</strong>[饿死] might occur</li>
+<li><strong>Fairness</strong> and <strong>predictability</strong> are compromised </li>
+<li><strong>Processing times have to be known</strong> beforehand<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgihcb0kj31kw0zaguh.jpg" alt="Shortest Job First"></li>
+</ul>
+</li>
+</ul>
+<p><code>Round Robin</code></p>
+<ul>
+<li>Concept: a <strong>preemptive version of FCFS</strong> that forces <strong>context switches</strong> at <strong>periodic[周期性] intervals[间隔]</strong> or <strong>time slices</strong></li>
+<li>Processes run in the order that they were added to the queue </li>
+<li>Processes are <strong>forcefully interrupted by the timer</strong><br>Advantages:</li>
+<li>Improved <strong>response time</strong></li>
+<li><strong>Effective</strong> for general purpose <strong>time sharing systems</strong><br>Disadvantages:</li>
+<li>Increased <strong>context switching</strong> and thus overhead</li>
+<li><strong>Favours CPU bound processes</strong> (which usually run long) over I/O processes (which do not run long)</li>
+<li>Can <strong>reduce to FCFS</strong></li>
+</ul>
+<p>The length of the time slice must be carefully considered!</p>
+<ul>
+<li>a <strong>low response time</strong> is achieved with <strong>a small time slice</strong> (e.g. 1ms) ⇒ low throughput</li>
+<li>a <strong>high throughput</strong> is achieved with <strong>a large time slice</strong> (e.g. 1000ms) ⇒ high response time</li>
+</ul>
+<p>If a time slice is only <strong>used</strong> <strong>partially</strong>, the next process <strong>starts immediately</strong><br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgilh5rej31kw0ygwnc.jpg" alt="Round Robin"></p>
+<p><code>Priority Queues</code></p>
+<ul>
+<li>Concept: A <strong>preemptive algorithm</strong> that schedules processes by <strong>priority</strong> (high → low)<ul>
+<li>The process priority is saved in the <strong>process control block</strong> </li>
+</ul>
+</li>
+<li>Advantages: can <strong>prioritise[优先] I/O bound jobs</strong></li>
+<li>Disadvantages: low priority processes may suffer from <strong>starvation</strong> (with static priorities)</li>
+<li><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbhgimxagxj31kw0yoths.jpg" alt="Priority Queues"></li>
+</ul>
+<p>##Summary</p>
+<ul>
+<li><strong>Types of schedulers</strong>: preemptive/non-preemptive, long/medium/short term)</li>
+<li>Performance <strong>evaluation criteria</strong></li>
+<li><strong>Scheduling algorithms</strong>: FCFS, SJF, Round Robin, Priority Queues</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/08/Processes 2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Processes1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -198,17 +573,115 @@
 </blockquote>
 <ul>
 <li>A process is registered with the OS using its “<strong>control structures</strong>”: i.e. an entry in the OS’s <strong>process tab</strong>le to a <strong>process control blocks</strong> (PCB)</li>
-<li>The <strong>process control bloc</strong>k contains all information necessary to <strong>manage the process</strong> and is necessary for <strong>context switching</strong> in <strong>multi-programmed systems</strong></li>
+<li>The <strong>process control block</strong> contains all information necessary to <strong>manage the process</strong> and is necessary for <strong>context switching</strong> in <strong>multi-programmed systems</strong></li>
 <li>A process’ memory image contains:<ul>
 <li>The program <strong>code</strong> (could be shared between multiple processes running the same code)</li>
 <li>A <strong>data</strong> segment, <strong>stack</strong> and <strong>heap</strong></li>
 </ul>
 </li>
-<li>Every process has its own l<strong>ogical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg" alt="process’ memory image"></li>
+<li>Every process has its own <strong>logical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg" alt="process’ memory image"></li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/01/06/Processes1/#more">more >></a>
-        
+<h3 id="Process-States-and-Transitions"><a href="#Process-States-and-Transitions" class="headerlink" title="Process States and Transitions"></a>Process States and Transitions</h3><p><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd6yyxrbcj31gk0ts0xg.jpg" alt="Process States and Transitions"><br>Sates:</p>
+<ul>
+<li>A <strong>new</strong> process has just been created (has a PCB) and is waiting to be admitted (it may not yet be in memory)</li>
+<li>A <strong>ready</strong> process is waiting for CPU to become available (e.g. unblocked or timer interrupt)</li>
+<li>A <strong>running</strong> process “owns” the CPU</li>
+<li>A <strong>blocked</strong> process cannot continue, e.g. is waiting for I/O</li>
+<li>A <strong>terminated</strong> process is no longer executable (the data structures - PCB - may be temporarily preserved)</li>
+<li>A <strong>suspended</strong>[废除的] process is swapped out[换出] (not discussed further)</li>
+</ul>
+<p>Transitions：</p>
+<ol>
+<li><strong>New -&gt; ready</strong>: admit the process and commit to execution</li>
+<li><strong>Running -&gt; blocked:</strong> e.g. process is waiting for input or carried out a<br>system call</li>
+<li><strong>Ready -&gt; running:</strong> the process is selected by the process scheduler</li>
+<li><strong>Blocked -&gt; ready</strong>: event happens, e.g. I/O operation has finished</li>
+<li>. <strong>Running -&gt; ready</strong>: the process is preempted, e.g., by a timer interrupt or<br>by pause</li>
+<li><strong>Running -&gt;strong text</strong> exit: process has finished, e.g. program ended or exception<br>encountered</li>
+</ol>
+<p>The interrupts/traps/system calls lie on the basis of the transitions<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbdxkzib3gj31hk0s2n19.jpg" alt="OS queues"></p>
+<h3 id="Context-Switching"><a href="#Context-Switching" class="headerlink" title="Context Switching"></a>Context Switching</h3><p>Multi-programming</p>
+<ul>
+<li>Modern computers are <strong>multi-programming systems</strong></li>
+<li><p>Assuming a single processor system, the instructions of individual processes are executed sequentially</p>
+<ul>
+<li>Multi-programming goes back to the “<strong>MULTICS</strong>” age </li>
+<li>Multi-programming is achieved by <strong>alternating</strong>[交替]processes and <strong>context switching</strong></li>
+<li><strong>True parallelism</strong> requires <strong>multiple processors</strong><br><code>并不是真正的multi-programming</code></li>
+</ul>
+</li>
+<li><p>When a <strong>context switch</strong> takes place, the system <strong>saves the state</strong> of the old process and <strong>loads the state</strong> of the new process (creates <strong>overhead</strong>)</p>
+<ul>
+<li><strong>Saved</strong> -&gt; the process control block is <strong>updated</strong></li>
+<li><strong>(Re-)started</strong> -&gt; the process control block <strong>read</strong></li>
+</ul>
+</li>
+<li>A <strong>trade-off</strong>[权衡] exists between the length of the <strong>time-slice</strong> and the <strong>context switch time</strong><ul>
+<li><strong>Short time slices</strong> result in <strong>good response times</strong> but <strong>low effective “utilisation”</strong>[使用]<ul>
+<li>e.g.: 99*(1+1)=198ms</li>
+</ul>
+</li>
+<li><strong>Long time slices</strong> result in <strong>poor response</strong> times but b<strong>etter effective “utilisation”</strong><ul>
+<li>e.g.: 99 * (100 + 1) = 9999ms</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A <strong>process control block</strong> contains <strong>three</strong> types of <strong>attributes:</strong><ul>
+<li><strong>Process identification</strong> (PID, UID, Parent PID)</li>
+<li><strong>Process control information</strong> (process state, scheduling information, etc.) </li>
+<li><strong>Process state information</strong> (user registers, program counter, stack pointer, program status word, memory management information, files, etc.)</li>
+</ul>
+</li>
+<li><strong>Process control blocks</strong> are <strong>kernel data structures</strong>, i.e. they are <strong>protected</strong> and only accessible in <strong>kernel mode!</strong><ul>
+<li>Allowing user applications to access them directly could <strong>compromise[威胁] their integrity[完整性]</strong></li>
+<li>The <strong>operating system manages</strong> them on the user’s behalf through <strong>system calls</strong> (e.g. to set <strong>process priority</strong>)</li>
+</ul>
+</li>
+</ul>
+<p>Tables and Control Blocks</p>
+<ul>
+<li>An operating system <strong>maintains information</strong> about the status of “resources” in <strong>tables</strong><ul>
+<li><strong>Process tables</strong> (process control blocks)</li>
+<li><strong>Memory tables</strong> (memory allocation, memory protection, virtual memory) </li>
+<li><strong>I/O tables</strong> (availability, status, transfer information)</li>
+<li><strong>File tables</strong> (location, status)</li>
+</ul>
+</li>
+<li>The <strong>process table</strong> holds a p<strong>rocess control block</strong> for each process, allocated upon <strong>process creation</strong></li>
+<li>Tables are maintained by the <strong>kernel</strong> and are usually <strong>cross referenced</strong><br>Switching Processes<blockquote>
+<ol>
+<li>Save process state (program counter, registers)</li>
+<li>Update PCB (running -&gt; ready/blocked)</li>
+<li>Move PCB to appropriate queue (ready/blocked)</li>
+<li>Run scheduler, select new process</li>
+<li>Update to running state in the new PCB</li>
+<li>Update memory management unit (MMU)</li>
+<li>Restore process</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><ul>
+<li>System calls are necessary to <strong>notify the OS</strong> that the <strong>process has terminated</strong><ul>
+<li>Resources must be de-allocated</li>
+<li>Output must be flushed</li>
+<li>Process admin may have to be carried out</li>
+</ul>
+</li>
+<li>A system calls for process termination:<ul>
+<li>UNIX/Linux: <strong>exit()</strong>, kill() </li>
+<li>Windows: <strong>TerminateProcess()</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li><strong>Definition of a process</strong> and their <strong>implementation</strong> in operating systems </li>
+<li><strong>States</strong>, state <strong>transitions</strong> of processes</li>
+<li><strong>Kernel structures</strong> for processes and process management</li>
+<li><strong>System calls</strong> for process management</li>
+</ul>
+
       
 
       

@@ -6,14 +6,50 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://barondu.com">
-  <title>Archives: 2017 | Baron的博客</title>
+  <title>笔记 OSC_Processes2 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Baron的博客">
-<meta property="og:url" content="http://barondu.com/archives/2017/index.html">
+  <meta name="description" content="Processes 2
+Overview
+Introduction to process scheduling
+Types of process schedulers
+Evaluation criteria for scheduling algorithms
+Typical process scheduling algorithms
+
+Process SchedulingContext
+
+The">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记 OSC_Processes2">
+<meta property="og:url" content="http://barondu.com/2017/01/08/Processes 2/index.html">
 <meta property="og:site_name" content="Baron的博客">
+<meta property="og:description" content="Processes 2
+Overview
+Introduction to process scheduling
+Types of process schedulers
+Evaluation criteria for scheduling algorithms
+Typical process scheduling algorithms
+
+Process SchedulingContext
+
+The">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbhgipi0isj31kw0z0gui.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgihcb0kj31kw0zaguh.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgilh5rej31kw0ygwnc.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbhgimxagxj31kw0yoths.jpg">
+<meta property="og:updated_time" content="2017-01-08T23:28:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Baron的博客">
+<meta name="twitter:title" content="笔记 OSC_Processes2">
+<meta name="twitter:description" content="Processes 2
+Overview
+Introduction to process scheduling
+Types of process schedulers
+Evaluation criteria for scheduling algorithms
+Typical process scheduling algorithms
+
+Process SchedulingContext
+
+The">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbhgipi0isj31kw0z0gui.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -165,82 +201,184 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Processes 2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes 3/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes 3/">笔记 OSC_Processes3</a>
+    <h1 class="article-title" itemprop="name">
+      笔记 OSC_Processes2
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes 2/" class="archive-article-date">
+        
+        <a href="/2017/01/08/Processes 2/" class="archive-article-date">
   	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes 2/">笔记 OSC_Processes2</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Processes-2"><a href="#Processes-2" class="headerlink" title="Processes 2"></a>Processes 2</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Introduction to <strong>process scheduling</strong></li>
+<li>Types of <strong>process schedulers</strong></li>
+<li><strong>Evaluation criteria</strong> for scheduling algorithms</li>
+<li>Typical <strong>process scheduling algorithms</strong></li>
+</ul>
+<h3 id="Process-Scheduling"><a href="#Process-Scheduling" class="headerlink" title="Process Scheduling"></a>Process Scheduling</h3><p>Context</p>
+<ul>
+<li>The OS is responsible for <strong>managing</strong> and <strong>scheduling processes</strong><ul>
+<li>Decide when to <strong>admit</strong> processes to the system (new → ready)</li>
+<li>Decide which process to r<strong>un</strong> next (ready → run)</li>
+<li>Decide when and which processes to <strong>interrupt</strong> (running → ready)</li>
+</ul>
+</li>
+<li>It relies on the <strong>scheduler</strong> (dispatcher) to decide which process to run next, which uses a <strong>scheduling algorithm</strong> to do so</li>
+<li>The type of algorithm used by the scheduler is influenced by the <strong>type of operating system</strong> (e.g., real time vs. batch)</li>
+</ul>
+<p>Classification by Time Horizon</p>
+<ul>
+<li><strong>Long term</strong>: applies to new processes and controls the degree of multiprogramming by deciding which processes to <strong>admit</strong> to the system<ul>
+<li>A good <strong>mix</strong> of <strong>CPU</strong> and <strong>I/O bound processes</strong> is favourable to keep all resources as busy as possible</li>
+<li><strong>Usually absent</strong> in popular modern OS</li>
+</ul>
+</li>
+<li><strong>Medium term</strong>: controls <strong>swapping</strong> and the degree of multi-programming </li>
+<li><strong>Short term</strong>: decide which process to <strong>run</strong> next<ul>
+<li>Usually called in response to <strong>clock interrupts</strong>, <strong>I/O interrupts</strong>, or <strong>blocking system calls</strong></li>
+<li>Invoked[调用] very <strong>frequently,</strong> hence must be fast</li>
+<li>Manages the <strong>ready queue</strong></li>
+</ul>
+</li>
+</ul>
+<p>Classification by Approach</p>
+<ul>
+<li><strong>Non-preemptive</strong>: processes are only interrupted voluntarily[自愿的] (e.g., I/O operation or “nice” system call – yield())</li>
+<li><strong>Preemptive</strong>[优先的]: processes can be <strong>interrupted forcefully</strong> or <strong>voluntarily</strong><ul>
+<li>This requires context switches which generate overhead, too many of them should be avoided<br>Prevents processes from <strong>monopolising[垄断的] the CPU</strong></li>
+<li><strong>Most popula</strong>r modern operating systems are preemptive</li>
+</ul>
+</li>
+</ul>
+<h3 id="Performance-Assessment-性能评估"><a href="#Performance-Assessment-性能评估" class="headerlink" title="Performance Assessment[性能评估]"></a>Performance Assessment[性能评估]</h3><p><strong>User oriented[导向]criteria:</strong></p>
+<ul>
+<li><strong>Response time:</strong> minimise the time between creating the job and its first execution</li>
+<li><strong>Turnaround time</strong>: minimise the time between creating the job and finishing it</li>
+<li><strong>Predictability</strong>[可调度性]: minimise the variance[差异，方差] in processing times</li>
+</ul>
+<p><strong>System oriented criteria:</strong></p>
+<ul>
+<li><strong>Throughput</strong>[吞吐量]: maximise the number of jobs processed per hour</li>
+<li><strong>Fairness</strong>[公平性]:<ul>
+<li>Are processing power/waiting time equally distributed?</li>
+<li>Are some processes kept waiting excessively long (starvation)</li>
+</ul>
+</li>
+</ul>
+<p>Evaluation criteria can be <strong>conflicting</strong>, i.e., <strong>reducing the response time</strong> may i<strong>ncrease context switches</strong> and may <strong>worsen the throughput</strong> and <strong>increase the turn around time</strong></p>
+<h3 id="Scheduling-Algorithms"><a href="#Scheduling-Algorithms" class="headerlink" title="Scheduling Algorithms"></a>Scheduling Algorithms</h3><p><strong>Algorithms</strong> considered:</p>
+<ol>
+<li>First Come First Served (<strong>FCFS</strong>)/ First In First Out (<strong>FIFO</strong>)</li>
+<li><strong>Shortest job first</strong></li>
+<li><strong>Round Robin</strong></li>
+<li><strong>Priority queues</strong></li>
+</ol>
+<p>Performance measures used:</p>
+<ul>
+<li><strong>Average response time</strong></li>
+<li><strong>Average turnaround time</strong></li>
+</ul>
+<p><code>First Come First Served</code></p>
+<ul>
+<li>Concept: a <strong>non-preemtive algorithm</strong> that operates as a <strong>strict[严格的] queueing mechanism[机制]</strong> and schedules the processes in the same order that they were added to the queue</li>
+<li>Advantages: <strong>positional fairness</strong> and easy to implement </li>
+<li>Disadvantages:<ul>
+<li><strong>good for long processes</strong> over short ones</li>
+<li>Could <strong>compromise[危害] resource utilisation,</strong> i.e., CPU vs. I/O devices<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbhgipi0isj31kw0z0gui.jpg" alt="FCFS"></li>
+</ul>
+</li>
+</ul>
+<p><code>Shortest Job First</code></p>
+<ul>
+<li>Concept: A <strong>non-preemtive algorithm</strong> that starts processes in order of <strong>ascending[递增] processing time</strong> using a provided/known estimate of the processing</li>
+<li>Advantages: always result in the <strong>good turn around time</strong> </li>
+<li>Disadvantages:<ul>
+<li><strong>Starvation</strong>[饿死] might occur</li>
+<li><strong>Fairness</strong> and <strong>predictability</strong> are compromised </li>
+<li><strong>Processing times have to be known</strong> beforehand<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgihcb0kj31kw0zaguh.jpg" alt="Shortest Job First"></li>
+</ul>
+</li>
+</ul>
+<p><code>Round Robin</code></p>
+<ul>
+<li>Concept: a <strong>preemptive version of FCFS</strong> that forces <strong>context switches</strong> at <strong>periodic[周期性] intervals[间隔]</strong> or <strong>time slices</strong></li>
+<li>Processes run in the order that they were added to the queue </li>
+<li>Processes are <strong>forcefully interrupted by the timer</strong><br>Advantages:</li>
+<li>Improved <strong>response time</strong></li>
+<li><strong>Effective</strong> for general purpose <strong>time sharing systems</strong><br>Disadvantages:</li>
+<li>Increased <strong>context switching</strong> and thus overhead</li>
+<li><strong>Favours CPU bound processes</strong> (which usually run long) over I/O processes (which do not run long)</li>
+<li>Can <strong>reduce to FCFS</strong></li>
+</ul>
+<p>The length of the time slice must be carefully considered!</p>
+<ul>
+<li>a <strong>low response time</strong> is achieved with <strong>a small time slice</strong> (e.g. 1ms) ⇒ low throughput</li>
+<li>a <strong>high throughput</strong> is achieved with <strong>a large time slice</strong> (e.g. 1000ms) ⇒ high response time</li>
+</ul>
+<p>If a time slice is only <strong>used</strong> <strong>partially</strong>, the next process <strong>starts immediately</strong><br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgilh5rej31kw0ygwnc.jpg" alt="Round Robin"></p>
+<p><code>Priority Queues</code></p>
+<ul>
+<li>Concept: A <strong>preemptive algorithm</strong> that schedules processes by <strong>priority</strong> (high → low)<ul>
+<li>The process priority is saved in the <strong>process control block</strong> </li>
+</ul>
+</li>
+<li>Advantages: can <strong>prioritise[优先] I/O bound jobs</strong></li>
+<li>Disadvantages: low priority processes may suffer from <strong>starvation</strong> (with static priorities)</li>
+<li><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbhgimxagxj31kw0yoths.jpg" alt="Priority Queues"></li>
+</ul>
+<p>##Summary</p>
+<ul>
+<li><strong>Types of schedulers</strong>: preemptive/non-preemptive, long/medium/short term)</li>
+<li>Performance <strong>evaluation criteria</strong></li>
+<li><strong>Scheduling algorithms</strong>: FCFS, SJF, Round Robin, Priority Queues</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢投喂 (～o￣3￣)～<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbd03h4rvaj3074074wf2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -260,157 +398,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/2017/01/08/Processes 2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/06/Processes1/" class="archive-article-date">
-  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/06/Processes1/">笔记 OSC_Processes1</a>
-    </h1>
+    <a href="/2017/01/08/Processes 3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          笔记 OSC_Processes3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/06/Processes1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Processes1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Processes 2" data-title="笔记 OSC_Processes2" data-url="http://barondu.com/2017/01/08/Processes 2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/03/Introduction2/" class="archive-article-date">
-  	<time datetime="2017-01-03T23:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/03/Introduction2/">笔记 OSC_Introduction2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/01/Introduction1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/01/Introduction1/">笔记 OSC_Introduction1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -433,8 +529,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

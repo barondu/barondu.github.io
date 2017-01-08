@@ -31,7 +31,7 @@ Definition: “a process i">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd6yyxrbcj31gk0ts0xg.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbdxkzib3gj31hk0s2n19.jpg">
-<meta property="og:updated_time" content="2017-01-06T18:49:09.000Z">
+<meta property="og:updated_time" content="2017-01-08T23:24:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 OSC_Processes1">
 <meta name="twitter:description" content="Processes 1
@@ -225,15 +225,14 @@ Definition: “a process i">
 </blockquote>
 <ul>
 <li>A process is registered with the OS using its “<strong>control structures</strong>”: i.e. an entry in the OS’s <strong>process tab</strong>le to a <strong>process control blocks</strong> (PCB)</li>
-<li>The <strong>process control bloc</strong>k contains all information necessary to <strong>manage the process</strong> and is necessary for <strong>context switching</strong> in <strong>multi-programmed systems</strong></li>
+<li>The <strong>process control block</strong> contains all information necessary to <strong>manage the process</strong> and is necessary for <strong>context switching</strong> in <strong>multi-programmed systems</strong></li>
 <li>A process’ memory image contains:<ul>
 <li>The program <strong>code</strong> (could be shared between multiple processes running the same code)</li>
 <li>A <strong>data</strong> segment, <strong>stack</strong> and <strong>heap</strong></li>
 </ul>
 </li>
-<li>Every process has its own l<strong>ogical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg" alt="process’ memory image"></li>
+<li>Every process has its own <strong>logical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg" alt="process’ memory image"></li>
 </ul>
-<a id="more"></a>
 <h3 id="Process-States-and-Transitions"><a href="#Process-States-and-Transitions" class="headerlink" title="Process States and Transitions"></a>Process States and Transitions</h3><p><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd6yyxrbcj31gk0ts0xg.jpg" alt="Process States and Transitions"><br>Sates:</p>
 <ul>
 <li>A <strong>new</strong> process has just been created (has a PCB) and is waiting to be admitted (it may not yet be in memory)</li>
@@ -301,7 +300,7 @@ Definition: “a process i">
 <li><strong>File tables</strong> (location, status)</li>
 </ul>
 </li>
-<li>The <strong>process tabl</strong>e holds a p<strong>rocess control block</strong> for each process, allocated upon <strong>process creation</strong></li>
+<li>The <strong>process table</strong> holds a p<strong>rocess control block</strong> for each process, allocated upon <strong>process creation</strong></li>
 <li>Tables are maintained by the <strong>kernel</strong> and are usually <strong>cross referenced</strong><br>Switching Processes<blockquote>
 <ol>
 <li>Save process state (program counter, registers)</li>
@@ -450,6 +449,15 @@ Definition: “a process i">
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/01/08/Processes 2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          笔记 OSC_Processes2
+        
+      </div>
+    </a>
   
   
     <a href="/2017/01/03/Introduction2/" id="article-nav-older" class="article-nav-link-wrap">
