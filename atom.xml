@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://barondu.com/"/>
-  <updated>2017-01-09T17:34:21.000Z</updated>
+  <updated>2017-01-09T18:43:47.000Z</updated>
   <id>http://barondu.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://barondu.com/2017/01/09/Concurrency2/"/>
     <id>http://barondu.com/2017/01/09/Concurrency2/</id>
     <published>2017-01-09T17:33:27.000Z</published>
-    <updated>2017-01-09T17:34:21.000Z</updated>
+    <updated>2017-01-09T18:43:47.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Concurrency-2"><a href="#Concurrency-2" class="headerlink" title="Concurrency 2"></a>Concurrency 2</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -40,7 +40,7 @@
 <li>It is restricted[限制] to <strong>two processes</strong> that execute in <strong>strict alternation</strong>[严格的交替]<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">true</span>; <span class="comment">// j wants to enter critical section turn = i; // allow i to access first</span></div><div class="line">	<span class="keyword">while</span> (<span class="built_in">flag</span>[i] &amp;&amp; turn == i);</div><div class="line">	<span class="comment">// whilst i wants to access critical section</span></div><div class="line">	<span class="comment">// and its i’s turn, apply busy waiting </span></div><div class="line">	</div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">false</span>;</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...);</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>s<br><a id="more"></a></p>
+<a id="more"></a>
 <ul>
 <li>Peterson’s solution satisfies all requirements for mutual exclusion</li>
 <li><strong>Mutual exclusion requirement</strong>: the variable turn can have <strong>at most one value at a time</strong><ul>
@@ -110,7 +110,6 @@
 &lt;li&gt;It is restricted[限制] to &lt;strong&gt;two processes&lt;/strong&gt; that execute in &lt;strong&gt;strict alternation&lt;/strong&gt;[严格的交替]&lt;figure class=&quot;highlight sqf&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;flag&lt;/span&gt;[j] = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// j wants to enter critical section turn = i; // allow i to access first&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (&lt;span class=&quot;built_in&quot;&gt;flag&lt;/span&gt;[i] &amp;amp;&amp;amp; turn == i);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;// whilst i wants to access critical section&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;// and its i’s turn, apply busy waiting &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;// CRITICAL SECTION&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;flag&lt;/span&gt;[j] = &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;// remainder section&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125; &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (...);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;s&lt;br&gt;
     
     </summary>
     

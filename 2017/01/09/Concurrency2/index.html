@@ -30,7 +30,7 @@ compare_and_swap()
 
 
 Higher level approaches include mutexes and semaphoresPet">
-<meta property="og:updated_time" content="2017-01-09T17:34:21.000Z">
+<meta property="og:updated_time" content="2017-01-09T18:43:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 OSC_Concurrency2">
 <meta name="twitter:description" content="Concurrency 2
@@ -231,7 +231,7 @@ Higher level approaches include mutexes and semaphoresPet">
 <li>It is restricted[限制] to <strong>two processes</strong> that execute in <strong>strict alternation</strong>[严格的交替]<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">true</span>; <span class="comment">// j wants to enter critical section turn = i; // allow i to access first</span></div><div class="line">	<span class="keyword">while</span> (<span class="built_in">flag</span>[i] &amp;&amp; turn == i);</div><div class="line">	<span class="comment">// whilst i wants to access critical section</span></div><div class="line">	<span class="comment">// and its i’s turn, apply busy waiting </span></div><div class="line">	</div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">false</span>;</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...);</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>s<br><a id="more"></a></p>
+<a id="more"></a>
 <ul>
 <li>Peterson’s solution satisfies all requirements for mutual exclusion</li>
 <li><strong>Mutual exclusion requirement</strong>: the variable turn can have <strong>at most one value at a time</strong><ul>
