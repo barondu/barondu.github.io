@@ -6,39 +6,37 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://barondu.com">
-  <title>笔记 OSC_Processes4 | Baron的博客</title>
+  <title>笔记 OSC_Processes3 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Processes 4
-Overview
-Multi-level feedback queues
-Scheduling in Window 7 + illustration Scheduling in 
-Linux (implementation in labs) Scheduling related processes/threads
-
-Multi-level Feedback Queues
-D">
+  <meta name="description" content="Processes 3
+Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
+ThreadsThreads from an OS Perspective[观点]
+A process consists of two fundamental units
+Resources:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Processes4">
-<meta property="og:url" content="http://barondu.com/2017/01/09/Processes4/index.html">
+<meta property="og:title" content="笔记 OSC_Processes3">
+<meta property="og:url" content="http://barondu.com/Processes3/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="Processes 4
-Overview
-Multi-level feedback queues
-Scheduling in Window 7 + illustration Scheduling in 
-Linux (implementation in labs) Scheduling related processes/threads
-
-Multi-level Feedback Queues
-D">
-<meta property="og:updated_time" content="2017-01-09T14:06:33.000Z">
+<meta property="og:description" content="Processes 3
+Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
+ThreadsThreads from an OS Perspective[观点]
+A process consists of two fundamental units
+Resources:">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg">
+<meta property="og:updated_time" content="2017-01-08T23:30:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Processes4">
-<meta name="twitter:description" content="Processes 4
-Overview
-Multi-level feedback queues
-Scheduling in Window 7 + illustration Scheduling in 
-Linux (implementation in labs) Scheduling related processes/threads
-
-Multi-level Feedback Queues
-D">
+<meta name="twitter:title" content="笔记 OSC_Processes3">
+<meta name="twitter:description" content="Processes 3
+Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
+ThreadsThreads from an OS Perspective[观点]
+A process consists of two fundamental units
+Resources:">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -190,160 +188,142 @@ D">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Processes4" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Processes3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Processes4
+      笔记 OSC_Processes3
     </h1>
   
 
         
-        <a href="/2017/01/09/Processes4/" class="archive-article-date">
-  	<time datetime="2017-01-09T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+        <a href="/Processes3/" class="archive-article-date">
+  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Processes-4"><a href="#Processes-4" class="headerlink" title="Processes 4"></a>Processes 4</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Multi-level feedback queues</li>
-<li>Scheduling in Window 7 + illustration Scheduling in </li>
-<li>Linux (implementation in labs) Scheduling related processes/threads</li>
-</ul>
-<h3 id="Multi-level-Feedback-Queues"><a href="#Multi-level-Feedback-Queues" class="headerlink" title="Multi-level Feedback Queues"></a>Multi-level Feedback Queues</h3><ul>
-<li>Different <strong>scheduling algorithms</strong> can be used for the <strong>individual queues</strong> (e.g., round robin, SJF, FCFS)</li>
-<li><p><strong>Feedback queues</strong> allow <strong>priorities to change dynamically</strong>[动态的], i.e., jobs can move between queues:</p>
-<ul>
-<li>Move to <strong>lower priority queue</strong> if too much CPU time is used (prioritise I/O and interactive processes)</li>
-<li>Move to <strong>higher priority queue</strong> to prevent <strong>starvation</strong> and avoid <strong>inversion[反转] of control</strong></li>
+        <h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
+<h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><h4 id="Threads-from-an-OS-Perspective-观点"><a href="#Threads-from-an-OS-Perspective-观点" class="headerlink" title="Threads from an OS Perspective[观点]"></a>Threads from an OS Perspective[观点]</h4><ul>
+<li>A process consists of two <strong>fundamental units</strong><ul>
+<li><strong>Resources:</strong> all related resources are grouped together<ul>
+<li>A logical address space containing the process image (program, data, heap, stack)</li>
+<li>Files, I/O devices, I/O channels, . . .</li>
 </ul>
 </li>
-<li><p>Defining characteristics of feedback queues include: </p>
-<ul>
-<li>The <strong>number of queues</strong></li>
-<li>The <strong>scheduling algorithms</strong> used for the individual queues </li>
-<li><strong>Migration policy</strong>[迁移政策] between queues</li>
-<li>Initial <strong>access</strong> to the queues<br>Feedback queues are highly <strong>configurable</strong>[可配置] and offer significant <strong>flexibility</strong>[灵活性，适应性]</li>
+<li><strong>Execution trace</strong>[执行追踪], i.e., an entity that gets executed</li>
 </ul>
 </li>
+<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg" alt=""></li>
 </ul>
 <a id="more"></a>
-<h4 id="Windows-7"><a href="#Windows-7" class="headerlink" title="Windows 7"></a>Windows 7</h4><ul>
-<li>An <strong>interactive system</strong>[交互系统] using a <strong>preemptive scheduler</strong> with <strong>dynamic priority levels</strong><ul>
-<li>Two priority classes with 16 different priority levels exist<ul>
-<li>“<strong>Real time</strong>” processes/threads have a <strong>fixed priority level</strong></li>
-<li>“<strong>Variable</strong>” processes/threads can have their priorities <strong>boosted temporarily</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>A <strong>round robin algorithm</strong> is used within the queues</p>
-</li>
-<li><p>Priorities are based on the <strong>process base priority</strong> (between 0-15) and <strong>thread base priority</strong> (±2 relative to the process priority)</p>
-</li>
-<li>A thread’s priority dynamically changes during execution between its base priority and the maximum priority within its class<ul>
-<li><strong>Interactive I/O bound processes</strong> (e.g. keyboard) receive a <strong>larger boost</strong> </li>
-<li>Boosting priorities prevents <strong>priority inversion</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="Scheduling-in-Linux"><a href="#Scheduling-in-Linux" class="headerlink" title="Scheduling in Linux"></a>Scheduling in Linux</h3><h4 id="The-Completely-Fair-Scheduler"><a href="#The-Completely-Fair-Scheduler" class="headerlink" title="The Completely Fair Scheduler"></a>The Completely Fair Scheduler</h4><ul>
-<li>Linux distinguishes[区分] between two types of tasks for scheduling:<ul>
-<li><strong>Real time tasks</strong> (to be POSIX compliant), divided into: <ul>
-<li>Real time FIFO tasks</li>
-<li>Real time Round Robin tasks</li>
-</ul>
-</li>
-<li><strong>Time sharing tasks</strong> using a <strong>preemptive</strong> approach (similar to <strong>variable</strong> in Windows)</li>
-</ul>
-</li>
-<li>The most recent scheduling algorithm in Linux for <strong>time sharing tasks</strong> is the “<strong>completely fair scheduler</strong>” </li>
-</ul>
-<p>Real-Time Tasks</p>
 <ul>
-<li><strong>Real time FIFO</strong> tasks have the <strong>highest priority</strong> and are scheduled using a <strong>FCFS approach</strong>, using <strong>preemption if a higher priority</strong> job shows up</li>
-<li><strong>Real time round robin tasks</strong> are preemptable by <strong>clock interrupts</strong> and have a time slice associated with them</li>
-<li>Both approaches <strong>cannot guarantee hard deadlines</strong></li>
+<li>Every thread has its own <strong>execution context</strong> (e.g. program counter, stack, registers)</li>
+<li>All threads have <strong>access</strong> to the process’ <strong>shared resources</strong><ul>
+<li>E.g. files, one thread opens a file, all threads of the same process can access the file</li>
+<li>Global variables, memory, etc. (⇒ synchronisation!)</li>
 </ul>
-<p>Time Sharing Tasks</p>
+</li>
+<li>Some CPUs (hyperthreaded ones) have direct <strong>hardware support</strong> for <strong>multi-threading</strong></li>
+<li>Similar to processes, threads have:<ul>
+<li><strong>States</strong> and <strong>transitions</strong> (new, running, blocked, ready, terminated) </li>
+<li>A <strong>thread control block</strong><br>Threads create/terminate/switch with <strong>less overhead</strong>  (address space remains the same for threads of the same process)</li>
+</ul>
+</li>
+<li><strong>Inter-thread</strong> communication is easier/faster than <strong>inter-process</strong> communication (threads share memory by default)</li>
+<li><strong>No protection boundaries</strong>[边界] are required in the address space (threads are cooperating, belong to the same user, and have a common goal)</li>
+<li><strong>Synchronisation</strong> has to be considered carefully!</li>
+</ul>
+<h4 id="Why-Use-Threads"><a href="#Why-Use-Threads" class="headerlink" title="Why Use Threads"></a>Why Use Threads</h4><ul>
+<li><strong>Multiple related activities</strong> apply to the <strong>same resources</strong>, these resources should be accessible/<strong>shared</strong></li>
+<li>Processes will often contain <strong>multiple blocking tasks</strong><ul>
+<li>I/O operations (thread blocks, interrupt marks completion)</li>
+<li>Memory access: pages faults are result in blocking</li>
+</ul>
+</li>
+<li>Such activities should be carried out in <strong>parallel/concurrently</strong></li>
+<li><strong>Application examples</strong>: webservers, make program, spreadsheets, word processors, processing large data volumes</li>
+</ul>
+<p>####OS Implementations of Threads</p>
 <ul>
-<li>The CFS <strong>divides the CPU time</strong> between all processes </li>
-<li>If all N processes have the <strong>same priority</strong>:<ul>
-<li>They will be allocated a “time slice” equal to 1/N times the available CPU time<ul>
-<li>I.e., if N equals 5, every process will receive 20% of the processor’s time</li>
+<li><strong>User</strong> threads</li>
+<li><strong>Kernel</strong> threads</li>
+<li><strong>Hybrid</strong>[混合] implementations</li>
 </ul>
-</li>
-</ul>
-</li>
-<li>The length of the <strong>time slice</strong> and the “available CPU time” are based on the <strong>targeted latency[延迟]</strong> (⇒ every process should <strong>run at least once</strong> during this interval)</li>
-<li>If N is <strong>very large</strong>, the <strong>context switch time will be dominant</strong>, hence a lower bound on the “time slice” is imposed by the minimum granularity[粒度]<ul>
-<li>A process’s time slice can be no <strong>less than</strong> the <strong>minimum granularity</strong> (response time will deteriorate[恶化])</li>
-</ul>
-</li>
-<li>A <strong>weighting scheme</strong> is used to take different priorities into account If process have <strong>different priorities:</strong><ul>
-<li>Every process <em>i</em> is allocated a <strong>weight</strong> <em>Wi</em> that reflects its priority</li>
-</ul>
-</li>
-<li>The tasks with the <strong>lowest amount</strong> of “<strong>used CPU time</strong>” are <strong>selected first</strong></li>
-</ul>
-<p>Shared Queues  </p>
+<h3 id="User-Threads"><a href="#User-Threads" class="headerlink" title="User Threads"></a>User Threads</h3><p>Many-to-One<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg" alt=""></p>
 <ul>
-<li>A single or multi-level queue <strong>shared</strong> between all CPUs </li>
-<li>Advantage: automatic <strong>load balancing</strong><br>Disadvantages:<ul>
-<li><strong>Contention</strong>[竞争] for the queues (locking is needed)</li>
-<li>“All CPUs are equal, but some are more equal than others” : does not account for <strong>processor affinity</strong>[紧密度]:<ul>
-<li><strong>Cache</strong> becomes invalid when moving to a different CPU</li>
-<li>Translation look aside buffers (TLBs - part of the MMU) become invalid</li>
+<li><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation[处理]) is carried out <strong>in user space</strong> with the help of a user library</li>
+<li>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong><ul>
+<li>Similar to <strong>process table</strong></li>
+<li>Used for <strong>thread switching</strong> </li>
+<li>Tracks thread related information</li>
 </ul>
 </li>
 </ul>
-</li>
-<li>Windows will allocate the <strong>highest priority threads</strong> to the individual CPUs/cores</li>
-</ul>
-<p>Private Queues</p>
+<p>Advantages:</p>
 <ul>
-<li>Each process/thread is assigned to a queue <strong>private</strong> to an individual CPU </li>
-<li>Advantages:<ul>
-<li><strong>CPU affinity</strong> is automatically satisfied </li>
-<li><strong>Contention</strong> for shared queue is minimised</li>
+<li>Threads are in user space (i.e., <strong>no mode switches</strong> required)</li>
+<li><strong>Full control</strong> over the thread scheduler</li>
+<li><strong>OS independent</strong>[独立不受约束] (threads can run on OS that do not support them)</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li><strong>Blocking system calls</strong> suspend[延缓] the entire process (user threads are mapped onto a single process, managed by the kernel)</li>
+<li><strong>No true parallelism</strong> (a process is scheduled on a single CPU)</li>
+<li><strong>Clock interrupts</strong> are non-existent (i.e. user threads are non-preemptive) </li>
+<li><strong>Page faults</strong>[错误] result in blocking the process</li>
+</ul>
+<h3 id="Kernel-Threads"><a href="#Kernel-Threads" class="headerlink" title="Kernel Threads"></a>Kernel Threads</h3><p>One-to-One<br><img src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg" alt=""></p>
+<ul>
+<li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities[工具] through <strong>API</strong> and <strong>system calls</strong><ul>
+<li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li>
+<li>If a <strong>thread blocks</strong>, the kernel chooses thread from same or different process (↔ user threads)</li>
 </ul>
 </li>
-<li>Disadvantages: less <strong>load balancing</strong></li>
-<li><strong>Push</strong> and <strong>pull migration</strong> between CPUs is possible</li>
+<li>Windows and Linux apply this approach</li>
 </ul>
-<h3 id="Related-vs-Unrelated-Threads"><a href="#Related-vs-Unrelated-Threads" class="headerlink" title="Related vs. Unrelated Threads"></a>Related vs. Unrelated Threads</h3><p><strong>Related: multiple threads</strong> that <strong>communicate</strong> with one another and <strong>ideally run</strong> together (e.g. search algorithm)</p>
-<p><strong>Unrelated</strong>: e.g. processes threads that are <strong>independent</strong>, possibly started by <strong>different users</strong> running <strong>different programs</strong></p>
-<p>####Related Threads</p>
+<p>Advantages:</p>
 <ul>
-<li>The aim is to get threads <strong>running</strong>, as much as possible, at the <strong>same</strong> time across <strong>multiple CPUs</strong></li>
-<li>Approaches include:<ul>
-<li><strong>Space</strong> sharing</li>
-<li><strong>Gang</strong> scheduling</li>
+<li>True parallelism can be achieved </li>
+<li>No run-time system needed</li>
 </ul>
-</li>
-</ul>
-<p>####Gang scheduling</p>
+<p>Disadvantage:</p>
 <ul>
-<li>Time slices are <strong>synchronised</strong>[同步的] and the scheduler <strong>groups threads</strong> together to run simultaneously (as much as possible)</li>
-<li>A <strong>preemptive</strong> algorithm</li>
-<li><strong>Blocking threads</strong> result in idle CPUs</li>
-</ul>
-<p>##Summary</p>
-<ul>
-<li>Scheduling on Windows and Linux</li>
-<li>Multi-processor/core scheduling is “a bit different” (load balancing, processor affinity, etc.)<ul>
-<li>Related and unrelated threads </li>
-<li>Shared or private queues</li>
-<li>Space scheduling or gang scheduling</li>
+<li>Frequent <strong>mode switches</strong> take place, resulting in lower performance <ul>
+<li>Frequent <strong>mode switches</strong> take place, resulting in <strong>lower performance</strong></li>
 </ul>
 </li>
 </ul>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg" alt=""></p>
+<h3 id="Hybrid-Implementations"><a href="#Hybrid-Implementations" class="headerlink" title="Hybrid Implementations"></a>Hybrid Implementations</h3><p>Many-to-Many<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg" alt=""></p>
+<ul>
+<li>User threads are <strong>multiplexed</strong> onto kernel threads</li>
+<li>Kernel sees and schedules the kernel threads (a limited number) </li>
+<li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li>
+</ul>
+<h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg" alt=""></p>
+<h3 id="Thread-Management"><a href="#Thread-Management" class="headerlink" title="Thread Management"></a>Thread Management</h3><ul>
+<li>Thread libraries provide an <strong>API/interface</strong> for managing threads (e.g. creating, running, destroying, synchronising, etc.)</li>
+<li>Thread libraries can be implemented:<ul>
+<li>Entirely in <strong>user spac</strong>e (i.e. user threads)</li>
+<li>Based on <strong>system calls</strong></li>
+</ul>
+</li>
+<li>Examples of thread APIs include <strong>POSIX’s PThreads</strong>, Windows Threads, and Java Threads</li>
+<li>The PThread specification can be implemented as user or kernel threads</li>
+<li>POSIX threads are a <strong>specification</strong> that “anyone” can implement, i.e., it defines a set of APIs (function calls, over 60 of them) and what they do</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ol>
+<li>Threads vs. processes</li>
+<li>Thread implementations (user, kernel and hybrid)</li>
+<li>PThreads</li>
+</ol>
 
       
 
@@ -447,7 +427,7 @@ D">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/2017/01/09/Processes4/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/Processes3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -461,18 +441,18 @@ D">
   
 <nav id="article-nav">
   
-    <a href="/2017/01/09/Concurrency1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Processes4/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          笔记 OSC_Concurrency1
+          笔记 OSC_Processes4
         
       </div>
     </a>
   
   
-    <a href="/2017/01/08/Processes3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">笔记 OSC_Processes3</div>
+    <a href="/Processes2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Processes2</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -486,7 +466,7 @@ D">
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Processes4" data-title="笔记 OSC_Processes4" data-url="http://barondu.com/2017/01/09/Processes4/"></div>
+	<div class="ds-thread" data-thread-key="Processes3" data-title="笔记 OSC_Processes3" data-url="http://barondu.com/Processes3/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
