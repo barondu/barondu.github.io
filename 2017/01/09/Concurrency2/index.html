@@ -6,14 +6,42 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://barondu.com">
-  <title>Tag: processes | Baron的博客</title>
+  <title>笔记 OSC_Concurrency2 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Baron的博客">
-<meta property="og:url" content="http://barondu.com/tags/processes/index.html">
+  <meta name="description" content="Concurrency 2
+Overview
+Software approaches: Peterson’s solution Hardware approaches:
+Disabling interrupts:
+test_and_set()
+compare_and_swap()
+
+
+Higher level approaches include mutexes and semaphoresPet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记 OSC_Concurrency2">
+<meta property="og:url" content="http://barondu.com/2017/01/09/Concurrency2/index.html">
 <meta property="og:site_name" content="Baron的博客">
+<meta property="og:description" content="Concurrency 2
+Overview
+Software approaches: Peterson’s solution Hardware approaches:
+Disabling interrupts:
+test_and_set()
+compare_and_swap()
+
+
+Higher level approaches include mutexes and semaphoresPet">
+<meta property="og:updated_time" content="2017-01-09T17:34:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Baron的博客">
+<meta name="twitter:title" content="笔记 OSC_Concurrency2">
+<meta name="twitter:description" content="Concurrency 2
+Overview
+Software approaches: Peterson’s solution Hardware approaches:
+Disabling interrupts:
+test_and_set()
+compare_and_swap()
+
+
+Higher level approaches include mutexes and semaphoresPet">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -165,36 +193,126 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Concurrency2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      笔记 OSC_Concurrency2
+    </h1>
+  
+
+        
+        <a href="/2017/01/09/Concurrency2/" class="archive-article-date">
+  	<time datetime="2017-01-09T17:33:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Concurrency-2"><a href="#Concurrency-2" class="headerlink" title="Concurrency 2"></a>Concurrency 2</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li><strong>Software approaches</strong>: Peterson’s solution Hardware approaches:</li>
+<li><strong>Disabling interrupts</strong>:<ul>
+<li><code>test_and_set()</code></li>
+<li><code>compare_and_swap()</code></li>
+</ul>
+</li>
+<li>Higher level approaches include <strong>mutexes</strong> and <strong>semaphores</strong><h3 id="Peterson’s-Solution"><a href="#Peterson’s-Solution" class="headerlink" title="Peterson’s Solution"></a>Peterson’s Solution</h3></li>
+<li>Peterson’s solution is a <strong>software based solution</strong> which worked well for <strong>older machines</strong></li>
+<li>Two <strong>shared variables</strong> are used:<ul>
+<li>turn: indicates <strong>which process is next</strong> to enter its critical section </li>
+<li>boolean flag[2]: indicates that a <strong>process is ready</strong> to enter its critical section</li>
+</ul>
+</li>
+<li>It is restricted[限制] to <strong>two processes</strong> that execute in <strong>strict alternation</strong>[严格的交替]<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">true</span>; <span class="comment">// j wants to enter critical section turn = i; // allow i to access first</span></div><div class="line">	<span class="keyword">while</span> (<span class="built_in">flag</span>[i] &amp;&amp; turn == i);</div><div class="line">	<span class="comment">// whilst i wants to access critical section</span></div><div class="line">	<span class="comment">// and its i’s turn, apply busy waiting </span></div><div class="line">	</div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">false</span>;</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>s<br><a id="more"></a></p>
+<ul>
+<li>Peterson’s solution satisfies all requirements for mutual exclusion</li>
+<li><strong>Mutual exclusion requirement</strong>: the variable turn can have <strong>at most one value at a time</strong><ul>
+<li>while(flag[i] &amp;&amp; turn == i)or while(flag[j] &amp;&amp; turn == j) is true and at most <strong>one process can enter its critical section</strong> (mutual exclusion)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Disabling-Interrupts"><a href="#Disabling-Interrupts" class="headerlink" title="Disabling Interrupts"></a>Disabling Interrupts</h3><ul>
+<li><p><strong>Disable interrupts</strong> whilst <strong>executing a critical section</strong> and prevent interruption (i.e., interrupts from timers, I/O devices, etc.)</p>
+<ul>
+<li>Think of the counter++ example <figure class="highlight plain"><figcaption><span>= counter;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">register = register + 1</div><div class="line">counter = register;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Disabling interrupts “may” be appropriate on <strong>a single CPU machine</strong> </p>
+</li>
+<li>This is <strong>inefficient on modern multi-core/multi processor machines</strong><ul>
+<li>Disabling interrupts on all cores/CPUs <strong>takes time</strong> and <strong>causes delays</strong> </li>
+<li><strong>CPU capacity[能力] is lost</strong> on other cores</li>
+</ul>
+</li>
+</ul>
+<h3 id="Atomic-Instructions"><a href="#Atomic-Instructions" class="headerlink" title="Atomic Instructions"></a>Atomic Instructions</h3><ul>
+<li>Implement <code>test_and_set()</code> and <code>swap_and_compare()</code> instructions as a <strong>set of atomic (UN-interruptible) instructions</strong><ul>
+<li>Reading and setting the variable(s) is done as one “complete” set of instructions</li>
+<li>If <code>test_and_set()</code> or <code>compare_and_swap()</code> are called simultaneously, they will be <strong>executed sequentially</strong></li>
+</ul>
+</li>
+<li>They are used in in combination with <strong>global lock variables</strong>, assumed to be true if the lock is <strong>in use</strong></li>
+</ul>
+<h4 id="test-and-set"><a href="#test-and-set" class="headerlink" title="test_and_set()"></a>test_and_set()</h4><blockquote>
+<p>Test and set must be <strong>atomic/UN-interruptable</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Test and set method</span></div><div class="line"><span class="function">boolean <span class="title">test_and_set</span>(<span class="params">boolean * <span class="keyword">lock</span></span>) </span>&#123; </div><div class="line">	boolean rv = *<span class="keyword">lock</span>;</div><div class="line">	*<span class="keyword">lock</span> = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">return</span> rv;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Example of using test and set method</span></div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="comment">// WHILE the lock is in use, apply busy waiting</span></div><div class="line">	<span class="keyword">while</span> (test_and_set(&amp;<span class="keyword">lock</span>)); </div><div class="line">	<span class="comment">// Lock was false, now true</span></div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	...</div><div class="line">	<span class="keyword">lock</span> = <span class="literal">false</span>;</div><div class="line">	...</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="compare-and-swap"><a href="#compare-and-swap" class="headerlink" title="compare_and_swap()"></a>compare_and_swap()</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Compare and swap method</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare_and_swap</span>(<span class="params"><span class="keyword">int</span> *<span class="keyword">lock</span>, <span class="keyword">int</span> expected, <span class="keyword">int</span> new_value</span>) </span>&#123; </div><div class="line">	<span class="keyword">int</span> temp = *<span class="keyword">lock</span>;</div><div class="line">	<span class="keyword">if</span>(*<span class="keyword">lock</span> == expected)</div><div class="line">	*<span class="keyword">lock</span> = new_value; <span class="keyword">return</span> temp;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Example using compare and swap method</span></div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="comment">// While the lock is in use (i.e. == 1), apply busy waiting</span></div><div class="line">	<span class="keyword">while</span> (compare_and_swap(&amp;<span class="keyword">lock</span>, <span class="number">0</span>, <span class="number">1</span>) != <span class="number">0</span>); </div><div class="line">	<span class="comment">// Lock was false, now true</span></div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	...</div><div class="line">	<span class="keyword">lock</span> = <span class="number">0</span>;</div><div class="line">	...</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...);</div></pre></td></tr></table></figure>
+<p>Disadvantages:</p>
+<ul>
+<li><code>test_and_set()</code>and <code>compare_and_swap()</code> are <strong>hardware instructions</strong> and (usually) <strong>not directly accessible</strong> to the user</li>
+<li><strong>Busy waiting</strong> is used </li>
+<li><strong>Starvation</strong> is possible </li>
+<li><strong>Deadlock</strong> is possible</li>
+</ul>
+<p>The <strong>OS uses the hardware instructions</strong> to implement <strong>higher level mechanisms/instructions</strong> for mutual exclusion, i.e. <strong>mutexes</strong> and <strong>semaphores</strong></p>
+<p>##Summary</p>
+<ul>
+<li>Peterson’s solution (software)</li>
+<li>Hardware instructions: interrupt disabling, (test_and_set, compare_and_swap)</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢投喂 (～o￣3￣)～<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbd03h4rvaj3074074wf2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/09/Processes4/" class="archive-article-date">
-  	<time datetime="2017-01-09T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/09/Processes4/">笔记 OSC_Processes4</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -208,163 +326,112 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/2017/01/09/Concurrency2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes3/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes3/">笔记 OSC_Processes3</a>
-    </h1>
+  
+    <a href="/2017/01/09/Concurrency1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Concurrency1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Concurrency2" data-title="笔记 OSC_Concurrency2" data-url="http://barondu.com/2017/01/09/Concurrency2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes2/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes2/">笔记 OSC_Processes2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/06/Processes1/" class="archive-article-date">
-  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/06/Processes1/">笔记 OSC_Processes1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -387,9 +454,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
