@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://barondu.com/2017/01/09/Concurrency1/</loc>
+    
+    <lastmod>2017-01-09T14:09:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://barondu.com/2017/01/09/Processes4/</loc>
+    
+    <lastmod>2017-01-09T14:06:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://barondu.com/2017/01/08/Processes3/</loc>
     
     <lastmod>2017-01-08T23:30:48.000Z</lastmod>

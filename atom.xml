@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://barondu.com/"/>
-  <updated>2017-01-08T23:30:48.000Z</updated>
+  <updated>2017-01-09T14:09:06.000Z</updated>
   <id>http://barondu.com/</id>
   
   <author>
@@ -14,6 +14,332 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>笔记 OSC_Concurrency1</title>
+    <link href="http://barondu.com/2017/01/09/Concurrency1/"/>
+    <id>http://barondu.com/2017/01/09/Concurrency1/</id>
+    <published>2017-01-09T14:09:27.000Z</published>
+    <updated>2017-01-09T14:09:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Concurrency-1"><a href="#Concurrency-1" class="headerlink" title="Concurrency 1"></a>Concurrency 1</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Examples of <strong>concurrency issues</strong> (e.g. counter++)</li>
+<li>Root causes of <strong>concurrency issues</strong></li>
+<li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
+<li><strong>Requirements and approaches</strong> for mutual exclusion</li>
+<li>###concurrency</li>
+<li>Threads and processes execute concurrently or in parallel and can share resources<ul>
+<li>Multiprogramming/multiprocessing <strong>improves system utilisation</strong></li>
+</ul>
+</li>
+<li>A process/thread can be <strong>interrupted at any point in time</strong> (I/O, timer)<ul>
+<li>The process “state” is <strong>saved</strong> in the p<strong>rocess control block</strong> </li>
+</ul>
+</li>
+<li>The outcome of programs may become <strong>unpredictable</strong>[不可预知的]<ul>
+<li>Sharing data can lead to <strong>inconsistencies</strong>[矛盾]</li>
+<li>I.e., the <strong>outcome of execution</strong> may <strong>depend on the order</strong> win which instructions are carried out</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="Incrementing-a-counter"><a href="#Incrementing-a-counter" class="headerlink" title="Incrementing a counter"></a>Incrementing a counter</h4><ul>
+<li><code>counter++</code> consists of three separate actions:<ul>
+<li>1 read the value of counter and <strong>store it in a register</strong></li>
+<li>2 add one to the value in the register</li>
+<li>3 store the value of the register <strong>in counter</strong></li>
+</ul>
+</li>
+<li>The above actions are <strong>NOT</strong> “atomic”, e.g. they can be interrupted by the timer (⇒ <strong>context switch</strong>)</li>
+</ul>
+<h4 id="Bounded-Buffers"><a href="#Bounded-Buffers" class="headerlink" title="Bounded Buffers"></a>Bounded Buffers</h4><ul>
+<li>Consider a <strong>bounded buffer</strong> in which N items can be stored</li>
+<li>A <strong>counter</strong> is maintained to count the number of items currently in the buffer<ul>
+<li><strong>Incremented</strong> when an item is <strong>added</strong> </li>
+<li><strong>Decremented</strong> when an item is <strong>removed</strong></li>
+</ul>
+</li>
+<li>Similar <strong>concurrency problems</strong> as with the calculation of sums happen in the bounded buffer (producer/consumer) problem</li>
+</ul>
+<h4 id="Race-Conditions"><a href="#Race-Conditions" class="headerlink" title="Race Conditions"></a>Race Conditions</h4><ul>
+<li>A <strong>race condition occurs</strong> when multiple threads/processes <strong>access shared data</strong> and the result is dependent on <strong>the order in which the instructions are interleaved</strong></li>
+</ul>
+<h3 id="Concurrency-within-the-OS"><a href="#Concurrency-within-the-OS" class="headerlink" title="Concurrency within the OS"></a>Concurrency within the OS</h3><p>Data Structures</p>
+<ul>
+<li><strong>Kernels are preemptive</strong> these days (⇔ non-preemptive) <ul>
+<li><strong>Multiple processes are running</strong> in the kernel</li>
+<li>I.e. kernel <strong>processes can be interrupted</strong> at any point</li>
+</ul>
+</li>
+<li>The kernel maintains <strong>data structures</strong>, e.g. process tables, memory structures, open file lists, etc.</li>
+<li>These data structures are accessed <strong>concurrently/in parallel</strong> </li>
+<li>These can be subject to <strong>concurrency issues</strong></li>
+</ul>
+<p>Resources</p>
+<ul>
+<li>Processes share resources, including memory, files, processor time, printers, I/O devices, etc.</li>
+<li>The operating system must:<ul>
+<li><strong>Allocate and deallocate</strong> these resources safely (i.e. avoid interference, deadlocks and starvation)</li>
+<li>Make sure that interactions within the OS d<strong>o not result in race conditions</strong></li>
+<li>The operating system must provide locking mechanisms to implement/support mutual exclusion (and prevent starvation and deadlocks)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Critical-Sections-临界段-Mutual-Exclusion-互斥"><a href="#Critical-Sections-临界段-Mutual-Exclusion-互斥" class="headerlink" title="Critical Sections[临界段], Mutual Exclusion[互斥]"></a>Critical Sections[临界段], Mutual Exclusion[互斥]</h3><ul>
+<li>A critical section is a set of instructions in which <strong>shared variables are changed</strong></li>
+<li><p><strong>Mutual exclusion</strong> must be enforced <strong>for critical sections</strong></p>
+<ul>
+<li>Only <strong>one process at a time</strong> should be in the critical section (mutual exclusion)</li>
+<li>Processes have to <strong>get “permission”</strong> before entering their critical section<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span></div><div class="line">&#123;</div><div class="line">	<span class="params">...</span></div><div class="line">	<span class="comment">// ENTRY to critical section</span></div><div class="line">	critical section, e.g.counter++;</div><div class="line">	<span class="comment">// EXIT critical section</span></div><div class="line">	remaining code</div><div class="line">	<span class="params">...</span></div><div class="line">&#125; <span class="keyword">while</span> (<span class="params">...</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Any solution to the critical section problem</strong> must satisfy the following <strong>requirements</strong>:</p>
+<ul>
+<li><strong>Mutual exclusion</strong>: only one process can be in its critical section at any one point in time</li>
+<li><strong>Progress</strong>: any process must be able to enter its critical section at some point in time</li>
+<li><strong>Fairness/bounded waiting</strong>: processes cannot be made to wait indefinitely</li>
+</ul>
+</li>
+<li>These requirements have to be satisfied, <strong>independent of the order</strong> in which sequences are executed</li>
+</ul>
+<h4 id="Enforcing-Mutual-Exclusion"><a href="#Enforcing-Mutual-Exclusion" class="headerlink" title="Enforcing Mutual Exclusion"></a>Enforcing Mutual Exclusion</h4><ul>
+<li><strong>Approaches</strong> for mutual exclusion can be:<ul>
+<li><strong>Software based:</strong> Peterson’s solution</li>
+<li><strong>Hardware based</strong>: <code>test_and_set(), swap_and_compare()</code></li>
+<li><strong>Based on</strong>:<ul>
+<li>Mutexes</li>
+<li>Semaphores</li>
+<li>Monitors (software construct within the programming languages)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In addition to mutual exclusion, <strong>deadlocks</strong> have to be prevented (next week’s subject)</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>Examples of <strong>concurrency issues</strong> (e.g. counter++)</li>
+<li>Root causes of <strong>concurrency issues</strong></li>
+<li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
+<li><strong>Requirements and approaches</strong> for mutual exclusion</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Concurrency-1&quot;&gt;&lt;a href=&quot;#Concurrency-1&quot; class=&quot;headerlink&quot; title=&quot;Concurrency 1&quot;&gt;&lt;/a&gt;Concurrency 1&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Examples of &lt;strong&gt;concurrency issues&lt;/strong&gt; (e.g. counter++)&lt;/li&gt;
+&lt;li&gt;Root causes of &lt;strong&gt;concurrency issues&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Critical sections&lt;/strong&gt; and &lt;strong&gt;mutual exclusion&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Requirements and approaches&lt;/strong&gt; for mutual exclusion&lt;/li&gt;
+&lt;li&gt;###concurrency&lt;/li&gt;
+&lt;li&gt;Threads and processes execute concurrently or in parallel and can share resources&lt;ul&gt;
+&lt;li&gt;Multiprogramming/multiprocessing &lt;strong&gt;improves system utilisation&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A process/thread can be &lt;strong&gt;interrupted at any point in time&lt;/strong&gt; (I/O, timer)&lt;ul&gt;
+&lt;li&gt;The process “state” is &lt;strong&gt;saved&lt;/strong&gt; in the p&lt;strong&gt;rocess control block&lt;/strong&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The outcome of programs may become &lt;strong&gt;unpredictable&lt;/strong&gt;[不可预知的]&lt;ul&gt;
+&lt;li&gt;Sharing data can lead to &lt;strong&gt;inconsistencies&lt;/strong&gt;[矛盾]&lt;/li&gt;
+&lt;li&gt;I.e., the &lt;strong&gt;outcome of execution&lt;/strong&gt; may &lt;strong&gt;depend on the order&lt;/strong&gt; win which instructions are carried out&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+    
+      <category term="concurrency" scheme="http://barondu.com/tags/concurrency/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>笔记 OSC_Processes4</title>
+    <link href="http://barondu.com/2017/01/09/Processes4/"/>
+    <id>http://barondu.com/2017/01/09/Processes4/</id>
+    <published>2017-01-09T14:05:27.000Z</published>
+    <updated>2017-01-09T14:06:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Processes-4"><a href="#Processes-4" class="headerlink" title="Processes 4"></a>Processes 4</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Multi-level feedback queues</li>
+<li>Scheduling in Window 7 + illustration Scheduling in </li>
+<li>Linux (implementation in labs) Scheduling related processes/threads</li>
+</ul>
+<h3 id="Multi-level-Feedback-Queues"><a href="#Multi-level-Feedback-Queues" class="headerlink" title="Multi-level Feedback Queues"></a>Multi-level Feedback Queues</h3><ul>
+<li>Different <strong>scheduling algorithms</strong> can be used for the <strong>individual queues</strong> (e.g., round robin, SJF, FCFS)</li>
+<li><p><strong>Feedback queues</strong> allow <strong>priorities to change dynamically</strong>[动态的], i.e., jobs can move between queues:</p>
+<ul>
+<li>Move to <strong>lower priority queue</strong> if too much CPU time is used (prioritise I/O and interactive processes)</li>
+<li>Move to <strong>higher priority queue</strong> to prevent <strong>starvation</strong> and avoid <strong>inversion[反转] of control</strong></li>
+</ul>
+</li>
+<li><p>Defining characteristics of feedback queues include: </p>
+<ul>
+<li>The <strong>number of queues</strong></li>
+<li>The <strong>scheduling algorithms</strong> used for the individual queues </li>
+<li><strong>Migration policy</strong>[迁移政策] between queues</li>
+<li>Initial <strong>access</strong> to the queues<br>Feedback queues are highly <strong>configurable</strong>[可配置] and offer significant <strong>flexibility</strong>[灵活性，适应性]</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="Windows-7"><a href="#Windows-7" class="headerlink" title="Windows 7"></a>Windows 7</h4><ul>
+<li>An <strong>interactive system</strong>[交互系统] using a <strong>preemptive scheduler</strong> with <strong>dynamic priority levels</strong><ul>
+<li>Two priority classes with 16 different priority levels exist<ul>
+<li>“<strong>Real time</strong>” processes/threads have a <strong>fixed priority level</strong></li>
+<li>“<strong>Variable</strong>” processes/threads can have their priorities <strong>boosted temporarily</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>A <strong>round robin algorithm</strong> is used within the queues</p>
+</li>
+<li><p>Priorities are based on the <strong>process base priority</strong> (between 0-15) and <strong>thread base priority</strong> (±2 relative to the process priority)</p>
+</li>
+<li>A thread’s priority dynamically changes during execution between its base priority and the maximum priority within its class<ul>
+<li><strong>Interactive I/O bound processes</strong> (e.g. keyboard) receive a <strong>larger boost</strong> </li>
+<li>Boosting priorities prevents <strong>priority inversion</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Scheduling-in-Linux"><a href="#Scheduling-in-Linux" class="headerlink" title="Scheduling in Linux"></a>Scheduling in Linux</h3><h4 id="The-Completely-Fair-Scheduler"><a href="#The-Completely-Fair-Scheduler" class="headerlink" title="The Completely Fair Scheduler"></a>The Completely Fair Scheduler</h4><ul>
+<li>Linux distinguishes[区分] between two types of tasks for scheduling:<ul>
+<li><strong>Real time tasks</strong> (to be POSIX compliant), divided into: <ul>
+<li>Real time FIFO tasks</li>
+<li>Real time Round Robin tasks</li>
+</ul>
+</li>
+<li><strong>Time sharing tasks</strong> using a <strong>preemptive</strong> approach (similar to <strong>variable</strong> in Windows)</li>
+</ul>
+</li>
+<li>The most recent scheduling algorithm in Linux for <strong>time sharing tasks</strong> is the “<strong>completely fair scheduler</strong>” </li>
+</ul>
+<p>Real-Time Tasks</p>
+<ul>
+<li><strong>Real time FIFO</strong> tasks have the <strong>highest priority</strong> and are scheduled using a <strong>FCFS approach</strong>, using <strong>preemption if a higher priority</strong> job shows up</li>
+<li><strong>Real time round robin tasks</strong> are preemptable by <strong>clock interrupts</strong> and have a time slice associated with them</li>
+<li>Both approaches <strong>cannot guarantee hard deadlines</strong></li>
+</ul>
+<p>Time Sharing Tasks</p>
+<ul>
+<li>The CFS <strong>divides the CPU time</strong> between all processes </li>
+<li>If all N processes have the <strong>same priority</strong>:<ul>
+<li>They will be allocated a “time slice” equal to 1/N times the available CPU time<ul>
+<li>I.e., if N equals 5, every process will receive 20% of the processor’s time</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The length of the <strong>time slice</strong> and the “available CPU time” are based on the <strong>targeted latency[延迟]</strong> (⇒ every process should <strong>run at least once</strong> during this interval)</li>
+<li>If N is <strong>very large</strong>, the <strong>context switch time will be dominant</strong>, hence a lower bound on the “time slice” is imposed by the minimum granularity[粒度]<ul>
+<li>A process’s time slice can be no <strong>less than</strong> the <strong>minimum granularity</strong> (response time will deteriorate[恶化])</li>
+</ul>
+</li>
+<li>A <strong>weighting scheme</strong> is used to take different priorities into account If process have <strong>different priorities:</strong><ul>
+<li>Every process <em>i</em> is allocated a <strong>weight</strong> <em>Wi</em> that reflects its priority</li>
+</ul>
+</li>
+<li>The tasks with the <strong>lowest amount</strong> of “<strong>used CPU time</strong>” are <strong>selected first</strong></li>
+</ul>
+<p>Shared Queues  </p>
+<ul>
+<li>A single or multi-level queue <strong>shared</strong> between all CPUs </li>
+<li>Advantage: automatic <strong>load balancing</strong><br>Disadvantages:<ul>
+<li><strong>Contention</strong>[竞争] for the queues (locking is needed)</li>
+<li>“All CPUs are equal, but some are more equal than others” : does not account for <strong>processor affinity</strong>[紧密度]:<ul>
+<li><strong>Cache</strong> becomes invalid when moving to a different CPU</li>
+<li>Translation look aside buffers (TLBs - part of the MMU) become invalid</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Windows will allocate the <strong>highest priority threads</strong> to the individual CPUs/cores</li>
+</ul>
+<p>Private Queues</p>
+<ul>
+<li>Each process/thread is assigned to a queue <strong>private</strong> to an individual CPU </li>
+<li>Advantages:<ul>
+<li><strong>CPU affinity</strong> is automatically satisfied </li>
+<li><strong>Contention</strong> for shared queue is minimised</li>
+</ul>
+</li>
+<li>Disadvantages: less <strong>load balancing</strong></li>
+<li><strong>Push</strong> and <strong>pull migration</strong> between CPUs is possible</li>
+</ul>
+<h3 id="Related-vs-Unrelated-Threads"><a href="#Related-vs-Unrelated-Threads" class="headerlink" title="Related vs. Unrelated Threads"></a>Related vs. Unrelated Threads</h3><p><strong>Related: multiple threads</strong> that <strong>communicate</strong> with one another and <strong>ideally run</strong> together (e.g. search algorithm)</p>
+<p><strong>Unrelated</strong>: e.g. processes threads that are <strong>independent</strong>, possibly started by <strong>different users</strong> running <strong>different programs</strong></p>
+<p>####Related Threads</p>
+<ul>
+<li>The aim is to get threads <strong>running</strong>, as much as possible, at the <strong>same</strong> time across <strong>multiple CPUs</strong></li>
+<li>Approaches include:<ul>
+<li><strong>Space</strong> sharing</li>
+<li><strong>Gang</strong> scheduling</li>
+</ul>
+</li>
+</ul>
+<p>####Gang scheduling</p>
+<ul>
+<li>Time slices are <strong>synchronised</strong>[同步的] and the scheduler <strong>groups threads</strong> together to run simultaneously (as much as possible)</li>
+<li>A <strong>preemptive</strong> algorithm</li>
+<li><strong>Blocking threads</strong> result in idle CPUs</li>
+</ul>
+<p>##Summary</p>
+<ul>
+<li>Scheduling on Windows and Linux</li>
+<li>Multi-processor/core scheduling is “a bit different” (load balancing, processor affinity, etc.)<ul>
+<li>Related and unrelated threads </li>
+<li>Shared or private queues</li>
+<li>Space scheduling or gang scheduling</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Processes-4&quot;&gt;&lt;a href=&quot;#Processes-4&quot; class=&quot;headerlink&quot; title=&quot;Processes 4&quot;&gt;&lt;/a&gt;Processes 4&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Multi-level feedback queues&lt;/li&gt;
+&lt;li&gt;Scheduling in Window 7 + illustration Scheduling in &lt;/li&gt;
+&lt;li&gt;Linux (implementation in labs) Scheduling related processes/threads&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Multi-level-Feedback-Queues&quot;&gt;&lt;a href=&quot;#Multi-level-Feedback-Queues&quot; class=&quot;headerlink&quot; title=&quot;Multi-level Feedback Queues&quot;&gt;&lt;/a&gt;Multi-level Feedback Queues&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Different &lt;strong&gt;scheduling algorithms&lt;/strong&gt; can be used for the &lt;strong&gt;individual queues&lt;/strong&gt; (e.g., round robin, SJF, FCFS)&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Feedback queues&lt;/strong&gt; allow &lt;strong&gt;priorities to change dynamically&lt;/strong&gt;[动态的], i.e., jobs can move between queues:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Move to &lt;strong&gt;lower priority queue&lt;/strong&gt; if too much CPU time is used (prioritise I/O and interactive processes)&lt;/li&gt;
+&lt;li&gt;Move to &lt;strong&gt;higher priority queue&lt;/strong&gt; to prevent &lt;strong&gt;starvation&lt;/strong&gt; and avoid &lt;strong&gt;inversion[反转] of control&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Defining characteristics of feedback queues include: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;number of queues&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;scheduling algorithms&lt;/strong&gt; used for the individual queues &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Migration policy&lt;/strong&gt;[迁移政策] between queues&lt;/li&gt;
+&lt;li&gt;Initial &lt;strong&gt;access&lt;/strong&gt; to the queues&lt;br&gt;Feedback queues are highly &lt;strong&gt;configurable&lt;/strong&gt;[可配置] and offer significant &lt;strong&gt;flexibility&lt;/strong&gt;[灵活性，适应性]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+    
+      <category term="processes" scheme="http://barondu.com/tags/processes/"/>
+    
+  </entry>
   
   <entry>
     <title>笔记 OSC_Processes3</title>

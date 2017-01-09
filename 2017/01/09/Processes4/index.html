@@ -6,14 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://barondu.com">
-  <title>Archives: 2017 | Baron的博客</title>
+  <title>笔记 OSC_Processes4 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Baron的博客">
-<meta property="og:url" content="http://barondu.com/archives/2017/index.html">
+  <meta name="description" content="Processes 4
+Overview
+Multi-level feedback queues
+Scheduling in Window 7 + illustration Scheduling in 
+Linux (implementation in labs) Scheduling related processes/threads
+
+Multi-level Feedback Queues
+D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记 OSC_Processes4">
+<meta property="og:url" content="http://barondu.com/2017/01/09/Processes4/index.html">
 <meta property="og:site_name" content="Baron的博客">
+<meta property="og:description" content="Processes 4
+Overview
+Multi-level feedback queues
+Scheduling in Window 7 + illustration Scheduling in 
+Linux (implementation in labs) Scheduling related processes/threads
+
+Multi-level Feedback Queues
+D">
+<meta property="og:updated_time" content="2017-01-09T14:06:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Baron的博客">
+<meta name="twitter:title" content="笔记 OSC_Processes4">
+<meta name="twitter:description" content="Processes 4
+Overview
+Multi-level feedback queues
+Scheduling in Window 7 + illustration Scheduling in 
+Linux (implementation in labs) Scheduling related processes/threads
+
+Multi-level Feedback Queues
+D">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -165,82 +190,194 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Processes4" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/09/Concurrency1/" class="archive-article-date">
-  	<time datetime="2017-01-09T14:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/09/Concurrency1/">笔记 OSC_Concurrency1</a>
+    <h1 class="article-title" itemprop="name">
+      笔记 OSC_Processes4
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/09/Processes4/" class="archive-article-date">
+        
+        <a href="/2017/01/09/Processes4/" class="archive-article-date">
   	<time datetime="2017-01-09T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/09/Processes4/">笔记 OSC_Processes4</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Processes-4"><a href="#Processes-4" class="headerlink" title="Processes 4"></a>Processes 4</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Multi-level feedback queues</li>
+<li>Scheduling in Window 7 + illustration Scheduling in </li>
+<li>Linux (implementation in labs) Scheduling related processes/threads</li>
+</ul>
+<h3 id="Multi-level-Feedback-Queues"><a href="#Multi-level-Feedback-Queues" class="headerlink" title="Multi-level Feedback Queues"></a>Multi-level Feedback Queues</h3><ul>
+<li>Different <strong>scheduling algorithms</strong> can be used for the <strong>individual queues</strong> (e.g., round robin, SJF, FCFS)</li>
+<li><p><strong>Feedback queues</strong> allow <strong>priorities to change dynamically</strong>[动态的], i.e., jobs can move between queues:</p>
+<ul>
+<li>Move to <strong>lower priority queue</strong> if too much CPU time is used (prioritise I/O and interactive processes)</li>
+<li>Move to <strong>higher priority queue</strong> to prevent <strong>starvation</strong> and avoid <strong>inversion[反转] of control</strong></li>
+</ul>
+</li>
+<li><p>Defining characteristics of feedback queues include: </p>
+<ul>
+<li>The <strong>number of queues</strong></li>
+<li>The <strong>scheduling algorithms</strong> used for the individual queues </li>
+<li><strong>Migration policy</strong>[迁移政策] between queues</li>
+<li>Initial <strong>access</strong> to the queues<br>Feedback queues are highly <strong>configurable</strong>[可配置] and offer significant <strong>flexibility</strong>[灵活性，适应性]</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="Windows-7"><a href="#Windows-7" class="headerlink" title="Windows 7"></a>Windows 7</h4><ul>
+<li>An <strong>interactive system</strong>[交互系统] using a <strong>preemptive scheduler</strong> with <strong>dynamic priority levels</strong><ul>
+<li>Two priority classes with 16 different priority levels exist<ul>
+<li>“<strong>Real time</strong>” processes/threads have a <strong>fixed priority level</strong></li>
+<li>“<strong>Variable</strong>” processes/threads can have their priorities <strong>boosted temporarily</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>A <strong>round robin algorithm</strong> is used within the queues</p>
+</li>
+<li><p>Priorities are based on the <strong>process base priority</strong> (between 0-15) and <strong>thread base priority</strong> (±2 relative to the process priority)</p>
+</li>
+<li>A thread’s priority dynamically changes during execution between its base priority and the maximum priority within its class<ul>
+<li><strong>Interactive I/O bound processes</strong> (e.g. keyboard) receive a <strong>larger boost</strong> </li>
+<li>Boosting priorities prevents <strong>priority inversion</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="Scheduling-in-Linux"><a href="#Scheduling-in-Linux" class="headerlink" title="Scheduling in Linux"></a>Scheduling in Linux</h3><h4 id="The-Completely-Fair-Scheduler"><a href="#The-Completely-Fair-Scheduler" class="headerlink" title="The Completely Fair Scheduler"></a>The Completely Fair Scheduler</h4><ul>
+<li>Linux distinguishes[区分] between two types of tasks for scheduling:<ul>
+<li><strong>Real time tasks</strong> (to be POSIX compliant), divided into: <ul>
+<li>Real time FIFO tasks</li>
+<li>Real time Round Robin tasks</li>
+</ul>
+</li>
+<li><strong>Time sharing tasks</strong> using a <strong>preemptive</strong> approach (similar to <strong>variable</strong> in Windows)</li>
+</ul>
+</li>
+<li>The most recent scheduling algorithm in Linux for <strong>time sharing tasks</strong> is the “<strong>completely fair scheduler</strong>” </li>
+</ul>
+<p>Real-Time Tasks</p>
+<ul>
+<li><strong>Real time FIFO</strong> tasks have the <strong>highest priority</strong> and are scheduled using a <strong>FCFS approach</strong>, using <strong>preemption if a higher priority</strong> job shows up</li>
+<li><strong>Real time round robin tasks</strong> are preemptable by <strong>clock interrupts</strong> and have a time slice associated with them</li>
+<li>Both approaches <strong>cannot guarantee hard deadlines</strong></li>
+</ul>
+<p>Time Sharing Tasks</p>
+<ul>
+<li>The CFS <strong>divides the CPU time</strong> between all processes </li>
+<li>If all N processes have the <strong>same priority</strong>:<ul>
+<li>They will be allocated a “time slice” equal to 1/N times the available CPU time<ul>
+<li>I.e., if N equals 5, every process will receive 20% of the processor’s time</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The length of the <strong>time slice</strong> and the “available CPU time” are based on the <strong>targeted latency[延迟]</strong> (⇒ every process should <strong>run at least once</strong> during this interval)</li>
+<li>If N is <strong>very large</strong>, the <strong>context switch time will be dominant</strong>, hence a lower bound on the “time slice” is imposed by the minimum granularity[粒度]<ul>
+<li>A process’s time slice can be no <strong>less than</strong> the <strong>minimum granularity</strong> (response time will deteriorate[恶化])</li>
+</ul>
+</li>
+<li>A <strong>weighting scheme</strong> is used to take different priorities into account If process have <strong>different priorities:</strong><ul>
+<li>Every process <em>i</em> is allocated a <strong>weight</strong> <em>Wi</em> that reflects its priority</li>
+</ul>
+</li>
+<li>The tasks with the <strong>lowest amount</strong> of “<strong>used CPU time</strong>” are <strong>selected first</strong></li>
+</ul>
+<p>Shared Queues  </p>
+<ul>
+<li>A single or multi-level queue <strong>shared</strong> between all CPUs </li>
+<li>Advantage: automatic <strong>load balancing</strong><br>Disadvantages:<ul>
+<li><strong>Contention</strong>[竞争] for the queues (locking is needed)</li>
+<li>“All CPUs are equal, but some are more equal than others” : does not account for <strong>processor affinity</strong>[紧密度]:<ul>
+<li><strong>Cache</strong> becomes invalid when moving to a different CPU</li>
+<li>Translation look aside buffers (TLBs - part of the MMU) become invalid</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Windows will allocate the <strong>highest priority threads</strong> to the individual CPUs/cores</li>
+</ul>
+<p>Private Queues</p>
+<ul>
+<li>Each process/thread is assigned to a queue <strong>private</strong> to an individual CPU </li>
+<li>Advantages:<ul>
+<li><strong>CPU affinity</strong> is automatically satisfied </li>
+<li><strong>Contention</strong> for shared queue is minimised</li>
+</ul>
+</li>
+<li>Disadvantages: less <strong>load balancing</strong></li>
+<li><strong>Push</strong> and <strong>pull migration</strong> between CPUs is possible</li>
+</ul>
+<h3 id="Related-vs-Unrelated-Threads"><a href="#Related-vs-Unrelated-Threads" class="headerlink" title="Related vs. Unrelated Threads"></a>Related vs. Unrelated Threads</h3><p><strong>Related: multiple threads</strong> that <strong>communicate</strong> with one another and <strong>ideally run</strong> together (e.g. search algorithm)</p>
+<p><strong>Unrelated</strong>: e.g. processes threads that are <strong>independent</strong>, possibly started by <strong>different users</strong> running <strong>different programs</strong></p>
+<p>####Related Threads</p>
+<ul>
+<li>The aim is to get threads <strong>running</strong>, as much as possible, at the <strong>same</strong> time across <strong>multiple CPUs</strong></li>
+<li>Approaches include:<ul>
+<li><strong>Space</strong> sharing</li>
+<li><strong>Gang</strong> scheduling</li>
+</ul>
+</li>
+</ul>
+<p>####Gang scheduling</p>
+<ul>
+<li>Time slices are <strong>synchronised</strong>[同步的] and the scheduler <strong>groups threads</strong> together to run simultaneously (as much as possible)</li>
+<li>A <strong>preemptive</strong> algorithm</li>
+<li><strong>Blocking threads</strong> result in idle CPUs</li>
+</ul>
+<p>##Summary</p>
+<ul>
+<li>Scheduling on Windows and Linux</li>
+<li>Multi-processor/core scheduling is “a bit different” (load balancing, processor affinity, etc.)<ul>
+<li>Related and unrelated threads </li>
+<li>Shared or private queues</li>
+<li>Space scheduling or gang scheduling</li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢投喂 (～o￣3￣)～<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbd03h4rvaj3074074wf2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -260,249 +397,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/2017/01/09/Processes4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes3/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes3/">笔记 OSC_Processes3</a>
-    </h1>
+    <a href="/2017/01/09/Concurrency1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          笔记 OSC_Concurrency1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/08/Processes3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Processes3</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Processes4" data-title="笔记 OSC_Processes4" data-url="http://barondu.com/2017/01/09/Processes4/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes2/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes2/">笔记 OSC_Processes2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/06/Processes1/" class="archive-article-date">
-  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/06/Processes1/">笔记 OSC_Processes1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/03/Introduction2/" class="archive-article-date">
-  	<time datetime="2017-01-03T23:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/03/Introduction2/">笔记 OSC_Introduction2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/01/Introduction1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/01/Introduction1/">笔记 OSC_Introduction1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -525,8 +528,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

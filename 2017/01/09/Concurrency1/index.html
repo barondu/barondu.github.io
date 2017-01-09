@@ -6,14 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://barondu.com">
-  <title>Archives: 2017 | Baron的博客</title>
+  <title>笔记 OSC_Concurrency1 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Baron的博客">
-<meta property="og:url" content="http://barondu.com/archives/2017/index.html">
+  <meta name="description" content="Concurrency 1
+Overview
+Examples of concurrency issues (e.g. counter++)
+Root causes of concurrency issues
+Critical sections and mutual exclusion 
+Requirements and approaches for mutual exclusion
+###con">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记 OSC_Concurrency1">
+<meta property="og:url" content="http://barondu.com/2017/01/09/Concurrency1/index.html">
 <meta property="og:site_name" content="Baron的博客">
+<meta property="og:description" content="Concurrency 1
+Overview
+Examples of concurrency issues (e.g. counter++)
+Root causes of concurrency issues
+Critical sections and mutual exclusion 
+Requirements and approaches for mutual exclusion
+###con">
+<meta property="og:updated_time" content="2017-01-09T14:09:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Baron的博客">
+<meta name="twitter:title" content="笔记 OSC_Concurrency1">
+<meta name="twitter:description" content="Concurrency 1
+Overview
+Examples of concurrency issues (e.g. counter++)
+Root causes of concurrency issues
+Critical sections and mutual exclusion 
+Requirements and approaches for mutual exclusion
+###con">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -165,36 +187,162 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Concurrency1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/09/Concurrency1/" class="archive-article-date">
-  	<time datetime="2017-01-09T14:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/09/Concurrency1/">笔记 OSC_Concurrency1</a>
+    <h1 class="article-title" itemprop="name">
+      笔记 OSC_Concurrency1
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/01/09/Concurrency1/" class="archive-article-date">
+  	<time datetime="2017-01-09T14:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Concurrency-1"><a href="#Concurrency-1" class="headerlink" title="Concurrency 1"></a>Concurrency 1</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Examples of <strong>concurrency issues</strong> (e.g. counter++)</li>
+<li>Root causes of <strong>concurrency issues</strong></li>
+<li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
+<li><strong>Requirements and approaches</strong> for mutual exclusion</li>
+<li>###concurrency</li>
+<li>Threads and processes execute concurrently or in parallel and can share resources<ul>
+<li>Multiprogramming/multiprocessing <strong>improves system utilisation</strong></li>
+</ul>
+</li>
+<li>A process/thread can be <strong>interrupted at any point in time</strong> (I/O, timer)<ul>
+<li>The process “state” is <strong>saved</strong> in the p<strong>rocess control block</strong> </li>
+</ul>
+</li>
+<li>The outcome of programs may become <strong>unpredictable</strong>[不可预知的]<ul>
+<li>Sharing data can lead to <strong>inconsistencies</strong>[矛盾]</li>
+<li>I.e., the <strong>outcome of execution</strong> may <strong>depend on the order</strong> win which instructions are carried out</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="Incrementing-a-counter"><a href="#Incrementing-a-counter" class="headerlink" title="Incrementing a counter"></a>Incrementing a counter</h4><ul>
+<li><code>counter++</code> consists of three separate actions:<ul>
+<li>1 read the value of counter and <strong>store it in a register</strong></li>
+<li>2 add one to the value in the register</li>
+<li>3 store the value of the register <strong>in counter</strong></li>
+</ul>
+</li>
+<li>The above actions are <strong>NOT</strong> “atomic”, e.g. they can be interrupted by the timer (⇒ <strong>context switch</strong>)</li>
+</ul>
+<h4 id="Bounded-Buffers"><a href="#Bounded-Buffers" class="headerlink" title="Bounded Buffers"></a>Bounded Buffers</h4><ul>
+<li>Consider a <strong>bounded buffer</strong> in which N items can be stored</li>
+<li>A <strong>counter</strong> is maintained to count the number of items currently in the buffer<ul>
+<li><strong>Incremented</strong> when an item is <strong>added</strong> </li>
+<li><strong>Decremented</strong> when an item is <strong>removed</strong></li>
+</ul>
+</li>
+<li>Similar <strong>concurrency problems</strong> as with the calculation of sums happen in the bounded buffer (producer/consumer) problem</li>
+</ul>
+<h4 id="Race-Conditions"><a href="#Race-Conditions" class="headerlink" title="Race Conditions"></a>Race Conditions</h4><ul>
+<li>A <strong>race condition occurs</strong> when multiple threads/processes <strong>access shared data</strong> and the result is dependent on <strong>the order in which the instructions are interleaved</strong></li>
+</ul>
+<h3 id="Concurrency-within-the-OS"><a href="#Concurrency-within-the-OS" class="headerlink" title="Concurrency within the OS"></a>Concurrency within the OS</h3><p>Data Structures</p>
+<ul>
+<li><strong>Kernels are preemptive</strong> these days (⇔ non-preemptive) <ul>
+<li><strong>Multiple processes are running</strong> in the kernel</li>
+<li>I.e. kernel <strong>processes can be interrupted</strong> at any point</li>
+</ul>
+</li>
+<li>The kernel maintains <strong>data structures</strong>, e.g. process tables, memory structures, open file lists, etc.</li>
+<li>These data structures are accessed <strong>concurrently/in parallel</strong> </li>
+<li>These can be subject to <strong>concurrency issues</strong></li>
+</ul>
+<p>Resources</p>
+<ul>
+<li>Processes share resources, including memory, files, processor time, printers, I/O devices, etc.</li>
+<li>The operating system must:<ul>
+<li><strong>Allocate and deallocate</strong> these resources safely (i.e. avoid interference, deadlocks and starvation)</li>
+<li>Make sure that interactions within the OS d<strong>o not result in race conditions</strong></li>
+<li>The operating system must provide locking mechanisms to implement/support mutual exclusion (and prevent starvation and deadlocks)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Critical-Sections-临界段-Mutual-Exclusion-互斥"><a href="#Critical-Sections-临界段-Mutual-Exclusion-互斥" class="headerlink" title="Critical Sections[临界段], Mutual Exclusion[互斥]"></a>Critical Sections[临界段], Mutual Exclusion[互斥]</h3><ul>
+<li>A critical section is a set of instructions in which <strong>shared variables are changed</strong></li>
+<li><p><strong>Mutual exclusion</strong> must be enforced <strong>for critical sections</strong></p>
+<ul>
+<li>Only <strong>one process at a time</strong> should be in the critical section (mutual exclusion)</li>
+<li>Processes have to <strong>get “permission”</strong> before entering their critical section<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span></div><div class="line">&#123;</div><div class="line">	<span class="params">...</span></div><div class="line">	<span class="comment">// ENTRY to critical section</span></div><div class="line">	critical section, e.g.counter++;</div><div class="line">	<span class="comment">// EXIT critical section</span></div><div class="line">	remaining code</div><div class="line">	<span class="params">...</span></div><div class="line">&#125; <span class="keyword">while</span> (<span class="params">...</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Any solution to the critical section problem</strong> must satisfy the following <strong>requirements</strong>:</p>
+<ul>
+<li><strong>Mutual exclusion</strong>: only one process can be in its critical section at any one point in time</li>
+<li><strong>Progress</strong>: any process must be able to enter its critical section at some point in time</li>
+<li><strong>Fairness/bounded waiting</strong>: processes cannot be made to wait indefinitely</li>
+</ul>
+</li>
+<li>These requirements have to be satisfied, <strong>independent of the order</strong> in which sequences are executed</li>
+</ul>
+<h4 id="Enforcing-Mutual-Exclusion"><a href="#Enforcing-Mutual-Exclusion" class="headerlink" title="Enforcing Mutual Exclusion"></a>Enforcing Mutual Exclusion</h4><ul>
+<li><strong>Approaches</strong> for mutual exclusion can be:<ul>
+<li><strong>Software based:</strong> Peterson’s solution</li>
+<li><strong>Hardware based</strong>: <code>test_and_set(), swap_and_compare()</code></li>
+<li><strong>Based on</strong>:<ul>
+<li>Mutexes</li>
+<li>Semaphores</li>
+<li>Monitors (software construct within the programming languages)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In addition to mutual exclusion, <strong>deadlocks</strong> have to be prevented (next week’s subject)</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>Examples of <strong>concurrency issues</strong> (e.g. counter++)</li>
+<li>Root causes of <strong>concurrency issues</strong></li>
+<li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
+<li><strong>Requirements and approaches</strong> for mutual exclusion</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢投喂 (～o￣3￣)～<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbd03h4rvaj3074074wf2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,295 +362,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/2017/01/09/Concurrency1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/09/Processes4/" class="archive-article-date">
-  	<time datetime="2017-01-09T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/09/Processes4/">笔记 OSC_Processes4</a>
-    </h1>
+  
+    <a href="/2017/01/09/Processes4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Processes4</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Concurrency1" data-title="笔记 OSC_Concurrency1" data-url="http://barondu.com/2017/01/09/Concurrency1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes3/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes3/">笔记 OSC_Processes3</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/08/Processes2/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/08/Processes2/">笔记 OSC_Processes2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/06/Processes1/" class="archive-article-date">
-  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/06/Processes1/">笔记 OSC_Processes1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/03/Introduction2/" class="archive-article-date">
-  	<time datetime="2017-01-03T23:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/03/Introduction2/">笔记 OSC_Introduction2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/01/Introduction1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/01/Introduction1/">笔记 OSC_Introduction1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -525,8 +484,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

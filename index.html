@@ -167,6 +167,192 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Concurrency1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/09/Concurrency1/">笔记 OSC_Concurrency1</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/09/Concurrency1/" class="archive-article-date">
+  	<time datetime="2017-01-09T14:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Concurrency-1"><a href="#Concurrency-1" class="headerlink" title="Concurrency 1"></a>Concurrency 1</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Examples of <strong>concurrency issues</strong> (e.g. counter++)</li>
+<li>Root causes of <strong>concurrency issues</strong></li>
+<li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
+<li><strong>Requirements and approaches</strong> for mutual exclusion</li>
+<li>###concurrency</li>
+<li>Threads and processes execute concurrently or in parallel and can share resources<ul>
+<li>Multiprogramming/multiprocessing <strong>improves system utilisation</strong></li>
+</ul>
+</li>
+<li>A process/thread can be <strong>interrupted at any point in time</strong> (I/O, timer)<ul>
+<li>The process “state” is <strong>saved</strong> in the p<strong>rocess control block</strong> </li>
+</ul>
+</li>
+<li>The outcome of programs may become <strong>unpredictable</strong>[不可预知的]<ul>
+<li>Sharing data can lead to <strong>inconsistencies</strong>[矛盾]</li>
+<li>I.e., the <strong>outcome of execution</strong> may <strong>depend on the order</strong> win which instructions are carried out</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/01/09/Concurrency1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/09/Concurrency1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Processes4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/09/Processes4/">笔记 OSC_Processes4</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/09/Processes4/" class="archive-article-date">
+  	<time datetime="2017-01-09T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Processes-4"><a href="#Processes-4" class="headerlink" title="Processes 4"></a>Processes 4</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Multi-level feedback queues</li>
+<li>Scheduling in Window 7 + illustration Scheduling in </li>
+<li>Linux (implementation in labs) Scheduling related processes/threads</li>
+</ul>
+<h3 id="Multi-level-Feedback-Queues"><a href="#Multi-level-Feedback-Queues" class="headerlink" title="Multi-level Feedback Queues"></a>Multi-level Feedback Queues</h3><ul>
+<li>Different <strong>scheduling algorithms</strong> can be used for the <strong>individual queues</strong> (e.g., round robin, SJF, FCFS)</li>
+<li><p><strong>Feedback queues</strong> allow <strong>priorities to change dynamically</strong>[动态的], i.e., jobs can move between queues:</p>
+<ul>
+<li>Move to <strong>lower priority queue</strong> if too much CPU time is used (prioritise I/O and interactive processes)</li>
+<li>Move to <strong>higher priority queue</strong> to prevent <strong>starvation</strong> and avoid <strong>inversion[反转] of control</strong></li>
+</ul>
+</li>
+<li><p>Defining characteristics of feedback queues include: </p>
+<ul>
+<li>The <strong>number of queues</strong></li>
+<li>The <strong>scheduling algorithms</strong> used for the individual queues </li>
+<li><strong>Migration policy</strong>[迁移政策] between queues</li>
+<li>Initial <strong>access</strong> to the queues<br>Feedback queues are highly <strong>configurable</strong>[可配置] and offer significant <strong>flexibility</strong>[灵活性，适应性]</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/01/09/Processes4/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/09/Processes4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Processes3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -716,6 +902,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OSC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
               </li>
              
               <li class="article-tag-list-item">
