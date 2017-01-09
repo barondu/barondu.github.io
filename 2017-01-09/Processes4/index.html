@@ -5,46 +5,40 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://barondu.com">
-  <title>笔记 OSC_Introduction1 | Baron的博客</title>
+  <link rel="dns-prefetch" href="http://www.barondu.com">
+  <title>笔记 OSC_Processes4 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Introduction 1
+  <meta name="description" content="Processes 4
 Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
+Multi-level feedback queues
+Scheduling in Window 7 + illustration Scheduling in 
+Linux (implementation in labs) Scheduling related processes/threads
 
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware
-
-Real comp">
+Multi-level Feedback Queues
+D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Introduction1">
-<meta property="og:url" content="http://barondu.com/Introduction1/index.html">
+<meta property="og:title" content="笔记 OSC_Processes4">
+<meta property="og:url" content="http://www.barondu.com/2017-01-09/Processes4/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="Introduction 1
+<meta property="og:description" content="Processes 4
 Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
+Multi-level feedback queues
+Scheduling in Window 7 + illustration Scheduling in 
+Linux (implementation in labs) Scheduling related processes/threads
 
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware
-
-Real comp">
-<meta property="og:updated_time" content="2017-01-06T13:14:58.000Z">
+Multi-level Feedback Queues
+D">
+<meta property="og:updated_time" content="2017-01-09T14:06:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Introduction1">
-<meta name="twitter:description" content="Introduction 1
+<meta name="twitter:title" content="笔记 OSC_Processes4">
+<meta name="twitter:description" content="Processes 4
 Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
+Multi-level feedback queues
+Scheduling in Window 7 + illustration Scheduling in 
+Linux (implementation in labs) Scheduling related processes/threads
 
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware
-
-Real comp">
+Multi-level Feedback Queues
+D">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -63,6 +57,11 @@ Real comp">
   
 
 </head>
+<script language="javascript">
+  host = window.location.host
+  if(host == "barondu.coding.me")
+      window.location.href = window.location.href.replace(/barondu.coding.me/,"barondu.com")
+</script>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -196,79 +195,157 @@ Real comp">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Introduction1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Processes4" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Introduction1
+      笔记 OSC_Processes4
     </h1>
   
 
         
-        <a href="/Introduction1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
+        <a href="/2017-01-09/Processes4/" class="archive-article-date">
+  	<time datetime="2017-01-09T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><hr>
+        <h1 id="Processes-4"><a href="#Processes-4" class="headerlink" title="Processes 4"></a>Processes 4</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>“<strong>Defining</strong>“ operating systems</li>
-<li>What is <strong>multi-programming</strong></li>
-<li><strong>Kernel-user mode</strong></li>
+<li>Multi-level feedback queues</li>
+<li>Scheduling in Window 7 + illustration Scheduling in </li>
+<li>Linux (implementation in labs) Scheduling related processes/threads</li>
 </ul>
-<h3 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h3><ul>
-<li><p>In the early days, programmers had to <strong>deal directly with hardware</strong></p>
+<h3 id="Multi-level-Feedback-Queues"><a href="#Multi-level-Feedback-Queues" class="headerlink" title="Multi-level Feedback Queues"></a>Multi-level Feedback Queues</h3><ul>
+<li>Different <strong>scheduling algorithms</strong> can be used for the <strong>individual queues</strong> (e.g., round robin, SJF, FCFS)</li>
+<li><p><strong>Feedback queues</strong> allow <strong>priorities to change dynamically</strong>[动态的], i.e., jobs can move between queues:</p>
 <ul>
-<li>Real computer <strong>hardware is urgly</strong></li>
-<li>Hardware is <strong>extremely difficult</strong> to program</li>
+<li>Move to <strong>lower priority queue</strong> if too much CPU time is used (prioritise I/O and interactive processes)</li>
+<li>Move to <strong>higher priority queue</strong> to prevent <strong>starvation</strong> and avoid <strong>inversion[反转] of control</strong></li>
 </ul>
 </li>
-<li><p>An operating system is a layer[层] of indirection[间接] on top of the hardware:</p>
+<li><p>Defining characteristics of feedback queues include: </p>
 <ul>
-<li>It provide <strong>abstractions</strong> for application programs</li>
-<li>it provide a <strong>cleaner and easier interface to the hardware</strong></li>
+<li>The <strong>number of queues</strong></li>
+<li>The <strong>scheduling algorithms</strong> used for the individual queues </li>
+<li><strong>Migration policy</strong>[迁移政策] between queues</li>
+<li>Initial <strong>access</strong> to the queues<br>Feedback queues are highly <strong>configurable</strong>[可配置] and offer significant <strong>flexibility</strong>[灵活性，适应性]</li>
 </ul>
 </li>
 </ul>
 <a id="more"></a>
-<h3 id="Multi-programming"><a href="#Multi-programming" class="headerlink" title="Multi-programming"></a>Multi-programming</h3><ul>
-<li>Morden OS use <strong>multi-programming</strong> to <strong>improve user experience</strong> and <strong>maximise the use of resource</strong><ul>
-<li>Disk is <strong>slow</strong>. CPU is <strong>faster</strong> than disk. </li>
-<li>Without multi-programming, CPU time is <strong>waste</strong> while wating for I/O requests.</li>
-<li><strong>Multi-programming</strong> has important <strong>consequences[结果]</strong> for operating system design </li>
-</ul>
-</li>
-<li>The operating system must allocate[分配]/share resources (CPU, memory, I/O devices) <strong>fairly</strong> and <strong>safely</strong> between competing processes:<ul>
-<li>In time, e.g. CPUs and printers </li>
-<li>In space, e.g., memory and disks</li>
-</ul>
-</li>
-<li>The execution of <strong>multiple programs</strong> (processes) needs to be interleaved[交错] with one another. This requires:<ul>
-<li>This requires <strong>context switches</strong> and <strong>process scheduling</strong> ⇒ <strong>mutual exclusion[相互排斥]</strong>, <strong>deadlock avoidance</strong>, <strong>protection</strong>, . . .</li>
+<h4 id="Windows-7"><a href="#Windows-7" class="headerlink" title="Windows 7"></a>Windows 7</h4><ul>
+<li>An <strong>interactive system</strong>[交互系统] using a <strong>preemptive scheduler</strong> with <strong>dynamic priority levels</strong><ul>
+<li>Two priority classes with 16 different priority levels exist<ul>
+<li>“<strong>Real time</strong>” processes/threads have a <strong>fixed priority level</strong></li>
+<li>“<strong>Variable</strong>” processes/threads can have their priorities <strong>boosted temporarily</strong></li>
 </ul>
 </li>
 </ul>
-<h3 id="Kernel-user-mode"><a href="#Kernel-user-mode" class="headerlink" title="Kernel-user mode"></a>Kernel-user mode</h3><ul>
-<li>Modern operating systems have multiple <strong>modes</strong>:<ul>
-<li>The operating system runs in <strong>kernel mode</strong> and has access to <strong>all instructions</strong></li>
-<li>Applications run in <strong>user mode</strong> and have access to <strong>a subset of instructions</strong></li>
+</li>
+<li><p>A <strong>round robin algorithm</strong> is used within the queues</p>
+</li>
+<li><p>Priorities are based on the <strong>process base priority</strong> (between 0-15) and <strong>thread base priority</strong> (±2 relative to the process priority)</p>
+</li>
+<li>A thread’s priority dynamically changes during execution between its base priority and the maximum priority within its class<ul>
+<li><strong>Interactive I/O bound processes</strong> (e.g. keyboard) receive a <strong>larger boost</strong> </li>
+<li>Boosting priorities prevents <strong>priority inversion</strong></li>
 </ul>
 </li>
-<li>Transitions from user mode to kernel mode happen in a controlled manner (<strong>interrupts, exceptions, system calls</strong>) and are <strong>mirrored in hardware</strong></li>
 </ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Some properties:<ul>
-<li>Sits <strong>directly</strong> on <strong>top</strong> of the hardware</li>
-<li>Has access to the <strong>full capabilities of the hardware</strong></li>
-<li>Provides <strong>abstractions</strong> for the user/programmer</li>
-<li>Makes sure that everything is <strong>organised</strong> and runs in <strong>order</strong>     </li>
-<li>Improve the <strong>hardware interface</strong></li>
+<h3 id="Scheduling-in-Linux"><a href="#Scheduling-in-Linux" class="headerlink" title="Scheduling in Linux"></a>Scheduling in Linux</h3><h4 id="The-Completely-Fair-Scheduler"><a href="#The-Completely-Fair-Scheduler" class="headerlink" title="The Completely Fair Scheduler"></a>The Completely Fair Scheduler</h4><ul>
+<li>Linux distinguishes[区分] between two types of tasks for scheduling:<ul>
+<li><strong>Real time tasks</strong> (to be POSIX compliant), divided into: <ul>
+<li>Real time FIFO tasks</li>
+<li>Real time Round Robin tasks</li>
+</ul>
+</li>
+<li><strong>Time sharing tasks</strong> using a <strong>preemptive</strong> approach (similar to <strong>variable</strong> in Windows)</li>
+</ul>
+</li>
+<li>The most recent scheduling algorithm in Linux for <strong>time sharing tasks</strong> is the “<strong>completely fair scheduler</strong>” </li>
+</ul>
+<p>Real-Time Tasks</p>
+<ul>
+<li><strong>Real time FIFO</strong> tasks have the <strong>highest priority</strong> and are scheduled using a <strong>FCFS approach</strong>, using <strong>preemption if a higher priority</strong> job shows up</li>
+<li><strong>Real time round robin tasks</strong> are preemptable by <strong>clock interrupts</strong> and have a time slice associated with them</li>
+<li>Both approaches <strong>cannot guarantee hard deadlines</strong></li>
+</ul>
+<p>Time Sharing Tasks</p>
+<ul>
+<li>The CFS <strong>divides the CPU time</strong> between all processes </li>
+<li>If all N processes have the <strong>same priority</strong>:<ul>
+<li>They will be allocated a “time slice” equal to 1/N times the available CPU time<ul>
+<li>I.e., if N equals 5, every process will receive 20% of the processor’s time</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The length of the <strong>time slice</strong> and the “available CPU time” are based on the <strong>targeted latency[延迟]</strong> (⇒ every process should <strong>run at least once</strong> during this interval)</li>
+<li>If N is <strong>very large</strong>, the <strong>context switch time will be dominant</strong>, hence a lower bound on the “time slice” is imposed by the minimum granularity[粒度]<ul>
+<li>A process’s time slice can be no <strong>less than</strong> the <strong>minimum granularity</strong> (response time will deteriorate[恶化])</li>
+</ul>
+</li>
+<li>A <strong>weighting scheme</strong> is used to take different priorities into account If process have <strong>different priorities:</strong><ul>
+<li>Every process <em>i</em> is allocated a <strong>weight</strong> <em>Wi</em> that reflects its priority</li>
+</ul>
+</li>
+<li>The tasks with the <strong>lowest amount</strong> of “<strong>used CPU time</strong>” are <strong>selected first</strong></li>
+</ul>
+<p>Shared Queues  </p>
+<ul>
+<li>A single or multi-level queue <strong>shared</strong> between all CPUs </li>
+<li>Advantage: automatic <strong>load balancing</strong><br>Disadvantages:<ul>
+<li><strong>Contention</strong>[竞争] for the queues (locking is needed)</li>
+<li>“All CPUs are equal, but some are more equal than others” : does not account for <strong>processor affinity</strong>[紧密度]:<ul>
+<li><strong>Cache</strong> becomes invalid when moving to a different CPU</li>
+<li>Translation look aside buffers (TLBs - part of the MMU) become invalid</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Windows will allocate the <strong>highest priority threads</strong> to the individual CPUs/cores</li>
+</ul>
+<p>Private Queues</p>
+<ul>
+<li>Each process/thread is assigned to a queue <strong>private</strong> to an individual CPU </li>
+<li>Advantages:<ul>
+<li><strong>CPU affinity</strong> is automatically satisfied </li>
+<li><strong>Contention</strong> for shared queue is minimised</li>
+</ul>
+</li>
+<li>Disadvantages: less <strong>load balancing</strong></li>
+<li><strong>Push</strong> and <strong>pull migration</strong> between CPUs is possible</li>
+</ul>
+<h3 id="Related-vs-Unrelated-Threads"><a href="#Related-vs-Unrelated-Threads" class="headerlink" title="Related vs. Unrelated Threads"></a>Related vs. Unrelated Threads</h3><p><strong>Related: multiple threads</strong> that <strong>communicate</strong> with one another and <strong>ideally run</strong> together (e.g. search algorithm)</p>
+<p><strong>Unrelated</strong>: e.g. processes threads that are <strong>independent</strong>, possibly started by <strong>different users</strong> running <strong>different programs</strong></p>
+<p>####Related Threads</p>
+<ul>
+<li>The aim is to get threads <strong>running</strong>, as much as possible, at the <strong>same</strong> time across <strong>multiple CPUs</strong></li>
+<li>Approaches include:<ul>
+<li><strong>Space</strong> sharing</li>
+<li><strong>Gang</strong> scheduling</li>
+</ul>
+</li>
+</ul>
+<p>####Gang scheduling</p>
+<ul>
+<li>Time slices are <strong>synchronised</strong>[同步的] and the scheduler <strong>groups threads</strong> together to run simultaneously (as much as possible)</li>
+<li>A <strong>preemptive</strong> algorithm</li>
+<li><strong>Blocking threads</strong> result in idle CPUs</li>
+</ul>
+<p>##Summary</p>
+<ul>
+<li>Scheduling on Windows and Linux</li>
+<li>Multi-processor/core scheduling is “a bit different” (load balancing, processor affinity, etc.)<ul>
+<li>Related and unrelated threads </li>
+<li>Shared or private queues</li>
+<li>Space scheduling or gang scheduling</li>
 </ul>
 </li>
 </ul>
@@ -319,7 +396,7 @@ Real comp">
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
         		</li>
       		
 		</ul>
@@ -375,7 +452,7 @@ Real comp">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/Introduction1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017-01-09/Processes4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -389,15 +466,20 @@ Real comp">
   
 <nav id="article-nav">
   
-    <a href="/Introduction2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017-01-09/Concurrency1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          笔记 OSC_Introduction2
+          笔记 OSC_Concurrency1
         
       </div>
     </a>
   
+  
+    <a href="/2017-01-08/Processes3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Processes3</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -409,7 +491,7 @@ Real comp">
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Introduction1" data-title="笔记 OSC_Introduction1" data-url="http://barondu.com/Introduction1/"></div>
+	<div class="ds-thread" data-thread-key="Processes4" data-title="笔记 OSC_Processes4" data-url="http://www.barondu.com/2017-01-09/Processes4/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

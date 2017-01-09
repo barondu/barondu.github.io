@@ -5,43 +5,51 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://barondu.com">
-  <title>笔记 OSC_Concurrency2 | Baron的博客</title>
+  <link rel="dns-prefetch" href="http://www.barondu.com">
+  <title>笔记 OSC_Processes2 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Concurrency 2
+  <meta name="description" content="Processes 2
 Overview
-Software approaches: Peterson’s solution Hardware approaches:
-Disabling interrupts:
-test_and_set()
-compare_and_swap()
+Introduction to process scheduling
+Types of process schedulers
+Evaluation criteria for scheduling algorithms
+Typical process scheduling algorithms
 
+Process SchedulingContext
 
-Higher level approaches include mutexes and semaphoresPet">
+The">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Concurrency2">
-<meta property="og:url" content="http://barondu.com/Concurrency2/index.html">
+<meta property="og:title" content="笔记 OSC_Processes2">
+<meta property="og:url" content="http://www.barondu.com/2017-01-08/Processes2/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="Concurrency 2
+<meta property="og:description" content="Processes 2
 Overview
-Software approaches: Peterson’s solution Hardware approaches:
-Disabling interrupts:
-test_and_set()
-compare_and_swap()
+Introduction to process scheduling
+Types of process schedulers
+Evaluation criteria for scheduling algorithms
+Typical process scheduling algorithms
 
+Process SchedulingContext
 
-Higher level approaches include mutexes and semaphoresPet">
-<meta property="og:updated_time" content="2017-01-09T18:43:47.000Z">
+The">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbhgipi0isj31kw0z0gui.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgihcb0kj31kw0zaguh.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgilh5rej31kw0ygwnc.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbhgimxagxj31kw0yoths.jpg">
+<meta property="og:updated_time" content="2017-01-08T23:30:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Concurrency2">
-<meta name="twitter:description" content="Concurrency 2
+<meta name="twitter:title" content="笔记 OSC_Processes2">
+<meta name="twitter:description" content="Processes 2
 Overview
-Software approaches: Peterson’s solution Hardware approaches:
-Disabling interrupts:
-test_and_set()
-compare_and_swap()
+Introduction to process scheduling
+Types of process schedulers
+Evaluation criteria for scheduling algorithms
+Typical process scheduling algorithms
 
+Process SchedulingContext
 
-Higher level approaches include mutexes and semaphoresPet">
+The">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbhgipi0isj31kw0z0gui.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -60,6 +68,11 @@ Higher level approaches include mutexes and semaphoresPet">
   
 
 </head>
+<script language="javascript">
+  host = window.location.host
+  if(host == "barondu.coding.me")
+      window.location.href = window.location.href.replace(/barondu.coding.me/,"barondu.com")
+</script>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -193,91 +206,150 @@ Higher level approaches include mutexes and semaphoresPet">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Concurrency2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Processes2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Concurrency2
+      笔记 OSC_Processes2
     </h1>
   
 
         
-        <a href="/Concurrency2/" class="archive-article-date">
-  	<time datetime="2017-01-09T17:33:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+        <a href="/2017-01-08/Processes2/" class="archive-article-date">
+  	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Concurrency-2"><a href="#Concurrency-2" class="headerlink" title="Concurrency 2"></a>Concurrency 2</h1><hr>
+        <h1 id="Processes-2"><a href="#Processes-2" class="headerlink" title="Processes 2"></a>Processes 2</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li><strong>Software approaches</strong>: Peterson’s solution Hardware approaches:</li>
-<li><strong>Disabling interrupts</strong>:<ul>
-<li><code>test_and_set()</code></li>
-<li><code>compare_and_swap()</code></li>
+<li>Introduction to <strong>process scheduling</strong></li>
+<li>Types of <strong>process schedulers</strong></li>
+<li><strong>Evaluation criteria</strong> for scheduling algorithms</li>
+<li>Typical <strong>process scheduling algorithms</strong></li>
+</ul>
+<h3 id="Process-Scheduling"><a href="#Process-Scheduling" class="headerlink" title="Process Scheduling"></a>Process Scheduling</h3><p>Context</p>
+<ul>
+<li>The OS is responsible for <strong>managing</strong> and <strong>scheduling processes</strong><ul>
+<li>Decide when to <strong>admit</strong> processes to the system (new → ready)</li>
+<li>Decide which process to r<strong>un</strong> next (ready → run)</li>
+<li>Decide when and which processes to <strong>interrupt</strong> (running → ready)</li>
 </ul>
 </li>
-<li>Higher level approaches include <strong>mutexes</strong> and <strong>semaphores</strong><h3 id="Peterson’s-Solution"><a href="#Peterson’s-Solution" class="headerlink" title="Peterson’s Solution"></a>Peterson’s Solution</h3></li>
-<li>Peterson’s solution is a <strong>software based solution</strong> which worked well for <strong>older machines</strong></li>
-<li>Two <strong>shared variables</strong> are used:<ul>
-<li>turn: indicates <strong>which process is next</strong> to enter its critical section </li>
-<li>boolean flag[2]: indicates that a <strong>process is ready</strong> to enter its critical section</li>
-</ul>
-</li>
-<li>It is restricted[限制] to <strong>two processes</strong> that execute in <strong>strict alternation</strong>[严格的交替]<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">true</span>; <span class="comment">// j wants to enter critical section turn = i; // allow i to access first</span></div><div class="line">	<span class="keyword">while</span> (<span class="built_in">flag</span>[i] &amp;&amp; turn == i);</div><div class="line">	<span class="comment">// whilst i wants to access critical section</span></div><div class="line">	<span class="comment">// and its i’s turn, apply busy waiting </span></div><div class="line">	</div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">false</span>;</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...);</div></pre></td></tr></table></figure>
-</li>
+<li>It relies on the <strong>scheduler</strong> (dispatcher) to decide which process to run next, which uses a <strong>scheduling algorithm</strong> to do so</li>
+<li>The type of algorithm used by the scheduler is influenced by the <strong>type of operating system</strong> (e.g., real time vs. batch)</li>
 </ul>
 <a id="more"></a>
+<p>Classification by Time Horizon</p>
 <ul>
-<li>Peterson’s solution satisfies all requirements for mutual exclusion</li>
-<li><strong>Mutual exclusion requirement</strong>: the variable turn can have <strong>at most one value at a time</strong><ul>
-<li>while(flag[i] &amp;&amp; turn == i)or while(flag[j] &amp;&amp; turn == j) is true and at most <strong>one process can enter its critical section</strong> (mutual exclusion)</li>
+<li><strong>Long term</strong>: applies to new processes and controls the degree of multiprogramming by deciding which processes to <strong>admit</strong> to the system<ul>
+<li>A good <strong>mix</strong> of <strong>CPU</strong> and <strong>I/O bound processes</strong> is favourable to keep all resources as busy as possible</li>
+<li><strong>Usually absent</strong> in popular modern OS</li>
+</ul>
+</li>
+<li><strong>Medium term</strong>: controls <strong>swapping</strong> and the degree of multi-programming </li>
+<li><strong>Short term</strong>: decide which process to <strong>run</strong> next<ul>
+<li>Usually called in response to <strong>clock interrupts</strong>, <strong>I/O interrupts</strong>, or <strong>blocking system calls</strong></li>
+<li>Invoked[调用] very <strong>frequently,</strong> hence must be fast</li>
+<li>Manages the <strong>ready queue</strong></li>
 </ul>
 </li>
 </ul>
-<h3 id="Disabling-Interrupts"><a href="#Disabling-Interrupts" class="headerlink" title="Disabling Interrupts"></a>Disabling Interrupts</h3><ul>
-<li><p><strong>Disable interrupts</strong> whilst <strong>executing a critical section</strong> and prevent interruption (i.e., interrupts from timers, I/O devices, etc.)</p>
+<p>Classification by Approach</p>
 <ul>
-<li>Think of the counter++ example <figure class="highlight plain"><figcaption><span>= counter;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">register = register + 1</div><div class="line">counter = register;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>Disabling interrupts “may” be appropriate on <strong>a single CPU machine</strong> </p>
-</li>
-<li>This is <strong>inefficient on modern multi-core/multi processor machines</strong><ul>
-<li>Disabling interrupts on all cores/CPUs <strong>takes time</strong> and <strong>causes delays</strong> </li>
-<li><strong>CPU capacity[能力] is lost</strong> on other cores</li>
+<li><strong>Non-preemptive</strong>: processes are only interrupted voluntarily[自愿的] (e.g., I/O operation or “nice” system call – yield())</li>
+<li><strong>Preemptive</strong>[优先的]: processes can be <strong>interrupted forcefully</strong> or <strong>voluntarily</strong><ul>
+<li>This requires context switches which generate overhead, too many of them should be avoided<br>Prevents processes from <strong>monopolising[垄断的] the CPU</strong></li>
+<li><strong>Most popula</strong>r modern operating systems are preemptive</li>
 </ul>
 </li>
 </ul>
-<h3 id="Atomic-Instructions"><a href="#Atomic-Instructions" class="headerlink" title="Atomic Instructions"></a>Atomic Instructions</h3><ul>
-<li>Implement <code>test_and_set()</code> and <code>swap_and_compare()</code> instructions as a <strong>set of atomic (UN-interruptible) instructions</strong><ul>
-<li>Reading and setting the variable(s) is done as one “complete” set of instructions</li>
-<li>If <code>test_and_set()</code> or <code>compare_and_swap()</code> are called simultaneously, they will be <strong>executed sequentially</strong></li>
-</ul>
-</li>
-<li>They are used in in combination with <strong>global lock variables</strong>, assumed to be true if the lock is <strong>in use</strong></li>
-</ul>
-<h4 id="test-and-set"><a href="#test-and-set" class="headerlink" title="test_and_set()"></a>test_and_set()</h4><blockquote>
-<p>Test and set must be <strong>atomic/UN-interruptable</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Test and set method</span></div><div class="line"><span class="function">boolean <span class="title">test_and_set</span>(<span class="params">boolean * <span class="keyword">lock</span></span>) </span>&#123; </div><div class="line">	boolean rv = *<span class="keyword">lock</span>;</div><div class="line">	*<span class="keyword">lock</span> = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">return</span> rv;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Example of using test and set method</span></div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="comment">// WHILE the lock is in use, apply busy waiting</span></div><div class="line">	<span class="keyword">while</span> (test_and_set(&amp;<span class="keyword">lock</span>)); </div><div class="line">	<span class="comment">// Lock was false, now true</span></div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	...</div><div class="line">	<span class="keyword">lock</span> = <span class="literal">false</span>;</div><div class="line">	...</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...)</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="compare-and-swap"><a href="#compare-and-swap" class="headerlink" title="compare_and_swap()"></a>compare_and_swap()</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Compare and swap method</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare_and_swap</span>(<span class="params"><span class="keyword">int</span> *<span class="keyword">lock</span>, <span class="keyword">int</span> expected, <span class="keyword">int</span> new_value</span>) </span>&#123; </div><div class="line">	<span class="keyword">int</span> temp = *<span class="keyword">lock</span>;</div><div class="line">	<span class="keyword">if</span>(*<span class="keyword">lock</span> == expected)</div><div class="line">	*<span class="keyword">lock</span> = new_value; <span class="keyword">return</span> temp;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Example using compare and swap method</span></div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="comment">// While the lock is in use (i.e. == 1), apply busy waiting</span></div><div class="line">	<span class="keyword">while</span> (compare_and_swap(&amp;<span class="keyword">lock</span>, <span class="number">0</span>, <span class="number">1</span>) != <span class="number">0</span>); </div><div class="line">	<span class="comment">// Lock was false, now true</span></div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	...</div><div class="line">	<span class="keyword">lock</span> = <span class="number">0</span>;</div><div class="line">	...</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...);</div></pre></td></tr></table></figure>
-<p>Disadvantages:</p>
+<h3 id="Performance-Assessment-性能评估"><a href="#Performance-Assessment-性能评估" class="headerlink" title="Performance Assessment[性能评估]"></a>Performance Assessment[性能评估]</h3><p><strong>User oriented[导向]criteria:</strong></p>
 <ul>
-<li><code>test_and_set()</code>and <code>compare_and_swap()</code> are <strong>hardware instructions</strong> and (usually) <strong>not directly accessible</strong> to the user</li>
-<li><strong>Busy waiting</strong> is used </li>
-<li><strong>Starvation</strong> is possible </li>
-<li><strong>Deadlock</strong> is possible</li>
+<li><strong>Response time:</strong> minimise the time between creating the job and its first execution</li>
+<li><strong>Turnaround time</strong>: minimise the time between creating the job and finishing it</li>
+<li><strong>Predictability</strong>[可调度性]: minimise the variance[差异，方差] in processing times</li>
 </ul>
-<p>The <strong>OS uses the hardware instructions</strong> to implement <strong>higher level mechanisms/instructions</strong> for mutual exclusion, i.e. <strong>mutexes</strong> and <strong>semaphores</strong></p>
+<p><strong>System oriented criteria:</strong></p>
+<ul>
+<li><strong>Throughput</strong>[吞吐量]: maximise the number of jobs processed per hour</li>
+<li><strong>Fairness</strong>[公平性]:<ul>
+<li>Are processing power/waiting time equally distributed?</li>
+<li>Are some processes kept waiting excessively long (starvation)</li>
+</ul>
+</li>
+</ul>
+<p>Evaluation criteria can be <strong>conflicting</strong>, i.e., <strong>reducing the response time</strong> may i<strong>ncrease context switches</strong> and may <strong>worsen the throughput</strong> and <strong>increase the turn around time</strong></p>
+<h3 id="Scheduling-Algorithms"><a href="#Scheduling-Algorithms" class="headerlink" title="Scheduling Algorithms"></a>Scheduling Algorithms</h3><p><strong>Algorithms</strong> considered:</p>
+<ol>
+<li>First Come First Served (<strong>FCFS</strong>)/ First In First Out (<strong>FIFO</strong>)</li>
+<li><strong>Shortest job first</strong></li>
+<li><strong>Round Robin</strong></li>
+<li><strong>Priority queues</strong></li>
+</ol>
+<p>Performance measures used:</p>
+<ul>
+<li><strong>Average response time</strong></li>
+<li><strong>Average turnaround time</strong></li>
+</ul>
+<p><code>First Come First Served</code></p>
+<ul>
+<li>Concept: a <strong>non-preemtive algorithm</strong> that operates as a <strong>strict[严格的] queueing mechanism[机制]</strong> and schedules the processes in the same order that they were added to the queue</li>
+<li>Advantages: <strong>positional fairness</strong> and easy to implement </li>
+<li>Disadvantages:<ul>
+<li><strong>good for long processes</strong> over short ones</li>
+<li>Could <strong>compromise[危害] resource utilisation,</strong> i.e., CPU vs. I/O devices<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbhgipi0isj31kw0z0gui.jpg" alt="FCFS"></li>
+</ul>
+</li>
+</ul>
+<p><code>Shortest Job First</code></p>
+<ul>
+<li>Concept: A <strong>non-preemtive algorithm</strong> that starts processes in order of <strong>ascending[递增] processing time</strong> using a provided/known estimate of the processing</li>
+<li>Advantages: always result in the <strong>good turn around time</strong> </li>
+<li>Disadvantages:<ul>
+<li><strong>Starvation</strong>[饿死] might occur</li>
+<li><strong>Fairness</strong> and <strong>predictability</strong> are compromised </li>
+<li><strong>Processing times have to be known</strong> beforehand<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgihcb0kj31kw0zaguh.jpg" alt="Shortest Job First"></li>
+</ul>
+</li>
+</ul>
+<p><code>Round Robin</code></p>
+<ul>
+<li>Concept: a <strong>preemptive version of FCFS</strong> that forces <strong>context switches</strong> at <strong>periodic[周期性] intervals[间隔]</strong> or <strong>time slices</strong></li>
+<li>Processes run in the order that they were added to the queue </li>
+<li>Processes are <strong>forcefully interrupted by the timer</strong><br>Advantages:</li>
+<li>Improved <strong>response time</strong></li>
+<li><strong>Effective</strong> for general purpose <strong>time sharing systems</strong><br>Disadvantages:</li>
+<li>Increased <strong>context switching</strong> and thus overhead</li>
+<li><strong>Favours CPU bound processes</strong> (which usually run long) over I/O processes (which do not run long)</li>
+<li>Can <strong>reduce to FCFS</strong></li>
+</ul>
+<p>The length of the time slice must be carefully considered!</p>
+<ul>
+<li>a <strong>low response time</strong> is achieved with <strong>a small time slice</strong> (e.g. 1ms) ⇒ low throughput</li>
+<li>a <strong>high throughput</strong> is achieved with <strong>a large time slice</strong> (e.g. 1000ms) ⇒ high response time</li>
+</ul>
+<p>If a time slice is only <strong>used</strong> <strong>partially</strong>, the next process <strong>starts immediately</strong><br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbhgilh5rej31kw0ygwnc.jpg" alt="Round Robin"></p>
+<p><code>Priority Queues</code></p>
+<ul>
+<li>Concept: A <strong>preemptive algorithm</strong> that schedules processes by <strong>priority</strong> (high → low)<ul>
+<li>The process priority is saved in the <strong>process control block</strong> </li>
+</ul>
+</li>
+<li>Advantages: can <strong>prioritise[优先] I/O bound jobs</strong></li>
+<li>Disadvantages: low priority processes may suffer from <strong>starvation</strong> (with static priorities)</li>
+<li><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbhgimxagxj31kw0yoths.jpg" alt="Priority Queues"></li>
+</ul>
 <p>##Summary</p>
 <ul>
-<li>Peterson’s solution (software)</li>
-<li>Hardware instructions: interrupt disabling, (test_and_set, compare_and_swap)</li>
+<li><strong>Types of schedulers</strong>: preemptive/non-preemptive, long/medium/short term)</li>
+<li>Performance <strong>evaluation criteria</strong></li>
+<li><strong>Scheduling algorithms</strong>: FCFS, SJF, Round Robin, Priority Queues</li>
 </ul>
 
       
@@ -326,7 +398,7 @@ Higher level approaches include mutexes and semaphoresPet">
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
         		</li>
       		
 		</ul>
@@ -382,7 +454,7 @@ Higher level approaches include mutexes and semaphoresPet">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/Concurrency2/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017-01-08/Processes2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -396,9 +468,18 @@ Higher level approaches include mutexes and semaphoresPet">
   
 <nav id="article-nav">
   
+    <a href="/2017-01-08/Processes3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          笔记 OSC_Processes3
+        
+      </div>
+    </a>
   
-    <a href="/Concurrency1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">笔记 OSC_Concurrency1</div>
+  
+    <a href="/2017-01-06/Processes1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Processes1</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -412,7 +493,7 @@ Higher level approaches include mutexes and semaphoresPet">
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Concurrency2" data-title="笔记 OSC_Concurrency2" data-url="http://barondu.com/Concurrency2/"></div>
+	<div class="ds-thread" data-thread-key="Processes2" data-title="笔记 OSC_Processes2" data-url="http://www.barondu.com/2017-01-08/Processes2/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

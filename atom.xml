@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://barondu.com/"/>
+  <link href="http://www.barondu.com/"/>
   <updated>2017-01-09T18:43:47.000Z</updated>
-  <id>http://barondu.com/</id>
+  <id>http://www.barondu.com/</id>
   
   <author>
     <name>Baron</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>笔记 OSC_Concurrency2</title>
-    <link href="http://barondu.com/Concurrency2/"/>
-    <id>http://barondu.com/Concurrency2/</id>
+    <link href="http://www.barondu.com/2017-01-09/Concurrency2/"/>
+    <id>http://www.barondu.com/2017-01-09/Concurrency2/</id>
     <published>2017-01-09T17:33:27.000Z</published>
     <updated>2017-01-09T18:43:47.000Z</updated>
     
@@ -114,18 +114,18 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://www.barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://www.barondu.com/tags/OSC/"/>
     
-      <category term="concurrency" scheme="http://barondu.com/tags/concurrency/"/>
+      <category term="concurrency" scheme="http://www.barondu.com/tags/concurrency/"/>
     
   </entry>
   
   <entry>
     <title>笔记 OSC_Concurrency1</title>
-    <link href="http://barondu.com/Concurrency1/"/>
-    <id>http://barondu.com/Concurrency1/</id>
+    <link href="http://www.barondu.com/2017-01-09/Concurrency1/"/>
+    <id>http://www.barondu.com/2017-01-09/Concurrency1/</id>
     <published>2017-01-09T14:09:27.000Z</published>
     <updated>2017-01-09T14:09:06.000Z</updated>
     
@@ -260,18 +260,18 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://www.barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://www.barondu.com/tags/OSC/"/>
     
-      <category term="concurrency" scheme="http://barondu.com/tags/concurrency/"/>
+      <category term="concurrency" scheme="http://www.barondu.com/tags/concurrency/"/>
     
   </entry>
   
   <entry>
     <title>笔记 OSC_Processes4</title>
-    <link href="http://barondu.com/Processes4/"/>
-    <id>http://barondu.com/Processes4/</id>
+    <link href="http://www.barondu.com/2017-01-09/Processes4/"/>
+    <id>http://www.barondu.com/2017-01-09/Processes4/</id>
     <published>2017-01-09T14:05:27.000Z</published>
     <updated>2017-01-09T14:06:33.000Z</updated>
     
@@ -440,18 +440,18 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://www.barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://www.barondu.com/tags/OSC/"/>
     
-      <category term="processes" scheme="http://barondu.com/tags/processes/"/>
+      <category term="processes" scheme="http://www.barondu.com/tags/processes/"/>
     
   </entry>
   
   <entry>
     <title>笔记 OSC_Processes3</title>
-    <link href="http://barondu.com/Processes3/"/>
-    <id>http://barondu.com/Processes3/</id>
+    <link href="http://www.barondu.com/2017-01-08/Processes3/"/>
+    <id>http://www.barondu.com/2017-01-08/Processes3/</id>
     <published>2017-01-08T23:27:27.000Z</published>
     <updated>2017-01-08T23:30:48.000Z</updated>
     
@@ -593,18 +593,18 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://www.barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://www.barondu.com/tags/OSC/"/>
     
-      <category term="processes" scheme="http://barondu.com/tags/processes/"/>
+      <category term="processes" scheme="http://www.barondu.com/tags/processes/"/>
     
   </entry>
   
   <entry>
     <title>笔记 OSC_Processes2</title>
-    <link href="http://barondu.com/Processes2/"/>
-    <id>http://barondu.com/Processes2/</id>
+    <link href="http://www.barondu.com/2017-01-08/Processes2/"/>
+    <id>http://www.barondu.com/2017-01-08/Processes2/</id>
     <published>2017-01-08T23:26:14.000Z</published>
     <updated>2017-01-08T23:30:28.000Z</updated>
     
@@ -759,18 +759,18 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://www.barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://www.barondu.com/tags/OSC/"/>
     
-      <category term="processes" scheme="http://barondu.com/tags/processes/"/>
+      <category term="processes" scheme="http://www.barondu.com/tags/processes/"/>
     
   </entry>
   
   <entry>
     <title>笔记 OSC_Processes1</title>
-    <link href="http://barondu.com/Processes1/"/>
-    <id>http://barondu.com/Processes1/</id>
+    <link href="http://www.barondu.com/2017-01-06/Processes1/"/>
+    <id>http://www.barondu.com/2017-01-06/Processes1/</id>
     <published>2017-01-06T11:42:14.000Z</published>
     <updated>2017-01-08T23:30:12.000Z</updated>
     
@@ -922,18 +922,18 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://www.barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://www.barondu.com/tags/OSC/"/>
     
-      <category term="processes" scheme="http://barondu.com/tags/processes/"/>
+      <category term="processes" scheme="http://www.barondu.com/tags/processes/"/>
     
   </entry>
   
   <entry>
     <title>笔记 OSC_Introduction2</title>
-    <link href="http://barondu.com/Introduction2/"/>
-    <id>http://barondu.com/Introduction2/</id>
+    <link href="http://www.barondu.com/2017-01-03/Introduction2/"/>
+    <id>http://www.barondu.com/2017-01-03/Introduction2/</id>
     <published>2017-01-03T23:50:14.000Z</published>
     <updated>2017-01-06T13:14:36.000Z</updated>
     
@@ -1092,18 +1092,18 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://www.barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://www.barondu.com/tags/OSC/"/>
     
-      <category term="Introduction" scheme="http://barondu.com/tags/Introduction/"/>
+      <category term="Introduction" scheme="http://www.barondu.com/tags/Introduction/"/>
     
   </entry>
   
   <entry>
     <title>笔记 OSC_Introduction1</title>
-    <link href="http://barondu.com/Introduction1/"/>
-    <id>http://barondu.com/Introduction1/</id>
+    <link href="http://www.barondu.com/2017-01-01/Introduction1/"/>
+    <id>http://www.barondu.com/2017-01-01/Introduction1/</id>
     <published>2017-01-01T15:06:04.000Z</published>
     <updated>2017-01-06T13:14:58.000Z</updated>
     
@@ -1191,11 +1191,11 @@
     </summary>
     
     
-      <category term="笔记" scheme="http://barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://www.barondu.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="OSC" scheme="http://barondu.com/tags/OSC/"/>
+      <category term="OSC" scheme="http://www.barondu.com/tags/OSC/"/>
     
-      <category term="Introduction" scheme="http://barondu.com/tags/Introduction/"/>
+      <category term="Introduction" scheme="http://www.barondu.com/tags/Introduction/"/>
     
   </entry>
   

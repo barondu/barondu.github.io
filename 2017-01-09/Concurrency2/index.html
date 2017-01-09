@@ -5,38 +5,43 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://barondu.com">
-  <title>笔记 OSC_Processes3 | Baron的博客</title>
+  <link rel="dns-prefetch" href="http://www.barondu.com">
+  <title>笔记 OSC_Concurrency2 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Processes 3
-Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
-ThreadsThreads from an OS Perspective[观点]
-A process consists of two fundamental units
-Resources:">
+  <meta name="description" content="Concurrency 2
+Overview
+Software approaches: Peterson’s solution Hardware approaches:
+Disabling interrupts:
+test_and_set()
+compare_and_swap()
+
+
+Higher level approaches include mutexes and semaphoresPet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Processes3">
-<meta property="og:url" content="http://barondu.com/Processes3/index.html">
+<meta property="og:title" content="笔记 OSC_Concurrency2">
+<meta property="og:url" content="http://www.barondu.com/2017-01-09/Concurrency2/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="Processes 3
-Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
-ThreadsThreads from an OS Perspective[观点]
-A process consists of two fundamental units
-Resources:">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg">
-<meta property="og:updated_time" content="2017-01-08T23:30:48.000Z">
+<meta property="og:description" content="Concurrency 2
+Overview
+Software approaches: Peterson’s solution Hardware approaches:
+Disabling interrupts:
+test_and_set()
+compare_and_swap()
+
+
+Higher level approaches include mutexes and semaphoresPet">
+<meta property="og:updated_time" content="2017-01-09T18:43:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Processes3">
-<meta name="twitter:description" content="Processes 3
-Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
-ThreadsThreads from an OS Perspective[观点]
-A process consists of two fundamental units
-Resources:">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
+<meta name="twitter:title" content="笔记 OSC_Concurrency2">
+<meta name="twitter:description" content="Concurrency 2
+Overview
+Software approaches: Peterson’s solution Hardware approaches:
+Disabling interrupts:
+test_and_set()
+compare_and_swap()
+
+
+Higher level approaches include mutexes and semaphoresPet">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -55,6 +60,11 @@ Resources:">
   
 
 </head>
+<script language="javascript">
+  host = window.location.host
+  if(host == "barondu.coding.me")
+      window.location.href = window.location.href.replace(/barondu.coding.me/,"barondu.com")
+</script>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -188,142 +198,92 @@ Resources:">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Processes3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Concurrency2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Processes3
+      笔记 OSC_Concurrency2
     </h1>
   
 
         
-        <a href="/Processes3/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
+        <a href="/2017-01-09/Concurrency2/" class="archive-article-date">
+  	<time datetime="2017-01-09T17:33:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
-<h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><h4 id="Threads-from-an-OS-Perspective-观点"><a href="#Threads-from-an-OS-Perspective-观点" class="headerlink" title="Threads from an OS Perspective[观点]"></a>Threads from an OS Perspective[观点]</h4><ul>
-<li>A process consists of two <strong>fundamental units</strong><ul>
-<li><strong>Resources:</strong> all related resources are grouped together<ul>
-<li>A logical address space containing the process image (program, data, heap, stack)</li>
-<li>Files, I/O devices, I/O channels, . . .</li>
+        <h1 id="Concurrency-2"><a href="#Concurrency-2" class="headerlink" title="Concurrency 2"></a>Concurrency 2</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li><strong>Software approaches</strong>: Peterson’s solution Hardware approaches:</li>
+<li><strong>Disabling interrupts</strong>:<ul>
+<li><code>test_and_set()</code></li>
+<li><code>compare_and_swap()</code></li>
 </ul>
 </li>
-<li><strong>Execution trace</strong>[执行追踪], i.e., an entity that gets executed</li>
+<li>Higher level approaches include <strong>mutexes</strong> and <strong>semaphores</strong><h3 id="Peterson’s-Solution"><a href="#Peterson’s-Solution" class="headerlink" title="Peterson’s Solution"></a>Peterson’s Solution</h3></li>
+<li>Peterson’s solution is a <strong>software based solution</strong> which worked well for <strong>older machines</strong></li>
+<li>Two <strong>shared variables</strong> are used:<ul>
+<li>turn: indicates <strong>which process is next</strong> to enter its critical section </li>
+<li>boolean flag[2]: indicates that a <strong>process is ready</strong> to enter its critical section</li>
 </ul>
 </li>
-<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg" alt=""></li>
+<li>It is restricted[限制] to <strong>two processes</strong> that execute in <strong>strict alternation</strong>[严格的交替]<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">true</span>; <span class="comment">// j wants to enter critical section turn = i; // allow i to access first</span></div><div class="line">	<span class="keyword">while</span> (<span class="built_in">flag</span>[i] &amp;&amp; turn == i);</div><div class="line">	<span class="comment">// whilst i wants to access critical section</span></div><div class="line">	<span class="comment">// and its i’s turn, apply busy waiting </span></div><div class="line">	</div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	</div><div class="line">	<span class="built_in">flag</span>[j] = <span class="literal">false</span>;</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...);</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <a id="more"></a>
 <ul>
-<li>Every thread has its own <strong>execution context</strong> (e.g. program counter, stack, registers)</li>
-<li>All threads have <strong>access</strong> to the process’ <strong>shared resources</strong><ul>
-<li>E.g. files, one thread opens a file, all threads of the same process can access the file</li>
-<li>Global variables, memory, etc. (⇒ synchronisation!)</li>
+<li>Peterson’s solution satisfies all requirements for mutual exclusion</li>
+<li><strong>Mutual exclusion requirement</strong>: the variable turn can have <strong>at most one value at a time</strong><ul>
+<li>while(flag[i] &amp;&amp; turn == i)or while(flag[j] &amp;&amp; turn == j) is true and at most <strong>one process can enter its critical section</strong> (mutual exclusion)</li>
 </ul>
 </li>
-<li>Some CPUs (hyperthreaded ones) have direct <strong>hardware support</strong> for <strong>multi-threading</strong></li>
-<li>Similar to processes, threads have:<ul>
-<li><strong>States</strong> and <strong>transitions</strong> (new, running, blocked, ready, terminated) </li>
-<li>A <strong>thread control block</strong><br>Threads create/terminate/switch with <strong>less overhead</strong>  (address space remains the same for threads of the same process)</li>
 </ul>
-</li>
-<li><strong>Inter-thread</strong> communication is easier/faster than <strong>inter-process</strong> communication (threads share memory by default)</li>
-<li><strong>No protection boundaries</strong>[边界] are required in the address space (threads are cooperating, belong to the same user, and have a common goal)</li>
-<li><strong>Synchronisation</strong> has to be considered carefully!</li>
-</ul>
-<h4 id="Why-Use-Threads"><a href="#Why-Use-Threads" class="headerlink" title="Why Use Threads"></a>Why Use Threads</h4><ul>
-<li><strong>Multiple related activities</strong> apply to the <strong>same resources</strong>, these resources should be accessible/<strong>shared</strong></li>
-<li>Processes will often contain <strong>multiple blocking tasks</strong><ul>
-<li>I/O operations (thread blocks, interrupt marks completion)</li>
-<li>Memory access: pages faults are result in blocking</li>
-</ul>
-</li>
-<li>Such activities should be carried out in <strong>parallel/concurrently</strong></li>
-<li><strong>Application examples</strong>: webservers, make program, spreadsheets, word processors, processing large data volumes</li>
-</ul>
-<p>####OS Implementations of Threads</p>
+<h3 id="Disabling-Interrupts"><a href="#Disabling-Interrupts" class="headerlink" title="Disabling Interrupts"></a>Disabling Interrupts</h3><ul>
+<li><p><strong>Disable interrupts</strong> whilst <strong>executing a critical section</strong> and prevent interruption (i.e., interrupts from timers, I/O devices, etc.)</p>
 <ul>
-<li><strong>User</strong> threads</li>
-<li><strong>Kernel</strong> threads</li>
-<li><strong>Hybrid</strong>[混合] implementations</li>
+<li>Think of the counter++ example <figure class="highlight plain"><figcaption><span>= counter;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">register = register + 1</div><div class="line">counter = register;</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="User-Threads"><a href="#User-Threads" class="headerlink" title="User Threads"></a>User Threads</h3><p>Many-to-One<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg" alt=""></p>
-<ul>
-<li><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation[处理]) is carried out <strong>in user space</strong> with the help of a user library</li>
-<li>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong><ul>
-<li>Similar to <strong>process table</strong></li>
-<li>Used for <strong>thread switching</strong> </li>
-<li>Tracks thread related information</li>
+</li>
+<li><p>Disabling interrupts “may” be appropriate on <strong>a single CPU machine</strong> </p>
+</li>
+<li>This is <strong>inefficient on modern multi-core/multi processor machines</strong><ul>
+<li>Disabling interrupts on all cores/CPUs <strong>takes time</strong> and <strong>causes delays</strong> </li>
+<li><strong>CPU capacity[能力] is lost</strong> on other cores</li>
 </ul>
 </li>
 </ul>
-<p>Advantages:</p>
-<ul>
-<li>Threads are in user space (i.e., <strong>no mode switches</strong> required)</li>
-<li><strong>Full control</strong> over the thread scheduler</li>
-<li><strong>OS independent</strong>[独立不受约束] (threads can run on OS that do not support them)</li>
+<h3 id="Atomic-Instructions"><a href="#Atomic-Instructions" class="headerlink" title="Atomic Instructions"></a>Atomic Instructions</h3><ul>
+<li>Implement <code>test_and_set()</code> and <code>swap_and_compare()</code> instructions as a <strong>set of atomic (UN-interruptible) instructions</strong><ul>
+<li>Reading and setting the variable(s) is done as one “complete” set of instructions</li>
+<li>If <code>test_and_set()</code> or <code>compare_and_swap()</code> are called simultaneously, they will be <strong>executed sequentially</strong></li>
 </ul>
+</li>
+<li>They are used in in combination with <strong>global lock variables</strong>, assumed to be true if the lock is <strong>in use</strong></li>
+</ul>
+<h4 id="test-and-set"><a href="#test-and-set" class="headerlink" title="test_and_set()"></a>test_and_set()</h4><blockquote>
+<p>Test and set must be <strong>atomic/UN-interruptable</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Test and set method</span></div><div class="line"><span class="function">boolean <span class="title">test_and_set</span>(<span class="params">boolean * <span class="keyword">lock</span></span>) </span>&#123; </div><div class="line">	boolean rv = *<span class="keyword">lock</span>;</div><div class="line">	*<span class="keyword">lock</span> = <span class="literal">true</span>;</div><div class="line">	<span class="keyword">return</span> rv;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Example of using test and set method</span></div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="comment">// WHILE the lock is in use, apply busy waiting</span></div><div class="line">	<span class="keyword">while</span> (test_and_set(&amp;<span class="keyword">lock</span>)); </div><div class="line">	<span class="comment">// Lock was false, now true</span></div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	...</div><div class="line">	<span class="keyword">lock</span> = <span class="literal">false</span>;</div><div class="line">	...</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="compare-and-swap"><a href="#compare-and-swap" class="headerlink" title="compare_and_swap()"></a>compare_and_swap()</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Compare and swap method</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare_and_swap</span>(<span class="params"><span class="keyword">int</span> *<span class="keyword">lock</span>, <span class="keyword">int</span> expected, <span class="keyword">int</span> new_value</span>) </span>&#123; </div><div class="line">	<span class="keyword">int</span> temp = *<span class="keyword">lock</span>;</div><div class="line">	<span class="keyword">if</span>(*<span class="keyword">lock</span> == expected)</div><div class="line">	*<span class="keyword">lock</span> = new_value; <span class="keyword">return</span> temp;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Example using compare and swap method</span></div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">	<span class="comment">// While the lock is in use (i.e. == 1), apply busy waiting</span></div><div class="line">	<span class="keyword">while</span> (compare_and_swap(&amp;<span class="keyword">lock</span>, <span class="number">0</span>, <span class="number">1</span>) != <span class="number">0</span>); </div><div class="line">	<span class="comment">// Lock was false, now true</span></div><div class="line">	<span class="comment">// CRITICAL SECTION</span></div><div class="line">	...</div><div class="line">	<span class="keyword">lock</span> = <span class="number">0</span>;</div><div class="line">	...</div><div class="line">	<span class="comment">// remainder section</span></div><div class="line">&#125; <span class="keyword">while</span> (...);</div></pre></td></tr></table></figure>
 <p>Disadvantages:</p>
 <ul>
-<li><strong>Blocking system calls</strong> suspend[延缓] the entire process (user threads are mapped onto a single process, managed by the kernel)</li>
-<li><strong>No true parallelism</strong> (a process is scheduled on a single CPU)</li>
-<li><strong>Clock interrupts</strong> are non-existent (i.e. user threads are non-preemptive) </li>
-<li><strong>Page faults</strong>[错误] result in blocking the process</li>
+<li><code>test_and_set()</code>and <code>compare_and_swap()</code> are <strong>hardware instructions</strong> and (usually) <strong>not directly accessible</strong> to the user</li>
+<li><strong>Busy waiting</strong> is used </li>
+<li><strong>Starvation</strong> is possible </li>
+<li><strong>Deadlock</strong> is possible</li>
 </ul>
-<h3 id="Kernel-Threads"><a href="#Kernel-Threads" class="headerlink" title="Kernel Threads"></a>Kernel Threads</h3><p>One-to-One<br><img src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg" alt=""></p>
+<p>The <strong>OS uses the hardware instructions</strong> to implement <strong>higher level mechanisms/instructions</strong> for mutual exclusion, i.e. <strong>mutexes</strong> and <strong>semaphores</strong></p>
+<p>##Summary</p>
 <ul>
-<li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities[工具] through <strong>API</strong> and <strong>system calls</strong><ul>
-<li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li>
-<li>If a <strong>thread blocks</strong>, the kernel chooses thread from same or different process (↔ user threads)</li>
+<li>Peterson’s solution (software)</li>
+<li>Hardware instructions: interrupt disabling, (test_and_set, compare_and_swap)</li>
 </ul>
-</li>
-<li>Windows and Linux apply this approach</li>
-</ul>
-<p>Advantages:</p>
-<ul>
-<li>True parallelism can be achieved </li>
-<li>No run-time system needed</li>
-</ul>
-<p>Disadvantage:</p>
-<ul>
-<li>Frequent <strong>mode switches</strong> take place, resulting in lower performance <ul>
-<li>Frequent <strong>mode switches</strong> take place, resulting in <strong>lower performance</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg" alt=""></p>
-<h3 id="Hybrid-Implementations"><a href="#Hybrid-Implementations" class="headerlink" title="Hybrid Implementations"></a>Hybrid Implementations</h3><p>Many-to-Many<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg" alt=""></p>
-<ul>
-<li>User threads are <strong>multiplexed</strong> onto kernel threads</li>
-<li>Kernel sees and schedules the kernel threads (a limited number) </li>
-<li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li>
-</ul>
-<h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg" alt=""></p>
-<h3 id="Thread-Management"><a href="#Thread-Management" class="headerlink" title="Thread Management"></a>Thread Management</h3><ul>
-<li>Thread libraries provide an <strong>API/interface</strong> for managing threads (e.g. creating, running, destroying, synchronising, etc.)</li>
-<li>Thread libraries can be implemented:<ul>
-<li>Entirely in <strong>user spac</strong>e (i.e. user threads)</li>
-<li>Based on <strong>system calls</strong></li>
-</ul>
-</li>
-<li>Examples of thread APIs include <strong>POSIX’s PThreads</strong>, Windows Threads, and Java Threads</li>
-<li>The PThread specification can be implemented as user or kernel threads</li>
-<li>POSIX threads are a <strong>specification</strong> that “anyone” can implement, i.e., it defines a set of APIs (function calls, over 60 of them) and what they do</li>
-</ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ol>
-<li>Threads vs. processes</li>
-<li>Thread implementations (user, kernel and hybrid)</li>
-<li>PThreads</li>
-</ol>
 
       
 
@@ -371,7 +331,7 @@ Resources:">
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
         		</li>
       		
 		</ul>
@@ -427,7 +387,7 @@ Resources:">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/Processes3/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017-01-09/Concurrency2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -441,18 +401,9 @@ Resources:">
   
 <nav id="article-nav">
   
-    <a href="/Processes4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          笔记 OSC_Processes4
-        
-      </div>
-    </a>
   
-  
-    <a href="/Processes2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">笔记 OSC_Processes2</div>
+    <a href="/2017-01-09/Concurrency1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Concurrency1</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -466,7 +417,7 @@ Resources:">
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Processes3" data-title="笔记 OSC_Processes3" data-url="http://barondu.com/Processes3/"></div>
+	<div class="ds-thread" data-thread-key="Concurrency2" data-title="笔记 OSC_Concurrency2" data-url="http://www.barondu.com/2017-01-09/Concurrency2/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

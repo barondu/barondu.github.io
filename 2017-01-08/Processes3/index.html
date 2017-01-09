@@ -5,48 +5,38 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://barondu.com">
-  <title>笔记 OSC_Introduction2 | Baron的博客</title>
+  <link rel="dns-prefetch" href="http://www.barondu.com">
+  <title>笔记 OSC_Processes3 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Introduction 2
-Overview
-CPU design
-Address spaces, interruts
-OS structures/implementation
-
-CPU design
-A CPU basic cycle consist of fetch[取], decode, execute
-Every CPU has his own instruction set
-CPU h">
+  <meta name="description" content="Processes 3
+Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
+ThreadsThreads from an OS Perspective[观点]
+A process consists of two fundamental units
+Resources:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Introduction2">
-<meta property="og:url" content="http://barondu.com/Introduction2/index.html">
+<meta property="og:title" content="笔记 OSC_Processes3">
+<meta property="og:url" content="http://www.barondu.com/2017-01-08/Processes3/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="Introduction 2
-Overview
-CPU design
-Address spaces, interruts
-OS structures/implementation
-
-CPU design
-A CPU basic cycle consist of fetch[取], decode, execute
-Every CPU has his own instruction set
-CPU h">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd1p9u5baj31ea0d80us.jpg">
-<meta property="og:updated_time" content="2017-01-06T13:14:36.000Z">
+<meta property="og:description" content="Processes 3
+Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
+ThreadsThreads from an OS Perspective[观点]
+A process consists of two fundamental units
+Resources:">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg">
+<meta property="og:updated_time" content="2017-01-08T23:30:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Introduction2">
-<meta name="twitter:description" content="Introduction 2
-Overview
-CPU design
-Address spaces, interruts
-OS structures/implementation
-
-CPU design
-A CPU basic cycle consist of fetch[取], decode, execute
-Every CPU has his own instruction set
-CPU h">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd1p9u5baj31ea0d80us.jpg">
+<meta name="twitter:title" content="笔记 OSC_Processes3">
+<meta name="twitter:description" content="Processes 3
+Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads (PThreads)
+ThreadsThreads from an OS Perspective[观点]
+A process consists of two fundamental units
+Resources:">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -65,6 +55,11 @@ CPU h">
   
 
 </head>
+<script language="javascript">
+  host = window.location.host
+  if(host == "barondu.coding.me")
+      window.location.href = window.location.href.replace(/barondu.coding.me/,"barondu.com")
+</script>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -198,159 +193,142 @@ CPU h">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Introduction2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Processes3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Introduction2
+      笔记 OSC_Processes3
     </h1>
   
 
         
-        <a href="/Introduction2/" class="archive-article-date">
-  	<time datetime="2017-01-03T23:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
+        <a href="/2017-01-08/Processes3/" class="archive-article-date">
+  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction 2"></a>Introduction 2</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>CPU design</li>
-<li><strong>Address spaces, interruts</strong></li>
-<li>OS <strong>structures/implementation</strong></li>
+        <h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
+<h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><h4 id="Threads-from-an-OS-Perspective-观点"><a href="#Threads-from-an-OS-Perspective-观点" class="headerlink" title="Threads from an OS Perspective[观点]"></a>Threads from an OS Perspective[观点]</h4><ul>
+<li>A process consists of two <strong>fundamental units</strong><ul>
+<li><strong>Resources:</strong> all related resources are grouped together<ul>
+<li>A logical address space containing the process image (program, data, heap, stack)</li>
+<li>Files, I/O devices, I/O channels, . . .</li>
 </ul>
-<h3 id="CPU-design"><a href="#CPU-design" class="headerlink" title="CPU design"></a>CPU design</h3><ul>
-<li>A CPU basic cycle consist of <strong>fetch[取], decode, execute</strong></li>
-<li>Every CPU has his own <strong>instruction set</strong></li>
-<li>CPU has a  set of <strong>registers</strong></li>
-<li>Registers are used to store <strong>data</strong> and for <strong>special functions</strong> (e.g. program counter, program status word – mode bit)</li>
-<li>The <strong>compiler</strong>/programmer decides what to keep in the registers</li>
-<li><strong>Context switching</strong>[上下文切换] must save and restore the CPU’s internal state, including its <strong>registers</strong></li>
+</li>
+<li><strong>Execution trace</strong>[执行追踪], i.e., an entity that gets executed</li>
+</ul>
+</li>
+<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg" alt=""></li>
 </ul>
 <a id="more"></a>
-<h3 id="Memory-Management-Unit-MMU"><a href="#Memory-Management-Unit-MMU" class="headerlink" title="Memory Management Unit (MMU)"></a>Memory Management Unit (MMU)</h3><ul>
-<li>Memory adsresses from 0 to MAX</li>
-<li>Variables are <strong>mnemonic</strong>[帮助记忆的] <strong>names</strong> for memory addresses</li>
-<li><p>You don’t know where the process will run in <strong>physical memory</strong> at compile time</p>
 <ul>
-<li><strong>Multiple processes</strong> run on modern machines</li>
-<li>The compiler <strong>assumes</strong> that it will start <strong>running at 0 (logical address space)</strong></li>
-<li>An <strong>offset</strong>[补偿] is added at runtime by the MMU <strong>(physical address space)</strong><blockquote>
-<p>physical address = logical address + offset </p>
-</blockquote>
-</li>
+<li>Every thread has its own <strong>execution context</strong> (e.g. program counter, stack, registers)</li>
+<li>All threads have <strong>access</strong> to the process’ <strong>shared resources</strong><ul>
+<li>E.g. files, one thread opens a file, all threads of the same process can access the file</li>
+<li>Global variables, memory, etc. (⇒ synchronisation!)</li>
 </ul>
 </li>
-<li><p>Modern computer use a <strong>logical</strong> and <strong>physical</strong> memory addresses:</p>
+<li>Some CPUs (hyperthreaded ones) have direct <strong>hardware support</strong> for <strong>multi-threading</strong></li>
+<li>Similar to processes, threads have:<ul>
+<li><strong>States</strong> and <strong>transitions</strong> (new, running, blocked, ready, terminated) </li>
+<li>A <strong>thread control block</strong><br>Threads create/terminate/switch with <strong>less overhead</strong>  (address space remains the same for threads of the same process)</li>
+</ul>
+</li>
+<li><strong>Inter-thread</strong> communication is easier/faster than <strong>inter-process</strong> communication (threads share memory by default)</li>
+<li><strong>No protection boundaries</strong>[边界] are required in the address space (threads are cooperating, belong to the same user, and have a common goal)</li>
+<li><strong>Synchronisation</strong> has to be considered carefully!</li>
+</ul>
+<h4 id="Why-Use-Threads"><a href="#Why-Use-Threads" class="headerlink" title="Why Use Threads"></a>Why Use Threads</h4><ul>
+<li><strong>Multiple related activities</strong> apply to the <strong>same resources</strong>, these resources should be accessible/<strong>shared</strong></li>
+<li>Processes will often contain <strong>multiple blocking tasks</strong><ul>
+<li>I/O operations (thread blocks, interrupt marks completion)</li>
+<li>Memory access: pages faults are result in blocking</li>
+</ul>
+</li>
+<li>Such activities should be carried out in <strong>parallel/concurrently</strong></li>
+<li><strong>Application examples</strong>: webservers, make program, spreadsheets, word processors, processing large data volumes</li>
+</ul>
+<p>####OS Implementations of Threads</p>
 <ul>
-<li>Every process has a logical address space – [0,<em>MAX64</em>] (theoretically理论上)</li>
-<li>The machine has a physical address space – [0, <em>MAX</em> ] (MAX determined by the amount of physical memory)</li>
+<li><strong>User</strong> threads</li>
+<li><strong>Kernel</strong> threads</li>
+<li><strong>Hybrid</strong>[混合] implementations</li>
+</ul>
+<h3 id="User-Threads"><a href="#User-Threads" class="headerlink" title="User Threads"></a>User Threads</h3><p>Many-to-One<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg" alt=""></p>
+<ul>
+<li><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation[处理]) is carried out <strong>in user space</strong> with the help of a user library</li>
+<li>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong><ul>
+<li>Similar to <strong>process table</strong></li>
+<li>Used for <strong>thread switching</strong> </li>
+<li>Tracks thread related information</li>
 </ul>
 </li>
-<li><p><strong>Address translation</strong> takes place in MMU</p>
-<blockquote>
-<p>physical = f (logical )</p>
-</blockquote>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>Threads are in user space (i.e., <strong>no mode switches</strong> required)</li>
+<li><strong>Full control</strong> over the thread scheduler</li>
+<li><strong>OS independent</strong>[独立不受约束] (threads can run on OS that do not support them)</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li><strong>Blocking system calls</strong> suspend[延缓] the entire process (user threads are mapped onto a single process, managed by the kernel)</li>
+<li><strong>No true parallelism</strong> (a process is scheduled on a single CPU)</li>
+<li><strong>Clock interrupts</strong> are non-existent (i.e. user threads are non-preemptive) </li>
+<li><strong>Page faults</strong>[错误] result in blocking the process</li>
+</ul>
+<h3 id="Kernel-Threads"><a href="#Kernel-Threads" class="headerlink" title="Kernel Threads"></a>Kernel Threads</h3><p>One-to-One<br><img src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg" alt=""></p>
+<ul>
+<li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities[工具] through <strong>API</strong> and <strong>system calls</strong><ul>
+<li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li>
+<li>If a <strong>thread blocks</strong>, the kernel chooses thread from same or different process (↔ user threads)</li>
+</ul>
 </li>
-<li><p>A <strong>context switch</strong> between processes <strong>invalidates</strong>[使无效] the MMU (as well as registers, cache, … )</p>
+<li>Windows and Linux apply this approach</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>True parallelism can be achieved </li>
+<li>No run-time system needed</li>
+</ul>
+<p>Disadvantage:</p>
+<ul>
+<li>Frequent <strong>mode switches</strong> take place, resulting in lower performance <ul>
+<li>Frequent <strong>mode switches</strong> take place, resulting in <strong>lower performance</strong></li>
+</ul>
 </li>
 </ul>
-<h3 id="Timer-interrupts"><a href="#Timer-interrupts" class="headerlink" title="Timer interrupts"></a>Timer interrupts</h3><ul>
-<li>Interrupts <strong>temporarily pause</strong> a process’s normal operation</li>
-<li>Different types of interrupts:<ul>
-<li>Timer interrupts by <strong>CPU clock</strong></li>
-<li><strong>I/O interrupts</strong> for I/O completion or error codes </li>
-<li><strong>Software generated</strong>, e.g. errors and exceptions<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd1p9u5baj31ea0d80us.jpg" alt=""><blockquote>
-<ol>
-<li>Timer generates an interrupt</li>
-<li>CPU finishes current instruction and tests for interrupt</li>
-<li>Transfer to interrupt service routine</li>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg" alt=""></p>
+<h3 id="Hybrid-Implementations"><a href="#Hybrid-Implementations" class="headerlink" title="Hybrid Implementations"></a>Hybrid Implementations</h3><p>Many-to-Many<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg" alt=""></p>
+<ul>
+<li>User threads are <strong>multiplexed</strong> onto kernel threads</li>
+<li>Kernel sees and schedules the kernel threads (a limited number) </li>
+<li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li>
+</ul>
+<h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg" alt=""></p>
+<h3 id="Thread-Management"><a href="#Thread-Management" class="headerlink" title="Thread Management"></a>Thread Management</h3><ul>
+<li>Thread libraries provide an <strong>API/interface</strong> for managing threads (e.g. creating, running, destroying, synchronising, etc.)</li>
+<li>Thread libraries can be implemented:<ul>
+<li>Entirely in <strong>user spac</strong>e (i.e. user threads)</li>
+<li>Based on <strong>system calls</strong></li>
+</ul>
+</li>
+<li>Examples of thread APIs include <strong>POSIX’s PThreads</strong>, Windows Threads, and Java Threads</li>
+<li>The PThread specification can be implemented as user or kernel threads</li>
+<li>POSIX threads are a <strong>specification</strong> that “anyone” can implement, i.e., it defines a set of APIs (function calls, over 60 of them) and what they do</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ol>
+<li>Threads vs. processes</li>
+<li>Thread implementations (user, kernel and hybrid)</li>
+<li>PThreads</li>
 </ol>
-<ul>
-<li>Hardware saves current process state (PSW, program counter)</li>
-<li>Set program counter to interrupt service routine</li>
-<li>Save registers and other state information</li>
-</ul>
-<ol>
-<li>Carry out[执行] interrupt service routine (scheduler)</li>
-<li>Restore next process to run</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Moore’s-“law”"><a href="#Moore’s-“law”" class="headerlink" title="Moore’s “law”"></a>Moore’s “law”</h3><blockquote>
-<p><strong>Moore’s “law”:</strong>  “The number of transistors on an integrated circuit (chip) doubles roughly every two years” </p>
-</blockquote>
-<ul>
-<li>Closely linked, but not necessarily related to performance</li>
-<li>The <strong>“power wall”</strong> slows performance improvements of single core/single processor systems<ul>
-<li>A few cores for multiple “programs” is easy to justify</li>
-<li>How to use <strong>massively[大规模的] parallel</strong> computers/CPUs/many core machines </li>
-<li>Can we <strong>extract parallelism automatically</strong>, can we implement parallelism at the lowest level (similar to multiprogramming) </li>
-</ul>
-</li>
-</ul>
-<h3 id="Multi-core-hyperthreaded-processors"><a href="#Multi-core-hyperthreaded-processors" class="headerlink" title="Multi-core, hyperthreaded processors"></a>Multi-core, hyperthreaded processors</h3><ul>
-<li>Modern CPUs contain <strong>multiple cores</strong> and are often <strong>hyper-threaded</strong> </li>
-<li><strong>Evolution in hardware</strong> has implications on operating system design<ul>
-<li>XP did not support multi processor architectures</li>
-<li><strong>Process scheduling</strong> needs to account for <strong>load balancing</strong> and <strong>CPU affinity</strong>[亲和性]</li>
-<li><strong>Cache coherency</strong>[缓存一致性] becomes important</li>
-</ul>
-</li>
-</ul>
-<h3 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h3><ul>
-<li>Memory <strong>hierarchies</strong>[层级] used to balance <strong>cost</strong> and <strong>performance</strong> <ul>
-<li>Fast and expensive memory is used for <strong>caching</strong></li>
-<li>Slow and inexpensive memory is used for <strong>long term storage</strong></li>
-<li>Memory includes, registers, L1/L2 cache, main/core memory, disk, etc.</li>
-<li><strong>L2 Cache</strong> can be <strong>shared</strong> or <strong>dedicated</strong>[专注的] to individual cores </li>
-<li><strong>Cache management</strong> is mainly done by <strong>hardware</strong></li>
-<li>The CPU can only <strong>access main memory directly</strong> (i.e. files have to be brought into memory first)</li>
-</ul>
-</li>
-</ul>
-<h3 id="I-O-Devices"><a href="#I-O-Devices" class="headerlink" title="I/O Devices"></a>I/O Devices</h3><ul>
-<li><strong>Device driver</strong> interacts[交互] with the <strong>controller</strong>, controller interacts with the device (e.g., disk controller)</li>
-<li>The operating system/device driver typically <strong>communicates with the controller through registers</strong></li>
-<li>I/O can take place through:<ul>
-<li><strong>Busy waiting</strong></li>
-<li><strong>Interrupt based</strong></li>
-<li>Direct memory access (using <strong>DMA</strong> chip)</li>
-</ul>
-</li>
-</ul>
-<h3 id="Operating-System-Structure"><a href="#Operating-System-Structure" class="headerlink" title="Operating System Structure"></a>Operating System Structure</h3><ul>
-<li>Systems contain a lot of functionality</li>
-<li>Operating Systems are structured by <strong>Micro kernels</strong>[微内核] and <strong>Monolithic</strong>[单内核]</li>
-</ul>
-<h3 id="Micro-Kernels"><a href="#Micro-Kernels" class="headerlink" title="Micro Kernels"></a>Micro Kernels</h3><ul>
-<li>All <strong>non-essential functionality</strong> is <strong>extracted</strong>[取出] from the kernel <ul>
-<li><strong>Communication, memory management</strong> and <strong>CPU scheduling</strong> are likely to be included in the kernel</li>
-<li><strong>The file system, GUI, device drivers</strong> are likely to be user processes<br><code>除了保留基本功能，其他功能移出到user mode</code></li>
-</ul>
-</li>
-<li>Micro kernels are more <strong>easy to extend</strong>, more <strong>portable</strong>[便携], and usually more reliable</li>
-<li>Frequent <strong>system calls</strong> and <strong>kernel traps</strong>[陷阱] cause significant <strong>overhead</strong>[开销] (mode switches)</li>
-<li>Some Unix version, Mac OS X, Minix, and early versions of Windows (NT4.0) were (partially) micro kernels</li>
-</ul>
-<h3 id="Monolithic-Systems"><a href="#Monolithic-Systems" class="headerlink" title="Monolithic Systems"></a>Monolithic Systems</h3><ul>
-<li>All procedures are <strong>linked together</strong> into one <strong>single executable running</strong> in <strong>kernel mode</strong></li>
-<li>Monolithic kernels are <strong>difficult to maintain</strong></li>
-<li>Current versions of Windows, Linux are implemented as monolithic kernels<br><code>操作系统高度紧密，移植性不佳。但是若设计完善，效率高</code></li>
-</ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Operating Systems are closely linked to <strong>computer architecture</strong> </li>
-<li><strong>Address translation</strong> and <strong>interrupts</strong></li>
-<li><strong>OS structures</strong></li>
-</ul>
 
       
 
@@ -398,7 +376,7 @@ CPU h">
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
         		</li>
       		
 		</ul>
@@ -454,7 +432,7 @@ CPU h">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://barondu.com/Introduction2/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017-01-08/Processes3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -468,18 +446,18 @@ CPU h">
   
 <nav id="article-nav">
   
-    <a href="/Processes1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017-01-09/Processes4/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          笔记 OSC_Processes1
+          笔记 OSC_Processes4
         
       </div>
     </a>
   
   
-    <a href="/Introduction1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">笔记 OSC_Introduction1</div>
+    <a href="/2017-01-08/Processes2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Processes2</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -493,7 +471,7 @@ CPU h">
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Introduction2" data-title="笔记 OSC_Introduction2" data-url="http://barondu.com/Introduction2/"></div>
+	<div class="ds-thread" data-thread-key="Processes3" data-title="笔记 OSC_Processes3" data-url="http://www.barondu.com/2017-01-08/Processes3/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
