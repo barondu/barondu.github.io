@@ -6,44 +6,48 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.barondu.com">
-  <title>笔记 OSC_Processes4 | Baron的博客</title>
+  <title>笔记 OSC_Processes1 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Processes 4
+  <meta name="description" content="Processes 1
 Overview
-Multi-level feedback queues
-Scheduling in Window 7 + illustration Scheduling in 
-Linux (implementation in labs) Scheduling related processes/threads
+Introduction to processes and their implementation 
+Process states and state transitions
+System calls for process management
 
-Multi-level Feedback Queues
-D">
+Processes and Implementation
+Definition: “a process i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Processes4">
-<meta property="og:url" content="http://www.barondu.com/2017-01-09/Processes4/index.html">
+<meta property="og:title" content="笔记 OSC_Processes1">
+<meta property="og:url" content="http://www.barondu.com/2017/01/06/Processes1/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="Processes 4
+<meta property="og:description" content="Processes 1
 Overview
-Multi-level feedback queues
-Scheduling in Window 7 + illustration Scheduling in 
-Linux (implementation in labs) Scheduling related processes/threads
+Introduction to processes and their implementation 
+Process states and state transitions
+System calls for process management
 
-Multi-level Feedback Queues
-D">
-<meta property="og:updated_time" content="2017-01-09T14:06:33.000Z">
+Processes and Implementation
+Definition: “a process i">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd6yyxrbcj31gk0ts0xg.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbdxkzib3gj31hk0s2n19.jpg">
+<meta property="og:updated_time" content="2017-01-10T22:25:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Processes4">
-<meta name="twitter:description" content="Processes 4
+<meta name="twitter:title" content="笔记 OSC_Processes1">
+<meta name="twitter:description" content="Processes 1
 Overview
-Multi-level feedback queues
-Scheduling in Window 7 + illustration Scheduling in 
-Linux (implementation in labs) Scheduling related processes/threads
+Introduction to processes and their implementation 
+Process states and state transitions
+System calls for process management
 
-Multi-level Feedback Queues
-D">
+Processes and Implementation
+Definition: “a process i">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.4a39e8.css">
   <style type="text/css">
@@ -57,11 +61,6 @@ D">
   
 
 </head>
-<script language="javascript">
-  host = window.location.host
-  if(host == "barondu.coding.me")
-      window.location.href = window.location.href.replace(/barondu.coding.me/,"barondu.com")
-</script>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -84,11 +83,11 @@ D">
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/categories/随笔/">随笔</a></li>
 	        
-				<li><a href="/tags/笔记/">笔记</a></li>
+				<li><a href="/categories/笔记/">笔记</a></li>
 	        
-				<li><a href="/tags/常旅客/">常旅客</a></li>
+				<li><a href="/categories/常旅客/">常旅客</a></li>
 	        
 			</ul>
 		</nav>
@@ -176,11 +175,11 @@ D">
 				
 					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/categories/随笔/">随笔</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/笔记/">笔记</a></li>
+					<li style="width: 25%"><a href="/categories/笔记/">笔记</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/常旅客/">常旅客</a></li>
+					<li style="width: 25%"><a href="/categories/常旅客/">常旅客</a></li>
 		        
 				</ul>
 			</nav>
@@ -195,159 +194,147 @@ D">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Processes4" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Processes1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Processes4
+      笔记 OSC_Processes1
     </h1>
   
 
         
-        <a href="/2017-01-09/Processes4/" class="archive-article-date">
-  	<time datetime="2017-01-09T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+        <a href="/2017/01/06/Processes1/" class="archive-article-date">
+  	<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> Hits         </span>
+  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Processes-4"><a href="#Processes-4" class="headerlink" title="Processes 4"></a>Processes 4</h1><hr>
+        <h1 id="Processes-1"><a href="#Processes-1" class="headerlink" title="Processes 1"></a>Processes 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Multi-level feedback queues</li>
-<li>Scheduling in Window 7 + illustration Scheduling in </li>
-<li>Linux (implementation in labs) Scheduling related processes/threads</li>
+<li>Introduction to <strong>processes</strong> and their <strong>implementation</strong> </li>
+<li>Process <strong>states</strong> and state <strong>transitions</strong></li>
+<li><strong>System calls</strong> for process management</li>
 </ul>
-<h3 id="Multi-level-Feedback-Queues"><a href="#Multi-level-Feedback-Queues" class="headerlink" title="Multi-level Feedback Queues"></a>Multi-level Feedback Queues</h3><ul>
-<li>Different <strong>scheduling algorithms</strong> can be used for the <strong>individual queues</strong> (e.g., round robin, SJF, FCFS)</li>
-<li><p><strong>Feedback queues</strong> allow <strong>priorities to change dynamically</strong>[动态的], i.e., jobs can move between queues:</p>
+<h3 id="Processes-and-Implementation"><a href="#Processes-and-Implementation" class="headerlink" title="Processes and Implementation"></a>Processes and Implementation</h3><blockquote>
+<p>Definition: <em>“a process is a <strong>running instance</strong> of a program”</em><br><code>进程是程序的运行实例</code></p>
+</blockquote>
 <ul>
-<li>Move to <strong>lower priority queue</strong> if too much CPU time is used (prioritise I/O and interactive processes)</li>
-<li>Move to <strong>higher priority queue</strong> to prevent <strong>starvation</strong> and avoid <strong>inversion[反转] of control</strong></li>
+<li>A process is registered with the OS using its “<strong>control structures</strong>”: i.e. an entry in the OS’s <strong>process tab</strong>le to a <strong>process control blocks</strong> (PCB)</li>
+<li>The <strong>process control block</strong> contains all information necessary to <strong>manage the process</strong> and is necessary for <strong>context switching</strong> in <strong>multi-programmed systems</strong></li>
+<li>A process’ memory image contains:<ul>
+<li>The program <strong>code</strong> (could be shared between multiple processes running the same code)</li>
+<li>A <strong>data</strong> segment, <strong>stack</strong> and <strong>heap</strong></li>
 </ul>
 </li>
-<li><p>Defining characteristics of feedback queues include: </p>
-<ul>
-<li>The <strong>number of queues</strong></li>
-<li>The <strong>scheduling algorithms</strong> used for the individual queues </li>
-<li><strong>Migration policy</strong>[迁移政策] between queues</li>
-<li>Initial <strong>access</strong> to the queues<br>Feedback queues are highly <strong>configurable</strong>[可配置] and offer significant <strong>flexibility</strong>[灵活性，适应性]</li>
-</ul>
-</li>
+<li>Every process has its own <strong>logical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow</li>
 </ul>
 <a id="more"></a>
-<h4 id="Windows-7"><a href="#Windows-7" class="headerlink" title="Windows 7"></a>Windows 7</h4><ul>
-<li>An <strong>interactive system</strong>[交互系统] using a <strong>preemptive scheduler</strong> with <strong>dynamic priority levels</strong><ul>
-<li>Two priority classes with 16 different priority levels exist<ul>
-<li>“<strong>Real time</strong>” processes/threads have a <strong>fixed priority level</strong></li>
-<li>“<strong>Variable</strong>” processes/threads can have their priorities <strong>boosted temporarily</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>A <strong>round robin algorithm</strong> is used within the queues</p>
-</li>
-<li><p>Priorities are based on the <strong>process base priority</strong> (between 0-15) and <strong>thread base priority</strong> (±2 relative to the process priority)</p>
-</li>
-<li>A thread’s priority dynamically changes during execution between its base priority and the maximum priority within its class<ul>
-<li><strong>Interactive I/O bound processes</strong> (e.g. keyboard) receive a <strong>larger boost</strong> </li>
-<li>Boosting priorities prevents <strong>priority inversion</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="Scheduling-in-Linux"><a href="#Scheduling-in-Linux" class="headerlink" title="Scheduling in Linux"></a>Scheduling in Linux</h3><h4 id="The-Completely-Fair-Scheduler"><a href="#The-Completely-Fair-Scheduler" class="headerlink" title="The Completely Fair Scheduler"></a>The Completely Fair Scheduler</h4><ul>
-<li>Linux distinguishes[区分] between two types of tasks for scheduling:<ul>
-<li><strong>Real time tasks</strong> (to be POSIX compliant), divided into: <ul>
-<li>Real time FIFO tasks</li>
-<li>Real time Round Robin tasks</li>
-</ul>
-</li>
-<li><strong>Time sharing tasks</strong> using a <strong>preemptive</strong> approach (similar to <strong>variable</strong> in Windows)</li>
-</ul>
-</li>
-<li>The most recent scheduling algorithm in Linux for <strong>time sharing tasks</strong> is the “<strong>completely fair scheduler</strong>” </li>
-</ul>
-<p>Real-Time Tasks</p>
+<p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg" alt="process’ memory image"></p>
+<h3 id="Process-States-and-Transitions"><a href="#Process-States-and-Transitions" class="headerlink" title="Process States and Transitions"></a>Process States and Transitions</h3><p><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd6yyxrbcj31gk0ts0xg.jpg" alt="Process States and Transitions"><br>Sates:</p>
 <ul>
-<li><strong>Real time FIFO</strong> tasks have the <strong>highest priority</strong> and are scheduled using a <strong>FCFS approach</strong>, using <strong>preemption if a higher priority</strong> job shows up</li>
-<li><strong>Real time round robin tasks</strong> are preemptable by <strong>clock interrupts</strong> and have a time slice associated with them</li>
-<li>Both approaches <strong>cannot guarantee hard deadlines</strong></li>
+<li>A <strong>new</strong> process has just been created (has a PCB) and is waiting to be admitted (it may not yet be in memory)</li>
+<li>A <strong>ready</strong> process is waiting for CPU to become available (e.g. unblocked or timer interrupt)</li>
+<li>A <strong>running</strong> process “owns” the CPU</li>
+<li>A <strong>blocked</strong> process cannot continue, e.g. is waiting for I/O</li>
+<li>A <strong>terminated</strong> process is no longer executable (the data structures - PCB - may be temporarily preserved)</li>
+<li>A <strong>suspended</strong>[废除的] process is swapped out[换出] (not discussed further)</li>
 </ul>
-<p>Time Sharing Tasks</p>
+<p>Transitions：</p>
+<ol>
+<li><strong>New -&gt; ready</strong>: admit the process and commit to execution</li>
+<li><strong>Running -&gt; blocked:</strong> e.g. process is waiting for input or carried out a<br>system call</li>
+<li><strong>Ready -&gt; running:</strong> the process is selected by the process scheduler</li>
+<li><strong>Blocked -&gt; ready</strong>: event happens, e.g. I/O operation has finished</li>
+<li>. <strong>Running -&gt; ready</strong>: the process is preempted, e.g., by a timer interrupt or<br>by pause</li>
+<li><strong>Running -&gt;strong text</strong> exit: process has finished, e.g. program ended or exception<br>encountered</li>
+</ol>
+<p>The interrupts/traps/system calls lie on the basis of the transitions<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbdxkzib3gj31hk0s2n19.jpg" alt="OS queues"></p>
+<h3 id="Context-Switching"><a href="#Context-Switching" class="headerlink" title="Context Switching"></a>Context Switching</h3><p>Multi-programming</p>
 <ul>
-<li>The CFS <strong>divides the CPU time</strong> between all processes </li>
-<li>If all N processes have the <strong>same priority</strong>:<ul>
-<li>They will be allocated a “time slice” equal to 1/N times the available CPU time<ul>
-<li>I.e., if N equals 5, every process will receive 20% of the processor’s time</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>The length of the <strong>time slice</strong> and the “available CPU time” are based on the <strong>targeted latency[延迟]</strong> (⇒ every process should <strong>run at least once</strong> during this interval)</li>
-<li>If N is <strong>very large</strong>, the <strong>context switch time will be dominant</strong>, hence a lower bound on the “time slice” is imposed by the minimum granularity[粒度]<ul>
-<li>A process’s time slice can be no <strong>less than</strong> the <strong>minimum granularity</strong> (response time will deteriorate[恶化])</li>
-</ul>
-</li>
-<li>A <strong>weighting scheme</strong> is used to take different priorities into account If process have <strong>different priorities:</strong><ul>
-<li>Every process <em>i</em> is allocated a <strong>weight</strong> <em>Wi</em> that reflects its priority</li>
-</ul>
-</li>
-<li>The tasks with the <strong>lowest amount</strong> of “<strong>used CPU time</strong>” are <strong>selected first</strong></li>
-</ul>
-<p>Shared Queues  </p>
+<li>Modern computers are <strong>multi-programming systems</strong></li>
+<li><p>Assuming a single processor system, the instructions of individual processes are executed sequentially</p>
 <ul>
-<li>A single or multi-level queue <strong>shared</strong> between all CPUs </li>
-<li>Advantage: automatic <strong>load balancing</strong><br>Disadvantages:<ul>
-<li><strong>Contention</strong>[竞争] for the queues (locking is needed)</li>
-<li>“All CPUs are equal, but some are more equal than others” : does not account for <strong>processor affinity</strong>[紧密度]:<ul>
-<li><strong>Cache</strong> becomes invalid when moving to a different CPU</li>
-<li>Translation look aside buffers (TLBs - part of the MMU) become invalid</li>
+<li>Multi-programming goes back to the “<strong>MULTICS</strong>” age </li>
+<li>Multi-programming is achieved by <strong>alternating</strong>[交替]processes and <strong>context switching</strong></li>
+<li><strong>True parallelism</strong> requires <strong>multiple processors</strong><br><code>并不是真正的multi-programming</code></li>
 </ul>
 </li>
-</ul>
-</li>
-<li>Windows will allocate the <strong>highest priority threads</strong> to the individual CPUs/cores</li>
-</ul>
-<p>Private Queues</p>
+<li><p>When a <strong>context switch</strong> takes place, the system <strong>saves the state</strong> of the old process and <strong>loads the state</strong> of the new process (creates <strong>overhead</strong>)</p>
 <ul>
-<li>Each process/thread is assigned to a queue <strong>private</strong> to an individual CPU </li>
-<li>Advantages:<ul>
-<li><strong>CPU affinity</strong> is automatically satisfied </li>
-<li><strong>Contention</strong> for shared queue is minimised</li>
+<li><strong>Saved</strong> -&gt; the process control block is <strong>updated</strong></li>
+<li><strong>(Re-)started</strong> -&gt; the process control block <strong>read</strong></li>
 </ul>
 </li>
-<li>Disadvantages: less <strong>load balancing</strong></li>
-<li><strong>Push</strong> and <strong>pull migration</strong> between CPUs is possible</li>
+<li>A <strong>trade-off</strong>[权衡] exists between the length of the <strong>time-slice</strong> and the <strong>context switch time</strong><ul>
+<li><strong>Short time slices</strong> result in <strong>good response times</strong> but <strong>low effective “utilisation”</strong>[使用]<ul>
+<li>e.g.: 99*(1+1)=198ms</li>
 </ul>
-<h3 id="Related-vs-Unrelated-Threads"><a href="#Related-vs-Unrelated-Threads" class="headerlink" title="Related vs. Unrelated Threads"></a>Related vs. Unrelated Threads</h3><p><strong>Related: multiple threads</strong> that <strong>communicate</strong> with one another and <strong>ideally run</strong> together (e.g. search algorithm)</p>
-<p><strong>Unrelated</strong>: e.g. processes threads that are <strong>independent</strong>, possibly started by <strong>different users</strong> running <strong>different programs</strong></p>
-<p>####Related Threads</p>
-<ul>
-<li>The aim is to get threads <strong>running</strong>, as much as possible, at the <strong>same</strong> time across <strong>multiple CPUs</strong></li>
-<li>Approaches include:<ul>
-<li><strong>Space</strong> sharing</li>
-<li><strong>Gang</strong> scheduling</li>
+</li>
+<li><strong>Long time slices</strong> result in <strong>poor response</strong> times but b<strong>etter effective “utilisation”</strong><ul>
+<li>e.g.: 99 * (100 + 1) = 9999ms</li>
 </ul>
 </li>
 </ul>
-<p>####Gang scheduling</p>
-<ul>
-<li>Time slices are <strong>synchronised</strong>[同步的] and the scheduler <strong>groups threads</strong> together to run simultaneously (as much as possible)</li>
-<li>A <strong>preemptive</strong> algorithm</li>
-<li><strong>Blocking threads</strong> result in idle CPUs</li>
-</ul>
-<p>##Summary</p>
-<ul>
-<li>Scheduling on Windows and Linux</li>
-<li>Multi-processor/core scheduling is “a bit different” (load balancing, processor affinity, etc.)<ul>
-<li>Related and unrelated threads </li>
-<li>Shared or private queues</li>
-<li>Space scheduling or gang scheduling</li>
+</li>
+<li>A <strong>process control block</strong> contains <strong>three</strong> types of <strong>attributes:</strong><ul>
+<li><strong>Process identification</strong> (PID, UID, Parent PID)</li>
+<li><strong>Process control information</strong> (process state, scheduling information, etc.) </li>
+<li><strong>Process state information</strong> (user registers, program counter, stack pointer, program status word, memory management information, files, etc.)</li>
 </ul>
 </li>
+<li><strong>Process control blocks</strong> are <strong>kernel data structures</strong>, i.e. they are <strong>protected</strong> and only accessible in <strong>kernel mode!</strong><ul>
+<li>Allowing user applications to access them directly could <strong>compromise[威胁] their integrity[完整性]</strong></li>
+<li>The <strong>operating system manages</strong> them on the user’s behalf through <strong>system calls</strong> (e.g. to set <strong>process priority</strong>)</li>
+</ul>
+</li>
+</ul>
+<p>Tables and Control Blocks</p>
+<ul>
+<li>An operating system <strong>maintains information</strong> about the status of “resources” in <strong>tables</strong><ul>
+<li><strong>Process tables</strong> (process control blocks)</li>
+<li><strong>Memory tables</strong> (memory allocation, memory protection, virtual memory) </li>
+<li><strong>I/O tables</strong> (availability, status, transfer information)</li>
+<li><strong>File tables</strong> (location, status)</li>
+</ul>
+</li>
+<li>The <strong>process table</strong> holds a p<strong>rocess control block</strong> for each process, allocated upon <strong>process creation</strong></li>
+<li>Tables are maintained by the <strong>kernel</strong> and are usually <strong>cross referenced</strong><br>Switching Processes<blockquote>
+<ol>
+<li>Save process state (program counter, registers)</li>
+<li>Update PCB (running -&gt; ready/blocked)</li>
+<li>Move PCB to appropriate queue (ready/blocked)</li>
+<li>Run scheduler, select new process</li>
+<li>Update to running state in the new PCB</li>
+<li>Update memory management unit (MMU)</li>
+<li>Restore process</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><ul>
+<li>System calls are necessary to <strong>notify the OS</strong> that the <strong>process has terminated</strong><ul>
+<li>Resources must be de-allocated</li>
+<li>Output must be flushed</li>
+<li>Process admin may have to be carried out</li>
+</ul>
+</li>
+<li>A system calls for process termination:<ul>
+<li>UNIX/Linux: <strong>exit()</strong>, kill() </li>
+<li>Windows: <strong>TerminateProcess()</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li><strong>Definition of a process</strong> and their <strong>implementation</strong> in operating systems </li>
+<li><strong>States</strong>, state <strong>transitions</strong> of processes</li>
+<li><strong>Kernel structures</strong> for processes and process management</li>
+<li><strong>System calls</strong> for process management</li>
 </ul>
 
       
@@ -388,10 +375,6 @@ D">
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
         		</li>
       		 
@@ -403,6 +386,17 @@ D">
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记/" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -452,7 +446,7 @@ D">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017-01-09/Processes4/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017/01/06/Processes1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -466,18 +460,18 @@ D">
   
 <nav id="article-nav">
   
-    <a href="/2017-01-09/Concurrency1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/08/Processes2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          笔记 OSC_Concurrency1
+          笔记 OSC_Processes2
         
       </div>
     </a>
   
   
-    <a href="/2017-01-08/Processes3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">笔记 OSC_Processes3</div>
+    <a href="/2017/01/03/Introduction2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Introduction2</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -491,7 +485,7 @@ D">
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Processes4" data-title="笔记 OSC_Processes4" data-url="http://www.barondu.com/2017-01-09/Processes4/"></div>
+	<div class="ds-thread" data-thread-key="Processes1" data-title="笔记 OSC_Processes1" data-url="http://www.barondu.com/2017/01/06/Processes1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -516,18 +510,22 @@ D">
           </div>
         </div>
       </div>
-      <footer id="footer">
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2017 Baron
     	</div>
+        <span id="busuanzi_container_site_pv">View <span id="busuanzi_value_site_pv"></span> times</span>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
   </div>
+
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -599,15 +597,7 @@ D">
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OSC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,6 +606,10 @@ D">
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">processes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
               </li>
             
             <div class="clearfix"></div>

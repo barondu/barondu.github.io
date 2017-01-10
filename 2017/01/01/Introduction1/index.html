@@ -6,41 +6,50 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.barondu.com">
-  <title>笔记 OSC_Concurrency1 | Baron的博客</title>
+  <title>笔记 OSC_Introduction1 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Concurrency 1
+  <meta name="description" content="Introduction 1
 Overview
-Examples of concurrency issues (e.g. counter++)
-Root causes of concurrency issues
-Critical sections and mutual exclusion 
-Requirements and approaches for mutual exclusion
-###con">
+“Defining“ operating systems
+What is multi-programming
+Kernel-user mode
+
+Defining Operating Systems
+In the early days, programmers had to deal directly with hardware
+
+Real comp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Concurrency1">
-<meta property="og:url" content="http://www.barondu.com/2017-01-09/Concurrency1/index.html">
+<meta property="og:title" content="笔记 OSC_Introduction1">
+<meta property="og:url" content="http://www.barondu.com/2017/01/01/Introduction1/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="Concurrency 1
+<meta property="og:description" content="Introduction 1
 Overview
-Examples of concurrency issues (e.g. counter++)
-Root causes of concurrency issues
-Critical sections and mutual exclusion 
-Requirements and approaches for mutual exclusion
-###con">
-<meta property="og:updated_time" content="2017-01-09T14:09:06.000Z">
+“Defining“ operating systems
+What is multi-programming
+Kernel-user mode
+
+Defining Operating Systems
+In the early days, programmers had to deal directly with hardware
+
+Real comp">
+<meta property="og:updated_time" content="2017-01-02T15:06:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Concurrency1">
-<meta name="twitter:description" content="Concurrency 1
+<meta name="twitter:title" content="笔记 OSC_Introduction1">
+<meta name="twitter:description" content="Introduction 1
 Overview
-Examples of concurrency issues (e.g. counter++)
-Root causes of concurrency issues
-Critical sections and mutual exclusion 
-Requirements and approaches for mutual exclusion
-###con">
+“Defining“ operating systems
+What is multi-programming
+Kernel-user mode
+
+Defining Operating Systems
+In the early days, programmers had to deal directly with hardware
+
+Real comp">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.4a39e8.css">
   <style type="text/css">
@@ -54,11 +63,6 @@ Requirements and approaches for mutual exclusion
   
 
 </head>
-<script language="javascript">
-  host = window.location.host
-  if(host == "barondu.coding.me")
-      window.location.href = window.location.href.replace(/barondu.coding.me/,"barondu.com")
-</script>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -81,11 +85,11 @@ Requirements and approaches for mutual exclusion
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/categories/随笔/">随笔</a></li>
 	        
-				<li><a href="/tags/笔记/">笔记</a></li>
+				<li><a href="/categories/笔记/">笔记</a></li>
 	        
-				<li><a href="/tags/常旅客/">常旅客</a></li>
+				<li><a href="/categories/常旅客/">常旅客</a></li>
 	        
 			</ul>
 		</nav>
@@ -173,11 +177,11 @@ Requirements and approaches for mutual exclusion
 				
 					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/categories/随笔/">随笔</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/笔记/">笔记</a></li>
+					<li style="width: 25%"><a href="/categories/笔记/">笔记</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/常旅客/">常旅客</a></li>
+					<li style="width: 25%"><a href="/categories/常旅客/">常旅客</a></li>
 		        
 				</ul>
 			</nav>
@@ -192,127 +196,82 @@ Requirements and approaches for mutual exclusion
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Concurrency1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Introduction1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Concurrency1
+      笔记 OSC_Introduction1
     </h1>
   
 
         
-        <a href="/2017-01-09/Concurrency1/" class="archive-article-date">
-  	<time datetime="2017-01-09T14:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+        <a href="/2017/01/01/Introduction1/" class="archive-article-date">
+  	<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> Hits         </span>
+  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Concurrency-1"><a href="#Concurrency-1" class="headerlink" title="Concurrency 1"></a>Concurrency 1</h1><hr>
+        <h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Examples of <strong>concurrency issues</strong> (e.g. counter++)</li>
-<li>Root causes of <strong>concurrency issues</strong></li>
-<li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
-<li><strong>Requirements and approaches</strong> for mutual exclusion</li>
-<li>###concurrency</li>
-<li>Threads and processes execute concurrently or in parallel and can share resources<ul>
-<li>Multiprogramming/multiprocessing <strong>improves system utilisation</strong></li>
+<li>“<strong>Defining</strong>“ operating systems</li>
+<li>What is <strong>multi-programming</strong></li>
+<li><strong>Kernel-user mode</strong></li>
+</ul>
+<h3 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h3><ul>
+<li><p>In the early days, programmers had to <strong>deal directly with hardware</strong></p>
+<ul>
+<li>Real computer <strong>hardware is urgly</strong></li>
+<li>Hardware is <strong>extremely difficult</strong> to program</li>
 </ul>
 </li>
-<li>A process/thread can be <strong>interrupted at any point in time</strong> (I/O, timer)<ul>
-<li>The process “state” is <strong>saved</strong> in the p<strong>rocess control block</strong> </li>
-</ul>
-</li>
-<li>The outcome of programs may become <strong>unpredictable</strong>[不可预知的]<ul>
-<li>Sharing data can lead to <strong>inconsistencies</strong>[矛盾]</li>
-<li>I.e., the <strong>outcome of execution</strong> may <strong>depend on the order</strong> win which instructions are carried out</li>
+<li><p>An operating system is a layer[层] of indirection[间接] on top of the hardware:</p>
+<ul>
+<li>It provide <strong>abstractions</strong> for application programs</li>
+<li>it provide a <strong>cleaner and easier interface to the hardware</strong></li>
 </ul>
 </li>
 </ul>
 <a id="more"></a>
-<h4 id="Incrementing-a-counter"><a href="#Incrementing-a-counter" class="headerlink" title="Incrementing a counter"></a>Incrementing a counter</h4><ul>
-<li><code>counter++</code> consists of three separate actions:<ul>
-<li>1 read the value of counter and <strong>store it in a register</strong></li>
-<li>2 add one to the value in the register</li>
-<li>3 store the value of the register <strong>in counter</strong></li>
+<h3 id="Multi-programming"><a href="#Multi-programming" class="headerlink" title="Multi-programming"></a>Multi-programming</h3><ul>
+<li>Morden OS use <strong>multi-programming</strong> to <strong>improve user experience</strong> and <strong>maximise the use of resource</strong><ul>
+<li>Disk is <strong>slow</strong>. CPU is <strong>faster</strong> than disk. </li>
+<li>Without multi-programming, CPU time is <strong>waste</strong> while wating for I/O requests.</li>
+<li><strong>Multi-programming</strong> has important <strong>consequences[结果]</strong> for operating system design </li>
 </ul>
 </li>
-<li>The above actions are <strong>NOT</strong> “atomic”, e.g. they can be interrupted by the timer (⇒ <strong>context switch</strong>)</li>
-</ul>
-<h4 id="Bounded-Buffers"><a href="#Bounded-Buffers" class="headerlink" title="Bounded Buffers"></a>Bounded Buffers</h4><ul>
-<li>Consider a <strong>bounded buffer</strong> in which N items can be stored</li>
-<li>A <strong>counter</strong> is maintained to count the number of items currently in the buffer<ul>
-<li><strong>Incremented</strong> when an item is <strong>added</strong> </li>
-<li><strong>Decremented</strong> when an item is <strong>removed</strong></li>
+<li>The operating system must allocate[分配]/share resources (CPU, memory, I/O devices) <strong>fairly</strong> and <strong>safely</strong> between competing processes:<ul>
+<li>In time, e.g. CPUs and printers </li>
+<li>In space, e.g., memory and disks</li>
 </ul>
 </li>
-<li>Similar <strong>concurrency problems</strong> as with the calculation of sums happen in the bounded buffer (producer/consumer) problem</li>
-</ul>
-<h4 id="Race-Conditions"><a href="#Race-Conditions" class="headerlink" title="Race Conditions"></a>Race Conditions</h4><ul>
-<li>A <strong>race condition occurs</strong> when multiple threads/processes <strong>access shared data</strong> and the result is dependent on <strong>the order in which the instructions are interleaved</strong></li>
-</ul>
-<h3 id="Concurrency-within-the-OS"><a href="#Concurrency-within-the-OS" class="headerlink" title="Concurrency within the OS"></a>Concurrency within the OS</h3><p>Data Structures</p>
-<ul>
-<li><strong>Kernels are preemptive</strong> these days (⇔ non-preemptive) <ul>
-<li><strong>Multiple processes are running</strong> in the kernel</li>
-<li>I.e. kernel <strong>processes can be interrupted</strong> at any point</li>
-</ul>
-</li>
-<li>The kernel maintains <strong>data structures</strong>, e.g. process tables, memory structures, open file lists, etc.</li>
-<li>These data structures are accessed <strong>concurrently/in parallel</strong> </li>
-<li>These can be subject to <strong>concurrency issues</strong></li>
-</ul>
-<p>Resources</p>
-<ul>
-<li>Processes share resources, including memory, files, processor time, printers, I/O devices, etc.</li>
-<li>The operating system must:<ul>
-<li><strong>Allocate and deallocate</strong> these resources safely (i.e. avoid interference, deadlocks and starvation)</li>
-<li>Make sure that interactions within the OS d<strong>o not result in race conditions</strong></li>
-<li>The operating system must provide locking mechanisms to implement/support mutual exclusion (and prevent starvation and deadlocks)</li>
+<li>The execution of <strong>multiple programs</strong> (processes) needs to be interleaved[交错] with one another. This requires:<ul>
+<li>This requires <strong>context switches</strong> and <strong>process scheduling</strong> ⇒ <strong>mutual exclusion[相互排斥]</strong>, <strong>deadlock avoidance</strong>, <strong>protection</strong>, . . .</li>
 </ul>
 </li>
 </ul>
-<h3 id="Critical-Sections-临界段-Mutual-Exclusion-互斥"><a href="#Critical-Sections-临界段-Mutual-Exclusion-互斥" class="headerlink" title="Critical Sections[临界段], Mutual Exclusion[互斥]"></a>Critical Sections[临界段], Mutual Exclusion[互斥]</h3><ul>
-<li>A critical section is a set of instructions in which <strong>shared variables are changed</strong></li>
-<li><p><strong>Mutual exclusion</strong> must be enforced <strong>for critical sections</strong></p>
-<ul>
-<li>Only <strong>one process at a time</strong> should be in the critical section (mutual exclusion)</li>
-<li>Processes have to <strong>get “permission”</strong> before entering their critical section<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span></div><div class="line">&#123;</div><div class="line">	<span class="params">...</span></div><div class="line">	<span class="comment">// ENTRY to critical section</span></div><div class="line">	critical section, e.g.counter++;</div><div class="line">	<span class="comment">// EXIT critical section</span></div><div class="line">	remaining code</div><div class="line">	<span class="params">...</span></div><div class="line">&#125; <span class="keyword">while</span> (<span class="params">...</span>);</div></pre></td></tr></table></figure>
-</li>
+<h3 id="Kernel-user-mode"><a href="#Kernel-user-mode" class="headerlink" title="Kernel-user mode"></a>Kernel-user mode</h3><ul>
+<li>Modern operating systems have multiple <strong>modes</strong>:<ul>
+<li>The operating system runs in <strong>kernel mode</strong> and has access to <strong>all instructions</strong></li>
+<li>Applications run in <strong>user mode</strong> and have access to <strong>a subset of instructions</strong></li>
 </ul>
 </li>
-<li><p><strong>Any solution to the critical section problem</strong> must satisfy the following <strong>requirements</strong>:</p>
-<ul>
-<li><strong>Mutual exclusion</strong>: only one process can be in its critical section at any one point in time</li>
-<li><strong>Progress</strong>: any process must be able to enter its critical section at some point in time</li>
-<li><strong>Fairness/bounded waiting</strong>: processes cannot be made to wait indefinitely</li>
-</ul>
-</li>
-<li>These requirements have to be satisfied, <strong>independent of the order</strong> in which sequences are executed</li>
-</ul>
-<h4 id="Enforcing-Mutual-Exclusion"><a href="#Enforcing-Mutual-Exclusion" class="headerlink" title="Enforcing Mutual Exclusion"></a>Enforcing Mutual Exclusion</h4><ul>
-<li><strong>Approaches</strong> for mutual exclusion can be:<ul>
-<li><strong>Software based:</strong> Peterson’s solution</li>
-<li><strong>Hardware based</strong>: <code>test_and_set(), swap_and_compare()</code></li>
-<li><strong>Based on</strong>:<ul>
-<li>Mutexes</li>
-<li>Semaphores</li>
-<li>Monitors (software construct within the programming languages)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>In addition to mutual exclusion, <strong>deadlocks</strong> have to be prevented (next week’s subject)</li>
+<li>Transitions from user mode to kernel mode happen in a controlled manner (<strong>interrupts, exceptions, system calls</strong>) and are <strong>mirrored in hardware</strong></li>
 </ul>
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Examples of <strong>concurrency issues</strong> (e.g. counter++)</li>
-<li>Root causes of <strong>concurrency issues</strong></li>
-<li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
-<li><strong>Requirements and approaches</strong> for mutual exclusion</li>
+<li>Some properties:<ul>
+<li>Sits <strong>directly</strong> on <strong>top</strong> of the hardware</li>
+<li>Has access to the <strong>full capabilities of the hardware</strong></li>
+<li>Provides <strong>abstractions</strong> for the user/programmer</li>
+<li>Makes sure that everything is <strong>organised</strong> and runs in <strong>order</strong>     </li>
+<li>Improve the <strong>hardware interface</strong></li>
+</ul>
+</li>
 </ul>
 
       
@@ -347,27 +306,39 @@ Requirements and approaches for mutual exclusion
     </div>
     <div class="article-info article-info-index">
       
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记/" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -417,7 +388,7 @@ Requirements and approaches for mutual exclusion
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017-01-09/Concurrency1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017/01/01/Introduction1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -431,20 +402,15 @@ Requirements and approaches for mutual exclusion
   
 <nav id="article-nav">
   
-    <a href="/2017-01-09/Concurrency2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/03/Introduction2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          笔记 OSC_Concurrency2
+          笔记 OSC_Introduction2
         
       </div>
     </a>
   
-  
-    <a href="/2017-01-09/Processes4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">笔记 OSC_Processes4</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -456,7 +422,7 @@ Requirements and approaches for mutual exclusion
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Concurrency1" data-title="笔记 OSC_Concurrency1" data-url="http://www.barondu.com/2017-01-09/Concurrency1/"></div>
+	<div class="ds-thread" data-thread-key="Introduction1" data-title="笔记 OSC_Introduction1" data-url="http://www.barondu.com/2017/01/01/Introduction1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -481,18 +447,22 @@ Requirements and approaches for mutual exclusion
           </div>
         </div>
       </div>
-      <footer id="footer">
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2017 Baron
     	</div>
+        <span id="busuanzi_container_site_pv">View <span id="busuanzi_value_site_pv"></span> times</span>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
   </div>
+
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -564,15 +534,7 @@ Requirements and approaches for mutual exclusion
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OSC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,6 +543,10 @@ Requirements and approaches for mutual exclusion
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">processes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
               </li>
             
             <div class="clearfix"></div>

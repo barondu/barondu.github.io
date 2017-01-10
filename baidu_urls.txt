@@ -1,8 +1,8 @@
-http://www.barondu.com/2017-01-09/Concurrency2/
-http://www.barondu.com/2017-01-09/Concurrency1/
-http://www.barondu.com/2017-01-09/Processes4/
-http://www.barondu.com/2017-01-08/Processes3/
-http://www.barondu.com/2017-01-08/Processes2/
-http://www.barondu.com/2017-01-06/Processes1/
-http://www.barondu.com/2017-01-03/Introduction2/
-http://www.barondu.com/2017-01-01/Introduction1/
+http://www.barondu.com/2017/01/09/Concurrency2/
+http://www.barondu.com/2017/01/09/Concurrency1/
+http://www.barondu.com/2017/01/09/Processes4/
+http://www.barondu.com/2017/01/08/Processes3/
+http://www.barondu.com/2017/01/08/Processes2/
+http://www.barondu.com/2017/01/06/Processes1/
+http://www.barondu.com/2017/01/03/Introduction2/
+http://www.barondu.com/2017/01/01/Introduction1/

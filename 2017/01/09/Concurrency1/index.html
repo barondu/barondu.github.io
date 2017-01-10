@@ -6,52 +6,41 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.barondu.com">
-  <title>笔记 OSC_Introduction2 | Baron的博客</title>
+  <title>笔记 OSC_Concurrency1 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Introduction 2
+  <meta name="description" content="Concurrency 1
 Overview
-CPU design
-Address spaces, interruts
-OS structures/implementation
-
-CPU design
-A CPU basic cycle consist of fetch[取], decode, execute
-Every CPU has his own instruction set
-CPU h">
+Examples of concurrency issues (e.g. counter++)
+Root causes of concurrency issues
+Critical sections and mutual exclusion 
+Requirements and approaches for mutual exclusion
+###con">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Introduction2">
-<meta property="og:url" content="http://www.barondu.com/2017-01-03/Introduction2/index.html">
+<meta property="og:title" content="笔记 OSC_Concurrency1">
+<meta property="og:url" content="http://www.barondu.com/2017/01/09/Concurrency1/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="Introduction 2
+<meta property="og:description" content="Concurrency 1
 Overview
-CPU design
-Address spaces, interruts
-OS structures/implementation
-
-CPU design
-A CPU basic cycle consist of fetch[取], decode, execute
-Every CPU has his own instruction set
-CPU h">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd1p9u5baj31ea0d80us.jpg">
-<meta property="og:updated_time" content="2017-01-06T13:14:36.000Z">
+Examples of concurrency issues (e.g. counter++)
+Root causes of concurrency issues
+Critical sections and mutual exclusion 
+Requirements and approaches for mutual exclusion
+###con">
+<meta property="og:updated_time" content="2017-01-10T22:26:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Introduction2">
-<meta name="twitter:description" content="Introduction 2
+<meta name="twitter:title" content="笔记 OSC_Concurrency1">
+<meta name="twitter:description" content="Concurrency 1
 Overview
-CPU design
-Address spaces, interruts
-OS structures/implementation
-
-CPU design
-A CPU basic cycle consist of fetch[取], decode, execute
-Every CPU has his own instruction set
-CPU h">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd1p9u5baj31ea0d80us.jpg">
+Examples of concurrency issues (e.g. counter++)
+Root causes of concurrency issues
+Critical sections and mutual exclusion 
+Requirements and approaches for mutual exclusion
+###con">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/img/favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.4a39e8.css">
   <style type="text/css">
@@ -65,11 +54,6 @@ CPU h">
   
 
 </head>
-<script language="javascript">
-  host = window.location.host
-  if(host == "barondu.coding.me")
-      window.location.href = window.location.href.replace(/barondu.coding.me/,"barondu.com")
-</script>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -92,11 +76,11 @@ CPU h">
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/categories/随笔/">随笔</a></li>
 	        
-				<li><a href="/tags/笔记/">笔记</a></li>
+				<li><a href="/categories/笔记/">笔记</a></li>
 	        
-				<li><a href="/tags/常旅客/">常旅客</a></li>
+				<li><a href="/categories/常旅客/">常旅客</a></li>
 	        
 			</ul>
 		</nav>
@@ -184,11 +168,11 @@ CPU h">
 				
 					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/categories/随笔/">随笔</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/笔记/">笔记</a></li>
+					<li style="width: 25%"><a href="/categories/笔记/">笔记</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/常旅客/">常旅客</a></li>
+					<li style="width: 25%"><a href="/categories/常旅客/">常旅客</a></li>
 		        
 				</ul>
 			</nav>
@@ -203,158 +187,128 @@ CPU h">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Introduction2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Concurrency1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Introduction2
+      笔记 OSC_Concurrency1
     </h1>
   
 
         
-        <a href="/2017-01-03/Introduction2/" class="archive-article-date">
-  	<time datetime="2017-01-03T23:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
+        <a href="/2017/01/09/Concurrency1/" class="archive-article-date">
+  	<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span> Hits         </span>
+  	<time datetime="2017-01-09T14:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction 2"></a>Introduction 2</h1><hr>
+        <h1 id="Concurrency-1"><a href="#Concurrency-1" class="headerlink" title="Concurrency 1"></a>Concurrency 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>CPU design</li>
-<li><strong>Address spaces, interruts</strong></li>
-<li>OS <strong>structures/implementation</strong></li>
+<li>Examples of <strong>concurrency issues</strong> (e.g. counter++)</li>
+<li>Root causes of <strong>concurrency issues</strong></li>
+<li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
+<li><strong>Requirements and approaches</strong> for mutual exclusion</li>
+<li>###concurrency</li>
+<li>Threads and processes execute concurrently or in parallel and can share resources<ul>
+<li>Multiprogramming/multiprocessing <strong>improves system utilisation</strong></li>
 </ul>
-<h3 id="CPU-design"><a href="#CPU-design" class="headerlink" title="CPU design"></a>CPU design</h3><ul>
-<li>A CPU basic cycle consist of <strong>fetch[取], decode, execute</strong></li>
-<li>Every CPU has his own <strong>instruction set</strong></li>
-<li>CPU has a  set of <strong>registers</strong></li>
-<li>Registers are used to store <strong>data</strong> and for <strong>special functions</strong> (e.g. program counter, program status word – mode bit)</li>
-<li>The <strong>compiler</strong>/programmer decides what to keep in the registers</li>
-<li><strong>Context switching</strong>[上下文切换] must save and restore the CPU’s internal state, including its <strong>registers</strong></li>
+</li>
+<li>A process/thread can be <strong>interrupted at any point in time</strong> (I/O, timer)<ul>
+<li>The process “state” is <strong>saved</strong> in the p<strong>rocess control block</strong> </li>
+</ul>
+</li>
+<li>The outcome of programs may become <strong>unpredictable</strong>[不可预知的]<ul>
+<li>Sharing data can lead to <strong>inconsistencies</strong>[矛盾]</li>
+<li>I.e., the <strong>outcome of execution</strong> may <strong>depend on the order</strong> win which instructions are carried out</li>
+</ul>
+</li>
 </ul>
 <a id="more"></a>
-<h3 id="Memory-Management-Unit-MMU"><a href="#Memory-Management-Unit-MMU" class="headerlink" title="Memory Management Unit (MMU)"></a>Memory Management Unit (MMU)</h3><ul>
-<li>Memory adsresses from 0 to MAX</li>
-<li>Variables are <strong>mnemonic</strong>[帮助记忆的] <strong>names</strong> for memory addresses</li>
-<li><p>You don’t know where the process will run in <strong>physical memory</strong> at compile time</p>
+<h4 id="Incrementing-a-counter"><a href="#Incrementing-a-counter" class="headerlink" title="Incrementing a counter"></a>Incrementing a counter</h4><ul>
+<li><code>counter++</code> consists of three separate actions:<ul>
+<li>1 read the value of counter and <strong>store it in a register</strong></li>
+<li>2 add one to the value in the register</li>
+<li>3 store the value of the register <strong>in counter</strong></li>
+</ul>
+</li>
+<li>The above actions are <strong>NOT</strong> “atomic”, e.g. they can be interrupted by the timer (⇒ <strong>context switch</strong>)</li>
+</ul>
+<h4 id="Bounded-Buffers"><a href="#Bounded-Buffers" class="headerlink" title="Bounded Buffers"></a>Bounded Buffers</h4><ul>
+<li>Consider a <strong>bounded buffer</strong> in which N items can be stored</li>
+<li>A <strong>counter</strong> is maintained to count the number of items currently in the buffer<ul>
+<li><strong>Incremented</strong> when an item is <strong>added</strong> </li>
+<li><strong>Decremented</strong> when an item is <strong>removed</strong></li>
+</ul>
+</li>
+<li>Similar <strong>concurrency problems</strong> as with the calculation of sums happen in the bounded buffer (producer/consumer) problem</li>
+</ul>
+<h4 id="Race-Conditions"><a href="#Race-Conditions" class="headerlink" title="Race Conditions"></a>Race Conditions</h4><ul>
+<li>A <strong>race condition occurs</strong> when multiple threads/processes <strong>access shared data</strong> and the result is dependent on <strong>the order in which the instructions are interleaved</strong></li>
+</ul>
+<h3 id="Concurrency-within-the-OS"><a href="#Concurrency-within-the-OS" class="headerlink" title="Concurrency within the OS"></a>Concurrency within the OS</h3><p>Data Structures</p>
 <ul>
-<li><strong>Multiple processes</strong> run on modern machines</li>
-<li>The compiler <strong>assumes</strong> that it will start <strong>running at 0 (logical address space)</strong></li>
-<li>An <strong>offset</strong>[补偿] is added at runtime by the MMU <strong>(physical address space)</strong><blockquote>
-<p>physical address = logical address + offset </p>
-</blockquote>
-</li>
+<li><strong>Kernels are preemptive</strong> these days (⇔ non-preemptive) <ul>
+<li><strong>Multiple processes are running</strong> in the kernel</li>
+<li>I.e. kernel <strong>processes can be interrupted</strong> at any point</li>
 </ul>
 </li>
-<li><p>Modern computer use a <strong>logical</strong> and <strong>physical</strong> memory addresses:</p>
+<li>The kernel maintains <strong>data structures</strong>, e.g. process tables, memory structures, open file lists, etc.</li>
+<li>These data structures are accessed <strong>concurrently/in parallel</strong> </li>
+<li>These can be subject to <strong>concurrency issues</strong></li>
+</ul>
+<p>Resources</p>
 <ul>
-<li>Every process has a logical address space – [0,<em>MAX64</em>] (theoretically理论上)</li>
-<li>The machine has a physical address space – [0, <em>MAX</em> ] (MAX determined by the amount of physical memory)</li>
+<li>Processes share resources, including memory, files, processor time, printers, I/O devices, etc.</li>
+<li>The operating system must:<ul>
+<li><strong>Allocate and deallocate</strong> these resources safely (i.e. avoid interference, deadlocks and starvation)</li>
+<li>Make sure that interactions within the OS d<strong>o not result in race conditions</strong></li>
+<li>The operating system must provide locking mechanisms to implement/support mutual exclusion (and prevent starvation and deadlocks)</li>
 </ul>
 </li>
-<li><p><strong>Address translation</strong> takes place in MMU</p>
-<blockquote>
-<p>physical = f (logical )</p>
-</blockquote>
-</li>
-<li><p>A <strong>context switch</strong> between processes <strong>invalidates</strong>[使无效] the MMU (as well as registers, cache, … )</p>
-</li>
 </ul>
-<h3 id="Timer-interrupts"><a href="#Timer-interrupts" class="headerlink" title="Timer interrupts"></a>Timer interrupts</h3><ul>
-<li>Interrupts <strong>temporarily pause</strong> a process’s normal operation</li>
-<li>Different types of interrupts:<ul>
-<li>Timer interrupts by <strong>CPU clock</strong></li>
-<li><strong>I/O interrupts</strong> for I/O completion or error codes </li>
-<li><strong>Software generated</strong>, e.g. errors and exceptions<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbd1p9u5baj31ea0d80us.jpg" alt=""><blockquote>
-<ol>
-<li>Timer generates an interrupt</li>
-<li>CPU finishes current instruction and tests for interrupt</li>
-<li>Transfer to interrupt service routine</li>
-</ol>
+<h3 id="Critical-Sections-临界段-Mutual-Exclusion-互斥"><a href="#Critical-Sections-临界段-Mutual-Exclusion-互斥" class="headerlink" title="Critical Sections[临界段], Mutual Exclusion[互斥]"></a>Critical Sections[临界段], Mutual Exclusion[互斥]</h3><ul>
+<li>A critical section is a set of instructions in which <strong>shared variables are changed</strong></li>
+<li><p><strong>Mutual exclusion</strong> must be enforced <strong>for critical sections</strong></p>
 <ul>
-<li>Hardware saves current process state (PSW, program counter)</li>
-<li>Set program counter to interrupt service routine</li>
-<li>Save registers and other state information</li>
-</ul>
-<ol>
-<li>Carry out[执行] interrupt service routine (scheduler)</li>
-<li>Restore next process to run</li>
-</ol>
-</blockquote>
+<li>Only <strong>one process at a time</strong> should be in the critical section (mutual exclusion)</li>
+<li>Processes have to <strong>get “permission”</strong> before entering their critical section<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span></div><div class="line">&#123;</div><div class="line">	<span class="params">...</span></div><div class="line">	<span class="comment">// ENTRY to critical section</span></div><div class="line">	critical section, e.g.counter++;</div><div class="line">	<span class="comment">// EXIT critical section</span></div><div class="line">	remaining code</div><div class="line">	<span class="params">...</span></div><div class="line">&#125; <span class="keyword">while</span> (<span class="params">...</span>);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-</ul>
-<h3 id="Moore’s-“law”"><a href="#Moore’s-“law”" class="headerlink" title="Moore’s “law”"></a>Moore’s “law”</h3><blockquote>
-<p><strong>Moore’s “law”:</strong>  “The number of transistors on an integrated circuit (chip) doubles roughly every two years” </p>
-</blockquote>
+<li><p><strong>Any solution to the critical section problem</strong> must satisfy the following <strong>requirements</strong>:</p>
 <ul>
-<li>Closely linked, but not necessarily related to performance</li>
-<li>The <strong>“power wall”</strong> slows performance improvements of single core/single processor systems<ul>
-<li>A few cores for multiple “programs” is easy to justify</li>
-<li>How to use <strong>massively[大规模的] parallel</strong> computers/CPUs/many core machines </li>
-<li>Can we <strong>extract parallelism automatically</strong>, can we implement parallelism at the lowest level (similar to multiprogramming) </li>
+<li><strong>Mutual exclusion</strong>: only one process can be in its critical section at any one point in time</li>
+<li><strong>Progress</strong>: any process must be able to enter its critical section at some point in time</li>
+<li><strong>Fairness/bounded waiting</strong>: processes cannot be made to wait indefinitely</li>
+</ul>
+</li>
+<li>These requirements have to be satisfied, <strong>independent of the order</strong> in which sequences are executed</li>
+</ul>
+<h4 id="Enforcing-Mutual-Exclusion"><a href="#Enforcing-Mutual-Exclusion" class="headerlink" title="Enforcing Mutual Exclusion"></a>Enforcing Mutual Exclusion</h4><ul>
+<li><strong>Approaches</strong> for mutual exclusion can be:<ul>
+<li><strong>Software based:</strong> Peterson’s solution</li>
+<li><strong>Hardware based</strong>: <code>test_and_set(), swap_and_compare()</code></li>
+<li><strong>Based on</strong>:<ul>
+<li>Mutexes</li>
+<li>Semaphores</li>
+<li>Monitors (software construct within the programming languages)</li>
 </ul>
 </li>
 </ul>
-<h3 id="Multi-core-hyperthreaded-processors"><a href="#Multi-core-hyperthreaded-processors" class="headerlink" title="Multi-core, hyperthreaded processors"></a>Multi-core, hyperthreaded processors</h3><ul>
-<li>Modern CPUs contain <strong>multiple cores</strong> and are often <strong>hyper-threaded</strong> </li>
-<li><strong>Evolution in hardware</strong> has implications on operating system design<ul>
-<li>XP did not support multi processor architectures</li>
-<li><strong>Process scheduling</strong> needs to account for <strong>load balancing</strong> and <strong>CPU affinity</strong>[亲和性]</li>
-<li><strong>Cache coherency</strong>[缓存一致性] becomes important</li>
-</ul>
 </li>
-</ul>
-<h3 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h3><ul>
-<li>Memory <strong>hierarchies</strong>[层级] used to balance <strong>cost</strong> and <strong>performance</strong> <ul>
-<li>Fast and expensive memory is used for <strong>caching</strong></li>
-<li>Slow and inexpensive memory is used for <strong>long term storage</strong></li>
-<li>Memory includes, registers, L1/L2 cache, main/core memory, disk, etc.</li>
-<li><strong>L2 Cache</strong> can be <strong>shared</strong> or <strong>dedicated</strong>[专注的] to individual cores </li>
-<li><strong>Cache management</strong> is mainly done by <strong>hardware</strong></li>
-<li>The CPU can only <strong>access main memory directly</strong> (i.e. files have to be brought into memory first)</li>
-</ul>
-</li>
-</ul>
-<h3 id="I-O-Devices"><a href="#I-O-Devices" class="headerlink" title="I/O Devices"></a>I/O Devices</h3><ul>
-<li><strong>Device driver</strong> interacts[交互] with the <strong>controller</strong>, controller interacts with the device (e.g., disk controller)</li>
-<li>The operating system/device driver typically <strong>communicates with the controller through registers</strong></li>
-<li>I/O can take place through:<ul>
-<li><strong>Busy waiting</strong></li>
-<li><strong>Interrupt based</strong></li>
-<li>Direct memory access (using <strong>DMA</strong> chip)</li>
-</ul>
-</li>
-</ul>
-<h3 id="Operating-System-Structure"><a href="#Operating-System-Structure" class="headerlink" title="Operating System Structure"></a>Operating System Structure</h3><ul>
-<li>Systems contain a lot of functionality</li>
-<li>Operating Systems are structured by <strong>Micro kernels</strong>[微内核] and <strong>Monolithic</strong>[单内核]</li>
-</ul>
-<h3 id="Micro-Kernels"><a href="#Micro-Kernels" class="headerlink" title="Micro Kernels"></a>Micro Kernels</h3><ul>
-<li>All <strong>non-essential functionality</strong> is <strong>extracted</strong>[取出] from the kernel <ul>
-<li><strong>Communication, memory management</strong> and <strong>CPU scheduling</strong> are likely to be included in the kernel</li>
-<li><strong>The file system, GUI, device drivers</strong> are likely to be user processes<br><code>除了保留基本功能，其他功能移出到user mode</code></li>
-</ul>
-</li>
-<li>Micro kernels are more <strong>easy to extend</strong>, more <strong>portable</strong>[便携], and usually more reliable</li>
-<li>Frequent <strong>system calls</strong> and <strong>kernel traps</strong>[陷阱] cause significant <strong>overhead</strong>[开销] (mode switches)</li>
-<li>Some Unix version, Mac OS X, Minix, and early versions of Windows (NT4.0) were (partially) micro kernels</li>
-</ul>
-<h3 id="Monolithic-Systems"><a href="#Monolithic-Systems" class="headerlink" title="Monolithic Systems"></a>Monolithic Systems</h3><ul>
-<li>All procedures are <strong>linked together</strong> into one <strong>single executable running</strong> in <strong>kernel mode</strong></li>
-<li>Monolithic kernels are <strong>difficult to maintain</strong></li>
-<li>Current versions of Windows, Linux are implemented as monolithic kernels<br><code>操作系统高度紧密，移植性不佳。但是若设计完善，效率高</code></li>
+<li>In addition to mutual exclusion, <strong>deadlocks</strong> have to be prevented (next week’s subject)</li>
 </ul>
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Operating Systems are closely linked to <strong>computer architecture</strong> </li>
-<li><strong>Address translation</strong> and <strong>interrupts</strong></li>
-<li><strong>OS structures</strong></li>
+<li>Examples of <strong>concurrency issues</strong> (e.g. counter++)</li>
+<li>Root causes of <strong>concurrency issues</strong></li>
+<li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
+<li><strong>Requirements and approaches</strong> for mutual exclusion</li>
 </ul>
 
       
@@ -395,21 +349,28 @@ CPU h">
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记/" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -459,7 +420,7 @@ CPU h">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017-01-03/Introduction2/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.barondu.com/2017/01/09/Concurrency1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -473,18 +434,18 @@ CPU h">
   
 <nav id="article-nav">
   
-    <a href="/2017-01-06/Processes1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/09/Concurrency2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          笔记 OSC_Processes1
+          笔记 OSC_Concurrency2
         
       </div>
     </a>
   
   
-    <a href="/2017-01-01/Introduction1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">笔记 OSC_Introduction1</div>
+    <a href="/2017/01/09/Processes4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔记 OSC_Processes4</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -498,7 +459,7 @@ CPU h">
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Introduction2" data-title="笔记 OSC_Introduction2" data-url="http://www.barondu.com/2017-01-03/Introduction2/"></div>
+	<div class="ds-thread" data-thread-key="Concurrency1" data-title="笔记 OSC_Concurrency1" data-url="http://www.barondu.com/2017/01/09/Concurrency1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -523,18 +484,22 @@ CPU h">
           </div>
         </div>
       </div>
-      <footer id="footer">
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2017 Baron
     	</div>
+        <span id="busuanzi_container_site_pv">View <span id="busuanzi_value_site_pv"></span> times</span>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
     </div>
   </div>
+
 </footer>
+
     </div>
     <script>
 	var yiliaConfig = {
@@ -606,15 +571,7 @@ CPU h">
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OSC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,6 +580,10 @@ CPU h">
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">processes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
               </li>
             
             <div class="clearfix"></div>
