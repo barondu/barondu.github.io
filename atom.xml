@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.barondu.com/"/>
-  <updated>2017-01-10T22:26:55.000Z</updated>
+  <updated>2017-02-06T11:44:29.000Z</updated>
   <id>http://www.barondu.com/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>拓展 N和NP问题</title>
+    <link href="http://www.barondu.com/2017/02/06/N%E5%92%8CNP%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.barondu.com/2017/02/06/N和NP问题/</id>
+    <published>2017-02-06T11:43:27.000Z</published>
+    <updated>2017-02-06T11:44:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="N和NP问题"><a href="#N和NP问题" class="headerlink" title="N和NP问题"></a>N和NP问题</h1><blockquote>
+<p>“P” refers to the class of problems that can be solved in polynomial time<br>“NP” refers to problems that can be solved in non- deterministic polynomial time</p>
+</blockquote>
+<ul>
+<li>P是能在多项式时间内<strong>解决</strong>的问题，</li>
+<li>NP是能在多项式时间<strong>验证答案正确与否</strong>的问题。</li>
+</ul>
+<p>用大白话讲大概就是这样。所以P是否等于NP实质上就是在问，如果对于一个问题我能在多项式时间内验证其答案的正确性，那么我是否能在多项式时间内解决它？这个表述不太严谨，但通俗来讲就是如此。(2014, Wang)</p>
+<p>####什么是polynomial time？</p>
+<ul>
+<li>多项式级的复杂度：O(1),O(log(n)),O(n^a)等，因为它的规模n出现在底数的位置；</li>
+<li>非多项式级的复杂度：O(a^n)和O(n!)型复杂度，其复杂度计算机往往不能承受。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;N和NP问题&quot;&gt;&lt;a href=&quot;#N和NP问题&quot; class=&quot;headerlink&quot; title=&quot;N和NP问题&quot;&gt;&lt;/a&gt;N和NP问题&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;“P” refers to the class of problems that 
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="G52LAC" scheme="http://www.barondu.com/tags/G52LAC/"/>
+    
+  </entry>
   
   <entry>
     <title>笔记 OSC_Concurrency2</title>

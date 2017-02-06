@@ -1,3 +1,4 @@
+http://www.barondu.com/2017/02/06/N和NP问题/
 http://www.barondu.com/2017/01/09/Concurrency2/
 http://www.barondu.com/2017/01/09/Concurrency1/
 http://www.barondu.com/2017/01/09/Processes4/
