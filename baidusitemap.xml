@@ -5,12 +5,14 @@
     
   <url>
     <loc>http://www.barondu.com/2017/11/17/TensorFlow/</loc>
-    <lastmod>2017-11-19T16:18:43.000Z</lastmod>
+    <lastmod>2017-11-19T16:29:11.000Z</lastmod>
     <data>
         <display>
         <title>Installing TensorFlow</title>
         <pubTime>2017-11-17T19:43:51.000Z</pubTime>
         
+        <tag>Machine Learning</tag>
+         
         <tag>TensorFlow</tag>
          
         <tag>pyenv</tag>
@@ -18,7 +20,7 @@
          
            
              
-              <breadCrumb title="Machine Learning" url="http://www.barondu.com/categories/Machine-Learning/"/>
+              <breadCrumb title="随笔" url="http://www.barondu.com/categories/%E9%9A%8F%E7%AC%94/"/>
           
         </display>
     </data>

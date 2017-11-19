@@ -21,7 +21,7 @@ pyenv安装pyenv 管理多版本 python，通过它安装 python。原因是不�
 
 安装：12345# 使用git安装$ git clone https://github.com/pyenv/pye">
 <meta property="og:image" content="http://ojdy7wc2w.bkt.clouddn.com/image/blog/20171118172703_TsVcPT_Screenshot.jpeg">
-<meta property="og:updated_time" content="2017-11-19T16:18:43.000Z">
+<meta property="og:updated_time" content="2017-11-19T16:29:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Installing TensorFlow">
 <meta name="twitter:description" content="TensorFlow配置环境我的环境是 macOS Sierra 10.12.6，其他mac版本应该也适用。
@@ -116,6 +116,8 @@ ga('send', 'pageview');
 		        
 					<a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100011039793137" title="facebook"><i class="icon-facebook"></i></a>
 		        
+					<a class="twitter" target="_blank" href="https://twitter.com/BaronDU96" title="twitter"><i class="icon-twitter"></i></a>
+		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
 			</div>
@@ -162,6 +164,8 @@ ga('send', 'pageview');
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/barondu" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 						<a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100011039793137" title="facebook"><i class="icon-facebook"></i></a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/BaronDU96" title="twitter"><i class="icon-twitter"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
@@ -230,7 +234,7 @@ ga('send', 'pageview');
 <h3 id="TensorfFlow-安装"><a href="#TensorfFlow-安装" class="headerlink" title="TensorfFlow 安装"></a>TensorfFlow 安装</h3><ul>
 <li>最简单的办法是从<a href="*https://www.tensorflow.org/install/">官网</a>下载TensorFlow直接安装</li>
 <li>当然我们也可以追求性能用源码安装，这里是<a href="https://www.tensorflow.org/install/install_sources" target="_blank" rel="external">官方文档</a></li>
-<li>这里介绍CPU版本的安装，GPU版本还需要CUDA和Xcode的环境，这里有关于<a href="https://www.tensorflow.org/install/install_mac#NVIDIARequirements" target="_blank" rel="external">GPU版本安装的解释</a><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># 安装 bazel</span></div><div class="line">brew update &amp;&amp; brew install bazel</div><div class="line"></div><div class="line"><span class="meta"># 安装 python dependencies分别是six numpy wheel</span></div><div class="line"></div><div class="line"><span class="meta"># python 2.x pip用以下指令</span></div><div class="line">sudo pip install six numpy wheel </div><div class="line"></div><div class="line"><span class="meta"># python 3.x pip3 用以下指令</span></div><div class="line">sudo pip3 install six numpy wheel </div><div class="line"></div><div class="line"><span class="meta"># 下载源码</span></div><div class="line">git clone https:<span class="comment">//github.com/tensorflow/tensorflow</span></div><div class="line"></div><div class="line"><span class="meta"># 如果使用pyenv之后 建议clone在pyenv的python子文件夹下 </span></div><div class="line"><span class="meta"># cd 到路径，以下是我的tensflow的路径</span></div><div class="line">cd /Users/baron/.pyenv/versions/<span class="number">3.6</span><span class="number">.3</span>/lib/python3<span class="number">.6</span>/site-packages/tensorflow</div><div class="line"></div><div class="line"><span class="meta"># 配置编译文件，基本默认选项，建议仔细看下，官方doc有解释，路径一定要注意，tensflow在那个pyrthon下，写哪个python路径</span></div><div class="line"><span class="meta"># 因为需要下载一些文件，需要开翻墙</span></div><div class="line">./configure</div><div class="line"></div><div class="line"><span class="meta"># 编译没有 GPU 支持版本，很漫长，编译了将近一个小时</span></div><div class="line">bazel build --config=opt <span class="comment">//tensorflow/tools/pip_package:build_pip_package</span></div><div class="line"></div><div class="line"><span class="meta"># 打包到/tmp/tensorflow_pkg下</span></div><div class="line">bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg</div><div class="line"></div><div class="line"><span class="meta"># 查看包名</span></div><div class="line">ls -alh /tmp/tensorflow_pkg</div><div class="line"></div><div class="line"><span class="meta"># 用pip或pip3安装，后面的包名替换成泥自己编译后的</span></div><div class="line">pip install /tmp/tensorflow_pkg/tensorflow<span class="number">-1.0</span><span class="number">.0</span>-cp36-cp36m-macosx_10_11_x86_64.whl</div></pre></td></tr></table></figure>
+<li>这里介绍CPU版本的安装，GPU版本还需要CUDA和Xcode的环境，这里有关于<a href="https://www.tensorflow.org/install/install_mac#NVIDIARequirements" target="_blank" rel="external">GPU版本安装的解释</a><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># 安装 bazel</span></div><div class="line">brew update &amp;&amp; brew install bazel</div><div class="line"></div><div class="line"><span class="meta"># 安装 python dependencies分别是six numpy wheel</span></div><div class="line"></div><div class="line"><span class="meta"># python 2.x pip用以下指令</span></div><div class="line">sudo -H pip install six numpy wheel </div><div class="line"></div><div class="line"><span class="meta"># python 3.x pip3 用以下指令</span></div><div class="line">sudo -H pip3 install six numpy wheel </div><div class="line"></div><div class="line"><span class="meta"># 下载源码</span></div><div class="line">git clone https:<span class="comment">//github.com/tensorflow/tensorflow</span></div><div class="line"></div><div class="line"><span class="meta"># 如果使用pyenv之后 建议clone在pyenv的python子文件夹下 </span></div><div class="line"><span class="meta"># cd 到路径，以下是我的tensflow的路径</span></div><div class="line">cd /Users/baron/.pyenv/versions/<span class="number">3.6</span><span class="number">.3</span>/lib/python3<span class="number">.6</span>/site-packages/tensorflow</div><div class="line"></div><div class="line"><span class="meta"># 配置编译文件，基本默认选项，建议仔细看下，官方doc有解释，路径一定要注意，tensflow在那个pyrthon下，写哪个python路径</span></div><div class="line"><span class="meta"># 因为需要下载一些文件，需要开翻墙</span></div><div class="line">./configure</div><div class="line"></div><div class="line"><span class="meta"># 编译没有 GPU 支持版本，很漫长，编译了将近一个小时</span></div><div class="line">bazel build --config=opt <span class="comment">//tensorflow/tools/pip_package:build_pip_package</span></div><div class="line"></div><div class="line"><span class="meta"># 打包到/tmp/tensorflow_pkg下</span></div><div class="line">bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg</div><div class="line"></div><div class="line"><span class="meta"># 查看包名</span></div><div class="line">ls -alh /tmp/tensorflow_pkg</div><div class="line"></div><div class="line"><span class="meta"># 用pip或pip3安装，后面的包名替换成泥自己编译后的</span></div><div class="line">pip3 install /tmp/tensorflow_pkg/tensorflow<span class="number">-1.0</span><span class="number">.0</span>-cp36-cp36m-macosx_10_11_x86_64.whl</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>在安装报错的时候，尝试加上<code>sudo</code>，若还是不行使用<code>sudo -H</code>，我就因为这个问题耽误好久。<br>注意所有路径问题，编译时显示路径不对，请cd或者更改到你TensorFlow的实际路径</p>
@@ -279,6 +283,10 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TensorFlow</a>
         		</li>
       		 
@@ -295,7 +303,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/MachineLearning/" class="article-tag-list-link color2">Machine Learning</a>
+        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -514,6 +522,10 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TensorFlow</a>
               </li>
              
@@ -571,6 +583,14 @@ ga('send', 'pageview');
           
             <li class="search-li">
               <a href="http://www.pixiv.net/member.php?id=6632613/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>fuu的p站</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://live.bilibili.com/65936" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>fuu的b站直播间</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.weibo.com/u/2130115445?" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>fuu的微博</a>
             </li>
           
         </ul>
