@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.barondu.com/"/>
-  <updated>2017-11-18T19:51:48.000Z</updated>
+  <updated>2017-11-19T16:18:43.000Z</updated>
   <id>http://www.barondu.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.barondu.com/2017/11/17/TensorFlow/"/>
     <id>http://www.barondu.com/2017/11/17/TensorFlow/</id>
     <published>2017-11-17T19:43:51.000Z</published>
-    <updated>2017-11-18T19:51:48.000Z</updated>
+    <updated>2017-11-19T16:18:43.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h1><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>我的环境是 macOS Sierra 10.12.6，其他mac版本应该也适用。</p>
 <h3 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h3><p>安装<a href="https://github.com/pyenv/pyenv" target="_blank" rel="external">pyenv</a> 管理多版本 python，通过它安装 python。原因是不希望污染mac自带系统python。详细过程参考官方doc，这里描述一下我的安装过程。</p>
@@ -43,10 +43,9 @@
 </li>
 </ul>
 <p>在安装报错的时候，尝试加上<code>sudo</code>，若还是不行使用<code>sudo -H</code>，我就因为这个问题耽误好久。<br>注意所有路径问题，编译时显示路径不对，请cd或者更改到你TensorFlow的实际路径</p>
-<p>###检测和更新<br>最后进入IDE，python shell或者terminal 用pyenv选择你安装了tensorflow的python版本<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">workon ml</div><div class="line">python</div><div class="line"><span class="comment"># 进入 python repl 环境</span></div><div class="line"><span class="meta">&gt;&gt;</span>&gt; import tensorflow as tf</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; sess = tf.Session()</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; print(sess.run(hello))</div><div class="line">b<span class="string">'Hello, TensorFlow!'</span></div></pre></td></tr></table></figure></p>
-<p>###更新<br>对于有强迫症的小伙伴（譬如我<br>更新是必不可少的^_^<br><figure class="highlight tcl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 更新brew安装过的一切</span></div><div class="line">brew <span class="keyword">update</span></div><div class="line"><span class="comment"># 查看pip安装过的所有包</span></div><div class="line">pip3 <span class="keyword">list</span> --<span class="keyword">format</span>=columns</div><div class="line"><span class="comment"># 查看pip安装过的且需要更新的包</span></div><div class="line">pip3 <span class="keyword">list</span> --outdated --<span class="keyword">format</span>=columns</div><div class="line"><span class="comment"># 一个个输入包名更新就好了</span></div><div class="line">sudo -H pip3 install -U 包名</div></pre></td></tr></table></figure></p>
-<p>##Reference</p>
-<ol>
+<h3 id="检测和更新"><a href="#检测和更新" class="headerlink" title="检测和更新"></a>检测和更新</h3><p>最后进入IDE，python shell或者terminal 用pyenv选择你安装了tensorflow的python版本<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">workon ml</div><div class="line">python</div><div class="line"><span class="comment"># 进入 python repl 环境</span></div><div class="line"><span class="meta">&gt;&gt;</span>&gt; import tensorflow as tf</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; sess = tf.Session()</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; print(sess.run(hello))</div><div class="line">b<span class="string">'Hello, TensorFlow!'</span></div></pre></td></tr></table></figure></p>
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>对于有强迫症的小伙伴（譬如我<br>更新是必不可少的^_^<br><figure class="highlight tcl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 更新brew安装过的一切</span></div><div class="line">brew <span class="keyword">update</span></div><div class="line"><span class="comment"># 查看pip安装过的所有包</span></div><div class="line">pip3 <span class="keyword">list</span> --<span class="keyword">format</span>=columns</div><div class="line"><span class="comment"># 查看pip安装过的且需要更新的包</span></div><div class="line">pip3 <span class="keyword">list</span> --outdated --<span class="keyword">format</span>=columns</div><div class="line"><span class="comment"># 一个个输入包名更新就好了</span></div><div class="line">sudo -H pip3 install -U 包名</div></pre></td></tr></table></figure></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://www.tensorflow.org/install/install_sources#prepare_environment_for_mac_os" target="_blank" rel="external">Installing TensorFlow from Sources</a></li>
 <li><a href="https://gist.github.com/cosmtrek/91d921bc1c45f30de38b689965ab2236" target="_blank" rel="external">源码安装 TensorFlow for Mac OS X</a></li>
 </ol>
