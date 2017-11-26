@@ -12,7 +12,10 @@
 pyenv安装pyenv 管理多版本 python，通过它安装 python。原因是不希望污染mac自带系统python。详细过程参考官方doc，这里描述一下我的安装过程。
 
 
-安装：12345# 使用git安装$ git clone https://github.com/pyenv/py">
+
+安装：
+
+12345# 使用git安装$ git clone https://github.com/pyenv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Installing TensorFlow">
 <meta property="og:url" content="http://www.barondu.com/2017/11/17/TensorFlow/index.html">
@@ -21,16 +24,22 @@ pyenv安装pyenv 管理多版本 python，通过它安装 python。原因是不�
 pyenv安装pyenv 管理多版本 python，通过它安装 python。原因是不希望污染mac自带系统python。详细过程参考官方doc，这里描述一下我的安装过程。
 
 
-安装：12345# 使用git安装$ git clone https://github.com/pyenv/py">
+
+安装：
+
+12345# 使用git安装$ git clone https://github.com/pyenv">
 <meta property="og:image" content="http://ojdy7wc2w.bkt.clouddn.com/image/blog/20171118172703_TsVcPT_Screenshot.jpeg">
-<meta property="og:updated_time" content="2017-11-21T18:17:31.515Z">
+<meta property="og:updated_time" content="2017-11-26T03:08:54.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Installing TensorFlow">
 <meta name="twitter:description" content="TensorFlow配置环境我的环境是 macOS Sierra 10.12.6，其他mac版本应该也适用。
 pyenv安装pyenv 管理多版本 python，通过它安装 python。原因是不希望污染mac自带系统python。详细过程参考官方doc，这里描述一下我的安装过程。
 
 
-安装：12345# 使用git安装$ git clone https://github.com/pyenv/py">
+
+安装：
+
+12345# 使用git安装$ git clone https://github.com/pyenv">
 <meta name="twitter:image" content="http://ojdy7wc2w.bkt.clouddn.com/image/blog/20171118172703_TsVcPT_Screenshot.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
@@ -234,27 +243,32 @@ ga('send', 'pageview');
       
         <h1 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h1><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>我的环境是 macOS Sierra 10.12.6，其他mac版本应该也适用。</p>
 <h3 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h3><p>安装<a href="https://github.com/pyenv/pyenv" target="_blank" rel="external">pyenv</a> 管理多版本 python，通过它安装 python。原因是不希望污染mac自带系统python。详细过程参考官方doc，这里描述一下我的安装过程。</p>
-<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=518894283&auto=1&height=66"></iframe></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=518894283&auto=1&height=66"></iframe>
+
 <ol>
-<li>安装：<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用git安装</span></div><div class="line"><span class="variable">$ </span>git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/pyenv</span><span class="regexp">/pyenv.git ~/</span>.pyenv</div><div class="line"><span class="comment"># 使用Homebrew on Mac OS X 安装</span></div><div class="line"><span class="variable">$ </span>brew update</div><div class="line"><span class="variable">$ </span>brew install pyenv</div></pre></td></tr></table></figure>
-</li>
+<li>安装：</li>
 </ol>
-<p>没有<a href="https://brew.sh/" title="Homebrew" target="_blank" rel="external">Homebrew</a>请安装并更新<br><a id="more"></a><br><figure class="highlight julia"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 配置pyenv的环境，</span></div><div class="line">$ echo '<span class="keyword">export</span> PYENV_ROOT=<span class="string">"<span class="variable">$HOME</span>/.pyenv"</span>' &gt;&gt; ~/.bash_profile</div><div class="line">$ echo '<span class="keyword">export</span> PATH=<span class="string">"<span class="variable">$PYENV_ROOT</span>/bin:<span class="variable">$PATH</span>"</span>' &gt;&gt; ~/.bash_profile</div><div class="line">$ echo -<span class="literal">e</span> '<span class="keyword">if</span> command -v pyenv <span class="number">1</span>&gt;/dev/null <span class="number">2</span>&gt;&amp;<span class="number">1</span>; then\n  eval <span class="string">"<span class="subst">$(pyenv init -)</span>"</span>\nfi' &gt;&gt; ~/.bash_profile</div><div class="line">$ echo -<span class="literal">e</span> '<span class="keyword">if</span> command -v pyenv <span class="number">1</span>&gt;/dev/null <span class="number">2</span>&gt;&amp;<span class="number">1</span>; then\n  eval <span class="string">"<span class="subst">$(pyenv init -)</span>"</span>\nfi' &gt;&gt; ~/.bash_profile</div><div class="line">$ exec <span class="string">"<span class="variable">$SHELL</span>"</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用git安装</span></div><div class="line"><span class="variable">$ </span>git clone <span class="symbol">https:</span>/<span class="regexp">/github.com/pyenv</span><span class="regexp">/pyenv.git ~/</span>.pyenv</div><div class="line"><span class="comment"># 使用Homebrew on Mac OS X 安装</span></div><div class="line"><span class="variable">$ </span>brew update</div><div class="line"><span class="variable">$ </span>brew install pyenv</div></pre></td></tr></table></figure>
+<p>没有<a href="https://brew.sh/" title="Homebrew" target="_blank" rel="external">Homebrew</a>请安装并更新<br><a id="more"></a></p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 配置pyenv的环境，</span></div><div class="line">$ echo '<span class="keyword">export</span> PYENV_ROOT=<span class="string">"<span class="variable">$HOME</span>/.pyenv"</span>' &gt;&gt; ~/.bash_profile</div><div class="line">$ echo '<span class="keyword">export</span> PATH=<span class="string">"<span class="variable">$PYENV_ROOT</span>/bin:<span class="variable">$PATH</span>"</span>' &gt;&gt; ~/.bash_profile</div><div class="line">$ echo -<span class="literal">e</span> '<span class="keyword">if</span> command -v pyenv <span class="number">1</span>&gt;/dev/null <span class="number">2</span>&gt;&amp;<span class="number">1</span>; then\n  eval <span class="string">"<span class="subst">$(pyenv init -)</span>"</span>\nfi' &gt;&gt; ~/.bash_profile</div><div class="line">$ echo -<span class="literal">e</span> '<span class="keyword">if</span> command -v pyenv <span class="number">1</span>&gt;/dev/null <span class="number">2</span>&gt;&amp;<span class="number">1</span>; then\n  eval <span class="string">"<span class="subst">$(pyenv init -)</span>"</span>\nfi' &gt;&gt; ~/.bash_profile</div><div class="line">$ exec <span class="string">"<span class="variable">$SHELL</span>"</span></div></pre></td></tr></table></figure>
 <p>这里的 shell 配置文件（~/.bash_profile）依不同 Linux 而需作修改，如果使用 Zsh 则需要相应的配置 ~/.zshrc 详情见<a href="https://github.com/pyenv/pyenv" target="_blank" rel="external">官方doc</a></p>
 <ol>
-<li>用pyenv安装python<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pyenv install <span class="number">3.6</span><span class="number">.3</span></div></pre></td></tr></table></figure>
-</li>
+<li>用pyenv安装python</li>
 </ol>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pyenv install <span class="number">3.6</span><span class="number">.3</span></div></pre></td></tr></table></figure>
 <p>pyenv的常用指令<br><img src="http://ojdy7wc2w.bkt.clouddn.com/image/blog/20171118172703_TsVcPT_Screenshot.jpeg" alt=""><br>更多关于pyenv的使用大家可以参考这篇文章<a href="http://einverne.github.io/post/2017/04/pyenv.html" target="_blank" rel="external">使用 pyenv 管理 Python 版本 </a><br>查看当前python版本和路径<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pyenv versions</div><div class="line">  <span class="keyword">system</span></div><div class="line">* <span class="number">3.6</span><span class="number">.3</span> (<span class="built_in">set</span> <span class="keyword">by</span> /Users/baron/.pyenv/<span class="built_in">version</span>)</div></pre></td></tr></table></figure></p>
 <h3 id="TensorfFlow-安装"><a href="#TensorfFlow-安装" class="headerlink" title="TensorfFlow 安装"></a>TensorfFlow 安装</h3><ul>
 <li>最简单的办法是从<a href="*https://www.tensorflow.org/install/">官网</a>下载TensorFlow直接安装</li>
 <li>当然我们也可以追求性能用源码安装，这里是<a href="https://www.tensorflow.org/install/install_sources" target="_blank" rel="external">官方文档</a></li>
-<li>这里介绍CPU版本的安装，GPU版本还需要CUDA和Xcode的环境，这里有关于<a href="https://www.tensorflow.org/install/install_mac#NVIDIARequirements" target="_blank" rel="external">GPU版本安装的解释</a><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># 安装 bazel</span></div><div class="line">brew update &amp;&amp; brew install bazel</div><div class="line"></div><div class="line"><span class="meta"># 安装 python dependencies分别是six numpy wheel</span></div><div class="line"></div><div class="line"><span class="meta"># python 2.x pip用以下指令</span></div><div class="line">sudo -H pip install six numpy wheel </div><div class="line"></div><div class="line"><span class="meta"># python 3.x pip3 用以下指令</span></div><div class="line">sudo -H pip3 install six numpy wheel </div><div class="line"></div><div class="line"><span class="meta"># 下载源码</span></div><div class="line">git clone https:<span class="comment">//github.com/tensorflow/tensorflow</span></div><div class="line"></div><div class="line"><span class="meta"># 如果使用pyenv之后 建议clone在pyenv的python子文件夹下 </span></div><div class="line"><span class="meta"># cd 到路径，以下是我的tensflow的路径</span></div><div class="line">cd /Users/baron/.pyenv/versions/<span class="number">3.6</span><span class="number">.3</span>/lib/python3<span class="number">.6</span>/site-packages/tensorflow</div><div class="line"></div><div class="line"><span class="meta"># 配置编译文件，基本默认选项，建议仔细看下，官方doc有解释，路径一定要注意，tensflow在那个pyrthon下，写哪个python路径</span></div><div class="line"><span class="meta"># 因为需要下载一些文件，需要开翻墙</span></div><div class="line">./configure</div><div class="line"></div><div class="line"><span class="meta"># 编译没有 GPU 支持版本，很漫长，编译了将近一个小时</span></div><div class="line">bazel build --config=opt <span class="comment">//tensorflow/tools/pip_package:build_pip_package</span></div><div class="line"></div><div class="line"><span class="meta"># 打包到/tmp/tensorflow_pkg下</span></div><div class="line">bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg</div><div class="line"></div><div class="line"><span class="meta"># 查看包名</span></div><div class="line">ls -alh /tmp/tensorflow_pkg</div><div class="line"></div><div class="line"><span class="meta"># 用pip或pip3安装，后面的包名替换成泥自己编译后的</span></div><div class="line">pip3 install /tmp/tensorflow_pkg/tensorflow<span class="number">-1.0</span><span class="number">.0</span>-cp36-cp36m-macosx_10_11_x86_64.whl</div></pre></td></tr></table></figure>
-</li>
+<li>这里介绍CPU版本的安装，GPU版本还需要CUDA和Xcode的环境，这里有关于<a href="https://www.tensorflow.org/install/install_mac#NVIDIARequirements" target="_blank" rel="external">GPU版本安装的解释</a></li>
 </ul>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># 安装 bazel</span></div><div class="line">brew update &amp;&amp; brew install bazel</div><div class="line"></div><div class="line"><span class="meta"># 安装 python dependencies分别是six numpy wheel</span></div><div class="line"></div><div class="line"><span class="meta"># python 2.x pip用以下指令</span></div><div class="line">sudo -H pip install six numpy wheel </div><div class="line"></div><div class="line"><span class="meta"># python 3.x pip3 用以下指令</span></div><div class="line">sudo -H pip3 install six numpy wheel </div><div class="line"></div><div class="line"><span class="meta"># 下载源码</span></div><div class="line">git clone https:<span class="comment">//github.com/tensorflow/tensorflow</span></div><div class="line"></div><div class="line"><span class="meta"># 如果使用pyenv之后 建议clone在pyenv的python子文件夹下 </span></div><div class="line"><span class="meta"># cd 到路径，以下是我的tensflow的路径</span></div><div class="line">cd /Users/baron/.pyenv/versions/<span class="number">3.6</span><span class="number">.3</span>/lib/python3<span class="number">.6</span>/site-packages/tensorflow</div><div class="line"></div><div class="line"><span class="meta"># 配置编译文件，基本默认选项，建议仔细看下，官方doc有解释，路径一定要注意，tensflow在那个pyrthon下，写哪个python路径</span></div><div class="line"><span class="meta"># 因为需要下载一些文件，需要开翻墙</span></div><div class="line">./configure</div><div class="line"></div><div class="line"><span class="meta"># 编译没有 GPU 支持版本，很漫长，编译了将近一个小时</span></div><div class="line">bazel build --config=opt <span class="comment">//tensorflow/tools/pip_package:build_pip_package</span></div><div class="line"></div><div class="line"><span class="meta"># 打包到/tmp/tensorflow_pkg下</span></div><div class="line">bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg</div><div class="line"></div><div class="line"><span class="meta"># 查看包名</span></div><div class="line">ls -alh /tmp/tensorflow_pkg</div><div class="line"></div><div class="line"><span class="meta"># 用pip或pip3安装，后面的包名替换成泥自己编译后的</span></div><div class="line">pip3 install /tmp/tensorflow_pkg/tensorflow<span class="number">-1.0</span><span class="number">.0</span>-cp36-cp36m-macosx_10_11_x86_64.whl</div></pre></td></tr></table></figure>
 <p>在安装报错的时候，尝试加上<code>sudo</code>，若还是不行使用<code>sudo -H</code>，我就因为这个问题耽误好久。<br>注意所有路径问题，编译时显示路径不对，请cd或者更改到你TensorFlow的实际路径</p>
-<h3 id="检测和更新"><a href="#检测和更新" class="headerlink" title="检测和更新"></a>检测和更新</h3><p>最后进入IDE，python shell或者terminal 用pyenv选择你安装了tensorflow的python版本<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">workon ml</div><div class="line">python</div><div class="line"><span class="comment"># 进入 python repl 环境</span></div><div class="line"><span class="meta">&gt;&gt;</span>&gt; import tensorflow as tf</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; sess = tf.Session()</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; print(sess.run(hello))</div><div class="line">b<span class="string">'Hello, TensorFlow!'</span></div></pre></td></tr></table></figure></p>
-<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>对于有强迫症的小伙伴（譬如我<br>更新是必不可少的^_^<br><figure class="highlight tcl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 更新brew安装过的一切</span></div><div class="line">brew <span class="keyword">update</span></div><div class="line"><span class="comment"># 查看pip安装过的所有包</span></div><div class="line">pip3 <span class="keyword">list</span> --<span class="keyword">format</span>=columns</div><div class="line"><span class="comment"># 查看pip安装过的且需要更新的包</span></div><div class="line">pip3 <span class="keyword">list</span> --outdated --<span class="keyword">format</span>=columns</div><div class="line"><span class="comment"># 一个个输入包名更新就好了</span></div><div class="line">sudo -H pip3 install -U 包名</div></pre></td></tr></table></figure></p>
+<h3 id="直接安装他人编译好的版本"><a href="#直接安装他人编译好的版本" class="headerlink" title="直接安装他人编译好的版本"></a>直接安装他人编译好的版本</h3><p>可以在<a href="https://github.com/lakshayg/tensorflow-build" target="_blank" rel="external">这里</a>下载别人已经编译好的<code>.whl</code>文件来安装或者更新，注意自己的python版本和TensorFlow版本以及系统</p>
+<h3 id="检测和更新"><a href="#检测和更新" class="headerlink" title="检测和更新"></a>检测和更新</h3><p>最后进入IDE，python shell或者terminal 用pyenv选择你安装了tensorflow的python版本</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">workon ml</div><div class="line">python</div><div class="line"><span class="comment"># 进入 python repl 环境</span></div><div class="line"><span class="meta">&gt;&gt;</span>&gt; import tensorflow as tf</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; sess = tf.Session()</div><div class="line"><span class="meta">&gt;&gt;</span>&gt; print(sess.run(hello))</div><div class="line">b<span class="string">'Hello, TensorFlow!'</span></div></pre></td></tr></table></figure>
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>对于有强迫症的小伙伴（譬如我<br>更新是必不可少的^_^</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 更新brew安装过的一切</span></div><div class="line">brew <span class="keyword">update</span></div><div class="line"><span class="comment"># 查看pip安装过的所有包</span></div><div class="line">pip3 <span class="keyword">list</span> --<span class="keyword">format</span>=columns</div><div class="line"><span class="comment"># 查看pip安装过的且需要更新的包</span></div><div class="line">pip3 <span class="keyword">list</span> --outdated --<span class="keyword">format</span>=columns</div><div class="line"><span class="comment"># 一个个输入包名更新就好了</span></div><div class="line">sudo -H pip3 install -U 包名</div></pre></td></tr></table></figure>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://www.tensorflow.org/install/install_sources#prepare_environment_for_mac_os" target="_blank" rel="external">Installing TensorFlow from Sources</a></li>
 <li><a href="https://gist.github.com/cosmtrek/91d921bc1c45f30de38b689965ab2236" target="_blank" rel="external">源码安装 TensorFlow for Mac OS X</a></li>
@@ -386,6 +400,15 @@ ga('send', 'pageview');
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/11/26/Hexo以及yilia主题个性化设置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hexo以及yilia主题个性化设置
+        
+      </div>
+    </a>
   
   
     <a href="/2017/02/06/N和NP问题/" id="article-nav-older" class="article-nav-link-wrap">
@@ -572,15 +595,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">processes</a>
+                <a href="javascript:void(0)" class="js-tag color2">G52LAC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">G52LAC</a>
+                <a href="javascript:void(0)" class="js-tag color5">processes</a>
               </li>
              
               <li class="article-tag-list-item">
