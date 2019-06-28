@@ -199,6 +199,106 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-PyCharm运行TensorBoard时的小BUG" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/21/PyCharm运行TensorBoard时的小BUG/">PyCharm运行TensorBoard时的小BUG</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/21/PyCharm运行TensorBoard时的小BUG/" class="archive-article-date">
+  	<time datetime="2018-02-21T16:03:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="PyCharm运行TensorBoard时的小BUG"><a href="#PyCharm运行TensorBoard时的小BUG" class="headerlink" title="PyCharm运行TensorBoard时的小BUG"></a>PyCharm运行TensorBoard时的小BUG</h2><p>@(G53IDS)[PyCharm, TensorBoard, BUG]<br>今天在PyCharm的Terminal使用TensorBoard的时候出现了以下报错，但是mac自带的terminal却可以正常使用：</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># tensorboard <span class="comment">--logdir=logs</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/bin/tensorboard"</span>, <span class="literal">line</span> <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    sys.<span class="keyword">exit</span>(main())</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/main.py"</span>, <span class="literal">line</span> <span class="number">45</span>, <span class="keyword">in</span> main</div><div class="line">    <span class="keyword">default</span>.get_assets_zip_provider())</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/program.py"</span>, <span class="literal">line</span> <span class="number">147</span>, <span class="keyword">in</span> main</div><div class="line">    util.setup_logging()</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/util.py"</span>, <span class="literal">line</span> <span class="number">50</span>, <span class="keyword">in</span> setup_logging</div><div class="line">    locale.setlocale(locale.LC_ALL, '')</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/locale.py"</span>, <span class="literal">line</span> <span class="number">598</span>, <span class="keyword">in</span> setlocale</div><div class="line">    <span class="keyword">return</span> _setlocale(category, locale)</div><div class="line">locale.<span class="literal">Error</span>: unsupported locale setting</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/02/21/PyCharm运行TensorBoard时的小BUG/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TensorFlow</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">pyenv</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">PyCharm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/21/PyCharm运行TensorBoard时的小BUG/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Hexo以及yilia主题个性化设置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -933,114 +1033,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-Processes2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/08/Processes2/">笔记 OSC_Processes2</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/08/Processes2/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Processes-2"><a href="#Processes-2" class="headerlink" title="Processes 2"></a>Processes 2</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Introduction to <strong>process scheduling</strong></li>
-<li>Types of <strong>process schedulers</strong></li>
-<li><strong>Evaluation criteria</strong> for scheduling algorithms</li>
-<li>Typical <strong>process scheduling algorithms</strong></li>
-</ul>
-<h3 id="Process-Scheduling"><a href="#Process-Scheduling" class="headerlink" title="Process Scheduling"></a>Process Scheduling</h3><p>Context</p>
-<ul>
-<li>The OS is responsible for <strong>managing</strong> and <strong>scheduling processes</strong><ul>
-<li>Decide when to <strong>admit</strong> processes to the system (new → ready)</li>
-<li>Decide which process to r<strong>un</strong> next (ready → run)</li>
-<li>Decide when and which processes to <strong>interrupt</strong> (running → ready)</li>
-</ul>
-</li>
-<li>It relies on the <strong>scheduler</strong> (dispatcher) to decide which process to run next, which uses a <strong>scheduling algorithm</strong> to do so</li>
-<li>The type of algorithm used by the scheduler is influenced by the <strong>type of operating system</strong> (e.g., real time vs. batch)</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/08/Processes2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/08/Processes2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1173,14 +1165,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">processes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -1193,7 +1177,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">G52LAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">processes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1206,6 +1198,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">pyenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PyCharm</a>
               </li>
             
             <div class="clearfix"></div>

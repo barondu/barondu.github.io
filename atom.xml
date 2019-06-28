@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.barondu.com/"/>
-  <updated>2017-11-26T03:15:26.709Z</updated>
+  <updated>2019-06-28T15:54:46.208Z</updated>
   <id>http://www.barondu.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyCharm运行TensorBoard时的小BUG</title>
+    <link href="http://www.barondu.com/2018/02/21/PyCharm%E8%BF%90%E8%A1%8CTensorBoard%E6%97%B6%E7%9A%84%E5%B0%8FBUG/"/>
+    <id>http://www.barondu.com/2018/02/21/PyCharm运行TensorBoard时的小BUG/</id>
+    <published>2018-02-21T16:03:41.000Z</published>
+    <updated>2019-06-28T15:54:46.208Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="PyCharm运行TensorBoard时的小BUG"><a href="#PyCharm运行TensorBoard时的小BUG" class="headerlink" title="PyCharm运行TensorBoard时的小BUG"></a>PyCharm运行TensorBoard时的小BUG</h2><p>@(G53IDS)[PyCharm, TensorBoard, BUG]<br>今天在PyCharm的Terminal使用TensorBoard的时候出现了以下报错，但是mac自带的terminal却可以正常使用：</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># tensorboard <span class="comment">--logdir=logs</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/bin/tensorboard"</span>, <span class="literal">line</span> <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    sys.<span class="keyword">exit</span>(main())</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/main.py"</span>, <span class="literal">line</span> <span class="number">45</span>, <span class="keyword">in</span> main</div><div class="line">    <span class="keyword">default</span>.get_assets_zip_provider())</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/program.py"</span>, <span class="literal">line</span> <span class="number">147</span>, <span class="keyword">in</span> main</div><div class="line">    util.setup_logging()</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/util.py"</span>, <span class="literal">line</span> <span class="number">50</span>, <span class="keyword">in</span> setup_logging</div><div class="line">    locale.setlocale(locale.LC_ALL, '')</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/locale.py"</span>, <span class="literal">line</span> <span class="number">598</span>, <span class="keyword">in</span> setlocale</div><div class="line">    <span class="keyword">return</span> _setlocale(category, locale)</div><div class="line">locale.<span class="literal">Error</span>: unsupported locale setting</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>输入locale查看下是什么状况</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># locale</span></div><div class="line"><span class="attr">LANG</span>=</div><div class="line"><span class="attr">LC_COLLATE</span>=<span class="string">"C"</span></div><div class="line"><span class="attr">LC_CTYPE</span>=<span class="string">"C"</span></div><div class="line"><span class="attr">LC_MESSAGES</span>=<span class="string">"C"</span></div><div class="line"><span class="attr">LC_MONETARY</span>=<span class="string">"C"</span></div><div class="line"><span class="attr">LC_NUMERIC</span>=<span class="string">"C"</span></div><div class="line"><span class="attr">LC_TIME</span>=<span class="string">"C"</span></div><div class="line"><span class="attr">LC_ALL</span>=</div></pre></td></tr></table></figure>
+<p>发现原来是语言设置除了问题，<code>LC_ALL</code>后面什么都没有，于是我们的解决办法就是</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> LC_ALL=<span class="string">"C"</span></div></pre></td></tr></table></figure>
+<p>然后世界就和平了(｡･ω･｡)ﾉ</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;PyCharm运行TensorBoard时的小BUG&quot;&gt;&lt;a href=&quot;#PyCharm运行TensorBoard时的小BUG&quot; class=&quot;headerlink&quot; title=&quot;PyCharm运行TensorBoard时的小BUG&quot;&gt;&lt;/a&gt;PyCharm运行TensorBoard时的小BUG&lt;/h2&gt;&lt;p&gt;@(G53IDS)[PyCharm, TensorBoard, BUG]&lt;br&gt;今天在PyCharm的Terminal使用TensorBoard的时候出现了以下报错，但是mac自带的terminal却可以正常使用：&lt;/p&gt;
+&lt;figure class=&quot;highlight vhdl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# tensorboard &lt;span class=&quot;comment&quot;&gt;--logdir=logs&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Traceback (most recent call last):&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;/Users/baron/.pyenv/versions/3.6.3/bin/tensorboard&quot;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &amp;lt;module&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    sys.&lt;span class=&quot;keyword&quot;&gt;exit&lt;/span&gt;(main())&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/main.py&quot;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;45&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; main&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt;.get_assets_zip_provider())&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/program.py&quot;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;147&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; main&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    util.setup_logging()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/util.py&quot;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;50&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; setup_logging&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    locale.setlocale(locale.LC_ALL, &#39;&#39;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;File&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/locale.py&quot;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;598&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; setlocale&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; _setlocale(category, locale)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;locale.&lt;span class=&quot;literal&quot;&gt;Error&lt;/span&gt;: unsupported locale setting&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://www.barondu.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://www.barondu.com/tags/Machine-Learning/"/>
+    
+      <category term="TensorFlow" scheme="http://www.barondu.com/tags/TensorFlow/"/>
+    
+      <category term="pyenv" scheme="http://www.barondu.com/tags/pyenv/"/>
+    
+      <category term="PyCharm" scheme="http://www.barondu.com/tags/PyCharm/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo以及yilia主题个性化设置</title>

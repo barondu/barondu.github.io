@@ -1,3 +1,4 @@
+http://www.barondu.com/2018/02/21/PyCharm运行TensorBoard时的小BUG/
 http://www.barondu.com/2017/11/26/Hexo以及yilia主题个性化设置/
 http://www.barondu.com/2017/11/17/TensorFlow/
 http://www.barondu.com/2017/02/06/N和NP问题/
@@ -7,4 +8,3 @@ http://www.barondu.com/2017/01/09/Processes4/
 http://www.barondu.com/2017/01/08/Processes3/
 http://www.barondu.com/2017/01/08/Processes2/
 http://www.barondu.com/2017/01/06/Processes1/
-http://www.barondu.com/2017/01/03/Introduction2/
