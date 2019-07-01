@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.barondu.com/2017/11/17/TensorFlow/</loc>
+    
+    <lastmod>2019-07-01T22:10:07.691Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.barondu.com/2017/01/08/Processes2/</loc>
     
     <lastmod>2019-07-01T21:31:59.961Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://www.barondu.com/2017/01/08/Processes3/</loc>
     
     <lastmod>2019-07-01T20:09:51.251Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.barondu.com/2017/11/17/TensorFlow/</loc>
-    
-    <lastmod>2019-07-01T19:44:29.220Z</lastmod>
     
   </url>
   

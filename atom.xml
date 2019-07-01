@@ -115,11 +115,12 @@
     <link href="http://www.barondu.com/2017/11/17/TensorFlow/"/>
     <id>http://www.barondu.com/2017/11/17/TensorFlow/</id>
     <published>2017-11-17T19:43:51.000Z</published>
-    <updated>2019-07-01T19:44:29.220Z</updated>
+    <updated>2019-07-01T22:10:07.691Z</updated>
     
     <content type="html"><![CDATA[<h1 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h1><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>我的环境是 macOS Sierra 10.12.6，其他mac版本应该也适用。</p>
 <h3 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h3><p>安装<a href="https://github.com/pyenv/pyenv" target="_blank" rel="external">pyenv</a> 管理多版本 python，通过它安装 python。原因是不希望污染mac自带系统python。详细过程参考官方doc，这里描述一下我的安装过程。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=518894283&auto=1&height=66"></iframe>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=518894283&auto=1&height=66"></iframe></p>
+<embed src="https://emumo.xiami.com/widget/291251140_1775818238/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent">
 
 <ol>
 <li>安装：</li>
@@ -157,7 +158,8 @@
     
       &lt;h1 id=&quot;TensorFlow&quot;&gt;&lt;a href=&quot;#TensorFlow&quot; class=&quot;headerlink&quot; title=&quot;TensorFlow&quot;&gt;&lt;/a&gt;TensorFlow&lt;/h1&gt;&lt;h2 id=&quot;配置环境&quot;&gt;&lt;a href=&quot;#配置环境&quot; class=&quot;headerlink&quot; title=&quot;配置环境&quot;&gt;&lt;/a&gt;配置环境&lt;/h2&gt;&lt;p&gt;我的环境是 macOS Sierra 10.12.6，其他mac版本应该也适用。&lt;/p&gt;
 &lt;h3 id=&quot;pyenv&quot;&gt;&lt;a href=&quot;#pyenv&quot; class=&quot;headerlink&quot; title=&quot;pyenv&quot;&gt;&lt;/a&gt;pyenv&lt;/h3&gt;&lt;p&gt;安装&lt;a href=&quot;https://github.com/pyenv/pyenv&quot;&gt;pyenv&lt;/a&gt; 管理多版本 python，通过它安装 python。原因是不希望污染mac自带系统python。详细过程参考官方doc，这里描述一下我的安装过程。&lt;/p&gt;
-&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;id=518894283&amp;auto=1&amp;height=66&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;id=518894283&amp;auto=1&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;embed src=&quot;https://emumo.xiami.com/widget/291251140_1775818238/singlePlayer.swf&quot; type=&quot;application/x-shockwave-flash&quot; width=&quot;257&quot; height=&quot;33&quot; wmode=&quot;transparent&quot;&gt;&lt;/embed&gt;
 
 &lt;ol&gt;
 &lt;li&gt;安装：&lt;/li&gt;
