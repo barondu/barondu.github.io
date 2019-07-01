@@ -968,7 +968,7 @@
     <link href="http://www.barondu.com/2017/01/06/Processes1/"/>
     <id>http://www.barondu.com/2017/01/06/Processes1/</id>
     <published>2017-01-06T11:42:14.000Z</published>
-    <updated>2019-07-01T13:05:47.967Z</updated>
+    <updated>2019-07-01T13:10:12.394Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-1"><a href="#Processes-1" class="headerlink" title="Processes 1"></a>Processes 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -1009,7 +1009,8 @@
 <li>. <strong>Running -&gt; ready</strong>: the process is preempted, e.g., by a timer interrupt or<br>by pause</li>
 <li><strong>Running -&gt;strong text</strong> exit: process has finished, e.g. program ended or exception<br>encountered</li>
 </ol>
-<p>The interrupts/traps/system calls lie on the basis of the transitions<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbdxkzib3gj31hk0s2n19.jpg" alt="OS queues"></p>
+<p>The interrupts/traps/system calls lie on the basis of the transitions</p>
+<p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbdxkzib3gj31hk0s2n19.jpg" alt="OS queues"></p>
 <h3 id="Context-Switching"><a href="#Context-Switching" class="headerlink" title="Context Switching"></a>Context Switching</h3><p>Multi-programming</p>
 <ul>
 <li>Modern computers are <strong>multi-programming systems</strong></li>
