@@ -117,7 +117,7 @@
     <link href="http://www.barondu.com/2017/11/17/TensorFlow/"/>
     <id>http://www.barondu.com/2017/11/17/TensorFlow/</id>
     <published>2017-11-17T19:43:51.000Z</published>
-    <updated>2017-11-26T03:08:54.117Z</updated>
+    <updated>2019-07-01T19:44:29.220Z</updated>
     
     <content type="html"><![CDATA[<h1 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h1><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>我的环境是 macOS Sierra 10.12.6，其他mac版本应该也适用。</p>
 <h3 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h3><p>安装<a href="https://github.com/pyenv/pyenv" target="_blank" rel="external">pyenv</a> 管理多版本 python，通过它安装 python。原因是不希望污染mac自带系统python。详细过程参考官方doc，这里描述一下我的安装过程。</p>
@@ -134,7 +134,9 @@
 <li>用pyenv安装python</li>
 </ol>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pyenv install <span class="number">3.6</span><span class="number">.3</span></div></pre></td></tr></table></figure>
-<p>pyenv的常用指令<br><img src="http://ojdy7wc2w.bkt.clouddn.com/image/blog/20171118172703_TsVcPT_Screenshot.jpeg" alt=""><br>更多关于pyenv的使用大家可以参考这篇文章<a href="http://einverne.github.io/post/2017/04/pyenv.html" target="_blank" rel="external">使用 pyenv 管理 Python 版本 </a><br>查看当前python版本和路径<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pyenv versions</div><div class="line">  <span class="keyword">system</span></div><div class="line">* <span class="number">3.6</span><span class="number">.3</span> (<span class="built_in">set</span> <span class="keyword">by</span> /Users/baron/.pyenv/<span class="built_in">version</span>)</div></pre></td></tr></table></figure></p>
+<p>pyenv的常用指令</p>
+<p><img src="https://app.yinxiang.com/shard/s67/res/c8088c9c-9d3e-43d5-856b-7696457021b0/20171118172703_TsVcPT_Screenshot.jpg" alt="6623c3697be87f3452b4c2e79403010b.jpeg">s</p>
+<p>更多关于pyenv的使用大家可以参考这篇文章<a href="http://einverne.github.io/post/2017/04/pyenv.html" target="_blank" rel="external">使用 pyenv 管理 Python 版本 </a><br>查看当前python版本和路径<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pyenv versions</div><div class="line">  <span class="keyword">system</span></div><div class="line">* <span class="number">3.6</span><span class="number">.3</span> (<span class="built_in">set</span> <span class="keyword">by</span> /Users/baron/.pyenv/<span class="built_in">version</span>)</div></pre></td></tr></table></figure></p>
 <h3 id="TensorfFlow-安装"><a href="#TensorfFlow-安装" class="headerlink" title="TensorfFlow 安装"></a>TensorfFlow 安装</h3><ul>
 <li>最简单的办法是从<a href="*https://www.tensorflow.org/install/">官网</a>下载TensorFlow直接安装</li>
 <li>当然我们也可以追求性能用源码安装，这里是<a href="https://www.tensorflow.org/install/install_sources" target="_blank" rel="external">官方文档</a></li>
@@ -218,7 +220,7 @@
     <link href="http://www.barondu.com/2017/01/09/Concurrency2/"/>
     <id>http://www.barondu.com/2017/01/09/Concurrency2/</id>
     <published>2017-01-09T17:33:27.000Z</published>
-    <updated>2017-01-10T22:26:55.000Z</updated>
+    <updated>2019-07-01T19:27:09.730Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Concurrency-2"><a href="#Concurrency-2" class="headerlink" title="Concurrency 2"></a>Concurrency 2</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -325,7 +327,7 @@
     <link href="http://www.barondu.com/2017/01/09/Concurrency1/"/>
     <id>http://www.barondu.com/2017/01/09/Concurrency1/</id>
     <published>2017-01-09T14:09:27.000Z</published>
-    <updated>2017-01-10T22:26:51.000Z</updated>
+    <updated>2019-07-01T19:28:01.659Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Concurrency-1"><a href="#Concurrency-1" class="headerlink" title="Concurrency 1"></a>Concurrency 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -333,7 +335,8 @@
 <li>Root causes of <strong>concurrency issues</strong></li>
 <li><strong>Critical sections</strong> and <strong>mutual exclusion</strong> </li>
 <li><strong>Requirements and approaches</strong> for mutual exclusion</li>
-<li>###concurrency</li>
+</ul>
+<h3 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h3><ul>
 <li>Threads and processes execute concurrently or in parallel and can share resources<ul>
 <li>Multiprogramming/multiprocessing <strong>improves system utilisation</strong></li>
 </ul>
@@ -439,7 +442,8 @@
 &lt;li&gt;Root causes of &lt;strong&gt;concurrency issues&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Critical sections&lt;/strong&gt; and &lt;strong&gt;mutual exclusion&lt;/strong&gt; &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Requirements and approaches&lt;/strong&gt; for mutual exclusion&lt;/li&gt;
-&lt;li&gt;###concurrency&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Concurrency&quot;&gt;&lt;a href=&quot;#Concurrency&quot; class=&quot;headerlink&quot; title=&quot;Concurrency&quot;&gt;&lt;/a&gt;Concurrency&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Threads and processes execute concurrently or in parallel and can share resources&lt;ul&gt;
 &lt;li&gt;Multiprogramming/multiprocessing &lt;strong&gt;improves system utilisation&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -651,7 +655,7 @@
     <link href="http://www.barondu.com/2017/01/08/Processes3/"/>
     <id>http://www.barondu.com/2017/01/08/Processes3/</id>
     <published>2017-01-08T23:27:27.000Z</published>
-    <updated>2017-01-10T22:24:59.000Z</updated>
+    <updated>2019-07-01T20:09:51.251Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
@@ -665,7 +669,7 @@
 <li><strong>Execution trace</strong>[执行追踪], i.e., an entity that gets executed</li>
 </ul>
 </li>
-<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg" alt=""></li>
+<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="https://app.yinxiang.com/shard/s67/res/fcbec65f-172c-405a-83fc-bee2a9a3f4ea.jpg" alt=""></li>
 </ul>
 <a id="more"></a>
 <ul>
@@ -695,13 +699,13 @@
 <li>Such activities should be carried out in <strong>parallel/concurrently</strong></li>
 <li><strong>Application examples</strong>: webservers, make program, spreadsheets, word processors, processing large data volumes</li>
 </ul>
-<p>####OS Implementations of Threads</p>
-<ul>
+<h4 id="OS-Implementations-of-Threads"><a href="#OS-Implementations-of-Threads" class="headerlink" title="OS Implementations of Threads"></a>OS Implementations of Threads</h4><ul>
 <li><strong>User</strong> threads</li>
 <li><strong>Kernel</strong> threads</li>
 <li><strong>Hybrid</strong>[混合] implementations</li>
 </ul>
-<h3 id="User-Threads"><a href="#User-Threads" class="headerlink" title="User Threads"></a>User Threads</h3><p>Many-to-One<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg" alt=""></p>
+<h3 id="User-Threads"><a href="#User-Threads" class="headerlink" title="User Threads"></a>User Threads</h3><p>Many-to-One</p>
+<p><img src="https://app.yinxiang.com/shard/s67/res/bffd3464-1e96-4ed7-8ef7-175e8d3ff770.jpg" alt=""></p>
 <ul>
 <li><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation[处理]) is carried out <strong>in user space</strong> with the help of a user library</li>
 <li>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong><ul>
@@ -724,7 +728,7 @@
 <li><strong>Clock interrupts</strong> are non-existent (i.e. user threads are non-preemptive) </li>
 <li><strong>Page faults</strong>[错误] result in blocking the process</li>
 </ul>
-<h3 id="Kernel-Threads"><a href="#Kernel-Threads" class="headerlink" title="Kernel Threads"></a>Kernel Threads</h3><p>One-to-One<br><img src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg" alt=""></p>
+<h3 id="Kernel-Threads"><a href="#Kernel-Threads" class="headerlink" title="Kernel Threads"></a>Kernel Threads</h3><p>One-to-One<br><img src="https://app.yinxiang.com/shard/s67/res/3561639a-3713-4516-9a84-2ff445932f5a.jpg" alt=""></p>
 <ul>
 <li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities[工具] through <strong>API</strong> and <strong>system calls</strong><ul>
 <li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li>
@@ -745,14 +749,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg" alt=""></p>
-<h3 id="Hybrid-Implementations"><a href="#Hybrid-Implementations" class="headerlink" title="Hybrid Implementations"></a>Hybrid Implementations</h3><p>Many-to-Many<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg" alt=""></p>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="https://app.yinxiang.com/shard/s67/res/711d575f-df77-4427-95f8-ef69746adcbc.jpg" alt=""></p>
+<h3 id="Hybrid-Implementations"><a href="#Hybrid-Implementations" class="headerlink" title="Hybrid Implementations"></a>Hybrid Implementations</h3><p>Many-to-Many<br><img src="https://app.yinxiang.com/shard/s67/res/ecb0e81e-b736-456b-ba9b-e4e088167714.jpg" alt=""></p>
 <ul>
 <li>User threads are <strong>multiplexed</strong> onto kernel threads</li>
 <li>Kernel sees and schedules the kernel threads (a limited number) </li>
 <li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li>
 </ul>
-<h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg" alt=""></p>
+<h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p><img src="https://app.yinxiang.com/shard/s67/res/15bd0016-160c-4497-9691-ac580c27f165.jpg" alt=""></p>
 <h3 id="Thread-Management"><a href="#Thread-Management" class="headerlink" title="Thread Management"></a>Thread Management</h3><ul>
 <li>Thread libraries provide an <strong>API/interface</strong> for managing threads (e.g. creating, running, destroying, synchronising, etc.)</li>
 <li>Thread libraries can be implemented:<ul>
@@ -785,7 +789,7 @@
 &lt;li&gt;&lt;strong&gt;Execution trace&lt;/strong&gt;[执行追踪], i.e., an entity that gets executed&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;A process can &lt;strong&gt;share its resources&lt;/strong&gt; between &lt;strong&gt;multiple execution traces&lt;/strong&gt;, i.e., multiple threads running in the same resource environment&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;li&gt;A process can &lt;strong&gt;share its resources&lt;/strong&gt; between &lt;strong&gt;multiple execution traces&lt;/strong&gt;, i.e., multiple threads running in the same resource environment&lt;br&gt;&lt;img src=&quot;https://app.yinxiang.com/shard/s67/res/fcbec65f-172c-405a-83fc-bee2a9a3f4ea.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
@@ -970,7 +974,7 @@
     <link href="http://www.barondu.com/2017/01/06/Processes1/"/>
     <id>http://www.barondu.com/2017/01/06/Processes1/</id>
     <published>2017-01-06T11:42:14.000Z</published>
-    <updated>2019-07-01T13:10:12.394Z</updated>
+    <updated>2019-07-01T20:16:12.869Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-1"><a href="#Processes-1" class="headerlink" title="Processes 1"></a>Processes 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -992,8 +996,8 @@
 <li>Every process has its own <strong>logical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow</li>
 </ul>
 <a id="more"></a>
-<p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6ndp30ij30qo0ns75k.jpg" alt="process’ memory image"></p>
-<h3 id="Process-States-and-Transitions"><a href="#Process-States-and-Transitions" class="headerlink" title="Process States and Transitions"></a>Process States and Transitions</h3><p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbd6yyxrbcj31gk0ts0xg.jpg" alt="Process States and Transitions"><br>Sates:</p>
+<p><img src="https://app.yinxiang.com/shard/s67/res/f2a21b3c-2c65-48e6-8fc5-c8c8879ae34d.jpg" alt="process’ memory image"></p>
+<h3 id="Process-States-and-Transitions"><a href="#Process-States-and-Transitions" class="headerlink" title="Process States and Transitions"></a>Process States and Transitions</h3><p><img src="https://app.yinxiang.com/shard/s67/res/a41da748-6230-4674-b240-bd39445f862f.jpg" alt="Process States and Transitions"><br>Sates:</p>
 <ul>
 <li>A <strong>new</strong> process has just been created (has a PCB) and is waiting to be admitted (it may not yet be in memory)</li>
 <li>A <strong>ready</strong> process is waiting for CPU to become available (e.g. unblocked or timer interrupt)</li>
@@ -1012,7 +1016,7 @@
 <li><strong>Running -&gt;strong text</strong> exit: process has finished, e.g. program ended or exception<br>encountered</li>
 </ol>
 <p>The interrupts/traps/system calls lie on the basis of the transitions</p>
-<p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbdxkzib3gj31hk0s2n19.jpg" alt="OS queues"></p>
+<p><img src="https://app.yinxiang.com/shard/s67/res/1b1ddbee-3544-4bf3-9d2e-162d1033f7a1.jpg" alt="OS queues"></p>
 <h3 id="Context-Switching"><a href="#Context-Switching" class="headerlink" title="Context Switching"></a>Context Switching</h3><p>Multi-programming</p>
 <ul>
 <li>Modern computers are <strong>multi-programming systems</strong></li>

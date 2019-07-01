@@ -22,13 +22,13 @@ Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads
 ThreadsThreads from an OS Perspective[观点]
 A process consists of two fundamental units
 Resources:">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg">
-<meta property="og:updated_time" content="2017-01-10T22:24:59.000Z">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s67/res/fcbec65f-172c-405a-83fc-bee2a9a3f4ea.jpg">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s67/res/bffd3464-1e96-4ed7-8ef7-175e8d3ff770.jpg">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s67/res/3561639a-3713-4516-9a84-2ff445932f5a.jpg">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s67/res/711d575f-df77-4427-95f8-ef69746adcbc.jpg">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s67/res/ecb0e81e-b736-456b-ba9b-e4e088167714.jpg">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s67/res/15bd0016-160c-4497-9691-ac580c27f165.jpg">
+<meta property="og:updated_time" content="2019-07-01T20:09:51.251Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 OSC_Processes3">
 <meta name="twitter:description" content="Processes 3
@@ -36,7 +36,7 @@ Overview1 Threads vs. processes2 Different thread implementations3 POSIX Threads
 ThreadsThreads from an OS Perspective[观点]
 A process consists of two fundamental units
 Resources:">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg">
+<meta name="twitter:image" content="https://app.yinxiang.com/shard/s67/res/fcbec65f-172c-405a-83fc-bee2a9a3f4ea.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -249,7 +249,7 @@ ga('send', 'pageview');
 <li><strong>Execution trace</strong>[执行追踪], i.e., an entity that gets executed</li>
 </ul>
 </li>
-<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbif3ey9okj317q0oc0yg.jpg" alt=""></li>
+<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="https://app.yinxiang.com/shard/s67/res/fcbec65f-172c-405a-83fc-bee2a9a3f4ea.jpg" alt=""></li>
 </ul>
 <a id="more"></a>
 <ul>
@@ -279,13 +279,13 @@ ga('send', 'pageview');
 <li>Such activities should be carried out in <strong>parallel/concurrently</strong></li>
 <li><strong>Application examples</strong>: webservers, make program, spreadsheets, word processors, processing large data volumes</li>
 </ul>
-<p>####OS Implementations of Threads</p>
-<ul>
+<h4 id="OS-Implementations-of-Threads"><a href="#OS-Implementations-of-Threads" class="headerlink" title="OS Implementations of Threads"></a>OS Implementations of Threads</h4><ul>
 <li><strong>User</strong> threads</li>
 <li><strong>Kernel</strong> threads</li>
 <li><strong>Hybrid</strong>[混合] implementations</li>
 </ul>
-<h3 id="User-Threads"><a href="#User-Threads" class="headerlink" title="User Threads"></a>User Threads</h3><p>Many-to-One<br><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinuru9h3j31as0zeakj.jpg" alt=""></p>
+<h3 id="User-Threads"><a href="#User-Threads" class="headerlink" title="User Threads"></a>User Threads</h3><p>Many-to-One</p>
+<p><img src="https://app.yinxiang.com/shard/s67/res/bffd3464-1e96-4ed7-8ef7-175e8d3ff770.jpg" alt=""></p>
 <ul>
 <li><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation[处理]) is carried out <strong>in user space</strong> with the help of a user library</li>
 <li>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong><ul>
@@ -308,7 +308,7 @@ ga('send', 'pageview');
 <li><strong>Clock interrupts</strong> are non-existent (i.e. user threads are non-preemptive) </li>
 <li><strong>Page faults</strong>[错误] result in blocking the process</li>
 </ul>
-<h3 id="Kernel-Threads"><a href="#Kernel-Threads" class="headerlink" title="Kernel Threads"></a>Kernel Threads</h3><p>One-to-One<br><img src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbinuxcc41j317i0r4n2k.jpg" alt=""></p>
+<h3 id="Kernel-Threads"><a href="#Kernel-Threads" class="headerlink" title="Kernel Threads"></a>Kernel Threads</h3><p>One-to-One<br><img src="https://app.yinxiang.com/shard/s67/res/3561639a-3713-4516-9a84-2ff445932f5a.jpg" alt=""></p>
 <ul>
 <li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities[工具] through <strong>API</strong> and <strong>system calls</strong><ul>
 <li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li>
@@ -329,14 +329,14 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="http://ww3.sinaimg.cn/mw690/005P51vHgw1fbiotlbg2qj31oi0nyk1b.jpg" alt=""></p>
-<h3 id="Hybrid-Implementations"><a href="#Hybrid-Implementations" class="headerlink" title="Hybrid Implementations"></a>Hybrid Implementations</h3><p>Many-to-Many<br><img src="http://ww2.sinaimg.cn/mw690/005P51vHgw1fbinuv2e7qj31380wytfi.jpg" alt=""></p>
+<h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p><img src="https://app.yinxiang.com/shard/s67/res/711d575f-df77-4427-95f8-ef69746adcbc.jpg" alt=""></p>
+<h3 id="Hybrid-Implementations"><a href="#Hybrid-Implementations" class="headerlink" title="Hybrid Implementations"></a>Hybrid Implementations</h3><p>Many-to-Many<br><img src="https://app.yinxiang.com/shard/s67/res/ecb0e81e-b736-456b-ba9b-e4e088167714.jpg" alt=""></p>
 <ul>
 <li>User threads are <strong>multiplexed</strong> onto kernel threads</li>
 <li>Kernel sees and schedules the kernel threads (a limited number) </li>
 <li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li>
 </ul>
-<h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p><img src="http://ww1.sinaimg.cn/mw690/005P51vHgw1fbinup6cq3j31lq0titm4.jpg" alt=""></p>
+<h3 id="Comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h3><p><img src="https://app.yinxiang.com/shard/s67/res/15bd0016-160c-4497-9691-ac580c27f165.jpg" alt=""></p>
 <h3 id="Thread-Management"><a href="#Thread-Management" class="headerlink" title="Thread Management"></a>Thread Management</h3><ul>
 <li>Thread libraries provide an <strong>API/interface</strong> for managing threads (e.g. creating, running, destroying, synchronising, etc.)</li>
 <li>Thread libraries can be implemented:<ul>
@@ -687,11 +687,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">G52LAC</a>
+                <a href="javascript:void(0)" class="js-tag color5">processes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">processes</a>
+                <a href="javascript:void(0)" class="js-tag color2">G52LAC</a>
               </li>
              
               <li class="article-tag-list-item">

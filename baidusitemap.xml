@@ -4,6 +4,118 @@
 
     
   <url>
+    <loc>http://www.barondu.com/2017/01/06/Processes1/</loc>
+    <lastmod>2019-07-01T20:16:12.869Z</lastmod>
+    <data>
+        <display>
+        <title>笔记 OSC_Processes1</title>
+        <pubTime>2017-01-06T11:42:14.000Z</pubTime>
+        
+        <tag>OSC</tag>
+         
+        <tag>processes</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.barondu.com/2017/01/08/Processes3/</loc>
+    <lastmod>2019-07-01T20:09:51.251Z</lastmod>
+    <data>
+        <display>
+        <title>笔记 OSC_Processes3</title>
+        <pubTime>2017-01-08T23:27:27.000Z</pubTime>
+        
+        <tag>OSC</tag>
+         
+        <tag>processes</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.barondu.com/2017/11/17/TensorFlow/</loc>
+    <lastmod>2019-07-01T19:44:29.220Z</lastmod>
+    <data>
+        <display>
+        <title>Installing TensorFlow</title>
+        <pubTime>2017-11-17T19:43:51.000Z</pubTime>
+        
+        <tag>Machine Learning</tag>
+         
+        <tag>TensorFlow</tag>
+         
+        <tag>pyenv</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://www.barondu.com/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.barondu.com/2017/01/09/Concurrency1/</loc>
+    <lastmod>2019-07-01T19:28:01.659Z</lastmod>
+    <data>
+        <display>
+        <title>笔记 OSC_Concurrency1</title>
+        <pubTime>2017-01-09T14:09:27.000Z</pubTime>
+        
+        <tag>OSC</tag>
+         
+        <tag>concurrency</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.barondu.com/2017/01/09/Concurrency2/</loc>
+    <lastmod>2019-07-01T19:27:09.730Z</lastmod>
+    <data>
+        <display>
+        <title>笔记 OSC_Concurrency2</title>
+        <pubTime>2017-01-09T17:33:27.000Z</pubTime>
+        
+        <tag>OSC</tag>
+         
+        <tag>concurrency</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.barondu.com/2017/11/26/Hexo%E4%BB%A5%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</loc>
     <lastmod>2019-07-01T14:58:44.875Z</lastmod>
     <data>
@@ -21,28 +133,6 @@
            
              
               <breadCrumb title="随笔" url="http://www.barondu.com/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.barondu.com/2017/01/06/Processes1/</loc>
-    <lastmod>2019-07-01T13:10:12.394Z</lastmod>
-    <data>
-        <display>
-        <title>笔记 OSC_Processes1</title>
-        <pubTime>2017-01-06T11:42:14.000Z</pubTime>
-        
-        <tag>OSC</tag>
-         
-        <tag>processes</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
           
         </display>
     </data>
@@ -76,30 +166,6 @@
 
     
   <url>
-    <loc>http://www.barondu.com/2017/11/17/TensorFlow/</loc>
-    <lastmod>2017-11-26T03:08:54.117Z</lastmod>
-    <data>
-        <display>
-        <title>Installing TensorFlow</title>
-        <pubTime>2017-11-17T19:43:51.000Z</pubTime>
-        
-        <tag>Machine Learning</tag>
-         
-        <tag>TensorFlow</tag>
-         
-        <tag>pyenv</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="http://www.barondu.com/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.barondu.com/2017/02/06/N%E5%92%8CNP%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2017-02-08T14:48:31.000Z</lastmod>
     <data>
@@ -108,50 +174,6 @@
         <pubTime>2017-02-06T11:43:27.000Z</pubTime>
         
         <tag>G52LAC</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.barondu.com/2017/01/09/Concurrency2/</loc>
-    <lastmod>2017-01-10T22:26:55.000Z</lastmod>
-    <data>
-        <display>
-        <title>笔记 OSC_Concurrency2</title>
-        <pubTime>2017-01-09T17:33:27.000Z</pubTime>
-        
-        <tag>OSC</tag>
-         
-        <tag>concurrency</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.barondu.com/2017/01/09/Concurrency1/</loc>
-    <lastmod>2017-01-10T22:26:51.000Z</lastmod>
-    <data>
-        <display>
-        <title>笔记 OSC_Concurrency1</title>
-        <pubTime>2017-01-09T14:09:27.000Z</pubTime>
-        
-        <tag>OSC</tag>
-         
-        <tag>concurrency</tag>
          
          
            
@@ -214,28 +236,6 @@
         <display>
         <title>笔记 OSC_Processes4</title>
         <pubTime>2017-01-09T14:05:27.000Z</pubTime>
-        
-        <tag>OSC</tag>
-         
-        <tag>processes</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.barondu.com/2017/01/08/Processes3/</loc>
-    <lastmod>2017-01-10T22:24:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>笔记 OSC_Processes3</title>
-        <pubTime>2017-01-08T23:27:27.000Z</pubTime>
         
         <tag>OSC</tag>
          
