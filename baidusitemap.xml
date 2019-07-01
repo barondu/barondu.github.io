@@ -4,6 +4,122 @@
 
     
   <url>
+    <loc>http://www.barondu.com/2017/01/08/Processes2/</loc>
+    <lastmod>2019-07-01T21:31:59.961Z</lastmod>
+    <data>
+        <display>
+        <title>笔记 OSC_Processes2</title>
+        <pubTime>2017-01-08T23:26:14.000Z</pubTime>
+        
+        <tag>OSC</tag>
+         
+        <tag>processes</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.barondu.com/2017/11/26/Hexo%E4%BB%A5%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</loc>
+    <lastmod>2019-07-01T21:24:56.949Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo以及yilia主题个性化设置</title>
+        <pubTime>2017-11-26T03:11:27.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>yilia</tag>
+         
+        <tag>blog</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://www.barondu.com/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.barondu.com/2018/02/21/PyCharm%E8%BF%90%E8%A1%8CTensorBoard%E6%97%B6%E7%9A%84%E5%B0%8FBUG/</loc>
+    <lastmod>2019-07-01T20:49:14.004Z</lastmod>
+    <data>
+        <display>
+        <title>PyCharm运行TensorBoard时的小BUG</title>
+        <pubTime>2018-02-21T16:03:41.000Z</pubTime>
+        
+        <tag>Machine Learning</tag>
+         
+        <tag>TensorFlow</tag>
+         
+        <tag>pyenv</tag>
+         
+        <tag>PyCharm</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://www.barondu.com/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.barondu.com/2017/01/03/Introduction2/</loc>
+    <lastmod>2019-07-01T20:48:23.996Z</lastmod>
+    <data>
+        <display>
+        <title>笔记 OSC_Introduction2</title>
+        <pubTime>2017-01-03T23:50:14.000Z</pubTime>
+        
+        <tag>OSC</tag>
+         
+        <tag>Introduction</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.barondu.com/2017/01/09/Processes4/</loc>
+    <lastmod>2019-07-01T20:46:26.345Z</lastmod>
+    <data>
+        <display>
+        <title>笔记 OSC_Processes4</title>
+        <pubTime>2017-01-09T14:05:27.000Z</pubTime>
+        
+        <tag>OSC</tag>
+         
+        <tag>processes</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.barondu.com/2017/01/06/Processes1/</loc>
     <lastmod>2019-07-01T20:16:12.869Z</lastmod>
     <data>
@@ -116,56 +232,6 @@
 
     
   <url>
-    <loc>http://www.barondu.com/2017/11/26/Hexo%E4%BB%A5%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</loc>
-    <lastmod>2019-07-01T14:58:44.875Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo以及yilia主题个性化设置</title>
-        <pubTime>2017-11-26T03:11:27.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>yilia</tag>
-         
-        <tag>blog</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="http://www.barondu.com/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.barondu.com/2018/02/21/PyCharm%E8%BF%90%E8%A1%8CTensorBoard%E6%97%B6%E7%9A%84%E5%B0%8FBUG/</loc>
-    <lastmod>2019-06-28T15:54:46.208Z</lastmod>
-    <data>
-        <display>
-        <title>PyCharm运行TensorBoard时的小BUG</title>
-        <pubTime>2018-02-21T16:03:41.000Z</pubTime>
-        
-        <tag>Machine Learning</tag>
-         
-        <tag>TensorFlow</tag>
-         
-        <tag>pyenv</tag>
-         
-        <tag>PyCharm</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="http://www.barondu.com/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.barondu.com/2017/02/06/N%E5%92%8CNP%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2017-02-08T14:48:31.000Z</lastmod>
     <data>
@@ -174,72 +240,6 @@
         <pubTime>2017-02-06T11:43:27.000Z</pubTime>
         
         <tag>G52LAC</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.barondu.com/2017/01/03/Introduction2/</loc>
-    <lastmod>2017-01-10T22:26:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>笔记 OSC_Introduction2</title>
-        <pubTime>2017-01-03T23:50:14.000Z</pubTime>
-        
-        <tag>OSC</tag>
-         
-        <tag>Introduction</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.barondu.com/2017/01/08/Processes2/</loc>
-    <lastmod>2017-01-10T22:25:37.000Z</lastmod>
-    <data>
-        <display>
-        <title>笔记 OSC_Processes2</title>
-        <pubTime>2017-01-08T23:26:14.000Z</pubTime>
-        
-        <tag>OSC</tag>
-         
-        <tag>processes</tag>
-         
-         
-           
-             
-              <breadCrumb title="笔记" url="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.barondu.com/2017/01/09/Processes4/</loc>
-    <lastmod>2017-01-10T22:25:05.000Z</lastmod>
-    <data>
-        <display>
-        <title>笔记 OSC_Processes4</title>
-        <pubTime>2017-01-09T14:05:27.000Z</pubTime>
-        
-        <tag>OSC</tag>
-         
-        <tag>processes</tag>
          
          
            

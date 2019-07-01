@@ -28,7 +28,7 @@ Linux (implementation in labs) Scheduling related processes/threads
 
 Multi-level Feedback Queues
 D">
-<meta property="og:updated_time" content="2017-01-10T22:25:05.000Z">
+<meta property="og:updated_time" content="2019-07-01T20:46:26.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 OSC_Processes4">
 <meta name="twitter:description" content="Processes 4
@@ -348,8 +348,7 @@ ga('send', 'pageview');
 </ul>
 <h3 id="Related-vs-Unrelated-Threads"><a href="#Related-vs-Unrelated-Threads" class="headerlink" title="Related vs. Unrelated Threads"></a>Related vs. Unrelated Threads</h3><p><strong>Related: multiple threads</strong> that <strong>communicate</strong> with one another and <strong>ideally run</strong> together (e.g. search algorithm)</p>
 <p><strong>Unrelated</strong>: e.g. processes threads that are <strong>independent</strong>, possibly started by <strong>different users</strong> running <strong>different programs</strong></p>
-<p>####Related Threads</p>
-<ul>
+<h4 id="Related-Threads"><a href="#Related-Threads" class="headerlink" title="Related Threads"></a>Related Threads</h4><ul>
 <li>The aim is to get threads <strong>running</strong>, as much as possible, at the <strong>same</strong> time across <strong>multiple CPUs</strong></li>
 <li>Approaches include:<ul>
 <li><strong>Space</strong> sharing</li>
@@ -357,14 +356,12 @@ ga('send', 'pageview');
 </ul>
 </li>
 </ul>
-<p>####Gang scheduling</p>
-<ul>
+<h4 id="Gang-scheduling"><a href="#Gang-scheduling" class="headerlink" title="Gang scheduling"></a>Gang scheduling</h4><ul>
 <li>Time slices are <strong>synchronised</strong>[同步的] and the scheduler <strong>groups threads</strong> together to run simultaneously (as much as possible)</li>
 <li>A <strong>preemptive</strong> algorithm</li>
 <li><strong>Blocking threads</strong> result in idle CPUs</li>
 </ul>
-<p>##Summary</p>
-<ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
 <li>Scheduling on Windows and Linux</li>
 <li>Multi-processor/core scheduling is “a bit different” (load balancing, processor affinity, etc.)<ul>
 <li>Related and unrelated threads </li>
@@ -683,18 +680,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OSC</a>
               </li>
              
@@ -707,11 +692,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">processes</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">G52LAC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">processes</a>
               </li>
              
               <li class="article-tag-list-item">
