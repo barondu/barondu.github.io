@@ -57,9 +57,9 @@
     <link href="http://www.barondu.com/2017/11/26/Hexo%E4%BB%A5%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/"/>
     <id>http://www.barondu.com/2017/11/26/Hexo以及yilia主题个性化设置/</id>
     <published>2017-11-26T03:11:27.000Z</published>
-    <updated>2019-07-01T14:54:47.008Z</updated>
+    <updated>2019-07-01T14:58:44.875Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Hexo以及yilia主题个性化设置"><a href="#Hexo以及yilia主题个性化设置" class="headerlink" title="Hexo以及yilia主题个性化设置"></a>Hexo以及yilia主题个性化设置</h1><h3 id="修改浏览器Tab里的icon"><a href="#修改浏览器Tab里的icon" class="headerlink" title="修改浏览器Tab里的icon"></a>修改浏览器Tab里的icon</h3><p>修改后效果如下<br><img src="http://ojdy7wc2w.bkt.clouddn.com/image/blog/20171123140602_rXDDHa_Screenshot.jpeg" alt="nnnnn"></p>
+    <content type="html"><![CDATA[<h1 id="Hexo以及yilia主题个性化设置"><a href="#Hexo以及yilia主题个性化设置" class="headerlink" title="Hexo以及yilia主题个性化设置"></a>Hexo以及yilia主题个性化设置</h1><h3 id="修改浏览器Tab里的icon"><a href="#修改浏览器Tab里的icon" class="headerlink" title="修改浏览器Tab里的icon"></a>修改浏览器Tab里的icon</h3><p>修改后效果如下<br><img src="https://app.yinxiang.com/shard/s67/res/226ec82e-ccf6-4d3d-80bd-9dc11735dd7f/IMG_2855.JPG" alt="nnnnn"></p>
 <p><img src="https://app.yinxiang.com/shard/s67/res/bd40e1e5-760b-44ae-9685-77340ce8609b/20171123140602_rXDDHa_Screenshot.jpeg" alt="aaaaa"></p>
 <ul>
 <li>很简单我们只需要在yilia主题里<code>_config.yml</code>文件里修改为<code>favicon: /img/favicon.ico</code></li>
@@ -92,7 +92,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Hexo以及yilia主题个性化设置&quot;&gt;&lt;a href=&quot;#Hexo以及yilia主题个性化设置&quot; class=&quot;headerlink&quot; title=&quot;Hexo以及yilia主题个性化设置&quot;&gt;&lt;/a&gt;Hexo以及yilia主题个性化设置&lt;/h1&gt;&lt;h3 id=&quot;修改浏览器Tab里的icon&quot;&gt;&lt;a href=&quot;#修改浏览器Tab里的icon&quot; class=&quot;headerlink&quot; title=&quot;修改浏览器Tab里的icon&quot;&gt;&lt;/a&gt;修改浏览器Tab里的icon&lt;/h3&gt;&lt;p&gt;修改后效果如下&lt;br&gt;&lt;img src=&quot;http://ojdy7wc2w.bkt.clouddn.com/image/blog/20171123140602_rXDDHa_Screenshot.jpeg&quot; alt=&quot;nnnnn&quot;&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;Hexo以及yilia主题个性化设置&quot;&gt;&lt;a href=&quot;#Hexo以及yilia主题个性化设置&quot; class=&quot;headerlink&quot; title=&quot;Hexo以及yilia主题个性化设置&quot;&gt;&lt;/a&gt;Hexo以及yilia主题个性化设置&lt;/h1&gt;&lt;h3 id=&quot;修改浏览器Tab里的icon&quot;&gt;&lt;a href=&quot;#修改浏览器Tab里的icon&quot; class=&quot;headerlink&quot; title=&quot;修改浏览器Tab里的icon&quot;&gt;&lt;/a&gt;修改浏览器Tab里的icon&lt;/h3&gt;&lt;p&gt;修改后效果如下&lt;br&gt;&lt;img src=&quot;https://app.yinxiang.com/shard/s67/res/226ec82e-ccf6-4d3d-80bd-9dc11735dd7f/IMG_2855.JPG&quot; alt=&quot;nnnnn&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://app.yinxiang.com/shard/s67/res/bd40e1e5-760b-44ae-9685-77340ce8609b/20171123140602_rXDDHa_Screenshot.jpeg&quot; alt=&quot;aaaaa&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;很简单我们只需要在yilia主题里&lt;code&gt;_config.yml&lt;/code&gt;文件里修改为&lt;code&gt;favicon: /img/favicon.ico&lt;/code&gt;&lt;/li&gt;
