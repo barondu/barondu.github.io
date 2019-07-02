@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.barondu.com/"/>
-  <updated>2019-07-02T02:35:39.771Z</updated>
+  <updated>2019-07-02T02:36:49.550Z</updated>
   <id>http://www.barondu.com/</id>
   
   <author>
@@ -16,82 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://www.barondu.com/2019/07/01/Deadlocks/"/>
-    <id>http://www.barondu.com/2019/07/01/Deadlocks/</id>
-    <published>2019-07-01T21:51:20.742Z</published>
-    <updated>2019-07-02T02:35:39.771Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="—————"><a href="#—————" class="headerlink" title="—————"></a>—————</h2><p>title: OSC_Deadlocks<br>date: 2017-04-03 23:10:14<br>categories: </p>
-<pre><code>- 笔记
-</code></pre><p>tags: </p>
-<pre><code>- G52OSC 
-- Deadlocks
-</code></pre><hr>
-<h1 id="Deadlocks"><a href="#Deadlocks" class="headerlink" title="Deadlocks"></a>Deadlocks</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Deadlocks and <strong>conditions for deadlocks</strong> </li>
-<li>Algorithms to <strong>detect[探知] deadlocks</strong><br>Approaches to <strong>recover</strong> from deadlocks<a id="more"></a>
-<h3 id="Deadlocks-1"><a href="#Deadlocks-1" class="headerlink" title="Deadlocks"></a>Deadlocks</h3><h4 id="How-Occur-deadlocks-看看就好"><a href="#How-Occur-deadlocks-看看就好" class="headerlink" title="How Occur deadlocks?[看看就好]"></a>How Occur deadlocks?[看看就好]</h4></li>
-<li>Some resources are <strong>mutually exclusive</strong> and can only be used by one <strong>process at a time</strong></li>
-<li>On occasions[偶然], <strong>multiple processes</strong> will <strong>require access</strong> to <strong>multiple mutually exclusive resources</strong> (e.g. process A and B need resources X and Y)</li>
-<li>Process A and B request the resources in <strong>opposite orders</strong> and end up in deadlock<ul>
-<li>Deadlocks can occur on the <strong>same machine</strong> or between <strong>multiple machines</strong> (e.g. resources are requested over the network) and <strong>any number of resources</strong></li>
-<li>Deadlocks are not just related to operating systems but also occur, e.g., <strong>in databases</strong></li>
-</ul>
-</li>
-</ul>
-<p>resource</p>
-<ul>
-<li>A resource (e.g. a device, a data record, file, semaphore) can be <strong>acquired, used, </strong>and <strong>released</strong><ul>
-<li>A resource can be <strong>preemptable</strong>, i.e., it can be forcefully taken away from the process without permanent adverse effect</li>
-<li>A resource can be <strong>non-preemptable,</strong> i.e., it cannot be taken away from a process without permanent adverse effect</li>
-</ul>
-</li>
-<li>If a <strong>non-preemptable resource is requested</strong> but not available, <strong>the process is made to wait</strong></li>
-<li><strong>Deadlocks only occur</strong> for <strong>non-preemtable resources</strong> because preemtable resources can be temporarily taken away to recover from the deadlock</li>
-</ul>
-<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><blockquote>
-<p>“A set of processes is deadlocked if <strong>each process</strong> in the set is waiting for <strong>an event</strong> that only the <strong>other process</strong> in the set can cause”<br> –  Tanenbaum</p>
-</blockquote>
-<ul>
-<li>Each <strong>deadlocked process</strong> is <strong>waiting for</strong> a resource held by <strong>an other deadlocked process</strong> (which cannot run and hence cannot release the resources)</li>
-<li>This can happen between <strong>any number of processes</strong> and for <strong>any number of resources</strong></li>
-</ul>
-<h3 id="Conditions"><a href="#Conditions" class="headerlink" title="Conditions"></a>Conditions</h3><p><strong>Four conditions</strong> must hold for deadlocks to occur (Coffman et al. (1971)):</p>
-<ul>
-<li><strong>Mutual exclusion</strong>: a resource can be assigned to at most one process at a time</li>
-<li><strong>Hold and wait condition</strong>: a resource can be held whilst[同时] requesting new resources</li>
-<li><strong>No preemption:</strong> resources cannot be forcefully taken away from a process </li>
-<li><strong>Circular wait</strong>: there is a circular chain of two or more processes, waiting for a resource held by the other processes</li>
-</ul>
-<p><strong>No deadlocks</strong> can occur if one of the conditions is <strong>not satisfied</strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;—————&quot;&gt;&lt;a href=&quot;#—————&quot; class=&quot;headerlink&quot; title=&quot;—————&quot;&gt;&lt;/a&gt;—————&lt;/h2&gt;&lt;p&gt;title: OSC_Deadlocks&lt;br&gt;date: 2017-04-03 23:10:14&lt;br&gt;categories: &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;- 笔记
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;tags: &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;- G52OSC 
-- Deadlocks
-&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
-&lt;h1 id=&quot;Deadlocks&quot;&gt;&lt;a href=&quot;#Deadlocks&quot; class=&quot;headerlink&quot; title=&quot;Deadlocks&quot;&gt;&lt;/a&gt;Deadlocks&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Deadlocks and &lt;strong&gt;conditions for deadlocks&lt;/strong&gt; &lt;/li&gt;
-&lt;li&gt;Algorithms to &lt;strong&gt;detect[探知] deadlocks&lt;/strong&gt;&lt;br&gt;Approaches to &lt;strong&gt;recover&lt;/strong&gt; from deadlocks
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>G52CPP复习</title>
     <link href="http://www.barondu.com/2018/11/26/G52CPP/"/>
     <id>http://www.barondu.com/2018/11/26/G52CPP/</id>
     <published>2018-11-26T03:27:27.000Z</published>
-    <updated>2019-07-02T02:35:21.237Z</updated>
+    <updated>2019-07-02T02:36:49.550Z</updated>
     
     <content type="html"><![CDATA[<h2 id="G52CPP"><a href="#G52CPP" class="headerlink" title="G52CPP"></a>G52CPP</h2><hr>
 <h3 id="Lecture-1-amp-2"><a href="#Lecture-1-amp-2" class="headerlink" title="Lecture 1 &amp; 2"></a>Lecture 1 &amp; 2</h3><h5 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span> 	<span class="comment">// C or C++</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span> 	<span class="comment">// C++</span></span></div></pre></td></tr></table></figure>
@@ -597,6 +526,71 @@
       <category term="TensorFlow" scheme="http://www.barondu.com/tags/TensorFlow/"/>
     
       <category term="pyenv" scheme="http://www.barondu.com/tags/pyenv/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>复习 OSC Deadlocks</title>
+    <link href="http://www.barondu.com/2017/04/03/Deadlocks/"/>
+    <id>http://www.barondu.com/2017/04/03/Deadlocks/</id>
+    <published>2017-04-03T22:10:14.000Z</published>
+    <updated>2019-07-02T02:46:45.821Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Deadlocks"><a href="#Deadlocks" class="headerlink" title="Deadlocks"></a>Deadlocks</h1><hr>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Deadlocks and <strong>conditions for deadlocks</strong> </li>
+<li>Algorithms to <strong>detect[探知] deadlocks</strong><br>Approaches to <strong>recover</strong> from deadlocks<a id="more"></a>
+<h3 id="Deadlocks-1"><a href="#Deadlocks-1" class="headerlink" title="Deadlocks"></a>Deadlocks</h3><h4 id="How-Occur-deadlocks-看看就好"><a href="#How-Occur-deadlocks-看看就好" class="headerlink" title="How Occur deadlocks?[看看就好]"></a>How Occur deadlocks?[看看就好]</h4></li>
+<li>Some resources are <strong>mutually exclusive</strong> and can only be used by one <strong>process at a time</strong></li>
+<li>On occasions[偶然], <strong>multiple processes</strong> will <strong>require access</strong> to <strong>multiple mutually exclusive resources</strong> (e.g. process A and B need resources X and Y)</li>
+<li>Process A and B request the resources in <strong>opposite orders</strong> and end up in deadlock<ul>
+<li>Deadlocks can occur on the <strong>same machine</strong> or between <strong>multiple machines</strong> (e.g. resources are requested over the network) and <strong>any number of resources</strong></li>
+<li>Deadlocks are not just related to operating systems but also occur, e.g., <strong>in databases</strong></li>
+</ul>
+</li>
+</ul>
+<p>resource</p>
+<ul>
+<li>A resource (e.g. a device, a data record, file, semaphore) can be <strong>acquired, used, </strong>and <strong>released</strong><ul>
+<li>A resource can be <strong>preemptable</strong>, i.e., it can be forcefully taken away from the process without permanent adverse effect</li>
+<li>A resource can be <strong>non-preemptable,</strong> i.e., it cannot be taken away from a process without permanent adverse effect</li>
+</ul>
+</li>
+<li>If a <strong>non-preemptable resource is requested</strong> but not available, <strong>the process is made to wait</strong></li>
+<li><strong>Deadlocks only occur</strong> for <strong>non-preemtable resources</strong> because preemtable resources can be temporarily taken away to recover from the deadlock</li>
+</ul>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><blockquote>
+<p>“A set of processes is deadlocked if <strong>each process</strong> in the set is waiting for <strong>an event</strong> that only the <strong>other process</strong> in the set can cause”<br> –  Tanenbaum</p>
+</blockquote>
+<ul>
+<li>Each <strong>deadlocked process</strong> is <strong>waiting for</strong> a resource held by <strong>an other deadlocked process</strong> (which cannot run and hence cannot release the resources)</li>
+<li>This can happen between <strong>any number of processes</strong> and for <strong>any number of resources</strong></li>
+</ul>
+<h3 id="Conditions"><a href="#Conditions" class="headerlink" title="Conditions"></a>Conditions</h3><p><strong>Four conditions</strong> must hold for deadlocks to occur (Coffman et al. (1971)):</p>
+<ul>
+<li><strong>Mutual exclusion</strong>: a resource can be assigned to at most one process at a time</li>
+<li><strong>Hold and wait condition</strong>: a resource can be held whilst[同时] requesting new resources</li>
+<li><strong>No preemption:</strong> resources cannot be forcefully taken away from a process </li>
+<li><strong>Circular wait</strong>: there is a circular chain of two or more processes, waiting for a resource held by the other processes</li>
+</ul>
+<p><strong>No deadlocks</strong> can occur if one of the conditions is <strong>not satisfied</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Deadlocks&quot;&gt;&lt;a href=&quot;#Deadlocks&quot; class=&quot;headerlink&quot; title=&quot;Deadlocks&quot;&gt;&lt;/a&gt;Deadlocks&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Deadlocks and &lt;strong&gt;conditions for deadlocks&lt;/strong&gt; &lt;/li&gt;
+&lt;li&gt;Algorithms to &lt;strong&gt;detect[探知] deadlocks&lt;/strong&gt;&lt;br&gt;Approaches to &lt;strong&gt;recover&lt;/strong&gt; from deadlocks
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="G52OSC" scheme="http://www.barondu.com/tags/G52OSC/"/>
+    
+      <category term="Deadlocks" scheme="http://www.barondu.com/tags/Deadlocks/"/>
     
   </entry>
   
