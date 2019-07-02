@@ -8,15 +8,40 @@
   <link rel="dns-prefetch" href="http://www.barondu.com">
   <title>Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My blog">
-<meta property="og:type" content="website">
+  <meta name="description" content="—————title: 笔记 OSC_Deadlocksdate: 2017-04-03 23:10:14categories: 
+- 笔记
+tags: 
+- G52OSC 
+- Deadlocks
+
+DeadlocksOverview
+Deadlocks and conditions for deadlocks 
+Algorithms to detect[探知] deadlocksApproac">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Baron的博客">
-<meta property="og:url" content="http://www.barondu.com/page/2/index.html">
+<meta property="og:url" content="http://www.barondu.com/2019/07/01/Deadlocks/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="My blog">
+<meta property="og:description" content="—————title: 笔记 OSC_Deadlocksdate: 2017-04-03 23:10:14categories: 
+- 笔记
+tags: 
+- G52OSC 
+- Deadlocks
+
+DeadlocksOverview
+Deadlocks and conditions for deadlocks 
+Algorithms to detect[探知] deadlocksApproac">
+<meta property="og:updated_time" content="2019-07-02T02:29:36.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Baron的博客">
-<meta name="twitter:description" content="My blog">
+<meta name="twitter:description" content="—————title: 笔记 OSC_Deadlocksdate: 2017-04-03 23:10:14categories: 
+- 笔记
+tags: 
+- G52OSC 
+- Deadlocks
+
+DeadlocksOverview
+Deadlocks and conditions for deadlocks 
+Algorithms to detect[探知] deadlocksApproac">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -197,640 +222,161 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Processes4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Deadlocks" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/09/Processes4/">笔记 OSC_Processes4</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/09/Processes4/" class="archive-article-date">
-  	<time datetime="2017-01-09T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Processes-4"><a href="#Processes-4" class="headerlink" title="Processes 4"></a>Processes 4</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Multi-level feedback queues</li>
-<li>Scheduling in Window 7 + illustration Scheduling in </li>
-<li>Linux (implementation in labs) Scheduling related processes/threads</li>
+        <h2 id="—————"><a href="#—————" class="headerlink" title="—————"></a>—————</h2><p>title: 笔记 OSC_Deadlocks<br>date: 2017-04-03 23:10:14<br>categories: </p>
+<pre><code>- 笔记
+</code></pre><p>tags: </p>
+<pre><code>- G52OSC 
+- Deadlocks
+</code></pre><hr>
+<h1 id="Deadlocks"><a href="#Deadlocks" class="headerlink" title="Deadlocks"></a>Deadlocks</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li>Deadlocks and <strong>conditions for deadlocks</strong> </li>
+<li>Algorithms to <strong>detect[探知] deadlocks</strong><br>Approaches to <strong>recover</strong> from deadlocks</li>
 </ul>
-<h3 id="Multi-level-Feedback-Queues"><a href="#Multi-level-Feedback-Queues" class="headerlink" title="Multi-level Feedback Queues"></a>Multi-level Feedback Queues</h3><ul>
-<li>Different <strong>scheduling algorithms</strong> can be used for the <strong>individual queues</strong> (e.g., round robin, SJF, FCFS)</li>
-<li><p><strong>Feedback queues</strong> allow <strong>priorities to change dynamically</strong>[动态的], i.e., jobs can move between queues:</p>
+<h3 id="Deadlocks-1"><a href="#Deadlocks-1" class="headerlink" title="Deadlocks"></a>Deadlocks</h3><h4 id="How-Occur-deadlocks-看看就好"><a href="#How-Occur-deadlocks-看看就好" class="headerlink" title="How Occur deadlocks?[看看就好]"></a>How Occur deadlocks?[看看就好]</h4><ul>
+<li>Some resources are <strong>mutually exclusive</strong> and can only be used by one <strong>process at a time</strong></li>
+<li>On occasions[偶然], <strong>multiple processes</strong> will <strong>require access</strong> to <strong>multiple mutually exclusive resources</strong> (e.g. process A and B need resources X and Y)</li>
+<li>Process A and B request the resources in <strong>opposite orders</strong> and end up in deadlock<ul>
+<li>Deadlocks can occur on the <strong>same machine</strong> or between <strong>multiple machines</strong> (e.g. resources are requested over the network) and <strong>any number of resources</strong></li>
+<li>Deadlocks are not just related to operating systems but also occur, e.g., <strong>in databases</strong></li>
+</ul>
+</li>
+</ul>
+<p>resource</p>
 <ul>
-<li>Move to <strong>lower priority queue</strong> if too much CPU time is used (prioritise I/O and interactive processes)</li>
-<li>Move to <strong>higher priority queue</strong> to prevent <strong>starvation</strong> and avoid <strong>inversion[反转] of control</strong></li>
+<li>A resource (e.g. a device, a data record, file, semaphore) can be <strong>acquired, used, </strong>and <strong>released</strong><ul>
+<li>A resource can be <strong>preemptable</strong>, i.e., it can be forcefully taken away from the process without permanent adverse effect</li>
+<li>A resource can be <strong>non-preemptable,</strong> i.e., it cannot be taken away from a process without permanent adverse effect</li>
 </ul>
 </li>
-<li><p>Defining characteristics of feedback queues include: </p>
-<ul>
-<li>The <strong>number of queues</strong></li>
-<li>The <strong>scheduling algorithms</strong> used for the individual queues </li>
-<li><strong>Migration policy</strong>[迁移政策] between queues</li>
-<li>Initial <strong>access</strong> to the queues<br>Feedback queues are highly <strong>configurable</strong>[可配置] and offer significant <strong>flexibility</strong>[灵活性，适应性]</li>
+<li>If a <strong>non-preemptable resource is requested</strong> but not available, <strong>the process is made to wait</strong></li>
+<li><strong>Deadlocks only occur</strong> for <strong>non-preemtable resources</strong> because preemtable resources can be temporarily taken away to recover from the deadlock</li>
 </ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/09/Processes4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/09/Processes4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Processes3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/08/Processes3/">笔记 OSC_Processes3</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/08/Processes3/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
-<h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><h4 id="Threads-from-an-OS-Perspective-观点"><a href="#Threads-from-an-OS-Perspective-观点" class="headerlink" title="Threads from an OS Perspective[观点]"></a>Threads from an OS Perspective[观点]</h4><ul>
-<li>A process consists of two <strong>fundamental units</strong><ul>
-<li><strong>Resources:</strong> all related resources are grouped together<ul>
-<li>A logical address space containing the process image (program, data, heap, stack)</li>
-<li>Files, I/O devices, I/O channels, . . .</li>
-</ul>
-</li>
-<li><strong>Execution trace</strong>[执行追踪], i.e., an entity that gets executed</li>
-</ul>
-</li>
-<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="https://app.yinxiang.com/shard/s67/res/fcbec65f-172c-405a-83fc-bee2a9a3f4ea.jpg" alt=""></li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/08/Processes3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/08/Processes3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Processes2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/08/Processes2/">笔记 OSC_Processes2</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/08/Processes2/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Processes-2"><a href="#Processes-2" class="headerlink" title="Processes 2"></a>Processes 2</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Introduction to <strong>process scheduling</strong></li>
-<li>Types of <strong>process schedulers</strong></li>
-<li><strong>Evaluation criteria</strong> for scheduling algorithms</li>
-<li>Typical <strong>process scheduling algorithms</strong></li>
-</ul>
-<h3 id="Process-Scheduling"><a href="#Process-Scheduling" class="headerlink" title="Process Scheduling"></a>Process Scheduling</h3><p>Context</p>
-<ul>
-<li>The OS is responsible for <strong>managing</strong> and <strong>scheduling processes</strong><ul>
-<li>Decide when to <strong>admit</strong> processes to the system (new → ready)</li>
-<li>Decide which process to r<strong>un</strong> next (ready → run)</li>
-<li>Decide when and which processes to <strong>interrupt</strong> (running → ready)</li>
-</ul>
-</li>
-<li>It relies on the <strong>scheduler</strong> (dispatcher) to decide which process to run next, which uses a <strong>scheduling algorithm</strong> to do so</li>
-<li>The type of algorithm used by the scheduler is influenced by the <strong>type of operating system</strong> (e.g., real time vs. batch)</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/08/Processes2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/08/Processes2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Processes1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/Processes1/">笔记 OSC_Processes1</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/Processes1/" class="archive-article-date">
-  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Processes-1"><a href="#Processes-1" class="headerlink" title="Processes 1"></a>Processes 1</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Introduction to <strong>processes</strong> and their <strong>implementation</strong> </li>
-<li>Process <strong>states</strong> and state <strong>transitions</strong></li>
-<li><strong>System calls</strong> for process management</li>
-</ul>
-<h3 id="Processes-and-Implementation"><a href="#Processes-and-Implementation" class="headerlink" title="Processes and Implementation"></a>Processes and Implementation</h3><blockquote>
-<p>Definition: <em>“a process is a <strong>running instance</strong> of a program”</em><br><code>进程是程序的运行实例</code></p>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><blockquote>
+<p>“A set of processes is deadlocked if <strong>each process</strong> in the set is waiting for <strong>an event</strong> that only the <strong>other process</strong> in the set can cause”<br> –  Tanenbaum</p>
 </blockquote>
 <ul>
-<li>A process is registered with the OS using its “<strong>control structures</strong>”: i.e. an entry in the OS’s <strong>process tab</strong>le to a <strong>process control blocks</strong> (PCB)</li>
-<li>The <strong>process control block</strong> contains all information necessary to <strong>manage the process</strong> and is necessary for <strong>context switching</strong> in <strong>multi-programmed systems</strong></li>
-<li>A process’ memory image contains:<ul>
-<li>The program <strong>code</strong> (could be shared between multiple processes running the same code)</li>
-<li>A <strong>data</strong> segment, <strong>stack</strong> and <strong>heap</strong></li>
+<li>Each <strong>deadlocked process</strong> is <strong>waiting for</strong> a resource held by <strong>an other deadlocked process</strong> (which cannot run and hence cannot release the resources)</li>
+<li>This can happen between <strong>any number of processes</strong> and for <strong>any number of resources</strong></li>
 </ul>
-</li>
-<li>Every process has its own <strong>logical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/06/Processes1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/Processes1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Introduction2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/03/Introduction2/">笔记 OSC_Introduction2</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/03/Introduction2/" class="archive-article-date">
-  	<time datetime="2017-01-03T23:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction 2"></a>Introduction 2</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>CPU design</li>
-<li><strong>Address spaces, interruts</strong></li>
-<li>OS <strong>structures/implementation</strong></li>
-</ul>
-<h3 id="CPU-design"><a href="#CPU-design" class="headerlink" title="CPU design"></a>CPU design</h3><ul>
-<li>A CPU basic cycle consist of <strong>fetch[取], decode, execute</strong></li>
-<li>Every CPU has his own <strong>instruction set</strong></li>
-<li>CPU has a  set of <strong>registers</strong></li>
-<li>Registers are used to store <strong>data</strong> and for <strong>special functions</strong> (e.g. program counter, program status word – mode bit)</li>
-<li>The <strong>compiler</strong>/programmer decides what to keep in the registers</li>
-<li><strong>Context switching</strong>[上下文切换] must save and restore the CPU’s internal state, including its <strong>registers</strong></li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/03/Introduction2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/03/Introduction2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Introduction1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/01/Introduction1/">笔记 OSC_Introduction1</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/01/Introduction1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>“<strong>Defining</strong>“ operating systems</li>
-<li>What is <strong>multi-programming</strong></li>
-<li><strong>Kernel-user mode</strong></li>
-</ul>
-<h3 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h3><ul>
-<li><p>In the early days, programmers had to <strong>deal directly with hardware</strong></p>
+<h3 id="Conditions"><a href="#Conditions" class="headerlink" title="Conditions"></a>Conditions</h3><p><strong>Four conditions</strong> must hold for deadlocks to occur (Coffman et al. (1971)):</p>
 <ul>
-<li>Real computer <strong>hardware is urgly</strong></li>
-<li>Hardware is <strong>extremely difficult</strong> to program</li>
+<li><strong>Mutual exclusion</strong>: a resource can be assigned to at most one process at a time</li>
+<li><strong>Hold and wait condition</strong>: a resource can be held whilst[同时] requesting new resources</li>
+<li><strong>No preemption:</strong> resources cannot be forcefully taken away from a process </li>
+<li><strong>Circular wait</strong>: there is a circular chain of two or more processes, waiting for a resource held by the other processes</li>
 </ul>
-</li>
-<li><p>An operating system is a layer[层] of indirection[间接] on top of the hardware:</p>
-<ul>
-<li>It provide <strong>abstractions</strong> for application programs</li>
-<li>it provide a <strong>cleaner and easier interface to the hardware</strong></li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/01/Introduction1/#more">more >></a>
-        
+<p><strong>No deadlocks</strong> can occur if one of the conditions is <strong>not satisfied</strong></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢投喂 (～o￣3￣)～<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbd03h4rvaj3074074wf2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
       
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      </div>
+    </span>
+  </div>
+</div>
 
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.barondu.com/2019/07/01/Deadlocks/" alt="微信分享二维码">
+    </div>
+</div>
 
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/01/Introduction1/">展开全文 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/26/G52CPP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">G52CPP复习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -852,10 +398,34 @@ ga('send', 'pageview');
 
 
   
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTk2Mi84NTI2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+  
+  
+  
+
+  
+
+  
+
   
 
 
@@ -884,8 +454,8 @@ ga('send', 'pageview');
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -1,3 +1,5 @@
+http://www.barondu.com/2019/07/01/Deadlocks/
+http://www.barondu.com/2018/11/26/G52CPP/
 http://www.barondu.com/2018/02/21/PyCharm运行TensorBoard时的小BUG/
 http://www.barondu.com/2017/11/26/Hexo以及yilia主题个性化设置/
 http://www.barondu.com/2017/11/17/TensorFlow/
@@ -6,5 +8,3 @@ http://www.barondu.com/2017/01/09/Concurrency2/
 http://www.barondu.com/2017/01/09/Concurrency1/
 http://www.barondu.com/2017/01/09/Processes4/
 http://www.barondu.com/2017/01/08/Processes3/
-http://www.barondu.com/2017/01/08/Processes2/
-http://www.barondu.com/2017/01/06/Processes1/

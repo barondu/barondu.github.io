@@ -6,17 +6,83 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.barondu.com">
-  <title>Baron的博客</title>
+  <title>G52CPP复习 | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Baron的博客">
-<meta property="og:url" content="http://www.barondu.com/page/2/index.html">
+  <meta name="description" content="G52CPP
+Lecture 1 &amp;amp; 2Header12#include &amp;lt;stdio.h&amp;gt; 	// C or C++#include &amp;lt;cstdio&amp;gt; 	// C++
+reference 省去 copy的过程What is usually in a header file?
+
+Function declarations
+Macro definitions (#de">
+<meta property="og:type" content="article">
+<meta property="og:title" content="G52CPP复习">
+<meta property="og:url" content="http://www.barondu.com/2018/11/26/G52CPP/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="My blog">
+<meta property="og:description" content="G52CPP
+Lecture 1 &amp;amp; 2Header12#include &amp;lt;stdio.h&amp;gt; 	// C or C++#include &amp;lt;cstdio&amp;gt; 	// C++
+reference 省去 copy的过程What is usually in a header file?
+
+Function declarations
+Macro definitions (#de">
+<meta property="og:image" content="http://www.barondu.com/./1496502642897.png">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=12689f76eab6d982f416cc4f6e15e466">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=6a4ee268a72a8b9dc7c7b83f68cba2e4">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=52a56050e9f28bc036a1906cfd328d0d">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=552b5511aef4638112f5f5a7fb995764">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=05f1607f86a43382e00ef97a21735133">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d926279ef50ca572eaf0f5e80ee74d23">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a0e03a14297eb01f82df1eb75191bae6">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a3387c215ea60dc0e8734bae841021da">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=908dc8380cabfd31644390642311987d">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d869ddb12cd209ee24f1d586d7a29a09">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ec9c972cd119567ada7356a102fddb93">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ef32056ce228ec5b633460e63656994c">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=24e0bd55dd6171f5d3036f058584c8bf">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=cb30edd5ec403dbf58ac40a90c20178e">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=67c0ba8529a038b39d516e37f601c6e1">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ff801fa4ef0ecfb70a1db868e7ea273f">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=80f3cb928a8018b98d3d8c668ff8f90e">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=0d8cd472d9a6254ba005ecf8e110fa2b">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=f50408dc9ca5f56cbfb1597f1888c204">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=20a5378bac3d99f5ce1e54ac8339dc3c">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=7e47ed3f2786a6f2b291711287938712">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=083ab4900f76d981996bd34eba875257">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=44e5ec986fe4f5ade5424f8ebaf8dc8b">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=4c71ba063f5c40c8849d84cc4a574e6b">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=cb89b4a32cd281517449b5e582872cdc">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=1f77f23c106a84a64a598ba9ee7a9435">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=b30b898d6bf1d16929d372beee785e65">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=2dddaf0fd087702683124fbe82e56537">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=8ef4ca3a01b939007a0f2de0cfef5fa2">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=239761c804da4fbc17d87e8985b2148f">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=1c52f0decc3f8b926dd9ae46068266de">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=088270f898f3aff1ce3a8cf83c9fae60">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=3975d70c9da8d9aed62fdb091e6d86d5">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ff34c6d257eb117256d4547061d4d722">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ddd6c53e9de96359d88867c23e79e495">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=09b26709fb14dc3f167476cae7b9da90">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=410f5e9fca1f84660a1aedb7ff0ab2a3">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d8eddd2eb7ccb5d66c95a990e6f558f6">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=c07fbdb853c44fd167b8888c3ac56c1c">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=98fb08771a499045421cb166a5326e61">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=3fafe3eab0ac9eb02564851e864d379d">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=e62601d73c46a1511c4f35975a0364fc">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ce7266d4a5941b51140e0cdfd64cae07">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=6698812de9d8c1a0e15ef834e2416508">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=3653bec9375b9a8abf3e4d3544ccecf6">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=f67a50564f89ddc4a3fc908866bf4824">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=34ec51d2072e535047267de18f4c70c8">
+<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=376fe6aec0ddad80318bef110af99859">
+<meta property="og:updated_time" content="2019-07-02T02:29:39.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Baron的博客">
-<meta name="twitter:description" content="My blog">
+<meta name="twitter:title" content="G52CPP复习">
+<meta name="twitter:description" content="G52CPP
+Lecture 1 &amp;amp; 2Header12#include &amp;lt;stdio.h&amp;gt; 	// C or C++#include &amp;lt;cstdio&amp;gt; 	// C++
+reference 省去 copy的过程What is usually in a header file?
+
+Function declarations
+Macro definitions (#de">
+<meta name="twitter:image" content="http://www.barondu.com/./1496502642897.png">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -197,599 +263,475 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Processes4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-G52CPP" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/09/Processes4/">笔记 OSC_Processes4</a>
+    <h1 class="article-title" itemprop="name">
+      G52CPP复习
     </h1>
   
 
         
-        <a href="/2017/01/09/Processes4/" class="archive-article-date">
-  	<time datetime="2017-01-09T14:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-09</time>
+        <a href="/2018/11/26/G52CPP/" class="archive-article-date">
+  	<time datetime="2018-11-26T03:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Processes-4"><a href="#Processes-4" class="headerlink" title="Processes 4"></a>Processes 4</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Multi-level feedback queues</li>
-<li>Scheduling in Window 7 + illustration Scheduling in </li>
-<li>Linux (implementation in labs) Scheduling related processes/threads</li>
-</ul>
-<h3 id="Multi-level-Feedback-Queues"><a href="#Multi-level-Feedback-Queues" class="headerlink" title="Multi-level Feedback Queues"></a>Multi-level Feedback Queues</h3><ul>
-<li>Different <strong>scheduling algorithms</strong> can be used for the <strong>individual queues</strong> (e.g., round robin, SJF, FCFS)</li>
-<li><p><strong>Feedback queues</strong> allow <strong>priorities to change dynamically</strong>[动态的], i.e., jobs can move between queues:</p>
+        <h2 id="G52CPP"><a href="#G52CPP" class="headerlink" title="G52CPP"></a>G52CPP</h2><hr>
+<h3 id="Lecture-1-amp-2"><a href="#Lecture-1-amp-2" class="headerlink" title="Lecture 1 &amp; 2"></a>Lecture 1 &amp; 2</h3><h5 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span> 	<span class="comment">// C or C++</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span> 	<span class="comment">// C++</span></span></div></pre></td></tr></table></figure>
+<p>reference 省去 copy的过程<br>What is usually in a header file?</p>
+<ol>
+<li>Function declarations</li>
+<li>Macro definitions (#define)</li>
+<li>Constant definitions</li>
+<li>Possibly other things as well<blockquote>
+<ol>
+<li>Ensure that the header file #includes everything that it needs itself</li>
+<li>Ensure that it doesn’t matter if the header file is #included multiple times</li>
+<li>Ensure that header files can be included in any order</li>
+</ol>
+</blockquote>
+</li>
+</ol>
 <ul>
-<li>Move to <strong>lower priority queue</strong> if too much CPU time is used (prioritise I/O and interactive processes)</li>
-<li>Move to <strong>higher priority queue</strong> to prevent <strong>starvation</strong> and avoid <strong>inversion[反转] of control</strong></li>
+<li><code>#include</code><br>Replaces this statement by the text of the specified <strong>file</strong></li>
+<li>Java’s <code>import</code></li>
+<li><h5 id="Sizes-of-types"><a href="#Sizes-of-types" class="headerlink" title="Sizes of types"></a>Sizes of types</h5></li>
+<li>A minimum size (bits): char 8(1 byte), short 16(2 byte), long 32(4 byte)</li>
+<li>Relativesizes: char &lt;= short &lt;= int &lt;= long</li>
+</ul>
+<h5 id="bool-and-inttype"><a href="#bool-and-inttype" class="headerlink" title="bool and  inttype"></a><strong>bool</strong> and  <strong>int</strong>type</h5><ul>
+<li>bool : <strong>true</strong> / <strong>false</strong> (C++ only, not C)</li>
+<li>IMPORTANT: <code>bool</code> and <code>int</code> can be converted <strong>implicitly</strong> / <strong>automatically</strong> to each other<ul>
+<li><strong>true</strong> defined to be <strong>1</strong> when converted to int </li>
+<li><strong>false</strong> defined to be <strong>0</strong> when converted to int </li>
+<li><strong>0</strong> is defined to be <strong>false</strong>, <strong>non-zero</strong> as true</li>
 </ul>
 </li>
-<li><p>Defining characteristics of feedback queues include: </p>
+</ul>
+<blockquote>
+<p>In both C and C++ any integer types can be used in conditions (i.e. char, short, long, int)<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int <span class="keyword">x</span> = <span class="number">6</span><span class="comment">;</span></div><div class="line">while ( <span class="keyword">x</span> )</div><div class="line">&#123;</div><div class="line">    printf( <span class="string">"X is %d\n"</span>, <span class="keyword">x</span> )<span class="comment">;</span></div><div class="line">    <span class="keyword">x</span> -= <span class="number">2</span><span class="comment">; </span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int <span class="keyword">x</span> = <span class="number">6</span><span class="comment">;</span></div><div class="line">while ( <span class="keyword">x</span> )</div><div class="line">&#123;</div><div class="line">    printf( <span class="string">"X is %d\n"</span>, <span class="keyword">x</span> )<span class="comment">;</span></div><div class="line">    <span class="keyword">x</span> -= <span class="number">2</span><span class="comment">; </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="wchar-t-type"><a href="#wchar-t-type" class="headerlink" title="wchar_t type"></a>wchar_t type</h5><p>wchar_t : wide character (C++ only, not C)</p>
 <ul>
-<li>The <strong>number of queues</strong></li>
-<li>The <strong>scheduling algorithms</strong> used for the individual queues </li>
-<li><strong>Migration policy</strong>[迁移政策] between queues</li>
-<li>Initial <strong>access</strong> to the queues<br>Feedback queues are highly <strong>configurable</strong>[可配置] and offer significant <strong>flexibility</strong>[灵活性，适应性]</li>
+<li>16 bits<h5 id="signed-unsigned-value"><a href="#signed-unsigned-value" class="headerlink" title="signed/unsigned value"></a>signed/unsigned value</h5></li>
+<li>Default is <strong>signed</strong><h5 id="void"><a href="#void" class="headerlink" title="void"></a>void</h5></li>
+<li>you can create a type void<h5 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h5></li>
+<li>new to C++11</li>
+<li>can only used for <strong>initialised variables</strong><ul>
+<li>complier will <strong>work out the type</strong> at <strong>compile time</strong> from <strong>the initialisation value</strong></li>
 </ul>
 </li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/01/09/Processes4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/09/Processes4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Processes3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/08/Processes3/">笔记 OSC_Processes3</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/08/Processes3/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
-<h3 id="Threads"><a href="#Threads" class="headerlink" title="Threads"></a>Threads</h3><h4 id="Threads-from-an-OS-Perspective-观点"><a href="#Threads-from-an-OS-Perspective-观点" class="headerlink" title="Threads from an OS Perspective[观点]"></a>Threads from an OS Perspective[观点]</h4><ul>
-<li>A process consists of two <strong>fundamental units</strong><ul>
-<li><strong>Resources:</strong> all related resources are grouped together<ul>
-<li>A logical address space containing the process image (program, data, heap, stack)</li>
-<li>Files, I/O devices, I/O channels, . . .</li>
-</ul>
-</li>
-<li><strong>Execution trace</strong>[执行追踪], i.e., an entity that gets executed</li>
-</ul>
-</li>
-<li>A process can <strong>share its resources</strong> between <strong>multiple execution traces</strong>, i.e., multiple threads running in the same resource environment<br><img src="https://app.yinxiang.com/shard/s67/res/fcbec65f-172c-405a-83fc-bee2a9a3f4ea.jpg" alt=""></li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/08/Processes3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/08/Processes3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Processes2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/08/Processes2/">笔记 OSC_Processes2</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/08/Processes2/" class="archive-article-date">
-  	<time datetime="2017-01-08T23:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Processes-2"><a href="#Processes-2" class="headerlink" title="Processes 2"></a>Processes 2</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Introduction to <strong>process scheduling</strong></li>
-<li>Types of <strong>process schedulers</strong></li>
-<li><strong>Evaluation criteria</strong> for scheduling algorithms</li>
-<li>Typical <strong>process scheduling algorithms</strong></li>
-</ul>
-<h3 id="Process-Scheduling"><a href="#Process-Scheduling" class="headerlink" title="Process Scheduling"></a>Process Scheduling</h3><p>Context</p>
-<ul>
-<li>The OS is responsible for <strong>managing</strong> and <strong>scheduling processes</strong><ul>
-<li>Decide when to <strong>admit</strong> processes to the system (new → ready)</li>
-<li>Decide which process to r<strong>un</strong> next (ready → run)</li>
-<li>Decide when and which processes to <strong>interrupt</strong> (running → ready)</li>
-</ul>
-</li>
-<li>It relies on the <strong>scheduler</strong> (dispatcher) to decide which process to run next, which uses a <strong>scheduling algorithm</strong> to do so</li>
-<li>The type of algorithm used by the scheduler is influenced by the <strong>type of operating system</strong> (e.g., real time vs. batch)</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/08/Processes2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/08/Processes2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Processes1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/Processes1/">笔记 OSC_Processes1</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/Processes1/" class="archive-article-date">
-  	<time datetime="2017-01-06T11:42:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Processes-1"><a href="#Processes-1" class="headerlink" title="Processes 1"></a>Processes 1</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>Introduction to <strong>processes</strong> and their <strong>implementation</strong> </li>
-<li>Process <strong>states</strong> and state <strong>transitions</strong></li>
-<li><strong>System calls</strong> for process management</li>
-</ul>
-<h3 id="Processes-and-Implementation"><a href="#Processes-and-Implementation" class="headerlink" title="Processes and Implementation"></a>Processes and Implementation</h3><blockquote>
-<p>Definition: <em>“a process is a <strong>running instance</strong> of a program”</em><br><code>进程是程序的运行实例</code></p>
+<h5 id="define"><a href="#define" class="headerlink" title="#define"></a>#define</h5><blockquote>
+<p>An semi-intelligent <strong>*‘find and replace</strong>’* facility</p>
 </blockquote>
 <ul>
-<li>A process is registered with the OS using its “<strong>control structures</strong>”: i.e. an entry in the OS’s <strong>process tab</strong>le to a <strong>process control blocks</strong> (PCB)</li>
-<li>The <strong>process control block</strong> contains all information necessary to <strong>manage the process</strong> and is necessary for <strong>context switching</strong> in <strong>multi-programmed systems</strong></li>
-<li>A process’ memory image contains:<ul>
-<li>The program <strong>code</strong> (could be shared between multiple processes running the same code)</li>
-<li>A <strong>data</strong> segment, <strong>stack</strong> and <strong>heap</strong></li>
+<li>Often considered <code>bad</code> in C++ code (useful in C)<ul>
+<li><strong>const</strong> is used more often, especially for members</li>
+<li><strong>Template functions</strong> are better than <strong>macros</strong></li>
 </ul>
 </li>
-<li>Every process has its own <strong>logical address</strong> space, in which the stack and heap are placed at opposite[相反的] sides to allow them to grow</li>
+<li><strong>Remember</strong>: Done by the pre-processor!</li>
+<li>Constant <code>#define</code> usually written in <strong>CAPITALS</strong></li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/01/06/Processes1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">processes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/Processes1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Introduction2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/03/Introduction2/">笔记 OSC_Introduction2</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/03/Introduction2/" class="archive-article-date">
-  	<time datetime="2017-01-03T23:50:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction 2"></a>Introduction 2</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>CPU design</li>
-<li><strong>Address spaces, interruts</strong></li>
-<li>OS <strong>structures/implementation</strong></li>
-</ul>
-<h3 id="CPU-design"><a href="#CPU-design" class="headerlink" title="CPU design"></a>CPU design</h3><ul>
-<li>A CPU basic cycle consist of <strong>fetch[取], decode, execute</strong></li>
-<li>Every CPU has his own <strong>instruction set</strong></li>
-<li>CPU has a  set of <strong>registers</strong></li>
-<li>Registers are used to store <strong>data</strong> and for <strong>special functions</strong> (e.g. program counter, program status word – mode bit)</li>
-<li>The <strong>compiler</strong>/programmer decides what to keep in the registers</li>
-<li><strong>Context switching</strong>[上下文切换] must save and restore the CPU’s internal state, including its <strong>registers</strong></li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/01/03/Introduction2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/03/Introduction2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Introduction1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/01/Introduction1/">笔记 OSC_Introduction1</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/01/Introduction1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><hr>
-<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>“<strong>Defining</strong>“ operating systems</li>
-<li>What is <strong>multi-programming</strong></li>
-<li><strong>Kernel-user mode</strong></li>
-</ul>
-<h3 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h3><ul>
-<li><p>In the early days, programmers had to <strong>deal directly with hardware</strong></p>
+<h5 id="Conditional-compilation"><a href="#Conditional-compilation" class="headerlink" title="Conditional compilation"></a>Conditional compilation</h5><p>You can remove parts of the source code if desired</p>
 <ul>
-<li>Real computer <strong>hardware is urgly</strong></li>
-<li>Hardware is <strong>extremely difficult</strong> to program</li>
-</ul>
+<li><p>Use for <strong>cross-platform</strong> code</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#ifdef __WINDOWS__</div><div class="line">... windows <span class="keyword">code</span> here ...</div><div class="line">#elif __SYS5UNIX__</div><div class="line">... System <span class="number">5</span> <span class="keyword">code</span> here ...</div><div class="line">#endif</div></pre></td></tr></table></figure>
 </li>
-<li><p>An operating system is a layer[层] of indirection[间接] on top of the hardware:</p>
+<li><p>Avoiding multiple inclusion</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#ifndef UNIQUE_DEFINE_NAME_FOR_FILE</span></div><div class="line"><span class="comment">#define UNIQUE_DEFINE_NAME_FOR_FILE</span></div><div class="line">... <span class="built_in">include</span> <span class="keyword">the</span> rest <span class="keyword">of</span> <span class="keyword">the</span> <span class="built_in">file</span> here ...</div><div class="line"><span class="comment">#endif</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>别忘了endif</p>
+<h3 id="Lecture-3-amp-4"><a href="#Lecture-3-amp-4" class="headerlink" title="Lecture 3 &amp; 4"></a>Lecture 3 &amp; 4</h3><h5 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h5><p><img src="./1496502642897.png" alt="Alt text"></p>
 <ul>
-<li>It provide <strong>abstractions</strong> for application programs</li>
-<li>it provide a <strong>cleaner and easier interface to the hardware</strong></li>
+<li><code>&amp;</code> Address-of</li>
+<li><code>*</code> De-referencing<br>In C and C++, variables are <strong>NOT initialised</strong> unless you give them an <strong>initial value</strong></li>
+<li>You can use NULL</li>
+<li><strong>Dereferencing an unitialised pointer</strong> has undefined results <em>Could crash your program (likely)</em></li>
+<li>assigning one pointer to another means:<ul>
+<li>It points at the same object</li>
+<li>It has the same address stored in it </li>
 </ul>
 </li>
 </ul>
-        
-          <a class="article-more-a" href="/2017/01/01/Introduction1/#more">more >></a>
-        
+<h5 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> c1 = <span class="string">'h'</span>;</div><div class="line"><span class="keyword">char</span>* pc2 = &amp;c1;</div><div class="line"><span class="keyword">int</span>* pi4 = (<span class="keyword">int</span>*)pc2;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Dangerous !</strong><br>print the address use <code>%p</code> and <code>(void*)</code><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> c1 = <span class="string">'h'</span>;</div><div class="line"><span class="keyword">char</span>* pc2 = &amp;c1;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"%p "</span>,(<span class="keyword">void</span>*)pc2);</div><div class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,(<span class="keyword">void</span>*)&amp;c1);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="Arrays-C-strings-and-pointers"><a href="#Arrays-C-strings-and-pointers" class="headerlink" title="Arrays, C-strings and pointers"></a>Arrays, C-strings and pointers</h5><p>Array</p>
+<ul>
+<li><code>char array[6];</code></li>
+<li><code>char array[2] = {&#39;a&#39;,&#39;b&#39;}</code></li>
+<li><code>char array[] = {&#39;a&#39;,&#39;b&#39;}</code></li>
+<li>The addresses of elements <strong>within</strong> an array <strong>are</strong> consecutive</li>
+<li>The relative locations of <strong>different array</strong>s, or <strong>variables are NOT</strong> fixed</li>
+</ul>
+<p>C-string / char*</p>
+<ul>
+<li>C-strings consist of an array of characters, terminated by a character value of zero</li>
+<li>‘\0’, or 0 </li>
+<li>NOT ‘0’!!! </li>
+</ul>
+<blockquote>
+<p>char* str = “abcd”;<br>str 是 ‘h’ 也就是第一个、字符的地址<br>char array[4] = {‘a’,’b’,’c’,’d’,’/0’};<br>char array[4] = “abcd”;<br>array 就是 ‘h’, 就是第一个字符</p>
+</blockquote>
+<ul>
+<li>char* 是只读的<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=12689f76eab6d982f416cc4f6e15e466" alt="12689f76eab6d982f416cc4f6e15e466.png"></li>
+</ul>
+<p>这里两个print出来的都是整个string</p>
+<h3 id="Lecture-5"><a href="#Lecture-5" class="headerlink" title="Lecture 5"></a>Lecture 5</h3><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=6a4ee268a72a8b9dc7c7b83f68cba2e4" alt="6a4ee268a72a8b9dc7c7b83f68cba2e4.png"></p>
+<h5 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h5><ul>
+<li>last in fist out (LIFO)</li>
+<li>Function calls (stack frames) are stored on a stack in memory</li>
+<li>stack frame<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=52a56050e9f28bc036a1906cfd328d0d" alt="52a56050e9f28bc036a1906cfd328d0d.png"></li>
+</ul>
+<h5 id="Lifetime-of-local-variables"><a href="#Lifetime-of-local-variables" class="headerlink" title="Lifetime of local variables"></a>Lifetime of local variables</h5><ul>
+<li>Your local variables only exist for as long as the block in which they are defined</li>
+<li>Do not access them after that</li>
+<li>Do not assume that they keep their value after the function ends</li>
+<li>Local variables get destroyed for you (auto-destroyed)</li>
+<li>But if you use malloc() you need to call free()</li>
+</ul>
+<h5 id="Global-variables"><a href="#Global-variables" class="headerlink" title="Global variables"></a>Global variables</h5><ul>
+<li>Variable declared outside of all functions</li>
+<li>Global variables last for the duration of the program</li>
+<li>All functions in the file can access globals</li>
+<li>Not available in Java!<h5 id="Static-local-variables"><a href="#Static-local-variables" class="headerlink" title="Static local variables"></a>Static local variables</h5>Local variables can be <strong>static</strong></li>
+<li>Means not moving/unchanging</li>
+<li>NOT the same as static member variables!</li>
+<li>NOT the same as <strong>const</strong></li>
+</ul>
+<p>Static local variables remember their value between function calls</p>
+<ul>
+<li>Like global variables</li>
+</ul>
+<p>But, you can only access them (by name) inside the one function they are defined in</p>
+<ul>
+<li>Unless you keep a pointer to them</li>
+</ul>
+<p>Static variable remembers its value Initialisation only occurs in the first function call</p>
+<h5 id="Global-vs-local-variables"><a href="#Global-vs-local-variables" class="headerlink" title="Global vs local variables"></a>Global vs local variables</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=552b5511aef4638112f5f5a7fb995764" alt="552b5511aef4638112f5f5a7fb995764.png"></p>
+<p>Do not refer to data on the stack outside the function</p>
+<ul>
+<li>This means local variables or actual parameters</li>
+</ul>
+<p>You CAN refer to them, but SHOULD NOT</p>
+<blockquote>
+<p>Things to avoid:</p>
+<ul>
+<li>Returning a pointer to a local variable or parameter </li>
+<li>Storing the address of a local variable or parameter<h5 id="Using-multiple-files"><a href="#Using-multiple-files" class="headerlink" title="Using multiple files"></a>Using multiple files</h5><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=05f1607f86a43382e00ef97a21735133" alt="05f1607f86a43382e00ef97a21735133.png"></li>
+<li><code>extern</code><br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d926279ef50ca572eaf0f5e80ee74d23" alt="d926279ef50ca572eaf0f5e80ee74d23.png"><h5 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h5><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a0e03a14297eb01f82df1eb75191bae6" alt="a0e03a14297eb01f82df1eb75191bae6.png"></li>
+</ul>
+</blockquote>
+<h3 id="Lecture-6"><a href="#Lecture-6" class="headerlink" title="Lecture 6"></a>Lecture 6</h3><h5 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">struct <span class="built_in">Time</span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">int</span> <span class="built_in">hour</span>;</div><div class="line">	<span class="built_in">int</span> minuate;</div><div class="line">	<span class="built_in">int</span> <span class="built_in">second</span>;</div><div class="line">&#125;;</div><div class="line">struct <span class="built_in">Date</span> &#123; <span class="built_in">int</span> d, m, y; &#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Date</span> dob = </span>&#123; <span class="number">1</span>, <span class="number">4</span>, <span class="number">1990</span> &#125;;</div></pre></td></tr></table></figure>
+<p><strong>注意分号！</strong><br>Use <code>.</code> to access struct members</p>
+<h5 id="The-heap-and-malloc"><a href="#The-heap-and-malloc" class="headerlink" title="The heap and malloc()"></a>The heap and malloc()</h5><p> <code>malloc()</code> returns a <code>void*</code><br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a3387c215ea60dc0e8734bae841021da" alt="a3387c215ea60dc0e8734bae841021da.png"></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int* pInt = (<span class="name">int*</span>)malloc( <span class="name">sizeof</span>(<span class="name">int</span>) )</div></pre></td></tr></table></figure>
+<h5 id="Positioning-of-struct-elements"><a href="#Positioning-of-struct-elements" class="headerlink" title="Positioning of struct elements"></a>Positioning of struct elements</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=908dc8380cabfd31644390642311987d" alt="908dc8380cabfd31644390642311987d.png"></p>
+<h5 id="pragma"><a href="#pragma" class="headerlink" title="#pragma"></a>#pragma</h5><ul>
+<li><code>struct</code> may get empty space in them <ul>
+<li>To align members for maximum speed</li>
+</ul>
+</li>
+</ul>
+<p>-<code>#pragma</code> means a compiler/operating system specific pre-processor directive</p>
+<pre><code>- `#pragma pack(1)` it will save space but will speed down
+</code></pre><h5 id="union"><a href="#union" class="headerlink" title="union"></a>union</h5><ul>
+<li>Elements of unions are in the SAME place</li>
+<li>Elements of unions may be different sizes<ul>
+<li><strong>A union is as big as the biggest thing in it</strong> </li>
+</ul>
+</li>
+<li>Unions are a way of providing different ways of looking at the same memory<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d869ddb12cd209ee24f1d586d7a29a09" alt="d869ddb12cd209ee24f1d586d7a29a09.png"></li>
+</ul>
+<h2 id="Lecture-7"><a href="#Lecture-7" class="headerlink" title="Lecture 7"></a>Lecture 7</h2><h5 id="classes-vs-structs-in-C"><a href="#classes-vs-structs-in-C" class="headerlink" title="classes vs structs in C++"></a>classes vs structs in C++</h5><ul>
+<li>Everything you do with a <code>class</code> in C++ could also be done with a <code>struct</code></li>
+<li><p>The difference is <strong>(ONLY!!!)</strong> in encapsulation</p>
+<blockquote>
+<p>struct defaults to public, class to private</p>
+</blockquote>
+</li>
+<li><p>struct: Data only and no member functions</p>
+</li>
+<li><strong>Data</strong> should (usually) be private</li>
+<li><strong>Methods</strong> (functions) should be: <ul>
+<li><code>private</code> for internal use only</li>
+<li><code>public</code> for the external class interface</li>
+</ul>
+</li>
+<li>The values of the data members comprise the state of the object</li>
+<li>Interface methods can be:<ul>
+<li><strong>Mutators</strong> – change the ‘state’ of the object</li>
+<li><strong>Accessors</strong> – only query values, no changes</li>
+</ul>
+</li>
+<li>Use <code>this-&gt;</code>not<code>this.</code></li>
+</ul>
+<h5 id="Constructors-and-Destructors"><a href="#Constructors-and-Destructors" class="headerlink" title="Constructors and Destructors"></a>Constructors and Destructors</h5><p><strong>Constructor</strong> (as in Java)</p>
+<ul>
+<li>Called when an object is created</li>
+<li>Has function name same as class name</li>
+<li><strong>no return type</strong> (none/empty, NOT void!)</li>
+<li>Adding a constructor makes it impossible to provide a C-style initialiser. e.g. <code>= {0,1,2};</code></li>
+</ul>
+<p><strong>Destructor</strong> (similar to Java finalize)</p>
+<ul>
+<li>Called when an object is destroyed</li>
+<li>A function with name ~ then class name • E.g.: <code>~DemoClass()</code></li>
+<li>And no return type</li>
+</ul>
+<h5 id="Default-parameters"><a href="#Default-parameters" class="headerlink" title="Default parameters"></a>Default parameters</h5><ul>
+<li>Default values appear only in the function <strong>declaration</strong>, not any <strong>separate</strong> definition</li>
+<li>Use `= <value>‘’<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">DemoClass</span><span class="params">( char* dummy, int iValue = -<span class="number">1</span>)</span></span></div><div class="line">&#123; <span class="comment">/*Nothing*/</span> &#125;</div></pre></td></tr></table></figure>
+</value></li>
+</ul>
+<h5 id="Default-Constructor"><a href="#Default-Constructor" class="headerlink" title="Default Constructor"></a>Default Constructor</h5><p>The <strong>‘Default Constructor’</strong> is a constructor which <strong>can be called</strong> with no parameters</p>
+<ul>
+<li>e.g. one which has no parameters</li>
+<li>or has default values for all parameters</li>
+<li>A class can only have one default constructor<ul>
+<li>More would introduce ambiguity</li>
+</ul>
+</li>
+</ul>
+<p>When you create arrays of objects, the default constructor is used (because no parameters are provided):<code>DemoClass myDemoArray[4];</code></p>
+<p><strong>IMPORTANT</strong>: Do <strong>NOT</strong> add empty brackets <code>()</code> <strong>when constructing on the stack</strong> if there are no parameters!</p>
+<ul>
+<li>Compiler thinks you are <strong>declaring a function</strong></li>
+<li>e.g. <code>DemoClass myDemoClass1();</code> // <strong>WRONG!!!</strong></li>
+</ul>
+<h5 id="Initialisation-vs-Assignment"><a href="#Initialisation-vs-Assignment" class="headerlink" title="Initialisation vs Assignment"></a>Initialisation vs Assignment</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ec9c972cd119567ada7356a102fddb93" alt="ec9c972cd119567ada7356a102fddb93.png"><br>Compare the following:<br>1)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">4</span>; <span class="comment">// Initialisation</span></div></pre></td></tr></table></figure></p>
+<p>2)<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int j<span class="comment">; // Uninitialised</span></div><div class="line"><span class="attribute">j</span> = <span class="number">4</span><span class="comment">; // Assignment</span></div></pre></td></tr></table></figure></p>
+<p> Member data is <strong>NOT always</strong> initialised</p>
+<ul>
+<li><strong>Basic types and pointers</strong> (e.g. int, short or char*) are NOT initialised</li>
+<li><strong>Default constructor</strong> is <strong>called for members of type class/struct</strong> unless you say otherwise<ul>
+<li>Using initialisation list</li>
+</ul>
+</li>
+</ul>
+<h5 id="Inline-functions"><a href="#Inline-functions" class="headerlink" title="Inline functions"></a>Inline functions</h5><p>Use the keyword <code>inline</code>, e.g.:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">( <span class="keyword">int</span> a, <span class="keyword">int</span> b )</span> </span>&#123; <span class="keyword">return</span> a&gt;b ? a : b; &#125;</div></pre></td></tr></table></figure></p>
+<p>Similar to a ‘safe’ macro expansion</p>
+<ul>
+<li><strong>Safely</strong> replaces the function call with the code<ul>
+<li>Unlike a macro (<code>#define</code>)</li>
+<li>Avoids the overhead of creating a stack frame</li>
+<li>Code gets included in EVERY file/function which calls it</li>
+</ul>
+</li>
+<li>VERY useful for smal<strong>l, fast</strong> functions</li>
+</ul>
+<p><strong>Defining</strong> functions <strong>within</strong> the class declaration <strong>implicitly</strong> makes them inline</p>
+<p>Function set default value for parameters in <strong>declaration</strong>.</p>
+<h3 id="Lecture8"><a href="#Lecture8" class="headerlink" title="Lecture8"></a>Lecture8</h3><h5 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h5><p>A way to give a new name to an item<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int <span class="built_in">i</span> = <span class="number">1</span>;</div><div class="line">int&amp; <span class="built_in">j</span> = <span class="built_in">i</span>;</div></pre></td></tr></table></figure></p>
+<p>References always have to refer to something </p>
+<ul>
+<li>Must give them a thing to refer to on initialisation </li>
+<li>No such thing as a NULL reference<blockquote>
+<p>do NOT return a reference to a local variable</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="The-need-for-references"><a href="#The-need-for-references" class="headerlink" title="The need for references"></a>The need for references</h5><ul>
+<li>Useful if we need to keep the same syntax</li>
+<li>Useful as return values, to chain functions together</li>
+<li>References are <strong>necessary</strong> for operator overloading</li>
+</ul>
+<h5 id="Passing-parameters"><a href="#Passing-parameters" class="headerlink" title="Passing parameters"></a>Passing parameters</h5><ul>
+<li>When a function is called, the values of the parameters are <strong>copied</strong> into the stack frame for the new function</li>
+</ul>
+<h5 id="New-and-Delete"><a href="#New-and-Delete" class="headerlink" title="New and Delete"></a>New and Delete</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ef32056ce228ec5b633460e63656994c" alt="ef32056ce228ec5b633460e63656994c.png"><br><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">MyClass</span>* pOb = <span class="keyword">new</span> <span class="keyword">MyClass</span>;</div><div class="line">delete pOb;</div><div class="line"><span class="keyword">MyClass</span>* pObArray = <span class="keyword">new</span> <span class="keyword">MyClass</span>[<span class="number">4</span>];</div><div class="line">delete [] pObArray;</div></pre></td></tr></table></figure></p>
+<p>delete destroys an object </p>
+<ul>
+<li>It cares about the object type</li>
+<li>Calls the <strong>destructor</strong> of the class it thinks the thing is (using pointer type) <strong>and the</strong>n frees the memory<blockquote>
+<ul>
+<li>You MUST <code>delete</code> anything which you create<br>using new</li>
+<li>You MUST <code>delete [] ...</code> any arrays which you create using <code>new ... []</code></li>
+<li>You MUST <code>free</code> any memory which you<code>malloc</code>/<code>alloc</code>/<code>calloc</code>/<code>realloc</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=24e0bd55dd6171f5d3036f058584c8bf" alt="24e0bd55dd6171f5d3036f058584c8bf.png"></p>
+<blockquote>
+<p>If you want to <strong>create</strong> objects <strong>in dynamic memory</strong> then you <strong>must</strong> go through <code>new</code><br>You can use <code>new</code> on basic types (e.g.int)<br>Array <code>new []</code> uses the default constructor for objects, and does not initialise basic types</p>
+</blockquote>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=cb30edd5ec403dbf58ac40a90c20178e" alt="cb30edd5ec403dbf58ac40a90c20178e.png"></p>
+<h5 id="Lecture-9"><a href="#Lecture-9" class="headerlink" title="Lecture 9"></a>Lecture 9</h5><h5 id="this-and-static"><a href="#this-and-static" class="headerlink" title="this and static"></a>this and static</h5><p>Static member functions do not have a <code>this</code> pointer<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=67c0ba8529a038b39d516e37f601c6e1" alt="67c0ba8529a038b39d516e37f601c6e1.png"></p>
+<h5 id="const"><a href="#const" class="headerlink" title="const"></a>const</h5><p> Pointers to constant data<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> * p=“Hello”; </div><div class="line"><span class="keyword">char</span> <span class="keyword">const</span> * p=“Hello”;</div></pre></td></tr></table></figure></p>
+<p> Constant pointers</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span>* <span class="keyword">const</span> p = “Hello”;</div></pre></td></tr></table></figure>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ff801fa4ef0ecfb70a1db868e7ea273f" alt="ff801fa4ef0ecfb70a1db868e7ea273f.png"></p>
+<h5 id="String-literal"><a href="#String-literal" class="headerlink" title="String literal"></a>String literal</h5><p>String literals should not be changed<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="built_in">char</span>* <span class="built_in">str</span> = “Hello”;</div></pre></td></tr></table></figure></p>
+<h5 id="const-references"><a href="#const-references" class="headerlink" title="const references"></a>const references</h5><ul>
+<li><code>const</code> references make the thing referred to const</li>
+<li><code>const</code> references are useful for parameters<ul>
+<li>Passing by value (not reference) means the original variable (safer)<br>cannot be accidentally modified </li>
+<li>Passing a reference means that no copy is made (maybe quicker)</li>
+</ul>
+</li>
+<li>Using a const reference means no copy needs to be made, but the original can still not be changed, <strong>like a copy but faster</strong><br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=80f3cb928a8018b98d3d8c668ff8f90e" alt="80f3cb928a8018b98d3d8c668ff8f90e.png"></li>
+</ul>
+<h5 id="mutable"><a href="#mutable" class="headerlink" title="mutable"></a>mutable</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=0d8cd472d9a6254ba005ecf8e110fa2b" alt="0d8cd472d9a6254ba005ecf8e110fa2b.png"></p>
+<p>提前 奶一口 const 就能改了</p>
+<h5 id="friend"><a href="#friend" class="headerlink" title="friend"></a>friend</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=f50408dc9ca5f56cbfb1597f1888c204" alt="f50408dc9ca5f56cbfb1597f1888c204.png"></p>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=20a5378bac3d99f5ce1e54ac8339dc3c" alt="20a5378bac3d99f5ce1e54ac8339dc3c.png"></p>
+<p>friend 写在 被用的那个class里，就可以访问private的了</p>
+<h3 id="Lecture-10"><a href="#Lecture-10" class="headerlink" title="Lecture 10"></a>Lecture 10</h3><h5 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h5><p>Namespaces are used to avoid name conflicts </p>
+<ul>
+<li>Only the name is affected<br><code>namespace &lt;NamespaceName&gt;{}</code></li>
+</ul>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;namespace&gt;<span class="symbol">:</span><span class="symbol">:&lt;class&gt;</span><span class="symbol">:</span><span class="symbol">:&lt;function&gt;</span></div><div class="line"><span class="symbol">MyNameSpace:</span><span class="symbol">:MyClass</span><span class="symbol">:</span><span class="symbol">:foo</span>();</div><div class="line">&lt;namespace&gt;<span class="symbol">:</span><span class="symbol">:&lt;globalfunction&gt;</span> </div><div class="line"><span class="symbol">MyNameSpace:</span><span class="symbol">:bar</span>();</div><div class="line"></div><div class="line">using namespace &lt;namespace&gt;</div></pre></td></tr></table></figure>
+<h5 id="scoping"><a href="#scoping" class="headerlink" title="scoping"></a>scoping</h5><p><code>::</code>Left of scoping operator is</p>
+<ul>
+<li><strong>blank</strong> (to access a global variable/function)</li>
+<li><strong>class name</strong> (to access member of that class)</li>
+<li><strong>namespace name</strong> (to use that namespace)</li>
+</ul>
+<h5 id="streams-for-input-output"><a href="#streams-for-input-output" class="headerlink" title="streams for input/output"></a>streams for input/output</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=7e47ed3f2786a6f2b291711287938712" alt="7e47ed3f2786a6f2b291711287938712.png"></p>
+<h5 id="File-access-using-streams"><a href="#File-access-using-streams" class="headerlink" title="File access using streams"></a>File access using streams</h5><ul>
+<li><code>ifstream</code> object - open the file for input</li>
+<li><code>ofstream</code> object - open the file for output</li>
+<li><code>fstream</code> object – specify what to open file for</li>
+</ul>
+<h5 id="stringstream"><a href="#stringstream" class="headerlink" title="stringstream"></a>stringstream</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=083ab4900f76d981996bd34eba875257" alt="083ab4900f76d981996bd34eba875257.png"></p>
+<h3 id="Lecture-11"><a href="#Lecture-11" class="headerlink" title="Lecture 11"></a>Lecture 11</h3><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=44e5ec986fe4f5ade5424f8ebaf8dc8b" alt="44e5ec986fe4f5ade5424f8ebaf8dc8b.png"></p>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=4c71ba063f5c40c8849d84cc4a574e6b" alt="4c71ba063f5c40c8849d84cc4a574e6b.png"></p>
+<p>没有virtual的时候<code>pSubAsBase-&gt;foo()</code>是调用父类的<br>如果父类方法 virtual之后，再这么访问，要看<code>pSubAsBase</code>到底是什么class</p>
+<p>vitual 之后想用父类的function 就要 用到 <code>::</code><br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=cb89b4a32cd281517449b5e582872cdc" alt="cb89b4a32cd281517449b5e582872cdc.png"></p>
+<p>1 2 3<br>4 5 6</p>
+<h5 id="Inheritance-and-constructors"><a href="#Inheritance-and-constructors" class="headerlink" title="Inheritance and constructors"></a>Inheritance and constructors</h5><p>create in stack<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=1f77f23c106a84a64a598ba9ee7a9435" alt="1f77f23c106a84a64a598ba9ee7a9435.png"></p>
+<p>create in heap<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=b30b898d6bf1d16929d372beee785e65" alt="b30b898d6bf1d16929d372beee785e65.png"></p>
+<ul>
+<li>Do not call virtual functions from the constructor or destructor</li>
+</ul>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=2dddaf0fd087702683124fbe82e56537" alt="2dddaf0fd087702683124fbe82e56537.png"></p>
+<p>想要也删掉sub的，把父类的destructor加virtual<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=8ef4ca3a01b939007a0f2de0cfef5fa2" alt="8ef4ca3a01b939007a0f2de0cfef5fa2.png"></p>
+<h3 id="Lecture-13"><a href="#Lecture-13" class="headerlink" title="Lecture 13"></a>Lecture 13</h3><h5 id="Function-pointers"><a href="#Function-pointers" class="headerlink" title="Function pointers"></a>Function pointers</h5><p> Function pointers<br> <img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=239761c804da4fbc17d87e8985b2148f" alt="239761c804da4fbc17d87e8985b2148f.png"></p>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=1c52f0decc3f8b926dd9ae46068266de" alt="1c52f0decc3f8b926dd9ae46068266de.png"></p>
+<p> 括号里是paraeter</p>
+<ul>
+<li>callback function<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=088270f898f3aff1ce3a8cf83c9fae60" alt="088270f898f3aff1ce3a8cf83c9fae60.png"></li>
+</ul>
+<h5 id="Virtual-and-non-virtual-functions"><a href="#Virtual-and-non-virtual-functions" class="headerlink" title="Virtual and non-virtual functions"></a>Virtual and non-virtual functions</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=3975d70c9da8d9aed62fdb091e6d86d5" alt="3975d70c9da8d9aed62fdb091e6d86d5.png"></p>
+<h3 id="Lecture-14"><a href="#Lecture-14" class="headerlink" title="Lecture 14"></a>Lecture 14</h3><p>4 functions created by default <strong>if needed</strong></p>
+<ul>
+<li>You can make them unavailable (e.g. private)</li>
+</ul>
+<blockquote>
+<ol>
+<li>A defaul tconstructor(no parameters needed) </li>
+<li>A copy constructor (copy one object to another)</li>
+<li>An assignment operator (=operator)</li>
+<li>A destructor</li>
+</ol>
+</blockquote>
+<h5 id="A-default-constructor"><a href="#A-default-constructor" class="headerlink" title="A default constructor"></a>A default constructor</h5><ul>
+<li>Automatically created <strong>if and only if</strong> you do NOT create any other constructors</li>
+</ul>
+<h5 id="The-Copy-Constructor"><a href="#The-Copy-Constructor" class="headerlink" title="The Copy Constructor"></a>The Copy Constructor</h5><ul>
+<li><p>The <strong>copy constructor</strong> is used to <strong>initialise</strong> one object from another <strong>of the same type</strong></p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="type">MyClass</span>( <span class="keyword">const</span> <span class="type">MyClass</span>&amp; rhs )</div><div class="line"><span class="meta">&#123;...&#125;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Takes a <strong>constant reference</strong> to the object to copy from</p>
+</li>
+<li><strong>Has to be a reference!</strong><br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ff34c6d257eb117256d4547061d4d722" alt="ff34c6d257eb117256d4547061d4d722.png"></li>
+</ul>
+<h5 id="Assignment-operator"><a href="#Assignment-operator" class="headerlink" title="Assignment operator"></a>Assignment operator</h5><ul>
+<li>Used when value of one object is assigned to another</li>
+<li><code>ob1=ob2=ob3=ob4;</code></li>
+<li><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ddd6c53e9de96359d88867c23e79e495" alt="ddd6c53e9de96359d88867c23e79e495.png"></li>
+</ul>
+<h5 id="Destructor"><a href="#Destructor" class="headerlink" title="Destructor"></a>Destructor</h5><ul>
+<li><strong>Default destructor does nothing</strong></li>
+</ul>
+<h5 id="Conversion-constructor"><a href="#Conversion-constructor" class="headerlink" title="Conversion constructor"></a>Conversion constructor</h5><ul>
+<li>A conversion constructor is <strong>a constructor with one parameter.</strong><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MyClass( char c )</div><div class="line">&#123; <span class="params">...</span> <span class="keyword">do</span> something <span class="keyword">with</span> c <span class="params">...</span> &#125;</div><div class="line">MyClass ob = ‘h’;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>int 就可以这么用<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=09b26709fb14dc3f167476cae7b9da90" alt="09b26709fb14dc3f167476cae7b9da90.png"></p>
+<h5 id="conversion-operator"><a href="#conversion-operator" class="headerlink" title="conversion operator"></a>conversion operator</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=410f5e9fca1f84660a1aedb7ff0ab2a3" alt="410f5e9fca1f84660a1aedb7ff0ab2a3.png"></p>
+<p><code>explict</code><br>Providing a <strong>one-parameter</strong> constructor provides a conversion constructor<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d8eddd2eb7ccb5d66c95a990e6f558f6" alt="d8eddd2eb7ccb5d66c95a990e6f558f6.png"></p>
+<h3 id="Lecture-15"><a href="#Lecture-15" class="headerlink" title="Lecture 15"></a>Lecture 15</h3><h5 id="Casting-1"><a href="#Casting-1" class="headerlink" title="Casting"></a>Casting</h5><ul>
+<li>static cast</li>
+<li>dynamic cast</li>
+<li>const cast</li>
+<li>reinterpret cast</li>
+</ul>
+<p>casting-ness是强转比如<code>int&amp; xr = (int&amp;)(x);</code>，尽量避免<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=c07fbdb853c44fd167b8888c3ac56c1c" alt="c07fbdb853c44fd167b8888c3ac56c1c.png"></p>
+<p>dynamic 失败的时候会抛出exception 所以，sub base class转的时候。用dynamic.<br>Pointer:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">BouncingBall game;</div><div class="line">BaseEngine* pGame = &amp;game; <span class="comment">// No cast</span></div><div class="line">BouncingBall* pmGame =</div><div class="line">    <span class="keyword">dynamic_cast</span>&lt;BouncingBall*&gt;(pGame);</div><div class="line"><span class="keyword">if</span> ( pGame==<span class="literal">NULL</span> ) &#123; <span class="comment">/* Failed */</span> &#125;</div></pre></td></tr></table></figure></p>
+<p>Reference:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">BouncingBall game;</div><div class="line">BaseGameEngine&amp; rgame = game; <span class="comment">// No cast</span></div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">BouncingBall&amp; rmgame =</div><div class="line">      <span class="keyword">dynamic_cast</span>&lt;BouncingBall&amp;&gt;(rgame);</div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span> ( <span class="built_in">std</span>::bad_cast b )</div><div class="line">&#123;</div><div class="line"><span class="comment">// Handle the exception</span></div><div class="line"><span class="comment">// Happens if rgame is NOT a BouncingBall</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Operator-overloading"><a href="#Operator-overloading" class="headerlink" title="Operator overloading"></a>Operator overloading</h5><p>non-mumber function<br>别忘了<code>friend</code><br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MyFloat operator-( const MyFloat&amp; <span class="built_in">lhs</span>, const MyFloat&amp; <span class="built_in">rhs</span> ) &#123;</div><div class="line">MyFloat temp(<span class="built_in">lhs</span>.strName + <span class="string">"-"</span> + <span class="built_in">rhs</span>.strName, <span class="built_in">lhs</span>.f - <span class="built_in">rhs</span>.f);</div><div class="line"><span class="built_in">return</span> temp;</div></pre></td></tr></table></figure></p>
+<p>mumber function<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=98fb08771a499045421cb166a5326e61" alt="98fb08771a499045421cb166a5326e61.png"></p>
+<h5 id="Operator-overloading-restrictions"><a href="#Operator-overloading-restrictions" class="headerlink" title="Operator overloading restrictions"></a>Operator overloading restrictions</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=3fafe3eab0ac9eb02564851e864d379d" alt="3fafe3eab0ac9eb02564851e864d379d.png"></p>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=e62601d73c46a1511c4f35975a0364fc" alt="e62601d73c46a1511c4f35975a0364fc.png"></p>
+<h3 id="Lecture-16"><a href="#Lecture-16" class="headerlink" title="Lecture 16"></a>Lecture 16</h3><h5 id="and"><a href="#and" class="headerlink" title="= and !="></a>= and !=</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=ce7266d4a5941b51140e0cdfd64cae07" alt="ce7266d4a5941b51140e0cdfd64cae07.png"></p>
+<h5 id="and-1"><a href="#and-1" class="headerlink" title="+ and +="></a>+ and +=</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=6698812de9d8c1a0e15ef834e2416508" alt="6698812de9d8c1a0e15ef834e2416508.png"></p>
+<h5 id="template"><a href="#template" class="headerlink" title="template"></a>template</h5><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">template &lt; typename <span class="literal">T</span> &gt;</div><div class="line"><span class="literal">T</span> mymax( <span class="literal">T</span> a, <span class="literal">T</span> b )</div><div class="line">&#123; <span class="keyword">return</span> a &gt; b ? a : b; &#125;</div></pre></td></tr></table></figure>
+<p>The compiler will a<strong>ctually generate the functions which are needed,</strong> according to the parameters</p>
+<h3 id="Lecture-17"><a href="#Lecture-17" class="headerlink" title="Lecture 17"></a>Lecture 17</h3><h5 id="Functor"><a href="#Functor" class="headerlink" title="Functor"></a>Functor</h5><p>Functors are classes which overload the () operator<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=3653bec9375b9a8abf3e4d3544ccecf6" alt="3653bec9375b9a8abf3e4d3544ccecf6.png"><br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=f67a50564f89ddc4a3fc908866bf4824" alt="f67a50564f89ddc4a3fc908866bf4824.png"></p>
+<h3 id="Lecture-18"><a href="#Lecture-18" class="headerlink" title="Lecture 18"></a>Lecture 18</h3><h5 id="How-do-we-report-errors"><a href="#How-do-we-report-errors" class="headerlink" title="How do we report errors?"></a>How do we report errors?</h5><ul>
+<li>Return an error value from function</li>
+<li>Set a global error code</li>
+<li>Throw an exception (to report error)</li>
+<li><h5 id="catch"><a href="#catch" class="headerlink" title="catch"></a>catch</h5></li>
+<li><code>catch</code> clauses are ch<strong>ecked in the order in which they are encountered</strong></li>
+<li>Exceptions are thrown by value</li>
+<li>Catch by reference or by value would work - Catch by reference avoids the copy</li>
+</ul>
+<blockquote>
+<p><code>catch ( ... )</code> will match ANY exception<br><code>catch ( BaseClass&amp; b ) { }</code>will also catch sub-class objects<br><code>catch ( BaseClass* b ) { }</code>will also catch sub-class pointers</p>
+</blockquote>
+<h5 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h5><p>Lambdas are anonymous <strong>functors</strong> that get created on the fly</p>
+<h5 id="Basic-lambda-function"><a href="#Basic-lambda-function" class="headerlink" title="Basic lambda function:"></a>Basic lambda function:</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[Capture] ( parameters ) -&gt; return_type &#123; function body &#125;</div><div class="line">[<span class="string">iAdd</span>](<span class="link"> int i </span>)-&gt;int &#123; return i + iAdd; &#125;</div></pre></td></tr></table></figure>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=34ec51d2072e535047267de18f4c70c8" alt="34ec51d2072e535047267de18f4c70c8.png"></p>
+<p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=376fe6aec0ddad80318bef110af99859" alt="376fe6aec0ddad80318bef110af99859.png"></p>
+
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢投喂 (～o￣3￣)～<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ww4.sinaimg.cn/mw690/005P51vHgw1fbd03h4rvaj3074074wf2.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
-      
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
       
       
 	<div class="article-tag tagcloud">
@@ -797,11 +739,11 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">OSC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CPP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -821,16 +763,84 @@ ga('send', 'pageview');
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/01/Introduction1/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.barondu.com/2018/11/26/G52CPP/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/07/01/Deadlocks/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/02/21/PyCharm运行TensorBoard时的小BUG/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PyCharm运行TensorBoard时的小BUG</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -852,10 +862,34 @@ ga('send', 'pageview');
 
 
   
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTk2Mi84NTI2">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+  
+  
+  
+
+  
+
+  
+
   
 
 
@@ -884,8 +918,8 @@ ga('send', 'pageview');
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
