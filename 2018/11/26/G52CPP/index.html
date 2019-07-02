@@ -24,14 +24,6 @@ reference 省去 copy的过程What is usually in a header file?
 
 Function declarations
 Macro definitions (#de">
-<meta property="og:image" content="http://www.barondu.com/./1496502642897.png">
-<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=12689f76eab6d982f416cc4f6e15e466">
-<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=6a4ee268a72a8b9dc7c7b83f68cba2e4">
-<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=52a56050e9f28bc036a1906cfd328d0d">
-<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=552b5511aef4638112f5f5a7fb995764">
-<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=05f1607f86a43382e00ef97a21735133">
-<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d926279ef50ca572eaf0f5e80ee74d23">
-<meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a0e03a14297eb01f82df1eb75191bae6">
 <meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a3387c215ea60dc0e8734bae841021da">
 <meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=908dc8380cabfd31644390642311987d">
 <meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d869ddb12cd209ee24f1d586d7a29a09">
@@ -73,7 +65,7 @@ Macro definitions (#de">
 <meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=f67a50564f89ddc4a3fc908866bf4824">
 <meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=34ec51d2072e535047267de18f4c70c8">
 <meta property="og:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=376fe6aec0ddad80318bef110af99859">
-<meta property="og:updated_time" content="2019-07-02T02:29:39.115Z">
+<meta property="og:updated_time" content="2019-07-02T02:35:21.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="G52CPP复习">
 <meta name="twitter:description" content="G52CPP
@@ -82,7 +74,7 @@ reference 省去 copy的过程What is usually in a header file?
 
 Function declarations
 Macro definitions (#de">
-<meta name="twitter:image" content="http://www.barondu.com/./1496502642897.png">
+<meta name="twitter:image" content="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a3387c215ea60dc0e8734bae841021da">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -296,6 +288,7 @@ ga('send', 'pageview');
 <li>Ensure that it doesn’t matter if the header file is #included multiple times</li>
 <li>Ensure that header files can be included in any order</li>
 </ol>
+<a id="more"></a>
 </blockquote>
 </li>
 </ol>
@@ -318,124 +311,15 @@ ga('send', 'pageview');
 <blockquote>
 <p>In both C and C++ any integer types can be used in conditions (i.e. char, short, long, int)<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int <span class="keyword">x</span> = <span class="number">6</span><span class="comment">;</span></div><div class="line">while ( <span class="keyword">x</span> )</div><div class="line">&#123;</div><div class="line">    printf( <span class="string">"X is %d\n"</span>, <span class="keyword">x</span> )<span class="comment">;</span></div><div class="line">    <span class="keyword">x</span> -= <span class="number">2</span><span class="comment">; </span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int <span class="keyword">x</span> = <span class="number">6</span><span class="comment">;</span></div><div class="line">while ( <span class="keyword">x</span> )</div><div class="line">&#123;</div><div class="line">    printf( <span class="string">"X is %d\n"</span>, <span class="keyword">x</span> )<span class="comment">;</span></div><div class="line">    <span class="keyword">x</span> -= <span class="number">2</span><span class="comment">; </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="wchar-t-type"><a href="#wchar-t-type" class="headerlink" title="wchar_t type"></a>wchar_t type</h5><p>wchar_t : wide character (C++ only, not C)</p>
-<ul>
-<li>16 bits<h5 id="signed-unsigned-value"><a href="#signed-unsigned-value" class="headerlink" title="signed/unsigned value"></a>signed/unsigned value</h5></li>
-<li>Default is <strong>signed</strong><h5 id="void"><a href="#void" class="headerlink" title="void"></a>void</h5></li>
-<li>you can create a type void<h5 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h5></li>
-<li>new to C++11</li>
-<li>can only used for <strong>initialised variables</strong><ul>
-<li>complier will <strong>work out the type</strong> at <strong>compile time</strong> from <strong>the initialisation value</strong></li>
-</ul>
-</li>
-</ul>
-<h5 id="define"><a href="#define" class="headerlink" title="#define"></a>#define</h5><blockquote>
-<p>An semi-intelligent <strong>*‘find and replace</strong>’* facility</p>
-</blockquote>
-<ul>
-<li>Often considered <code>bad</code> in C++ code (useful in C)<ul>
-<li><strong>const</strong> is used more often, especially for members</li>
-<li><strong>Template functions</strong> are better than <strong>macros</strong></li>
-</ul>
-</li>
-<li><strong>Remember</strong>: Done by the pre-processor!</li>
-<li>Constant <code>#define</code> usually written in <strong>CAPITALS</strong></li>
-</ul>
-<h5 id="Conditional-compilation"><a href="#Conditional-compilation" class="headerlink" title="Conditional compilation"></a>Conditional compilation</h5><p>You can remove parts of the source code if desired</p>
-<ul>
-<li><p>Use for <strong>cross-platform</strong> code</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#ifdef __WINDOWS__</div><div class="line">... windows <span class="keyword">code</span> here ...</div><div class="line">#elif __SYS5UNIX__</div><div class="line">... System <span class="number">5</span> <span class="keyword">code</span> here ...</div><div class="line">#endif</div></pre></td></tr></table></figure>
-</li>
-<li><p>Avoiding multiple inclusion</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#ifndef UNIQUE_DEFINE_NAME_FOR_FILE</span></div><div class="line"><span class="comment">#define UNIQUE_DEFINE_NAME_FOR_FILE</span></div><div class="line">... <span class="built_in">include</span> <span class="keyword">the</span> rest <span class="keyword">of</span> <span class="keyword">the</span> <span class="built_in">file</span> here ...</div><div class="line"><span class="comment">#endif</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>别忘了endif</p>
-<h3 id="Lecture-3-amp-4"><a href="#Lecture-3-amp-4" class="headerlink" title="Lecture 3 &amp; 4"></a>Lecture 3 &amp; 4</h3><h5 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h5><p><img src="./1496502642897.png" alt="Alt text"></p>
-<ul>
-<li><code>&amp;</code> Address-of</li>
-<li><code>*</code> De-referencing<br>In C and C++, variables are <strong>NOT initialised</strong> unless you give them an <strong>initial value</strong></li>
-<li>You can use NULL</li>
-<li><strong>Dereferencing an unitialised pointer</strong> has undefined results <em>Could crash your program (likely)</em></li>
-<li>assigning one pointer to another means:<ul>
-<li>It points at the same object</li>
-<li>It has the same address stored in it </li>
-</ul>
-</li>
-</ul>
-<h5 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> c1 = <span class="string">'h'</span>;</div><div class="line"><span class="keyword">char</span>* pc2 = &amp;c1;</div><div class="line"><span class="keyword">int</span>* pi4 = (<span class="keyword">int</span>*)pc2;</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>Dangerous !</strong><br>print the address use <code>%p</code> and <code>(void*)</code><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> c1 = <span class="string">'h'</span>;</div><div class="line"><span class="keyword">char</span>* pc2 = &amp;c1;</div><div class="line"><span class="built_in">printf</span>(<span class="string">"%p "</span>,(<span class="keyword">void</span>*)pc2);</div><div class="line"><span class="built_in">printf</span>(<span class="string">"%p\n"</span>,(<span class="keyword">void</span>*)&amp;c1);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="Arrays-C-strings-and-pointers"><a href="#Arrays-C-strings-and-pointers" class="headerlink" title="Arrays, C-strings and pointers"></a>Arrays, C-strings and pointers</h5><p>Array</p>
-<ul>
-<li><code>char array[6];</code></li>
-<li><code>char array[2] = {&#39;a&#39;,&#39;b&#39;}</code></li>
-<li><code>char array[] = {&#39;a&#39;,&#39;b&#39;}</code></li>
-<li>The addresses of elements <strong>within</strong> an array <strong>are</strong> consecutive</li>
-<li>The relative locations of <strong>different array</strong>s, or <strong>variables are NOT</strong> fixed</li>
-</ul>
-<p>C-string / char*</p>
-<ul>
-<li>C-strings consist of an array of characters, terminated by a character value of zero</li>
-<li>‘\0’, or 0 </li>
-<li>NOT ‘0’!!! </li>
-</ul>
-<blockquote>
-<p>char* str = “abcd”;<br>str 是 ‘h’ 也就是第一个、字符的地址<br>char array[4] = {‘a’,’b’,’c’,’d’,’/0’};<br>char array[4] = “abcd”;<br>array 就是 ‘h’, 就是第一个字符</p>
-</blockquote>
-<ul>
-<li>char* 是只读的<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=12689f76eab6d982f416cc4f6e15e466" alt="12689f76eab6d982f416cc4f6e15e466.png"></li>
-</ul>
-<p>这里两个print出来的都是整个string</p>
-<h3 id="Lecture-5"><a href="#Lecture-5" class="headerlink" title="Lecture 5"></a>Lecture 5</h3><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=6a4ee268a72a8b9dc7c7b83f68cba2e4" alt="6a4ee268a72a8b9dc7c7b83f68cba2e4.png"></p>
-<h5 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h5><ul>
-<li>last in fist out (LIFO)</li>
-<li>Function calls (stack frames) are stored on a stack in memory</li>
-<li>stack frame<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=52a56050e9f28bc036a1906cfd328d0d" alt="52a56050e9f28bc036a1906cfd328d0d.png"></li>
-</ul>
-<h5 id="Lifetime-of-local-variables"><a href="#Lifetime-of-local-variables" class="headerlink" title="Lifetime of local variables"></a>Lifetime of local variables</h5><ul>
-<li>Your local variables only exist for as long as the block in which they are defined</li>
-<li>Do not access them after that</li>
-<li>Do not assume that they keep their value after the function ends</li>
-<li>Local variables get destroyed for you (auto-destroyed)</li>
-<li>But if you use malloc() you need to call free()</li>
-</ul>
-<h5 id="Global-variables"><a href="#Global-variables" class="headerlink" title="Global variables"></a>Global variables</h5><ul>
-<li>Variable declared outside of all functions</li>
-<li>Global variables last for the duration of the program</li>
-<li>All functions in the file can access globals</li>
-<li>Not available in Java!<h5 id="Static-local-variables"><a href="#Static-local-variables" class="headerlink" title="Static local variables"></a>Static local variables</h5>Local variables can be <strong>static</strong></li>
-<li>Means not moving/unchanging</li>
-<li>NOT the same as static member variables!</li>
-<li>NOT the same as <strong>const</strong></li>
-</ul>
-<p>Static local variables remember their value between function calls</p>
-<ul>
-<li>Like global variables</li>
-</ul>
-<p>But, you can only access them (by name) inside the one function they are defined in</p>
-<ul>
-<li>Unless you keep a pointer to them</li>
-</ul>
-<p>Static variable remembers its value Initialisation only occurs in the first function call</p>
-<h5 id="Global-vs-local-variables"><a href="#Global-vs-local-variables" class="headerlink" title="Global vs local variables"></a>Global vs local variables</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=552b5511aef4638112f5f5a7fb995764" alt="552b5511aef4638112f5f5a7fb995764.png"></p>
-<p>Do not refer to data on the stack outside the function</p>
-<ul>
-<li>This means local variables or actual parameters</li>
-</ul>
-<p>You CAN refer to them, but SHOULD NOT</p>
-<blockquote>
-<p>Things to avoid:</p>
-<ul>
-<li>Returning a pointer to a local variable or parameter </li>
-<li>Storing the address of a local variable or parameter<h5 id="Using-multiple-files"><a href="#Using-multiple-files" class="headerlink" title="Using multiple files"></a>Using multiple files</h5><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=05f1607f86a43382e00ef97a21735133" alt="05f1607f86a43382e00ef97a21735133.png"></li>
-<li><code>extern</code><br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d926279ef50ca572eaf0f5e80ee74d23" alt="d926279ef50ca572eaf0f5e80ee74d23.png"><h5 id="Encapsulation"><a href="#Encapsulation" class="headerlink" title="Encapsulation"></a>Encapsulation</h5><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a0e03a14297eb01f82df1eb75191bae6" alt="a0e03a14297eb01f82df1eb75191bae6.png"></li>
-</ul>
-</blockquote>
-<h3 id="Lecture-6"><a href="#Lecture-6" class="headerlink" title="Lecture 6"></a>Lecture 6</h3><h5 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">struct <span class="built_in">Time</span></div><div class="line">&#123;</div><div class="line">	<span class="built_in">int</span> <span class="built_in">hour</span>;</div><div class="line">	<span class="built_in">int</span> minuate;</div><div class="line">	<span class="built_in">int</span> <span class="built_in">second</span>;</div><div class="line">&#125;;</div><div class="line">struct <span class="built_in">Date</span> &#123; <span class="built_in">int</span> d, m, y; &#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">##### wchar_t type</div><div class="line">wchar_t : wide character (C++ only, not C)</div><div class="line">- <span class="number">16</span> bits</div><div class="line">##### signed/unsigned value</div><div class="line">- Default is **signed**</div><div class="line">##### void</div><div class="line">- you can create a type void</div><div class="line">##### auto</div><div class="line">- new to C++<span class="number">11</span></div><div class="line">- can only used for **initialised variables**</div><div class="line">	- complier will **work out the type** at **compile time** <span class="keyword">from</span> **the initialisation value**</div><div class="line"></div><div class="line">##### #define</div><div class="line">&gt; An semi-intelligent ***‘find and replace**’* facility</div><div class="line"></div><div class="line">- Often considered `bad` <span class="keyword">in</span> C++ <span class="keyword">code</span> (useful <span class="keyword">in</span> C)</div><div class="line">	- **const** is used more often, especially for members</div><div class="line">	- **Template functions** are better than **macros**</div><div class="line">- **Remember**: Done by the pre-processor!</div><div class="line">- Constant `#define` usually written <span class="keyword">in</span> **CAPITALS**</div><div class="line"></div><div class="line">##### Conditional compilation</div><div class="line">You can remove parts <span class="keyword">of</span> the source <span class="keyword">code</span> <span class="keyword">if</span> desired</div><div class="line">- Use for **cross-platform** <span class="keyword">code</span></div></pre></td></tr></table></figure>
+<p>#ifdef <strong>WINDOWS</strong><br>… windows code here …</p>
+<p>#elif <strong>SYS5UNIX</strong><br>… System 5 code here …</p>
+<p>#endif<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- Avoiding <span class="keyword">multiple </span>inclusion</div></pre></td></tr></table></figure></p>
+<p>#ifndef UNIQUE_DEFINE_NAME_FOR_FILE</p>
+<p>#define UNIQUE_DEFINE_NAME_FOR_FILE<br>… include the rest of the file here …</p>
+<p>#endif<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">别忘了endif</div><div class="line"></div><div class="line"><span class="section">### Lecture 3 &amp; 4</span></div><div class="line"><span class="section">##### Pointer</span></div><div class="line">![<span class="string">Alt text</span>](<span class="link">./1496502642897.png</span>)</div><div class="line"><span class="bullet">- </span><span class="code">`&amp;`</span> Address-of</div><div class="line"><span class="bullet">- </span><span class="code">`*`</span> De-referencing</div><div class="line">In C and C++, variables are <span class="strong">**NOT initialised**</span> unless you give them an <span class="strong">**initial value**</span></div><div class="line"><span class="bullet">- </span>You can use NULL</div><div class="line"><span class="bullet">- </span><span class="strong">**Dereferencing an unitialised pointer**</span> has undefined results <span class="emphasis">*Could crash your program (likely)*</span></div><div class="line"><span class="bullet">- </span>assigning one pointer to another means:</div><div class="line"><span class="code">	- It points at the same object</span></div><div class="line"><span class="code">	- It has the same address stored in it </span></div><div class="line"></div><div class="line"><span class="section">##### Casting</span></div></pre></td></tr></table></figure></p>
+<p>char c1 = ‘h’;<br>char<em> pc2 = &c1;<br>int</em> pi4 = (int*)pc2;<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- **Dangerous !**</div><div class="line"><span class="built_in">print</span> the address use `<span class="javascript">%p</span>` <span class="keyword">and</span> `<span class="javascript">(<span class="keyword">void</span>*)</span>`</div></pre></td></tr></table></figure></p>
+<p>char c1 = ‘h’;<br>char<em> pc2 = &c1;<br>printf(“%p “,(void</em>)pc2);<br>printf(“%p\n”,(void*)&amp;c1);<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="section">##### Arrays, C-strings and pointers</span></div><div class="line">Array</div><div class="line"><span class="bullet">- </span><span class="code">`char array[6];`</span></div><div class="line"><span class="bullet">- </span><span class="code">`char array[2] = &#123;'a','b'&#125;`</span></div><div class="line"><span class="bullet">- </span><span class="code">`char array[] = &#123;'a','b'&#125;`</span></div><div class="line"><span class="bullet">- </span>The addresses of elements <span class="strong">**within**</span> an array <span class="strong">**are**</span> consecutive</div><div class="line"><span class="bullet">- </span>The relative locations of <span class="strong">**different array**</span>s, or <span class="strong">**variables are NOT**</span> fixed</div><div class="line"></div><div class="line">C-string / char*</div><div class="line"><span class="bullet">- </span>C-strings consist of an array of characters, terminated by a character value of zero</div><div class="line"><span class="bullet">- </span>‘\0’, or 0 </div><div class="line"><span class="bullet">-  </span>NOT ‘0’!!! </div><div class="line"></div><div class="line"><span class="quote">&gt; char* str = "abcd";</span></div><div class="line"><span class="quote">&gt; str 是 ‘h’ 也就是第一个、字符的地址</span></div><div class="line"><span class="quote">&gt; char array[4] = &#123;'a','b','c','d','/0'&#125;;</span></div><div class="line"><span class="quote">&gt; char array[4] = "abcd";</span></div><div class="line"><span class="quote">&gt; array 就是 'h', 就是第一个字符</span></div><div class="line"></div><div class="line"><span class="bullet">- </span>char* 是只读的</div><div class="line">![<span class="string">12689f76eab6d982f416cc4f6e15e466.png</span>](<span class="link">evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=12689f76eab6d982f416cc4f6e15e466</span>)</div><div class="line"></div><div class="line">这里两个print出来的都是整个string</div><div class="line"></div><div class="line"><span class="section">### Lecture 5</span></div><div class="line">![<span class="string">6a4ee268a72a8b9dc7c7b83f68cba2e4.png</span>](<span class="link">evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=6a4ee268a72a8b9dc7c7b83f68cba2e4</span>)</div><div class="line"></div><div class="line"><span class="section">##### stack</span></div><div class="line"><span class="bullet">- </span>last in fist out (LIFO)</div><div class="line"><span class="bullet">- </span>Function calls (stack frames) are stored on a stack in memory</div><div class="line"><span class="bullet">- </span>stack frame</div><div class="line">![<span class="string">52a56050e9f28bc036a1906cfd328d0d.png</span>](<span class="link">evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=52a56050e9f28bc036a1906cfd328d0d</span>)</div><div class="line"></div><div class="line"><span class="section">##### Lifetime of local variables</span></div><div class="line"><span class="bullet">- </span>Your local variables only exist for as long as the block in which they are defined</div><div class="line"><span class="bullet">- </span>Do not access them after that</div><div class="line"><span class="bullet">- </span>Do not assume that they keep their value after the function ends</div><div class="line"><span class="bullet">- </span>Local variables get destroyed for you (auto-destroyed)</div><div class="line"><span class="bullet">- </span>But if you use malloc() you need to call free()</div><div class="line"></div><div class="line"><span class="section">##### Global variables</span></div><div class="line"><span class="bullet">- </span>Variable declared outside of all functions</div><div class="line"><span class="bullet">- </span>Global variables last for the duration of the program</div><div class="line"><span class="bullet">- </span>All functions in the file can access globals</div><div class="line"><span class="bullet">- </span>Not available in Java!</div><div class="line"><span class="section">##### Static local variables</span></div><div class="line">Local variables can be <span class="strong">**static**</span></div><div class="line"><span class="bullet">- </span>Means not moving/unchanging</div><div class="line"><span class="bullet">- </span>NOT the same as static member variables!</div><div class="line"><span class="bullet">- </span>NOT the same as <span class="strong">**const**</span></div><div class="line"></div><div class="line">Static local variables remember their value between function calls</div><div class="line"><span class="bullet">- </span>Like global variables</div><div class="line"></div><div class="line">But, you can only access them (by name) inside the one function they are defined in</div><div class="line"><span class="bullet">- </span>Unless you keep a pointer to them</div><div class="line"></div><div class="line">Static variable remembers its value Initialisation only occurs in the first function call</div><div class="line"><span class="section">##### Global vs local variables</span></div><div class="line">![<span class="string">552b5511aef4638112f5f5a7fb995764.png</span>](<span class="link">evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=552b5511aef4638112f5f5a7fb995764</span>)</div><div class="line"></div><div class="line">Do not refer to data on the stack outside the function</div><div class="line"><span class="bullet">- </span>This means local variables or actual parameters</div><div class="line"></div><div class="line">You CAN refer to them, but SHOULD NOT</div><div class="line">&gt;Things to avoid:</div><div class="line"><span class="quote">&gt; - Returning a pointer to a local variable or parameter </span></div><div class="line"><span class="quote">&gt; - Storing the address of a local variable or parameter</span></div><div class="line"><span class="section">##### Using multiple files</span></div><div class="line">![<span class="string">05f1607f86a43382e00ef97a21735133.png</span>](<span class="link">evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=05f1607f86a43382e00ef97a21735133</span>)</div><div class="line"><span class="bullet">- </span><span class="code">`extern`</span></div><div class="line">![<span class="string">d926279ef50ca572eaf0f5e80ee74d23.png</span>](<span class="link">evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d926279ef50ca572eaf0f5e80ee74d23</span>)</div><div class="line"><span class="section">##### Encapsulation</span></div><div class="line">![<span class="string">a0e03a14297eb01f82df1eb75191bae6.png</span>](<span class="link">evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a0e03a14297eb01f82df1eb75191bae6</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="section">### Lecture 6</span></div><div class="line"><span class="section">##### struct</span></div><div class="line"><span class="code">``` </span></div><div class="line">struct Time</div><div class="line">&#123;</div><div class="line">	int hour;</div><div class="line">	int minuate;</div><div class="line">	int second;</div><div class="line">&#125;;</div><div class="line">struct Date &#123; int d, m, y; &#125;;</div></pre></td></tr></table></figure></p>
 <figure class="highlight capnproto"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Date</span> dob = </span>&#123; <span class="number">1</span>, <span class="number">4</span>, <span class="number">1990</span> &#125;;</div></pre></td></tr></table></figure>
 <p><strong>注意分号！</strong><br>Use <code>.</code> to access struct members</p>
 <h5 id="The-heap-and-malloc"><a href="#The-heap-and-malloc" class="headerlink" title="The heap and malloc()"></a>The heap and malloc()</h5><p> <code>malloc()</code> returns a <code>void*</code><br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=a3387c215ea60dc0e8734bae841021da" alt="a3387c215ea60dc0e8734bae841021da.png"></p>
@@ -666,7 +550,7 @@ ga('send', 'pageview');
 <p>int 就可以这么用<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=09b26709fb14dc3f167476cae7b9da90" alt="09b26709fb14dc3f167476cae7b9da90.png"></p>
 <h5 id="conversion-operator"><a href="#conversion-operator" class="headerlink" title="conversion operator"></a>conversion operator</h5><p><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=410f5e9fca1f84660a1aedb7ff0ab2a3" alt="410f5e9fca1f84660a1aedb7ff0ab2a3.png"></p>
 <p><code>explict</code><br>Providing a <strong>one-parameter</strong> constructor provides a conversion constructor<br><img src="evernotecid://A4C2A14E-E2AB-40E7-9264-1D440DF81A61/appyinxiangcom/14488959/ENNote/p60?hash=d8eddd2eb7ccb5d66c95a990e6f558f6" alt="d8eddd2eb7ccb5d66c95a990e6f558f6.png"></p>
-<h3 id="Lecture-15"><a href="#Lecture-15" class="headerlink" title="Lecture 15"></a>Lecture 15</h3><h5 id="Casting-1"><a href="#Casting-1" class="headerlink" title="Casting"></a>Casting</h5><ul>
+<h3 id="Lecture-15"><a href="#Lecture-15" class="headerlink" title="Lecture 15"></a>Lecture 15</h3><h5 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h5><ul>
 <li>static cast</li>
 <li>dynamic cast</li>
 <li>const cast</li>
@@ -1018,6 +902,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CPP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -1030,23 +922,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CPP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Introduction</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">G52LAC</a>
+                <a href="javascript:void(0)" class="js-tag color5">processes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">processes</a>
+                <a href="javascript:void(0)" class="js-tag color2">G52LAC</a>
               </li>
              
               <li class="article-tag-list-item">
