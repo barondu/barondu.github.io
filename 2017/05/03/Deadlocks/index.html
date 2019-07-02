@@ -6,45 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.barondu.com">
-  <title>笔记 OSC_Introduction1 | Baron的博客</title>
+  <title>笔记 OSC_Deadlocks | Baron的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Introduction 1
+  <meta name="description" content="Deadlocks
 Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
-
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware
-
-Real comp">
+Deadlocks and conditions for deadlocks 
+Algorithms to detect[探知] deadlocksApproaches to recover from deadlocks">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记 OSC_Introduction1">
-<meta property="og:url" content="http://www.barondu.com/2017/01/01/Introduction1/index.html">
+<meta property="og:title" content="笔记 OSC_Deadlocks">
+<meta property="og:url" content="http://www.barondu.com/2017/05/03/Deadlocks/index.html">
 <meta property="og:site_name" content="Baron的博客">
-<meta property="og:description" content="Introduction 1
+<meta property="og:description" content="Deadlocks
 Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
-
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware
-
-Real comp">
-<meta property="og:updated_time" content="2017-01-02T15:06:04.000Z">
+Deadlocks and conditions for deadlocks 
+Algorithms to detect[探知] deadlocksApproaches to recover from deadlocks">
+<meta property="og:updated_time" content="2019-07-02T02:54:31.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记 OSC_Introduction1">
-<meta name="twitter:description" content="Introduction 1
+<meta name="twitter:title" content="笔记 OSC_Deadlocks">
+<meta name="twitter:description" content="Deadlocks
 Overview
-“Defining“ operating systems
-What is multi-programming
-Kernel-user mode
-
-Defining Operating Systems
-In the early days, programmers had to deal directly with hardware
-
-Real comp">
+Deadlocks and conditions for deadlocks 
+Algorithms to detect[探知] deadlocksApproaches to recover from deadlocks">
   
     <link rel="alternative" href="/atom.xml" title="Baron的博客" type="application/atom+xml">
   
@@ -225,82 +207,64 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Introduction1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Deadlocks" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      笔记 OSC_Introduction1
+      笔记 OSC_Deadlocks
     </h1>
   
 
         
-        <a href="/2017/01/01/Introduction1/" class="archive-article-date">
-  	<time datetime="2017-01-01T15:06:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
+        <a href="/2017/05/03/Deadlocks/" class="archive-article-date">
+  	<time datetime="2017-05-03T22:10:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><hr>
+        <h1 id="Deadlocks"><a href="#Deadlocks" class="headerlink" title="Deadlocks"></a>Deadlocks</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
-<li>“<strong>Defining</strong>“ operating systems</li>
-<li>What is <strong>multi-programming</strong></li>
-<li><strong>Kernel-user mode</strong></li>
+<li>Deadlocks and <strong>conditions for deadlocks</strong> </li>
+<li>Algorithms to <strong>detect[探知] deadlocks</strong><br>Approaches to <strong>recover</strong> from deadlocks<a id="more"></a>
+<h3 id="Deadlocks-1"><a href="#Deadlocks-1" class="headerlink" title="Deadlocks"></a>Deadlocks</h3><h4 id="How-Occur-deadlocks-看看就好"><a href="#How-Occur-deadlocks-看看就好" class="headerlink" title="How Occur deadlocks?[看看就好]"></a>How Occur deadlocks?[看看就好]</h4></li>
+<li>Some resources are <strong>mutually exclusive</strong> and can only be used by one <strong>process at a time</strong></li>
+<li>On occasions[偶然], <strong>multiple processes</strong> will <strong>require access</strong> to <strong>multiple mutually exclusive resources</strong> (e.g. process A and B need resources X and Y)</li>
+<li>Process A and B request the resources in <strong>opposite orders</strong> and end up in deadlock<ul>
+<li>Deadlocks can occur on the <strong>same machine</strong> or between <strong>multiple machines</strong> (e.g. resources are requested over the network) and <strong>any number of resources</strong></li>
+<li>Deadlocks are not just related to operating systems but also occur, e.g., <strong>in databases</strong></li>
 </ul>
-<h3 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h3><ul>
-<li><p>In the early days, programmers had to <strong>deal directly with hardware</strong></p>
+</li>
+</ul>
+<p>resource</p>
 <ul>
-<li>Real computer <strong>hardware is urgly</strong></li>
-<li>Hardware is <strong>extremely difficult</strong> to program</li>
+<li>A resource (e.g. a device, a data record, file, semaphore) can be <strong>acquired, used, </strong>and <strong>released</strong><ul>
+<li>A resource can be <strong>preemptable</strong>, i.e., it can be forcefully taken away from the process without permanent adverse effect</li>
+<li>A resource can be <strong>non-preemptable,</strong> i.e., it cannot be taken away from a process without permanent adverse effect</li>
 </ul>
 </li>
-<li><p>An operating system is a layer[层] of indirection[间接] on top of the hardware:</p>
+<li>If a <strong>non-preemptable resource is requested</strong> but not available, <strong>the process is made to wait</strong></li>
+<li><strong>Deadlocks only occur</strong> for <strong>non-preemtable resources</strong> because preemtable resources can be temporarily taken away to recover from the deadlock</li>
+</ul>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><blockquote>
+<p>“A set of processes is deadlocked if <strong>each process</strong> in the set is waiting for <strong>an event</strong> that only the <strong>other process</strong> in the set can cause”<br> –  Tanenbaum</p>
+</blockquote>
 <ul>
-<li>It provide <strong>abstractions</strong> for application programs</li>
-<li>it provide a <strong>cleaner and easier interface to the hardware</strong></li>
+<li>Each <strong>deadlocked process</strong> is <strong>waiting for</strong> a resource held by <strong>an other deadlocked process</strong> (which cannot run and hence cannot release the resources)</li>
+<li>This can happen between <strong>any number of processes</strong> and for <strong>any number of resources</strong></li>
 </ul>
-</li>
+<h3 id="Conditions"><a href="#Conditions" class="headerlink" title="Conditions"></a>Conditions</h3><p><strong>Four conditions</strong> must hold for deadlocks to occur (Coffman et al. (1971)):</p>
+<ul>
+<li><strong>Mutual exclusion</strong>: a resource can be assigned to at most one process at a time</li>
+<li><strong>Hold and wait condition</strong>: a resource can be held whilst[同时] requesting new resources</li>
+<li><strong>No preemption:</strong> resources cannot be forcefully taken away from a process </li>
+<li><strong>Circular wait</strong>: there is a circular chain of two or more processes, waiting for a resource held by the other processes</li>
 </ul>
-<a id="more"></a>
-<h3 id="Multi-programming"><a href="#Multi-programming" class="headerlink" title="Multi-programming"></a>Multi-programming</h3><ul>
-<li>Morden OS use <strong>multi-programming</strong> to <strong>improve user experience</strong> and <strong>maximise the use of resource</strong><ul>
-<li>Disk is <strong>slow</strong>. CPU is <strong>faster</strong> than disk. </li>
-<li>Without multi-programming, CPU time is <strong>waste</strong> while wating for I/O requests.</li>
-<li><strong>Multi-programming</strong> has important <strong>consequences[结果]</strong> for operating system design </li>
-</ul>
-</li>
-<li>The operating system must allocate[分配]/share resources (CPU, memory, I/O devices) <strong>fairly</strong> and <strong>safely</strong> between competing processes:<ul>
-<li>In time, e.g. CPUs and printers </li>
-<li>In space, e.g., memory and disks</li>
-</ul>
-</li>
-<li>The execution of <strong>multiple programs</strong> (processes) needs to be interleaved[交错] with one another. This requires:<ul>
-<li>This requires <strong>context switches</strong> and <strong>process scheduling</strong> ⇒ <strong>mutual exclusion[相互排斥]</strong>, <strong>deadlock avoidance</strong>, <strong>protection</strong>, . . .</li>
-</ul>
-</li>
-</ul>
-<h3 id="Kernel-user-mode"><a href="#Kernel-user-mode" class="headerlink" title="Kernel-user mode"></a>Kernel-user mode</h3><ul>
-<li>Modern operating systems have multiple <strong>modes</strong>:<ul>
-<li>The operating system runs in <strong>kernel mode</strong> and has access to <strong>all instructions</strong></li>
-<li>Applications run in <strong>user mode</strong> and have access to <strong>a subset of instructions</strong></li>
-</ul>
-</li>
-<li>Transitions from user mode to kernel mode happen in a controlled manner (<strong>interrupts, exceptions, system calls</strong>) and are <strong>mirrored in hardware</strong></li>
-</ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Some properties:<ul>
-<li>Sits <strong>directly</strong> on <strong>top</strong> of the hardware</li>
-<li>Has access to the <strong>full capabilities of the hardware</strong></li>
-<li>Provides <strong>abstractions</strong> for the user/programmer</li>
-<li>Makes sure that everything is <strong>organised</strong> and runs in <strong>order</strong>     </li>
-<li>Improve the <strong>hardware interface</strong></li>
-</ul>
-</li>
-</ul>
+<p><strong>No deadlocks</strong> can occur if one of the conditions is <strong>not satisfied</strong></p>
 
       
 
@@ -334,11 +298,6 @@ ga('send', 'pageview');
     </div>
     <div class="article-info article-info-index">
       
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
-      
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
@@ -349,7 +308,7 @@ ga('send', 'pageview');
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Introduction</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Deadlocks</a>
         		</li>
       		
 		</ul>
@@ -416,7 +375,7 @@ ga('send', 'pageview');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.barondu.com/2017/01/01/Introduction1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.barondu.com/2017/05/03/Deadlocks/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -430,15 +389,20 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
-    <a href="/2017/01/03/Introduction2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/17/TensorFlow/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          笔记 OSC_Introduction2
+          Installing TensorFlow
         
       </div>
     </a>
   
+  
+    <a href="/2017/02/06/N和NP问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">拓展 N和NP问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

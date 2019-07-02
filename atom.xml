@@ -530,11 +530,11 @@
   </entry>
   
   <entry>
-    <title>复习OSC_Deadlocks</title>
-    <link href="http://www.barondu.com/2017/04/03/Deadlocks/"/>
-    <id>http://www.barondu.com/2017/04/03/Deadlocks/</id>
-    <published>2017-04-03T22:10:14.000Z</published>
-    <updated>2019-07-02T02:51:30.799Z</updated>
+    <title>笔记 OSC_Deadlocks</title>
+    <link href="http://www.barondu.com/2017/05/03/Deadlocks/"/>
+    <id>http://www.barondu.com/2017/05/03/Deadlocks/</id>
+    <published>2017-05-03T22:10:14.000Z</published>
+    <updated>2019-07-02T02:54:31.631Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Deadlocks"><a href="#Deadlocks" class="headerlink" title="Deadlocks"></a>Deadlocks</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -588,7 +588,7 @@
       <category term="笔记" scheme="http://www.barondu.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="G52OSC" scheme="http://www.barondu.com/tags/G52OSC/"/>
+      <category term="OSC" scheme="http://www.barondu.com/tags/OSC/"/>
     
       <category term="Deadlocks" scheme="http://www.barondu.com/tags/Deadlocks/"/>
     
