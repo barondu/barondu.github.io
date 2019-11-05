@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.barondu.com/"/>
-  <updated>2019-07-02T02:36:49.550Z</updated>
+  <updated>2019-07-02T02:36:49.000Z</updated>
   <id>http://www.barondu.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>G52CPP复习</title>
     <link href="http://www.barondu.com/2018/11/26/G52CPP/"/>
     <id>http://www.barondu.com/2018/11/26/G52CPP/</id>
-    <published>2018-11-26T03:27:27.000Z</published>
-    <updated>2019-07-02T02:36:49.550Z</updated>
+    <published>2018-11-25T19:27:27.000Z</published>
+    <updated>2019-07-02T02:36:49.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="G52CPP"><a href="#G52CPP" class="headerlink" title="G52CPP"></a>G52CPP</h2><hr>
 <h3 id="Lecture-1-amp-2"><a href="#Lecture-1-amp-2" class="headerlink" title="Lecture 1 &amp; 2"></a>Lecture 1 &amp; 2</h3><h5 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span> 	<span class="comment">// C or C++</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span> 	<span class="comment">// C++</span></span></div></pre></td></tr></table></figure>
@@ -364,8 +364,8 @@
     <title>PyCharm运行TensorBoard时的小BUG</title>
     <link href="http://www.barondu.com/2018/02/21/PyCharm%E8%BF%90%E8%A1%8CTensorBoard%E6%97%B6%E7%9A%84%E5%B0%8FBUG/"/>
     <id>http://www.barondu.com/2018/02/21/PyCharm运行TensorBoard时的小BUG/</id>
-    <published>2018-02-21T16:03:41.000Z</published>
-    <updated>2019-07-01T20:49:14.004Z</updated>
+    <published>2018-02-21T08:03:41.000Z</published>
+    <updated>2019-07-01T20:49:14.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="PyCharm运行TensorBoard时的小BUG"><a href="#PyCharm运行TensorBoard时的小BUG" class="headerlink" title="PyCharm运行TensorBoard时的小BUG"></a>PyCharm运行TensorBoard时的小BUG</h2><p>@(G53IDS)[PyCharm, TensorBoard, BUG]<br>今天在PyCharm的Terminal使用TensorBoard的时候出现了以下报错，但是mac自带的terminal却可以正常使用：</p>
 <figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># tensorboard <span class="comment">--logdir=logs</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/bin/tensorboard"</span>, <span class="literal">line</span> <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    sys.<span class="keyword">exit</span>(main())</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/main.py"</span>, <span class="literal">line</span> <span class="number">45</span>, <span class="keyword">in</span> main</div><div class="line">    <span class="keyword">default</span>.get_assets_zip_provider())</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/program.py"</span>, <span class="literal">line</span> <span class="number">147</span>, <span class="keyword">in</span> main</div><div class="line">    util.setup_logging()</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/site-packages/tensorboard/util.py"</span>, <span class="literal">line</span> <span class="number">50</span>, <span class="keyword">in</span> setup_logging</div><div class="line">    locale.setlocale(locale.LC_ALL, '')</div><div class="line">  <span class="keyword">File</span> <span class="string">"/Users/baron/.pyenv/versions/3.6.3/lib/python3.6/locale.py"</span>, <span class="literal">line</span> <span class="number">598</span>, <span class="keyword">in</span> setlocale</div><div class="line">    <span class="keyword">return</span> _setlocale(category, locale)</div><div class="line">locale.<span class="literal">Error</span>: unsupported locale setting</div></pre></td></tr></table></figure>
@@ -401,8 +401,8 @@
     <title>Hexo以及yilia主题个性化设置</title>
     <link href="http://www.barondu.com/2017/11/26/Hexo%E4%BB%A5%E5%8F%8Ayilia%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/"/>
     <id>http://www.barondu.com/2017/11/26/Hexo以及yilia主题个性化设置/</id>
-    <published>2017-11-26T03:11:27.000Z</published>
-    <updated>2019-07-01T21:24:56.949Z</updated>
+    <published>2017-11-25T19:11:27.000Z</published>
+    <updated>2019-07-01T21:24:56.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Hexo以及yilia主题个性化设置"><a href="#Hexo以及yilia主题个性化设置" class="headerlink" title="Hexo以及yilia主题个性化设置"></a>Hexo以及yilia主题个性化设置</h1><h3 id="修改浏览器Tab里的icon"><a href="#修改浏览器Tab里的icon" class="headerlink" title="修改浏览器Tab里的icon"></a>修改浏览器Tab里的icon</h3><p>修改后效果如下<br><img src="https://app.yinxiang.com/shard/s67/res/b7a1bfae-d09c-4a00-be66-a474d57e6378/20171123140602_rXDDHa_Screenshot.jpg" alt="aaaaa"></p>
 <ul>
@@ -459,8 +459,8 @@
     <title>Installing TensorFlow</title>
     <link href="http://www.barondu.com/2017/11/17/TensorFlow/"/>
     <id>http://www.barondu.com/2017/11/17/TensorFlow/</id>
-    <published>2017-11-17T19:43:51.000Z</published>
-    <updated>2019-07-01T22:12:29.914Z</updated>
+    <published>2017-11-17T11:43:51.000Z</published>
+    <updated>2019-07-01T22:12:29.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h1><h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>我的环境是 macOS Sierra 10.12.6，其他mac版本应该也适用。</p>
 <h3 id="pyenv"><a href="#pyenv" class="headerlink" title="pyenv"></a>pyenv</h3><p>安装<a href="https://github.com/pyenv/pyenv" target="_blank" rel="external">pyenv</a> 管理多版本 python，通过它安装 python。原因是不希望污染mac自带系统python。详细过程参考官方doc，这里描述一下我的安装过程。</p>
@@ -533,8 +533,8 @@
     <title>笔记 OSC_Deadlocks</title>
     <link href="http://www.barondu.com/2017/05/03/Deadlocks/"/>
     <id>http://www.barondu.com/2017/05/03/Deadlocks/</id>
-    <published>2017-05-03T22:10:14.000Z</published>
-    <updated>2019-07-02T02:54:31.631Z</updated>
+    <published>2017-05-03T15:10:14.000Z</published>
+    <updated>2019-07-02T02:55:54.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Deadlocks"><a href="#Deadlocks" class="headerlink" title="Deadlocks"></a>Deadlocks</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -598,7 +598,7 @@
     <title>拓展 N和NP问题</title>
     <link href="http://www.barondu.com/2017/02/06/N%E5%92%8CNP%E9%97%AE%E9%A2%98/"/>
     <id>http://www.barondu.com/2017/02/06/N和NP问题/</id>
-    <published>2017-02-06T11:43:27.000Z</published>
+    <published>2017-02-06T03:43:27.000Z</published>
     <updated>2017-02-08T14:48:31.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="N和NP问题"><a href="#N和NP问题" class="headerlink" title="N和NP问题"></a>N和NP问题</h1><blockquote>
@@ -633,8 +633,8 @@
     <title>笔记 OSC_Concurrency2</title>
     <link href="http://www.barondu.com/2017/01/09/Concurrency2/"/>
     <id>http://www.barondu.com/2017/01/09/Concurrency2/</id>
-    <published>2017-01-09T17:33:27.000Z</published>
-    <updated>2019-07-01T19:27:09.730Z</updated>
+    <published>2017-01-09T09:33:27.000Z</published>
+    <updated>2019-07-01T19:27:09.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Concurrency-2"><a href="#Concurrency-2" class="headerlink" title="Concurrency 2"></a>Concurrency 2</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -740,8 +740,8 @@
     <title>笔记 OSC_Concurrency1</title>
     <link href="http://www.barondu.com/2017/01/09/Concurrency1/"/>
     <id>http://www.barondu.com/2017/01/09/Concurrency1/</id>
-    <published>2017-01-09T14:09:27.000Z</published>
-    <updated>2019-07-01T19:28:01.659Z</updated>
+    <published>2017-01-09T06:09:27.000Z</published>
+    <updated>2019-07-01T19:28:01.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Concurrency-1"><a href="#Concurrency-1" class="headerlink" title="Concurrency 1"></a>Concurrency 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -888,8 +888,8 @@
     <title>笔记 OSC_Processes4</title>
     <link href="http://www.barondu.com/2017/01/09/Processes4/"/>
     <id>http://www.barondu.com/2017/01/09/Processes4/</id>
-    <published>2017-01-09T14:05:27.000Z</published>
-    <updated>2019-07-01T20:46:26.345Z</updated>
+    <published>2017-01-09T06:05:27.000Z</published>
+    <updated>2019-07-01T20:46:26.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-4"><a href="#Processes-4" class="headerlink" title="Processes 4"></a>Processes 4</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -1065,8 +1065,8 @@
     <title>笔记 OSC_Processes3</title>
     <link href="http://www.barondu.com/2017/01/08/Processes3/"/>
     <id>http://www.barondu.com/2017/01/08/Processes3/</id>
-    <published>2017-01-08T23:27:27.000Z</published>
-    <updated>2019-07-01T20:09:51.251Z</updated>
+    <published>2017-01-08T15:27:27.000Z</published>
+    <updated>2019-07-01T20:09:51.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-3"><a href="#Processes-3" class="headerlink" title="Processes 3"></a>Processes 3</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>1 Threads vs. processes<br>2 Different thread implementations<br>3 POSIX Threads (PThreads)</p>
@@ -1218,8 +1218,8 @@
     <title>笔记 OSC_Processes2</title>
     <link href="http://www.barondu.com/2017/01/08/Processes2/"/>
     <id>http://www.barondu.com/2017/01/08/Processes2/</id>
-    <published>2017-01-08T23:26:14.000Z</published>
-    <updated>2019-07-01T21:31:59.961Z</updated>
+    <published>2017-01-08T15:26:14.000Z</published>
+    <updated>2019-07-01T21:31:59.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-2"><a href="#Processes-2" class="headerlink" title="Processes 2"></a>Processes 2</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -1384,8 +1384,8 @@
     <title>笔记 OSC_Processes1</title>
     <link href="http://www.barondu.com/2017/01/06/Processes1/"/>
     <id>http://www.barondu.com/2017/01/06/Processes1/</id>
-    <published>2017-01-06T11:42:14.000Z</published>
-    <updated>2019-07-01T20:16:12.869Z</updated>
+    <published>2017-01-06T03:42:14.000Z</published>
+    <updated>2019-07-01T20:16:12.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Processes-1"><a href="#Processes-1" class="headerlink" title="Processes 1"></a>Processes 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -1548,8 +1548,8 @@
     <title>笔记 OSC_Introduction2</title>
     <link href="http://www.barondu.com/2017/01/03/Introduction2/"/>
     <id>http://www.barondu.com/2017/01/03/Introduction2/</id>
-    <published>2017-01-03T23:50:14.000Z</published>
-    <updated>2019-07-01T20:48:23.996Z</updated>
+    <published>2017-01-03T15:50:14.000Z</published>
+    <updated>2019-07-01T20:48:23.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Introduction-2"><a href="#Introduction-2" class="headerlink" title="Introduction 2"></a>Introduction 2</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
@@ -1718,8 +1718,8 @@
     <title>笔记 OSC_Introduction1</title>
     <link href="http://www.barondu.com/2017/01/01/Introduction1/"/>
     <id>http://www.barondu.com/2017/01/01/Introduction1/</id>
-    <published>2017-01-01T15:06:04.000Z</published>
-    <updated>2017-01-02T15:06:04.000Z</updated>
+    <published>2017-01-01T07:06:04.000Z</published>
+    <updated>2017-01-02T07:06:04.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction 1"></a>Introduction 1</h1><hr>
 <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
